@@ -1,0 +1,337 @@
+
+{%extends "base.html"%}
+{%block title%}Dashboard{%endblock%}
+
+
+
+{%block content%}
+<!--**********************************
+            Content body start
+        ***********************************-->
+        {%load static%}
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Welcome back, Admin!</h4>
+                            <span>Courier Management Dashboard</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href={% static "javascript:void(0)"%}>Home</a></li>
+                            <li class="breadcrumb-item active"><a href={% static "javascript:void(0)"%}>Dashboard</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Main Dashboard Cards -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-warning">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-hourglass-half text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white"><span class="counter ml-0">25</span></h3>
+                                        <p class="mb-0 text-white">Pending Parcels</p>
+                                        <small class="text-white-50">New orders waiting</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-info">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-boxes text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white"><span class="counter ml-0">156</span></h3>
+                                        <p class="mb-0 text-white">Total Parcels</p>
+                                        <small class="text-white-50">All time parcels</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-success">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-check-circle text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white"><span class="counter ml-0">89</span></h3>
+                                        <p class="mb-0 text-white">Delivered</p>
+                                        <small class="text-white-50">Successfully delivered</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-primary">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-money-bill-wave text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white"><span class="counter ml-0">৳12,450</span></h3>
+                                        <p class="mb-0 text-white">Cash Collection</p>
+                                        <small class="text-white-50">Total collected today</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Secondary Dashboard Cards -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-secondary">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-truck-pickup text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white"><span class="counter ml-0">18</span></h3>
+                                        <p class="mb-0 text-white">Pickup Assigned</p>
+                                        <small class="text-white-50">Ready for pickup</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-info">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-shipping-fast text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white"><span class="counter ml-0">32</span></h3>
+                                        <p class="mb-0 text-white">Delivery Assigned</p>
+                                        <small class="text-white-50">Out for delivery</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-warning">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-retweet text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white"><span class="counter ml-0">7</span></h3>
+                                        <p class="mb-0 text-white">Re-scheduled</p>
+                                        <small class="text-white-50">Need rescheduling</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-danger">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-exchange-alt text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white"><span class="counter ml-0">4</span></h3>
+                                        <p class="mb-0 text-white">Returns</p>
+                                        <small class="text-white-50">Returned parcels</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Information Cards -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-primary">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-clock text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white"><span class="counter ml-0">৳8,750</span></h3>
+                                        <p class="mb-0 text-white">Payment Due</p>
+                                        <small class="text-white-50">Pending payments</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-primary">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-check text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white"><span class="counter ml-0">৳15,200</span></h3>
+                                        <p class="mb-0 text-white">Total Paid</p>
+                                        <small class="text-white-50">Completed payments</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-primary">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-hand-holding-usd text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white"><span class="counter ml-0">৳3,450</span></h3>
+                                        <p class="mb-0 text-white">Total Charges</p>
+                                        <small class="text-white-50">Service charges</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-primary">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-file-invoice text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white"><span class="counter ml-0">৳25,400</span></h3>
+                                        <p class="mb-0 text-white">Generated Invoices</p>
+                                        <small class="text-white-50">Total invoice amount</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header bg-primary">
+                                <h4 class="card-title text-white mb-0">Parcel Status Overview</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="parcelChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header bg-primary">
+                                <h4 class="card-title text-white mb-0">Revenue Summary</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="revenueChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activities -->
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header bg-info">
+                                <h4 class="card-title text-white mb-0">Recent Parcels</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-hover">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Customer</th>
+                                                <th>Status</th>
+                                                <th>Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#12345</td>
+                                                <td>John Doe</td>
+                                                <td><span class="badge badge-warning">Pending</span></td>
+                                                <td>৳150</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#12344</td>
+                                                <td>Jane Smith</td>
+                                                <td><span class="badge badge-success">Delivered</span></td>
+                                                <td>৳200</td>
+                                            </tr>
+                                            <tr>
+                                                <td>#12343</td>
+                                                <td>Mike Johnson</td>
+                                                <td><span class="badge badge-info">In Transit</span></td>
+                                                <td>৳180</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header bg-success">
+                                <h4 class="card-title text-white mb-0">Quick Actions</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-6 mb-3">
+                                        <a href={% static "pages/management/parcels/add-parcel.html"%} class="btn btn-primary btn-block">
+                                            <i class="fas fa-plus mr-2"></i>Add Parcel
+                                        </a>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <a href={% static "pages/management/merchants/add-merchant.html"%} class="btn btn-success btn-block">
+                                            <i class="fas fa-user-plus mr-2"></i>Add Merchant
+                                        </a>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <a href={% static "pages/management/riders/add-rider.html"%} class="btn btn-info btn-block">
+                                            <i class="fas fa-bike mr-2"></i>Add Rider
+                                        </a>
+                                    </div>
+                                    <div class="col-6 mb-3">
+                                        <a href={% static "pages/management/invoices/generate-invoice.html"%} class="btn btn-warning btn-block">
+                                            <i class="fas fa-file-invoice mr-2"></i>Generate Invoice
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+{%endblock%}

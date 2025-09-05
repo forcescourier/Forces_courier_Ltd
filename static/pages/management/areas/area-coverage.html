@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Area Coverage - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Area Coverage Analysis</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Area Coverage Analysis</h4>
+                            <span>Analyze service coverage and geographical reach across all delivery areas</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../areas/areas.html">Areas</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Coverage</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Coverage Controls -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Coverage Analysis Controls</h4>
+                                <div class="card-action">
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-primary" id="viewAll">All Areas</button>
+                                        <button type="button" class="btn btn-outline-primary" id="viewActive">Active Only</button>
+                                        <button type="button" class="btn btn-outline-primary" id="viewGaps">Coverage Gaps</button>
+                                    </div>
+                                    <button type="button" class="btn btn-info ml-3" data-toggle="modal" data-target="#coverageReportModal">
+                                        <i class="fas fa-chart-bar mr-2"></i>Generate Report
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Coverage Statistics -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary ai-icon">
+                                        <i class="fas fa-map"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">1,250 km²</h3>
+                                        <p class="mb-0">Total Coverage</p>
+                                        <small>Service area</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success ai-icon">
+                                        <i class="fas fa-percentage"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">92%</h3>
+                                        <p class="mb-0">Coverage Rate</p>
+                                        <small>Of target areas</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning ai-icon">
+                                        <i class="fas fa-exclamation-triangle"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">3</h3>
+                                        <p class="mb-0">Coverage Gaps</p>
+                                        <small>Areas to expand</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info ai-icon">
+                                        <i class="fas fa-users"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">2.5M</h3>
+                                        <p class="mb-0">Population Served</p>
+                                        <small>Within coverage</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8">
+                        <!-- Coverage Map -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Coverage Map</h4>
+                                <div class="card-tools">
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-primary" id="layerAreas">Areas</button>
+                                        <button type="button" class="btn btn-outline-primary" id="layerZones">Zones</button>
+                                        <button type="button" class="btn btn-outline-primary" id="layerHeatmap">Heatmap</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body p-0">
+                                <div id="coverageMap" style="height: 600px; width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Coverage Analytics -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Coverage Analytics</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="coverageChart" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Area Performance -->
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h4 class="card-title">Area Performance</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>Dhaka Central</strong>
+                                            <small class="text-muted d-block">Zone: Central</small>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="badge badge-success">98%</span>
+                                            <small class="text-muted d-block">Coverage</small>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>Chittagong Port</strong>
+                                            <small class="text-muted d-block">Zone: Port</small>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="badge badge-success">95%</span>
+                                            <small class="text-muted d-block">Coverage</small>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>Sylhet City</strong>
+                                            <small class="text-muted d-block">Zone: City</small>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="badge badge-warning">85%</span>
+                                            <small class="text-muted d-block">Coverage</small>
+                                        </div>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>Rajshahi North</strong>
+                                            <small class="text-muted d-block">Zone: North</small>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="badge badge-danger">65%</span>
+                                            <small class="text-muted d-block">Coverage</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Coverage Recommendations -->
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h4 class="card-title">Recommendations</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-warning">
+                                    <h6><i class="fas fa-lightbulb mr-2"></i>Expansion Opportunities</h6>
+                                    <ul class="mb-0">
+                                        <li>Add 2 new areas in Rajshahi division</li>
+                                        <li>Expand Sylhet city coverage radius</li>
+                                        <li>Consider Mymensingh as new zone</li>
+                                    </ul>
+                                </div>
+                                <div class="alert alert-info">
+                                    <h6><i class="fas fa-chart-line mr-2"></i>Optimization</h6>
+                                    <ul class="mb-0">
+                                        <li>Redistribute riders in Dhaka zones</li>
+                                        <li>Optimize delivery routes in port area</li>
+                                        <li>Increase capacity in high-demand zones</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Coverage Report Modal -->
+        <div class="modal fade" id="coverageReportModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Generate Coverage Report</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="reportForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="text-label">Report Type</label>
+                                        <select class="form-control">
+                                            <option value="summary">Coverage Summary</option>
+                                            <option value="detailed">Detailed Analysis</option>
+                                            <option value="gaps">Coverage Gaps</option>
+                                            <option value="performance">Performance Report</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="text-label">Date Range</label>
+                                        <select class="form-control">
+                                            <option value="current">Current Status</option>
+                                            <option value="7days">Last 7 Days</option>
+                                            <option value="30days">Last 30 Days</option>
+                                            <option value="quarter">This Quarter</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="text-label">Areas to Include</label>
+                                        <select class="form-control" multiple>
+                                            <option value="all" selected>All Areas</option>
+                                            <option value="dhaka">Dhaka Division</option>
+                                            <option value="chittagong">Chittagong Division</option>
+                                            <option value="sylhet">Sylhet Division</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="text-label">Format</label>
+                                        <select class="form-control">
+                                            <option value="pdf">PDF Report</option>
+                                            <option value="excel">Excel Spreadsheet</option>
+                                            <option value="dashboard">Dashboard Link</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="text-label">Include in Report</label>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="includeMap" checked>
+                                            <label class="form-check-label" for="includeMap">Coverage Maps</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="includeCharts" checked>
+                                            <label class="form-check-label" for="includeCharts">Analytics Charts</label>
+                                        </div>
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="includeRecommendations">
+                                            <label class="form-check-label" for="includeRecommendations">Recommendations</label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="generateReport">Generate Report</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize coverage map
+        let map = L.map('coverageMap').setView([23.8103, 90.4125], 7);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Coverage areas data
+        let coverageAreas = [
+            {name: 'Dhaka Central', center: [23.8103, 90.4125], radius: 15000, color: '#28a745', coverage: 98},
+            {name: 'Chittagong Port', center: [22.3569, 91.7832], radius: 18000, color: '#007bff', coverage: 95},
+            {name: 'Sylhet City', center: [24.8949, 91.8687], radius: 12000, color: '#ffc107', coverage: 85},
+            {name: 'Rajshahi North', center: [24.3745, 88.6042], radius: 10000, color: '#dc3545', coverage: 65}
+        ];
+
+        // Add coverage circles
+        coverageAreas.forEach(area => {
+            L.circle(area.center, {
+                color: area.color,
+                fillColor: area.color,
+                fillOpacity: 0.3,
+                radius: area.radius
+            }).addTo(map).bindPopup(`
+                <b>${area.name}</b><br>
+                Coverage: ${area.coverage}%<br>
+                Radius: ${(area.radius/1000).toFixed(1)} km
+            `);
+        });
+
+        // Coverage analytics chart
+        const ctx = document.getElementById('coverageChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Covered Areas', 'Partially Covered', 'Uncovered'],
+                datasets: [{
+                    data: [92, 5, 3],
+                    backgroundColor: ['#28a745', '#ffc107', '#dc3545'],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Map layer controls
+        $('#layerAreas').click(function() {
+            $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+            $('#layerZones, #layerHeatmap').removeClass('btn-primary').addClass('btn-outline-primary');
+            // Switch to areas layer
+        });
+
+        $('#layerZones').click(function() {
+            $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+            $('#layerAreas, #layerHeatmap').removeClass('btn-primary').addClass('btn-outline-primary');
+            // Switch to zones layer
+        });
+
+        $('#layerHeatmap').click(function() {
+            $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+            $('#layerAreas, #layerZones').removeClass('btn-primary').addClass('btn-outline-primary');
+            // Switch to heatmap layer
+        });
+
+        // Coverage view controls
+        $('#viewAll').click(function() {
+            $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+            $('#viewActive, #viewGaps').removeClass('btn-primary').addClass('btn-outline-primary');
+            // Show all areas
+        });
+
+        $('#viewActive').click(function() {
+            $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+            $('#viewAll, #viewGaps').removeClass('btn-primary').addClass('btn-outline-primary');
+            // Show only active areas
+        });
+
+        $('#viewGaps').click(function() {
+            $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+            $('#viewAll, #viewActive').removeClass('btn-primary').addClass('btn-outline-primary');
+            // Show coverage gaps
+        });
+
+        // Generate report
+        $('#generateReport').click(function() {
+            let loadingBtn = $(this);
+            loadingBtn.html('<i class="fas fa-spinner fa-spin mr-2"></i>Generating...');
+            loadingBtn.prop('disabled', true);
+
+            setTimeout(function() {
+                alert('Coverage report generated successfully!');
+                $('#coverageReportModal').modal('hide');
+                loadingBtn.html('Generate Report');
+                loadingBtn.prop('disabled', false);
+            }, 3000);
+        });
+
+        // Map resize handler
+        setTimeout(function() {
+            map.invalidateSize();
+        }, 100);
+    </script>
+</body>
+</html>

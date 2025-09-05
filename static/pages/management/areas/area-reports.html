@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Area Reports - Courier Dashboard</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Area Reports</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i><span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i><span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon"><i class="flaticon-381-networking"></i><span class="nav-text">Dashboard</span></a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon"><i class="flaticon-381-box"></i><span class="nav-text">Parcels</span></a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon"><i class="flaticon-381-user-7"></i><span class="nav-text">Merchants</span></a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon"><i class="flaticon-381-user-2"></i><span class="nav-text">Riders</span></a></li>
+                    <li><a href="../services/services.html" class="ai-icon"><i class="flaticon-381-list"></i><span class="nav-text">Services</span></a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon"><i class="flaticon-381-location"></i><span class="nav-text">Areas</span></a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon"><i class="flaticon-381-price-tag"></i><span class="nav-text">Payments</span></a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon"><i class="flaticon-381-file"></i><span class="nav-text">Invoices</span></a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon"><i class="flaticon-381-chart"></i><span class="nav-text">Reports</span></a></li>
+                    <li><a href="../../../settings.html" class="ai-icon"><i class="flaticon-381-settings"></i><span class="nav-text">Settings</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Area Reports</h4>
+                            <span>Comprehensive area performance analytics and insights</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../../reports/reports.html">Reports</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Area Reports</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Report Filters -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Report Type</label>
+                                            <select class="form-control" id="report-type">
+                                                <option value="overview" selected>Overview Report</option>
+                                                <option value="performance">Performance Report</option>
+                                                <option value="revenue">Revenue Report</option>
+                                                <option value="delivery">Delivery Report</option>
+                                                <option value="custom">Custom Report</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Date Range</label>
+                                            <select class="form-control" id="date-range">
+                                                <option value="today">Today</option>
+                                                <option value="yesterday">Yesterday</option>
+                                                <option value="last7days">Last 7 Days</option>
+                                                <option value="last30days" selected>Last 30 Days</option>
+                                                <option value="this_month">This Month</option>
+                                                <option value="last_month">Last Month</option>
+                                                <option value="this_year">This Year</option>
+                                                <option value="custom">Custom Range</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Area</label>
+                                            <select class="form-control">
+                                                <option value="">All Areas</option>
+                                                <option value="dhaka">Dhaka</option>
+                                                <option value="chittagong">Chittagong</option>
+                                                <option value="sylhet">Sylhet</option>
+                                                <option value="rajshahi">Rajshahi</option>
+                                                <option value="khulna">Khulna</option>
+                                                <option value="barisal">Barisal</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Service Type</label>
+                                            <select class="form-control">
+                                                <option value="">All Services</option>
+                                                <option value="express">Express</option>
+                                                <option value="standard">Standard</option>
+                                                <option value="economy">Economy</option>
+                                                <option value="same_day">Same Day</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-primary" id="generate-report">
+                                            <i class="flaticon-381-chart"></i> Generate Report
+                                        </button>
+                                        <button type="button" class="btn btn-success" id="export-report">
+                                            <i class="flaticon-381-download"></i> Export Report
+                                        </button>
+                                        <button type="button" class="btn btn-info" id="schedule-report">
+                                            <i class="flaticon-381-calendar"></i> Schedule Report
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary text-primary">
+                                        <i class="flaticon-381-location"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">6</span></h3>
+                                        <p class="mb-0">Total Areas</p>
+                                        <small class="text-muted">All major cities covered</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success text-success">
+                                        <i class="flaticon-381-box"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">2,456</span></h3>
+                                        <p class="mb-0">Total Parcels</p>
+                                        <small class="text-muted">+15% from last month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning text-warning">
+                                        <i class="flaticon-381-user-2"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">156</span></h3>
+                                        <p class="mb-0">Active Riders</p>
+                                        <small class="text-muted">+8 new this month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info text-info">
+                                        <i class="flaticon-381-price-tag"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">৳8,45,680</span></h3>
+                                        <p class="mb-0">Total Revenue</p>
+                                        <small class="text-muted">+22% from last month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Metrics -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success text-success">
+                                        <i class="flaticon-381-chart"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">96.8%</span></h3>
+                                        <p class="mb-0">Overall Success Rate</p>
+                                        <small class="text-muted">+2.5% from last month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning text-warning">
+                                        <i class="flaticon-381-clock"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">2.4</span></h3>
+                                        <p class="mb-0">Avg. Delivery Time</p>
+                                        <small class="text-muted">-0.3 days improvement</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary text-primary">
+                                        <i class="flaticon-381-user-7"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">89</span></h3>
+                                        <p class="mb-0">Active Merchants</p>
+                                        <small class="text-muted">+12 new this month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info text-info">
+                                        <i class="flaticon-381-star"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">4.7</span></h3>
+                                        <p class="mb-0">Avg. Customer Rating</p>
+                                        <small class="text-muted">+0.2 from last month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row 1 -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Area Performance Trends</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="area-performance-trend-chart" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Parcel Distribution by Area</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="parcel-distribution-chart" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row 2 -->
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Revenue by Area</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="revenue-area-chart" height="250"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Success Rate Comparison</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="success-rate-comparison-chart" height="250"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Area Performance Table -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Area Performance Summary</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Area</th>
+                                                <th>Parcels</th>
+                                                <th>Revenue</th>
+                                                <th>Success Rate</th>
+                                                <th>Avg. Delivery Time</th>
+                                                <th>Active Riders</th>
+                                                <th>Active Merchants</th>
+                                                <th>Rating</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="../../../assets/images/profile/dhaka.jpg" class="rounded-circle mr-3" width="40" alt="">
+                                                        <div>
+                                                            <h6 class="mb-0">Dhaka</h6>
+                                                            <small class="text-muted">Capital City</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>1,245</strong></td>
+                                                <td><strong>৳4,23,450</strong></td>
+                                                <td><span class="badge badge-success">98.2%</span></td>
+                                                <td>1.8 days</td>
+                                                <td>45</td>
+                                                <td>34</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-warning">★★★★★</span>
+                                                        <span class="ml-2">4.9</span>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-success">Excellent</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="../../../assets/images/profile/chittagong.jpg" class="rounded-circle mr-3" width="40" alt="">
+                                                        <div>
+                                                            <h6 class="mb-0">Chittagong</h6>
+                                                            <small class="text-muted">Port City</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>456</strong></td>
+                                                <td><strong>৳1,56,780</strong></td>
+                                                <td><span class="badge badge-success">96.8%</span></td>
+                                                <td>2.1 days</td>
+                                                <td>32</td>
+                                                <td>18</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-warning">★★★★☆</span>
+                                                        <span class="ml-2">4.7</span>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-success">Good</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="../../../assets/images/profile/sylhet.jpg" class="rounded-circle mr-3" width="40" alt="">
+                                                        <div>
+                                                            <h6 class="mb-0">Sylhet</h6>
+                                                            <small class="text-muted">Tea City</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>234</strong></td>
+                                                <td><strong>৳89,120</strong></td>
+                                                <td><span class="badge badge-success">95.4%</span></td>
+                                                <td>2.3 days</td>
+                                                <td>28</td>
+                                                <td>15</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-warning">★★★★☆</span>
+                                                        <span class="ml-2">4.6</span>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-success">Good</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="../../../assets/images/profile/rajshahi.jpg" class="rounded-circle mr-3" width="40" alt="">
+                                                        <div>
+                                                            <h6 class="mb-0">Rajshahi</h6>
+                                                            <small class="text-muted">Silk City</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>189</strong></td>
+                                                <td><strong>৳67,890</strong></td>
+                                                <td><span class="badge badge-warning">94.1%</span></td>
+                                                <td>2.5 days</td>
+                                                <td>25</td>
+                                                <td>12</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-warning">★★★★☆</span>
+                                                        <span class="ml-2">4.5</span>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-warning">Average</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="../../../assets/images/profile/khulna.jpg" class="rounded-circle mr-3" width="40" alt="">
+                                                        <div>
+                                                            <h6 class="mb-0">Khulna</h6>
+                                                            <small class="text-muted">Industrial City</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>156</strong></td>
+                                                <td><strong>৳54,320</strong></td>
+                                                <td><span class="badge badge-warning">92.8%</span></td>
+                                                <td>2.7 days</td>
+                                                <td>18</td>
+                                                <td>8</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-warning">★★★★☆</span>
+                                                        <span class="ml-2">4.3</span>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-warning">Average</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="../../../assets/images/profile/barisal.jpg" class="rounded-circle mr-3" width="40" alt="">
+                                                        <div>
+                                                            <h6 class="mb-0">Barisal</h6>
+                                                            <small class="text-muted">River City</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>76</strong></td>
+                                                <td><strong>৳41,220</strong></td>
+                                                <td><span class="badge badge-danger">90.5%</span></td>
+                                                <td>3.1 days</td>
+                                                <td>8</td>
+                                                <td>2</td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="text-warning">★★★☆☆</span>
+                                                        <span class="ml-2">4.1</span>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-danger">Needs Improvement</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Statistics -->
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Monthly Area Growth</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>January</strong></td>
+                                                <td class="text-right">1,890</td>
+                                                <td class="text-right">৳6,45,680</td>
+                                                <td class="text-right">+5.8%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>February</strong></td>
+                                                <td class="text-right">1,950</td>
+                                                <td class="text-right">৳6,78,920</td>
+                                                <td class="text-right">+3.2%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>March</strong></td>
+                                                <td class="text-right">2,120</td>
+                                                <td class="text-right">৳7,23,450</td>
+                                                <td class="text-right">+6.6%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>April</strong></td>
+                                                <td class="text-right">2,180</td>
+                                                <td class="text-right">৳7,45,890</td>
+                                                <td class="text-right">+2.8%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>May</strong></td>
+                                                <td class="text-right">2,320</td>
+                                                <td class="text-right">৳7,89,120</td>
+                                                <td class="text-right">+5.8%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>June</strong></td>
+                                                <td class="text-right">2,456</td>
+                                                <td class="text-right">৳8,45,680</td>
+                                                <td class="text-right">+7.1%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Service Performance by Area</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Express Delivery</strong></td>
+                                                <td class="text-right">98.5%</td>
+                                                <td class="text-right">৳2,45,680</td>
+                                                <td class="text-right">+4.2%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Standard Delivery</strong></td>
+                                                <td class="text-right">96.8%</td>
+                                                <td class="text-right">৳3,45,120</td>
+                                                <td class="text-right">+3.8%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Economy Delivery</strong></td>
+                                                <td class="text-right">94.2%</td>
+                                                <td class="text-right">৳1,89,450</td>
+                                                <td class="text-right">+2.1%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Same Day</strong></td>
+                                                <td class="text-right">97.1%</td>
+                                                <td class="text-right">৳65,430</td>
+                                                <td class="text-right">+5.6%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+    <script src="../../../vendor/chart.js/Chart.bundle.min.js"></script>
+    
+    <script>
+        // Area Performance Trend Chart
+        const areaPerformanceTrendCtx = document.getElementById('area-performance-trend-chart').getContext('2d');
+        new Chart(areaPerformanceTrendCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Dhaka',
+                    data: [1200, 1250, 1300, 1280, 1350, 1245],
+                    borderColor: '#007bff',
+                    backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                    tension: 0.4,
+                    fill: false
+                }, {
+                    label: 'Chittagong',
+                    data: [420, 450, 480, 465, 490, 456],
+                    borderColor: '#28a745',
+                    backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                    tension: 0.4,
+                    fill: false
+                }, {
+                    label: 'Sylhet',
+                    data: [210, 225, 240, 235, 245, 234],
+                    borderColor: '#17a2b8',
+                    backgroundColor: 'rgba(23, 162, 184, 0.1)',
+                    tension: 0.4,
+                    fill: false
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Parcel Distribution Chart
+        const parcelDistributionCtx = document.getElementById('parcel-distribution-chart').getContext('2d');
+        new Chart(parcelDistributionCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Dhaka', 'Chittagong', 'Sylhet', 'Rajshahi', 'Khulna', 'Barisal'],
+                datasets: [{
+                    data: [1245, 456, 234, 189, 156, 76],
+                    backgroundColor: [
+                        '#007bff',
+                        '#28a745',
+                        '#17a2b8',
+                        '#ffc107',
+                        '#fd7e14',
+                        '#6c757d'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        });
+
+        // Revenue by Area Chart
+        const revenueAreaCtx = document.getElementById('revenue-area-chart').getContext('2d');
+        new Chart(revenueAreaCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Dhaka', 'Chittagong', 'Sylhet', 'Rajshahi', 'Khulna', 'Barisal'],
+                datasets: [{
+                    label: 'Revenue (৳)',
+                    data: [423450, 156780, 89120, 67890, 54320, 41220],
+                    backgroundColor: [
+                        '#007bff',
+                        '#28a745',
+                        '#17a2b8',
+                        '#ffc107',
+                        '#fd7e14',
+                        '#6c757d'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '৳' + (value/1000) + 'K';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Success Rate Comparison Chart
+        const successRateComparisonCtx = document.getElementById('success-rate-comparison-chart').getContext('2d');
+        new Chart(successRateComparisonCtx, {
+            type: 'horizontalBar',
+            data: {
+                labels: ['Dhaka', 'Chittagong', 'Sylhet', 'Rajshahi', 'Khulna', 'Barisal'],
+                datasets: [{
+                    label: 'Success Rate (%)',
+                    data: [98.2, 96.8, 95.4, 94.1, 92.8, 90.5],
+                    backgroundColor: [
+                        '#007bff',
+                        '#28a745',
+                        '#17a2b8',
+                        '#ffc107',
+                        '#fd7e14',
+                        '#6c757d'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        max: 100
+                    }
+                }
+            }
+        });
+
+        // Generate Report
+        $('#generate-report').click(function() {
+            $(this).prop('disabled', true).html('<i class="flaticon-381-loading"></i> Generating...');
+            
+            setTimeout(() => {
+                $(this).prop('disabled', false).html('<i class="flaticon-381-chart"></i> Generate Report');
+                alert('Report generated successfully!');
+            }, 2000);
+        });
+
+        // Export Report
+        $('#export-report').click(function() {
+            alert('Report export started...');
+        });
+
+        // Schedule Report
+        $('#schedule-report').click(function() {
+            alert('Report scheduling feature coming soon...');
+        });
+    </script>
+</body>
+</html>

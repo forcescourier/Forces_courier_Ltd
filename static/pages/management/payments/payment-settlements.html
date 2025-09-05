@@ -1,0 +1,659 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Payment Settlements - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .settlement-status {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        .status-settled { background-color: #d4edda; color: #155724; }
+        .status-pending { background-color: #fff3cd; color: #856404; }
+        .status-failed { background-color: #f8d7da; color: #721c24; }
+        .status-processing { background-color: #d1ecf1; color: #0c5460; }
+        .settlement-card {
+            border-left: 4px solid #007bff;
+            transition: all 0.3s ease;
+        }
+        .settlement-card:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transform: translateY(-2px);
+        }
+        .gateway-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 18px;
+            color: white;
+        }
+        .amount-highlight {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .settlement-timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1rem;
+            border-left: 2px solid #e9ecef;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #007bff;
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Payment Settlements</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Payment Settlements</h4>
+                            <span>Track and manage payment settlements with providers</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../payments/payments.html">Payments</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Settlements</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Settlement Overview -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary ai-icon">
+                                        <i class="fas fa-handshake"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">৳2.4M</h3>
+                                        <p class="mb-0">Total Settlements</p>
+                                        <small class="text-success">This month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success ai-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">৳2.1M</h3>
+                                        <p class="mb-0">Settled Amount</p>
+                                        <small class="text-success">87.5% completed</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning ai-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">৳245K</h3>
+                                        <p class="mb-0">Pending Settlement</p>
+                                        <small class="text-warning">Awaiting processing</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info ai-icon">
+                                        <i class="fas fa-calendar-day"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">2.5</h3>
+                                        <p class="mb-0">Avg Settlement Days</p>
+                                        <small class="text-info">Processing time</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settlement Actions -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-6">
+                                        <h5 class="mb-0">Settlement Management</h5>
+                                        <small class="text-muted">Manage settlements and track payment status</small>
+                                    </div>
+                                    <div class="col-md-6 text-right">
+                                        <button type="button" class="btn btn-success mr-2" onclick="initiateSettlement()">
+                                            <i class="fas fa-play mr-2"></i>Initiate Settlement
+                                        </button>
+                                        <button type="button" class="btn btn-info mr-2" onclick="downloadSettlementReport()">
+                                            <i class="fas fa-download mr-2"></i>Download Report
+                                        </button>
+                                        <button type="button" class="btn btn-primary" onclick="reconcileSettlements()">
+                                            <i class="fas fa-sync mr-2"></i>Reconcile
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gateway Settlement Cards -->
+                <div class="row">
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="card settlement-card">
+                            <div class="card-header">
+                                <h4 class="card-title">SSL Commerz Settlements</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="gateway-icon bg-primary mr-3">
+                                        <i class="fas fa-shield-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">Primary Gateway</h6>
+                                        <small class="text-muted">Settlement Cycle: T+2 days</small>
+                                    </div>
+                                </div>
+                                <div class="settlement-stats">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Total Volume:</span>
+                                        <span class="amount-highlight text-success">৳1.2M</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Settled:</span>
+                                        <span class="text-success">৳1.1M</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Pending:</span>
+                                        <span class="text-warning">৳120K</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <span>Last Settlement:</span>
+                                        <span class="text-info">Dec 14, 2024</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary btn-block" onclick="viewSettlementDetails('sslcommerz')">
+                                    <i class="fas fa-eye mr-2"></i>View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="card settlement-card">
+                            <div class="card-header">
+                                <h4 class="card-title">bKash Settlements</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="gateway-icon bg-danger mr-3">
+                                        <i class="fas fa-mobile-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">Mobile Money</h6>
+                                        <small class="text-muted">Settlement Cycle: T+1 days</small>
+                                    </div>
+                                </div>
+                                <div class="settlement-stats">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Total Volume:</span>
+                                        <span class="amount-highlight text-success">৳850K</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Settled:</span>
+                                        <span class="text-success">৳780K</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Pending:</span>
+                                        <span class="text-warning">৳70K</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <span>Last Settlement:</span>
+                                        <span class="text-info">Dec 15, 2024</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-danger btn-block" onclick="viewSettlementDetails('bkash')">
+                                    <i class="fas fa-eye mr-2"></i>View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4 col-lg-6">
+                        <div class="card settlement-card">
+                            <div class="card-header">
+                                <h4 class="card-title">Nagad Settlements</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="gateway-icon bg-warning mr-3">
+                                        <i class="fas fa-coins"></i>
+                                    </div>
+                                    <div>
+                                        <h6 class="mb-0">Mobile Money</h6>
+                                        <small class="text-muted">Settlement Cycle: T+3 days</small>
+                                    </div>
+                                </div>
+                                <div class="settlement-stats">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Total Volume:</span>
+                                        <span class="amount-highlight text-success">৳320K</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Settled:</span>
+                                        <span class="text-success">৳265K</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Pending:</span>
+                                        <span class="text-warning">৳55K</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <span>Last Settlement:</span>
+                                        <span class="text-info">Dec 12, 2024</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-warning btn-block" onclick="viewSettlementDetails('nagad')">
+                                    <i class="fas fa-eye mr-2"></i>View Details
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Settlement History Table -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Recent Settlements</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="settlementsTable" class="table table-striped table-responsive-sm">
+                                        <thead>
+                                            <tr>
+                                                <th>Settlement ID</th>
+                                                <th>Gateway</th>
+                                                <th>Amount</th>
+                                                <th>Transactions</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <strong>STL-2024-001234</strong>
+                                                    <small class="d-block text-muted">Batch #789</small>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-primary">SSL Commerz</span>
+                                                </td>
+                                                <td>
+                                                    <strong class="text-success">৳125,500.00</strong>
+                                                    <small class="d-block text-muted">Net: ৳122,890.00</small>
+                                                </td>
+                                                <td>
+                                                    <span class="text-info">247</span>
+                                                    <small class="d-block text-muted">transactions</small>
+                                                </td>
+                                                <td>
+                                                    Dec 15, 2024<br>
+                                                    <small class="text-muted">10:30 AM</small>
+                                                </td>
+                                                <td>
+                                                    <span class="settlement-status status-settled">Settled</span>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-info btn-sm" onclick="viewSettlement('STL-2024-001234')">
+                                                        <i class="fas fa-eye"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>STL-2024-001233</strong>
+                                                    <small class="d-block text-muted">Batch #788</small>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-danger">bKash</span>
+                                                </td>
+                                                <td>
+                                                    <strong class="text-warning">৳89,250.00</strong>
+                                                    <small class="d-block text-muted">Net: ৳87,455.00</small>
+                                                </td>
+                                                <td>
+                                                    <span class="text-info">156</span>
+                                                    <small class="d-block text-muted">transactions</small>
+                                                </td>
+                                                <td>
+                                                    Dec 15, 2024<br>
+                                                    <small class="text-muted">9:15 AM</small>
+                                                </td>
+                                                <td>
+                                                    <span class="settlement-status status-processing">Processing</span>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-warning btn-sm" onclick="trackSettlement('STL-2024-001233')">
+                                                        <i class="fas fa-search"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>STL-2024-001232</strong>
+                                                    <small class="d-block text-muted">Batch #787</small>
+                                                </td>
+                                                <td>
+                                                    <span class="badge badge-warning">Nagad</span>
+                                                </td>
+                                                <td>
+                                                    <strong class="text-info">৳45,800.00</strong>
+                                                    <small class="d-block text-muted">Net: ৳44,932.00</small>
+                                                </td>
+                                                <td>
+                                                    <span class="text-info">89</span>
+                                                    <small class="d-block text-muted">transactions</small>
+                                                </td>
+                                                <td>
+                                                    Dec 14, 2024<br>
+                                                    <small class="text-muted">4:20 PM</small>
+                                                </td>
+                                                <td>
+                                                    <span class="settlement-status status-pending">Pending</span>
+                                                </td>
+                                                <td>
+                                                    <button class="btn btn-primary btn-sm" onclick="retrySettlement('STL-2024-001232')">
+                                                        <i class="fas fa-redo"></i>
+                                                    </button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Settlement Timeline -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Settlement Timeline</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="settlement-timeline">
+                                    <div class="timeline-item">
+                                        <div class="ml-3">
+                                            <h6>Transactions Captured</h6>
+                                            <p class="text-muted mb-0">247 transactions collected for settlement</p>
+                                            <small class="text-muted">Dec 15, 2024 - 8:00 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="ml-3">
+                                            <h6>Settlement Initiated</h6>
+                                            <p class="text-muted mb-0">Settlement request sent to gateway</p>
+                                            <small class="text-muted">Dec 15, 2024 - 10:00 AM</small>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="ml-3">
+                                            <h6 class="text-success">Settlement Completed</h6>
+                                            <p class="text-muted mb-0">৳122,890.00 transferred to account</p>
+                                            <small class="text-muted">Dec 15, 2024 - 10:30 AM</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Settlement Summary -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Today's Summary</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span>Settlements Initiated:</span>
+                                    <span class="text-info">3</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span>Successfully Settled:</span>
+                                    <span class="text-success">2</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span>In Processing:</span>
+                                    <span class="text-warning">1</span>
+                                </div>
+                                <div class="d-flex justify-content-between mb-3">
+                                    <span>Total Amount:</span>
+                                    <span class="text-primary">৳260,550.00</span>
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-between">
+                                    <span><strong>Net Received:</strong></span>
+                                    <span class="text-success"><strong>৳255,277.00</strong></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        // Initialize DataTable
+        $(document).ready(function() {
+            $('#settlementsTable').DataTable({
+                pageLength: 10,
+                order: [[4, 'desc']]
+            });
+        });
+
+        // Action functions
+        function initiateSettlement() {
+            if (confirm('Initiate settlement for all pending transactions?')) {
+                alert('Settlement initiated successfully! Processing will begin shortly.');
+                setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        }
+
+        function downloadSettlementReport() {
+            alert('Generating settlement report...');
+            setTimeout(function() {
+                alert('Settlement report downloaded successfully!');
+            }, 1500);
+        }
+
+        function reconcileSettlements() {
+            alert('Starting settlement reconciliation...');
+            setTimeout(function() {
+                alert('Reconciliation completed successfully!');
+                location.reload();
+            }, 3000);
+        }
+
+        function viewSettlementDetails(gateway) {
+            alert(`Opening detailed settlement view for ${gateway}...`);
+            window.open('payment-reconciliation.html', '_blank');
+        }
+
+        function viewSettlement(settlementId) {
+            alert(`Viewing settlement details for ${settlementId}...`);
+        }
+
+        function trackSettlement(settlementId) {
+            alert(`Tracking settlement status for ${settlementId}...`);
+        }
+
+        function retrySettlement(settlementId) {
+            if (confirm(`Retry settlement for ${settlementId}?`)) {
+                alert('Settlement retry initiated!');
+                setTimeout(function() {
+                    location.reload();
+                }, 2000);
+            }
+        }
+    </script>
+</body>
+</html>

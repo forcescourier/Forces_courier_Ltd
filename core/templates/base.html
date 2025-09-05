@@ -1,0 +1,249 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>{%block title%}Courier Management System{%endblock%}</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'assets\images\favicon.png' %}">
+   
+     {% comment %} <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> {% endcomment %}
+    
+    <link href={% static 'vendor/jqvmap/css/jqvmap.min.css'%} rel="stylesheet">
+    <link rel="stylesheet" href={% static 'vendor/chartist/css/chartist.min.css'%}>
+    <link href={% static 'vendor/bootstrap-select/dist/css/bootstrap-select.min.css'%} rel="stylesheet">
+    <link href={% static 'vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css'%} rel="stylesheet">
+    <link href={% static 'assets/css/style.css'%} rel="stylesheet">
+    <link href={% static 'assets/css/custom-primary.css'%} rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+</head>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="index.html" class="brand-logo">
+                <img class="logo-abbr" src="{%static 'assets/images/logo.png'%}" alt="">
+                <img class="logo-compact" src={% static 'assets/images/logo-text.png'%} alt="">
+                <img class="brand-title" src={% static 'assets/images/logo-text.png'%} alt="">
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                Dashboard
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src={% static "assets/images/profile/1.jpg"%} width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href={% static "pages/authentication/logout.html"%} class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li><a href={% static "pages/management/parcels/parcels.html"%} class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a>
+                    </li>
+                    <li><a href={% static "pages/management/merchants/merchants.html"%} class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a>
+                    </li>
+                    <li><a href={% static "pages/management/riders/riders.html" %}class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-2"></i>
+                            <span class="nav-text">Riders</span>
+                        </a>
+                    </li>
+                    <li><a href={% static "pages/management/services/services.html"%} class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li><a href={% static "pages/management/areas/areas.html"%} class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-location"></i>
+                            <span class="nav-text">Areas</span>
+                        </a>
+                    </li>
+                    <li><a href={% static "pages/management/payments/payments.html"%} class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-price-tag"></i>
+                            <span class="nav-text">Payments</span>
+                        </a>
+                    </li>
+                    <li><a href={% static "pages/management/invoices/invoices.html"%} class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-file"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a>
+                    </li>
+                    <li><a href={% static "pages/reports/reports.html"%} class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a>
+                    </li>
+                    <li><a href="settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+        {% block content%}
+
+        {%endblock%}
+        
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    {% load static %}
+
+    <script src="{% static 'vendor/global/global.min.js' %}"></script>
+    <script src="{% static 'vendor/bootstrap-select/dist/js/bootstrap-select.min.js' %}"></script>
+    <script src="{% static 'vendor/chart.js/Chart.bundle.min.js' %}"></script>
+    <script src="{% static 'vendor/apexchart/apexchart.js' %}"></script>
+    <script src="{% static 'vendor/peity/jquery.peity.min.js' %}"></script>
+    <script src="{% static 'assets/js/dashboard/dashboard-1.js' %}"></script>
+    <script src="{% static 'assets/js/custom.min.js' %}"></script>
+    <script src="{% static 'assets/js/deznav-init.js' %}"></script>
+
+    <script>
+        // Initialize charts
+        document.addEventListener('DOMContentLoaded', function() {
+            // Parcel Status Chart
+            const parcelCtx = document.getElementById('parcelChart').getContext('2d');
+            new Chart(parcelCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Pending', 'In Transit', 'Delivered', 'Returned'],
+                    datasets: [{
+                        data: [25, 32, 89, 4],
+                        backgroundColor: ['#ffc107', '#17a2b8', '#28a745', '#dc3545']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Revenue Chart
+            const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+            new Chart(revenueCtx, {
+                type: 'bar',
+                data: {
+                    labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                    datasets: [{
+                        label: 'Revenue',
+                        data: [12000, 15000, 18000, 22000, 25000, 28000],
+                        backgroundColor: '#007bff'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

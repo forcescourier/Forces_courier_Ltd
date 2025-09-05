@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Area Services - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Area Services Configuration</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Area Services - Dhaka Central</h4>
+                            <span>Configure and manage available services for this delivery area</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../areas/areas.html">Areas</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Services</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Area Info Header -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Dhaka Central (A001) - Service Configuration</h4>
+                                <div class="card-action">
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addServiceModal">
+                                        <i class="fas fa-plus mr-2"></i>Add Service
+                                    </button>
+                                    <button type="button" class="btn btn-info ml-2" id="bulk-config">
+                                        <i class="fas fa-cogs mr-2"></i>Bulk Config
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Statistics -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary ai-icon">
+                                        <i class="fas fa-list"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">4</h3>
+                                        <p class="mb-0">Active Services</p>
+                                        <small>Available in area</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success ai-icon">
+                                        <i class="fas fa-rocket"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">85%</h3>
+                                        <p class="mb-0">Same Day Usage</p>
+                                        <small>Most popular</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning ai-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">2.5h</h3>
+                                        <p class="mb-0">Avg Delivery Time</p>
+                                        <small>Same day service</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info ai-icon">
+                                        <i class="fas fa-percentage"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">96%</h3>
+                                        <p class="mb-0">Success Rate</p>
+                                        <small>All services</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8">
+                        <!-- Services Configuration -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Service Configuration</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="servicesTable" class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Service</th>
+                                                <th>Status</th>
+                                                <th>Capacity</th>
+                                                <th>Pricing</th>
+                                                <th>Performance</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h6 class="mb-0">Same Day Delivery</h6>
+                                                            <small class="text-muted">Delivery within 24 hours</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>
+                                                    <div>80/100</div>
+                                                    <div class="progress" style="height: 4px;">
+                                                        <div class="progress-bar bg-primary" style="width: 80%"></div>
+                                                    </div>
+                                                </td>
+                                                <td>৳150 base</td>
+                                                <td>
+                                                    <div>95% success</div>
+                                                    <small class="text-success">2.5h avg time</small>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#" onclick="configureService('same_day')"><i class="fas fa-cog mr-2"></i>Configure</a>
+                                                            <a class="dropdown-item" href="#" onclick="viewAnalytics('same_day')"><i class="fas fa-chart-bar mr-2"></i>Analytics</a>
+                                                            <a class="dropdown-item text-warning" href="#" onclick="pauseService('same_day')"><i class="fas fa-pause mr-2"></i>Pause</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h6 class="mb-0">Next Day Delivery</h6>
+                                                            <small class="text-muted">Delivery by next business day</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>
+                                                    <div>45/80</div>
+                                                    <div class="progress" style="height: 4px;">
+                                                        <div class="progress-bar bg-success" style="width: 56%"></div>
+                                                    </div>
+                                                </td>
+                                                <td>৳100 base</td>
+                                                <td>
+                                                    <div>98% success</div>
+                                                    <small class="text-success">18h avg time</small>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#" onclick="configureService('next_day')"><i class="fas fa-cog mr-2"></i>Configure</a>
+                                                            <a class="dropdown-item" href="#" onclick="viewAnalytics('next_day')"><i class="fas fa-chart-bar mr-2"></i>Analytics</a>
+                                                            <a class="dropdown-item text-warning" href="#" onclick="pauseService('next_day')"><i class="fas fa-pause mr-2"></i>Pause</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h6 class="mb-0">Economy Delivery</h6>
+                                                            <small class="text-muted">Standard delivery 2-3 days</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>
+                                                    <div>25/50</div>
+                                                    <div class="progress" style="height: 4px;">
+                                                        <div class="progress-bar bg-warning" style="width: 50%"></div>
+                                                    </div>
+                                                </td>
+                                                <td>৳80 base</td>
+                                                <td>
+                                                    <div>92% success</div>
+                                                    <small class="text-success">48h avg time</small>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#" onclick="configureService('economy')"><i class="fas fa-cog mr-2"></i>Configure</a>
+                                                            <a class="dropdown-item" href="#" onclick="viewAnalytics('economy')"><i class="fas fa-chart-bar mr-2"></i>Analytics</a>
+                                                            <a class="dropdown-item text-warning" href="#" onclick="pauseService('economy')"><i class="fas fa-pause mr-2"></i>Pause</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h6 class="mb-0">Express Delivery</h6>
+                                                            <small class="text-muted">Priority delivery 2-4 hours</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-warning">Limited</span></td>
+                                                <td>
+                                                    <div>8/20</div>
+                                                    <div class="progress" style="height: 4px;">
+                                                        <div class="progress-bar bg-info" style="width: 40%"></div>
+                                                    </div>
+                                                </td>
+                                                <td>৳200 base</td>
+                                                <td>
+                                                    <div>88% success</div>
+                                                    <small class="text-warning">3.2h avg time</small>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#" onclick="configureService('express')"><i class="fas fa-cog mr-2"></i>Configure</a>
+                                                            <a class="dropdown-item" href="#" onclick="viewAnalytics('express')"><i class="fas fa-chart-bar mr-2"></i>Analytics</a>
+                                                            <a class="dropdown-item text-success" href="#" onclick="enableFullService('express')"><i class="fas fa-play mr-2"></i>Enable Full</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Service Usage Chart -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Service Usage Distribution</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="serviceChart" height="200"></canvas>
+                            </div>
+                        </div>
+
+                        <!-- Service Alerts -->
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h4 class="card-title">Service Alerts</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-warning">
+                                    <h6><i class="fas fa-exclamation-triangle mr-2"></i>Capacity Warning</h6>
+                                    <p class="mb-0">Same Day service is at 80% capacity. Consider adding more riders.</p>
+                                </div>
+                                <div class="alert alert-info">
+                                    <h6><i class="fas fa-info-circle mr-2"></i>Performance Update</h6>
+                                    <p class="mb-0">Express delivery performance improved by 12% this week.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Add Service Modal -->
+        <div class="modal fade" id="addServiceModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Add Service to Area</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="addServiceForm">
+                            <div class="form-group">
+                                <label class="text-label">Service Type</label>
+                                <select class="form-control" required>
+                                    <option value="">Select Service</option>
+                                    <option value="express_plus">Express Plus</option>
+                                    <option value="weekend_delivery">Weekend Delivery</option>
+                                    <option value="cod_service">Cash on Delivery</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="text-label">Initial Capacity</label>
+                                <input type="number" class="form-control" placeholder="20" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="text-label">Base Price (৳)</label>
+                                <input type="number" class="form-control" placeholder="150" required>
+                            </div>
+                            <div class="form-group">
+                                <label class="text-label">Launch Date</label>
+                                <input type="date" class="form-control" required>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="confirmAddService">Add Service</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        // Service usage chart
+        const ctx = document.getElementById('serviceChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Same Day', 'Next Day', 'Economy', 'Express'],
+                datasets: [{
+                    data: [45, 30, 20, 5],
+                    backgroundColor: ['#007bff', '#28a745', '#ffc107', '#17a2b8'],
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Service management functions
+        function configureService(serviceId) {
+            alert(`Opening configuration for service: ${serviceId}`);
+        }
+
+        function viewAnalytics(serviceId) {
+            alert(`Opening analytics for service: ${serviceId}`);
+        }
+
+        function pauseService(serviceId) {
+            if (confirm(`Pause ${serviceId} service in this area?`)) {
+                alert(`Service ${serviceId} paused successfully!`);
+                location.reload();
+            }
+        }
+
+        function enableFullService(serviceId) {
+            if (confirm(`Enable full ${serviceId} service in this area?`)) {
+                alert(`Service ${serviceId} enabled successfully!`);
+                location.reload();
+            }
+        }
+
+        // Add service
+        $('#confirmAddService').click(function() {
+            alert('Service added to area successfully!');
+            $('#addServiceModal').modal('hide');
+            location.reload();
+        });
+
+        // Bulk configuration
+        $('#bulk-config').click(function() {
+            alert('Opening bulk service configuration interface...');
+        });
+
+        // Initialize DataTable
+        $(document).ready(function() {
+            $('#servicesTable').DataTable({
+                "pageLength": 10,
+                "order": [[0, "asc"]],
+                "responsive": true,
+                "searching": false,
+                "paging": false,
+                "info": false
+            });
+        });
+    </script>
+</body>
+</html>

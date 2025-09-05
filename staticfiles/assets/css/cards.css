@@ -1,0 +1,418 @@
+/* Card and Layout Components CSS - Courier Management System */
+/* Enhanced card and layout styling following the project theme specifications */
+
+/* Template Design System Compliance */
+.card-enhanced {
+    margin-bottom: 1.875rem;
+    background-color: #fff;
+    transition: all 0.5s ease-in-out;
+    position: relative;
+    border: 0px solid transparent;
+    border-radius: 0.75rem;
+    box-shadow: 0px 12px 23px 0px rgba(0, 122, 100, 0.08);
+    overflow: hidden;
+}
+
+.card-enhanced:hover {
+    transform: translateY(-2px);
+    box-shadow: 0px 16px 35px 0px rgba(0, 122, 100, 0.12);
+}
+
+.card-header-enhanced {
+    border-color: #f0f1f5;
+    position: relative;
+    background: var(--gradient-combined);
+    padding: 1.5rem 1.875rem;
+    display: flex;
+    flex-direction: column;
+    border-radius: 0.75rem 0.75rem 0 0;
+    min-height: auto;
+    box-shadow: 0 4px 8px rgba(0, 122, 100, 0.15);
+    margin-bottom: 0;
+}
+
+.card-body-enhanced {
+    padding: 1.5rem 1.875rem;
+    position: relative;
+}
+
+.card-title-enhanced {
+    font-size: 20px;
+    font-weight: 500;
+    color: #fff;
+    text-transform: capitalize;
+    margin-bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.card-subtitle-enhanced {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    font-weight: 400;
+}
+
+/* Card Variants */
+.card-primary {
+    border-top: 4px solid var(--primary-color);
+}
+
+.card-success {
+    border-top: 4px solid var(--primary-color);
+}
+
+.card-warning {
+    border-top: 4px solid var(--accent-yellow-dark);
+}
+
+.card-danger {
+    border-top: 4px solid #dc3545;
+}
+
+.card-info {
+    border-top: 4px solid #17a2b8;
+}
+
+/* Stat Cards */
+.stat-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(248, 255, 254, 0.95) 100%);
+    border: 1px solid rgba(0, 122, 100, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.stat-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-combined);
+    border-radius: 1rem 1rem 0 0;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 28px rgba(0, 122, 100, 0.2);
+}
+
+.stat-number {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.stat-label {
+    font-size: 0.875rem;
+    color: var(--primary-dark);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.stat-change {
+    font-size: 0.75rem;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-weight: 600;
+}
+
+.stat-change.positive {
+    background: rgba(40, 167, 69, 0.1);
+    color: var(--primary-color);
+}
+
+.stat-change.negative {
+    background: rgba(220, 53, 69, 0.1);
+    color: #dc3545;
+}
+
+.stat-change.neutral {
+    background: rgba(108, 117, 125, 0.1);
+    color: #6c757d;
+}
+
+/* Icon Cards */
+.icon-card {
+    display: flex;
+    align-items: center;
+    padding: 1rem;
+    background: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 16px rgba(0, 122, 100, 0.1);
+    transition: all 0.3s ease;
+}
+
+.icon-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0, 122, 100, 0.15);
+}
+
+.icon-card-icon {
+    width: 3rem;
+    height: 3rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1rem;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.icon-card-content h6 {
+    margin-bottom: 0.25rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+}
+
+.icon-card-content p {
+    margin-bottom: 0;
+    font-size: 0.875rem;
+    color: #6c757d;
+}
+
+/* Dashboard Grid Layout */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-grid-2 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+.dashboard-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+/* Action Cards */
+.action-card {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 255, 254, 0.9) 100%);
+    border: 2px solid rgba(0, 122, 100, 0.1);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.action-card:hover {
+    border-color: var(--primary-color);
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 122, 100, 0.3);
+}
+
+.action-card-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+}
+
+.action-card:hover .action-card-icon {
+    color: white;
+}
+
+.action-card h6 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--primary-dark);
+    transition: color 0.3s ease;
+}
+
+.action-card:hover h6 {
+    color: white;
+}
+
+.action-card p {
+    font-size: 0.875rem;
+    color: #6c757d;
+    margin-bottom: 0;
+    transition: color 0.3s ease;
+}
+
+.action-card:hover p {
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Progress Cards */
+.progress-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 16px rgba(0, 122, 100, 0.1);
+}
+
+.progress-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+.progress-title {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin: 0;
+}
+
+.progress-percentage {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.progress-bar-enhanced {
+    height: 0.75rem;
+    border-radius: 0.5rem;
+    background: #e9ecef;
+    overflow: hidden;
+    margin-bottom: 0.5rem;
+}
+
+.progress-fill {
+    height: 100%;
+    border-radius: 0.5rem;
+    background: var(--gradient-primary);
+    transition: width 0.6s ease;
+}
+
+.progress-info {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: #6c757d;
+}
+
+/* Alert Cards */
+.alert-card {
+    border: none;
+    border-radius: 0.75rem;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.alert-card-success {
+    background: linear-gradient(135deg, rgba(40, 167, 69, 0.1) 0%, rgba(32, 201, 151, 0.1) 100%);
+    border-left: 4px solid var(--primary-color);
+    color: #155724;
+}
+
+.alert-card-warning {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%);
+    border-left: 4px solid var(--accent-yellow-dark);
+    color: #856404;
+}
+
+.alert-card-danger {
+    background: linear-gradient(135deg, rgba(220, 53, 69, 0.1) 0%, rgba(189, 33, 48, 0.1) 100%);
+    border-left: 4px solid #dc3545;
+    color: #721c24;
+}
+
+.alert-card-info {
+    background: linear-gradient(135deg, rgba(0, 122, 100, 0.1) 0%, rgba(0, 168, 133, 0.1) 100%);
+    border-left: 4px solid var(--primary-color);
+    color: var(--primary-dark);
+}
+
+/* Total Count Display */
+.total-count-display {
+    background: rgba(255, 255, 255, 0.15);
+    padding: 0.5rem 0.75rem;
+    border-radius: 0.5rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.8rem;
+    font-weight: 500;
+    position: absolute;
+    top: 1rem;
+    right: 1.5rem;
+    min-width: auto;
+}
+
+.total-count-display i {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.75rem;
+}
+
+.total-count-display strong {
+    color: #ffffff;
+    font-size: 0.85rem;
+}
+
+/* Responsive Card Adjustments */
+@media (max-width: 768px) {
+    .card-enhanced {
+        margin-bottom: 1rem;
+    }
+    
+    .card-header-enhanced,
+    .card-body-enhanced {
+        padding: 1rem;
+    }
+    
+    .dashboard-grid,
+    .dashboard-grid-2,
+    .dashboard-grid-3 {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+    }
+    
+    .action-card-icon {
+        font-size: 2.5rem;
+    }
+    
+    .total-count-display {
+        position: static;
+        margin-top: 0.5rem;
+        display: inline-block;
+    }
+}
+
+/* Dark Mode Support (Optional) */
+@media (prefers-color-scheme: dark) {
+    .card-enhanced {
+        background-color: #2d3748;
+        color: #e2e8f0;
+    }
+    
+    .stat-card {
+        background: linear-gradient(135deg, rgba(45, 55, 72, 0.95) 0%, rgba(26, 32, 44, 0.95) 100%);
+        color: #e2e8f0;
+    }
+    
+    .action-card {
+        background: linear-gradient(135deg, rgba(45, 55, 72, 0.9) 0%, rgba(26, 32, 44, 0.9) 100%);
+        color: #e2e8f0;
+    }
+}

@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>View Invoice - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .invoice-header { border-bottom: 2px solid #007bff; padding-bottom: 20px; margin-bottom: 30px; }
+        .invoice-details { margin: 20px 0; }
+        .invoice-table { margin: 20px 0; }
+        .invoice-total { background-color: #f8f9fa; padding: 15px; margin-top: 20px; }
+        @media print { .no-print { display: none !important; } }
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header no-print">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header no-print">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Invoice Details</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav no-print">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <!-- Page Header -->
+                <div class="row page-titles mx-0 no-print">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Invoice #INV-2024-001234</h4>
+                            <span>Detailed invoice information and payment tracking</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../invoices/invoices.html">Invoices</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">View Invoice</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="row no-print">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Invoice Actions</h4>
+                                <div class="card-action">
+                                    <div class="btn-group">
+                                        <a href="edit-invoice.html" class="btn btn-primary btn-sm mr-2">
+                                            <i class="fas fa-edit mr-2"></i>Edit Invoice
+                                        </a>
+                                        <button type="button" class="btn btn-info btn-sm mr-2" onclick="window.print()">
+                                            <i class="fas fa-print mr-2"></i>Print
+                                        </button>
+                                        <button type="button" class="btn btn-success btn-sm mr-2" onclick="downloadPDF()">
+                                            <i class="fas fa-file-pdf mr-2"></i>Download PDF
+                                        </button>
+                                        <button type="button" class="btn btn-warning btn-sm mr-2" onclick="sendInvoice()">
+                                            <i class="fas fa-envelope mr-2"></i>Send Email
+                                        </button>
+                                        <button type="button" class="btn btn-secondary btn-sm" onclick="collectPayment()">
+                                            <i class="fas fa-credit-card mr-2"></i>Collect Payment
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Invoice Content -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <!-- Invoice Header -->
+                                <div class="invoice-header">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="company-info">
+                                                <img src="../../../assets/images/logo-text.png" alt="Company Logo" style="max-height: 60px;">
+                                                <h4 class="mt-2">Swift Courier Services</h4>
+                                                <p class="mb-0">123 Business Street<br>
+                                                Dhaka 1000, Bangladesh<br>
+                                                Phone: +880 2 1234567<br>
+                                                Email: info@swiftcourier.com</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6 text-right">
+                                            <h2 class="text-primary">INVOICE</h2>
+                                            <h4>#INV-2024-001234</h4>
+                                            <p class="mb-0"><strong>Date:</strong> December 15, 2024<br>
+                                            <strong>Due Date:</strong> December 30, 2024<br>
+                                            <span class="badge badge-success">PAID</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Customer Information -->
+                                <div class="invoice-details">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6><strong>Bill To:</strong></h6>
+                                            <p>
+                                                <strong>ABC Electronics Ltd.</strong><br>
+                                                456 Commercial Avenue<br>
+                                                Gulshan, Dhaka 1212<br>
+                                                Phone: +880 1712345678<br>
+                                                Email: billing@abcelectronics.com
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6><strong>Ship To:</strong></h6>
+                                            <p>
+                                                <strong>John Smith</strong><br>
+                                                789 Residential Road<br>
+                                                Dhanmondi, Dhaka 1205<br>
+                                                Phone: +880 1987654321
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Invoice Items -->
+                                <div class="invoice-table">
+                                    <h6><strong>Invoice Items:</strong></h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered">
+                                            <thead class="table-primary">
+                                                <tr>
+                                                    <th>Item Description</th>
+                                                    <th class="text-center">Quantity</th>
+                                                    <th class="text-right">Unit Price</th>
+                                                    <th class="text-right">Total</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr>
+                                                    <td>
+                                                        <strong>Same Day Delivery Service</strong><br>
+                                                        <small class="text-muted">Parcel ID: PKG-2024-001234<br>
+                                                        Weight: 2.5 kg | Dimensions: 35x25x5 cm</small>
+                                                    </td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-right">৳150.00</td>
+                                                    <td class="text-right">৳150.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <strong>Weight Charge</strong><br>
+                                                        <small class="text-muted">Additional weight (1.5 kg × ৳25/kg)</small>
+                                                    </td>
+                                                    <td class="text-center">1.5</td>
+                                                    <td class="text-right">৳25.00</td>
+                                                    <td class="text-right">৳37.50</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <strong>Insurance Coverage</strong><br>
+                                                        <small class="text-muted">Package protection up to ৳5,000</small>
+                                                    </td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-right">৳20.00</td>
+                                                    <td class="text-right">৳20.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>
+                                                        <strong>SMS Notification Service</strong><br>
+                                                        <small class="text-muted">Delivery updates to customer</small>
+                                                    </td>
+                                                    <td class="text-center">1</td>
+                                                    <td class="text-right">৳5.00</td>
+                                                    <td class="text-right">৳5.00</td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <!-- Invoice Total -->
+                                <div class="invoice-total">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6><strong>Payment Information:</strong></h6>
+                                            <p class="mb-0">
+                                                <strong>Payment Method:</strong> bKash<br>
+                                                <strong>Transaction ID:</strong> TXN789456123<br>
+                                                <strong>Payment Date:</strong> December 15, 2024<br>
+                                                <strong>Status:</strong> <span class="badge badge-success">Paid</span>
+                                            </p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <table class="table table-borderless text-right">
+                                                <tr>
+                                                    <td><strong>Subtotal:</strong></td>
+                                                    <td><strong>৳212.50</strong></td>
+                                                </tr>
+                                                <tr>
+                                                    <td>Discount (5%):</td>
+                                                    <td class="text-success">-৳10.63</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>VAT (15%):</td>
+                                                    <td>৳30.28</td>
+                                                </tr>
+                                                <tr class="table-primary">
+                                                    <td><h5><strong>Total Amount:</strong></h5></td>
+                                                    <td><h5><strong>৳232.15</strong></h5></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Additional Information -->
+                                <div class="mt-4">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <h6><strong>Notes:</strong></h6>
+                                            <p>Thank you for choosing Swift Courier Services. Your package has been delivered successfully.</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <h6><strong>Terms & Conditions:</strong></h6>
+                                            <p class="small">
+                                                1. Payment is due within 15 days of invoice date.<br>
+                                                2. Late payments may incur additional charges.<br>
+                                                3. All disputes must be raised within 7 days.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Invoice Footer -->
+                                <div class="text-center mt-4 pt-3 border-top">
+                                    <p class="small text-muted">
+                                        This is a computer-generated invoice. No signature required.<br>
+                                        For any queries, please contact us at support@swiftcourier.com or +880 2 1234567
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Related Information -->
+                <div class="row no-print">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Payment History</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="payment-history">
+                                    <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                                        <div>
+                                            <strong>Full Payment</strong>
+                                            <small class="text-muted d-block">bKash - TXN789456123</small>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-success font-weight-bold">৳232.15</span>
+                                            <small class="text-muted d-block">Dec 15, 2024</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Related Documents</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="document-list">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <i class="fas fa-file-pdf text-danger mr-2"></i>
+                                            <strong>Invoice PDF</strong>
+                                        </div>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="downloadPDF()">Download</button>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <i class="fas fa-receipt text-info mr-2"></i>
+                                            <strong>Payment Receipt</strong>
+                                        </div>
+                                        <button class="btn btn-sm btn-outline-primary" onclick="viewReceipt()">View</button>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <i class="fas fa-shipping-fast text-success mr-2"></i>
+                                            <strong>Delivery Confirmation</strong>
+                                        </div>
+                                        <a href="view-parcel.html" class="btn btn-sm btn-outline-primary">View Parcel</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer no-print">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        function downloadPDF() {
+            alert('Downloading invoice PDF...');
+        }
+
+        function sendInvoice() {
+            if (confirm('Send invoice to customer email?')) {
+                alert('Invoice sent successfully to billing@abcelectronics.com');
+            }
+        }
+
+        function collectPayment() {
+            window.location.href = 'collect-payment.html';
+        }
+
+        function viewReceipt() {
+            alert('Opening payment receipt...');
+        }
+
+        // Auto-generate print styles
+        window.onbeforeprint = function() {
+            document.title = 'Invoice INV-2024-001234';
+        };
+    </script>
+</body>
+</html>

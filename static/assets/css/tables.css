@@ -1,0 +1,291 @@
+/* Table Components CSS - Courier Management System */
+/* Table styling following the project theme specifications */
+
+/* Enhanced Table Styling */
+.data-table {
+    margin-bottom: 0;
+    font-family: 'Poppins', sans-serif;
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.data-table thead th {
+    background: var(--gradient-combined);
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border-bottom-width: 1px;
+    border-color: #f0f1f5;
+    padding: 1rem 1.25rem;
+    text-align: center;
+    vertical-align: middle;
+    border-top: none;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.data-table tbody tr {
+    transition: all 0.1s ease;
+}
+
+.data-table tbody tr:hover {
+    background: linear-gradient(45deg, #f8fffe 0%, #e8f8f5 50%, #fffbf0 100%);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(255, 215, 0, 0.15);
+}
+
+.data-table tbody tr td {
+    vertical-align: middle;
+    border-color: #f0f1f5;
+    padding: 1rem 1.25rem;
+    font-size: 14px;
+}
+
+.table-responsive {
+    border-radius: 0 0 0.75rem 0.75rem;
+    overflow: hidden;
+}
+
+/* DataTables Styling */
+.dataTables_wrapper {
+    font-family: 'Poppins', sans-serif;
+}
+
+.dataTables_length select {
+    background: var(--gradient-primary);
+    color: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem;
+    padding: 0.375rem 0.75rem;
+    font-weight: 500;
+}
+
+.dataTables_length select:focus {
+    border-color: var(--accent-yellow);
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+}
+
+.dataTables_filter input {
+    background: white;
+    border: 2px solid #e9ecef;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.dataTables_filter input:focus {
+    border-color: var(--accent-yellow);
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25);
+    outline: none;
+}
+
+.dataTables_paginate .paginate_button {
+    background: var(--gradient-primary) !important;
+    color: white !important;
+    border: none !important;
+    border-radius: 0.375rem !important;
+    margin: 0 2px !important;
+    padding: 0.375rem 0.75rem !important;
+    font-weight: 500 !important;
+    transition: all 0.3s ease !important;
+}
+
+.dataTables_paginate .paginate_button:hover {
+    background: var(--gradient-accent) !important;
+    color: #333 !important;
+    transform: translateY(-1px) !important;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
+}
+
+.dataTables_paginate .paginate_button.current {
+    background: var(--gradient-accent) !important;
+    color: #333 !important;
+    font-weight: 600 !important;
+}
+
+.dataTables_info {
+    color: var(--primary-dark);
+    font-weight: 500;
+    font-size: 0.875rem;
+}
+
+/* Status Badges in Tables */
+.status-badge {
+    padding: 0.375rem 0.75rem;
+    border-radius: 0.375rem;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.status-delivered {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.status-pending {
+    background: linear-gradient(135deg, var(--accent-yellow), var(--accent-yellow-dark));
+    color: #333;
+}
+
+.status-in-transit {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+}
+
+.status-returned {
+    background: linear-gradient(135deg, #dc3545, #bd2130);
+    color: white;
+}
+
+.status-cancelled {
+    background: linear-gradient(135deg, #6c757d, #545b62);
+    color: white;
+}
+
+/* Action Buttons in Tables */
+.action-buttons {
+    display: flex;
+    gap: 0.375rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.action-btn {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    font-size: 0.75rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    border: none;
+    cursor: pointer;
+}
+
+.action-btn-view {
+    background: var(--gradient-primary);
+    color: white;
+}
+
+.action-btn-edit {
+    background: var(--gradient-accent);
+    color: #333;
+}
+
+.action-btn-delete {
+    background: linear-gradient(135deg, #dc3545, #bd2130);
+    color: white;
+}
+
+.action-btn:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Bulk Selection Styling */
+.bulk-checkbox {
+    width: 1.125rem;
+    height: 1.125rem;
+    border-radius: 0.25rem;
+    border: 2px solid var(--primary-color);
+}
+
+.bulk-checkbox:checked {
+    background: var(--gradient-primary);
+    border-color: var(--primary-color);
+}
+
+.select-all-checkbox {
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 0.25rem;
+    border: 2px solid white;
+}
+
+.select-all-checkbox:checked {
+    background: var(--accent-yellow);
+    border-color: white;
+}
+
+/* Progress Bars in Tables */
+.table-progress {
+    height: 0.5rem;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    background: #e9ecef;
+}
+
+.table-progress-bar {
+    height: 100%;
+    border-radius: 0.25rem;
+    transition: width 0.3s ease;
+}
+
+.progress-primary {
+    background: var(--gradient-primary);
+}
+
+.progress-success {
+    background: var(--gradient-primary);
+}
+
+.progress-warning {
+    background: var(--gradient-accent);
+}
+
+.progress-danger {
+    background: linear-gradient(135deg, #dc3545, #bd2130);
+}
+
+/* Responsive Table Adjustments */
+@media (max-width: 768px) {
+    .data-table thead th,
+    .data-table tbody td {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.75rem;
+    }
+    
+    .action-buttons {
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+    
+    .action-btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Table Info Styling */
+.sender-receiver-info {
+    font-size: 14px;
+    line-height: 1.8;
+    color: #000;
+}
+
+.info-label {
+    font-weight: 600;
+    color: var(--primary-color);
+    display: inline-block;
+    min-width: 60px;
+}
+
+.amount-info {
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
+}
+
+.payment-details {
+    font-size: 13px;
+    color: #666;
+    line-height: 1.6;
+}
+
+.area-location {
+    font-size: 13px;
+    color: var(--primary-dark);
+    font-weight: 500;
+}

@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Riders - Courier Management System</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../vendor/chartist/css/chartist.min.css">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="../../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                Riders Management
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a>
+                    </li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a>
+                    </li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a>
+                    </li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a>
+                    </li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a>
+                    </li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a>
+                    </li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a>
+                    </li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Riders Management</h4>
+                            <span>Manage all delivery riders and their assignments</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Riders</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 mb-2">
+                                        <a href="add-rider.html" class="btn btn-primary btn-block">
+                                            <i class="fas fa-bike mr-2"></i>Add New Rider
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <a href="rider-assignments.html" class="btn btn-success btn-block">
+                                            <i class="fas fa-tasks mr-2"></i>Assign Parcels
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <a href="rider-tracking.html" class="btn btn-info btn-block">
+                                            <i class="fas fa-map-marker-alt mr-2"></i>Track Riders
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <a href="rider-performance.html" class="btn btn-warning btn-block">
+                                            <i class="fas fa-chart-line mr-2"></i>Performance
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-primary">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-bike text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white">45</h3>
+                                        <p class="mb-0 text-white">Total Riders</p>
+                                        <small class="text-white-50">All registered riders</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-success">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-check-circle text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white">38</h3>
+                                        <p class="mb-0 text-white">Active Riders</p>
+                                        <small class="text-white-50">Currently working</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-warning">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-clock text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white">7</h3>
+                                        <p class="mb-0 text-white">Off Duty</p>
+                                        <small class="text-white-50">On leave or break</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card bg-info">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 ai-icon">
+                                        <i class="fas fa-shipping-fast text-white"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-white">156</h3>
+                                        <p class="mb-0 text-white">Parcels Assigned</p>
+                                        <small class="text-white-50">Currently assigned</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Riders Table -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header bg-primary">
+                                <h4 class="card-title text-white mb-0">All Riders</h4>
+                                <div class="card-tools">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search riders..." id="searchInput">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-outline-light" type="button">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="ridersTable" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Photo</th>
+                                                <th>Name</th>
+                                                <th>Phone</th>
+                                                <th>Vehicle</th>
+                                                <th>Area</th>
+                                                <th>Status</th>
+                                                <th>Parcels</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#R001</td>
+                                                <td><img src="../../../assets/images/users/1.jpg" width="40" height="40" class="rounded-circle"></td>
+                                                <td>Ahmed Khan</td>
+                                                <td>+880 1712345678</td>
+                                                <td>Bike - Honda CG125</td>
+                                                <td>Dhaka Central</td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>12</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="view-rider.html"><i class="fas fa-eye mr-2"></i>View</a>
+                                                            <a class="dropdown-item" href="edit-rider.html"><i class="fas fa-edit mr-2"></i>Edit</a>
+                                                            <a class="dropdown-item" href="rider-parcels.html"><i class="fas fa-box mr-2"></i>Parcels</a>
+                                                            <a class="dropdown-item" href="track-rider.html"><i class="fas fa-map-marker-alt mr-2"></i>Track</a>
+                                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-pause mr-2"></i>Suspend</a>
+                                                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-trash mr-2"></i>Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#R002</td>
+                                                <td><img src="../../../assets/images/users/2.jpg" width="40" height="40" class="rounded-circle"></td>
+                                                <td>Rahim Ali</td>
+                                                <td>+880 1812345678</td>
+                                                <td>Bike - Yamaha FZ</td>
+                                                <td>Chittagong Port</td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>8</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="view-rider.html"><i class="fas fa-eye mr-2"></i>View</a>
+                                                            <a class="dropdown-item" href="edit-rider.html"><i class="fas fa-edit mr-2"></i>Edit</a>
+                                                            <a class="dropdown-item" href="rider-parcels.html"><i class="fas fa-box mr-2"></i>Parcels</a>
+                                                            <a class="dropdown-item" href="track-rider.html"><i class="fas fa-map-marker-alt mr-2"></i>Track</a>
+                                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-pause mr-2"></i>Suspend</a>
+                                                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-trash mr-2"></i>Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#R003</td>
+                                                <td><img src="../../../assets/images/users/3.jpg" width="40" height="40" class="rounded-circle"></td>
+                                                <td>Karim Hossain</td>
+                                                <td>+880 1912345678</td>
+                                                <td>Bike - Suzuki Gixxer</td>
+                                                <td>Sylhet City</td>
+                                                <td><span class="badge badge-warning">Off Duty</span></td>
+                                                <td>0</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="view-rider.html"><i class="fas fa-eye mr-2"></i>View</a>
+                                                            <a class="dropdown-item" href="edit-rider.html"><i class="fas fa-edit mr-2"></i>Edit</a>
+                                                            <a class="dropdown-item" href="rider-parcels.html"><i class="fas fa-box mr-2"></i>Parcels</a>
+                                                            <a class="dropdown-item" href="track-rider.html"><i class="fas fa-map-marker-alt mr-2"></i>Track</a>
+                                                            <a class="dropdown-item text-success" href="#"><i class="fas fa-play mr-2"></i>Activate</a>
+                                                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-trash mr-2"></i>Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#R004</td>
+                                                <td><img src="../../../assets/images/users/4.jpg" width="40" height="40" class="rounded-circle"></td>
+                                                <td>Momin Rahman</td>
+                                                <td>+880 1612345678</td>
+                                                <td>Bike - Bajaj Pulsar</td>
+                                                <td>Rajshahi City</td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>15</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="view-rider.html"><i class="fas fa-eye mr-2"></i>View</a>
+                                                            <a class="dropdown-item" href="edit-rider.html"><i class="fas fa-edit mr-2"></i>Edit</a>
+                                                            <a class="dropdown-item" href="rider-parcels.html"><i class="fas fa-box mr-2"></i>Parcels</a>
+                                                            <a class="dropdown-item" href="track-rider.html"><i class="fas fa-map-marker-alt mr-2"></i>Track</a>
+                                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-pause mr-2"></i>Suspend</a>
+                                                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-trash mr-2"></i>Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#R005</td>
+                                                <td><img src="../../../assets/images/users/5.jpg" width="40" height="40" class="rounded-circle"></td>
+                                                <td>Jahangir Alam</td>
+                                                <td>+880 1512345678</td>
+                                                <td>Bike - TVS Apache</td>
+                                                <td>Khulna City</td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>9</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="view-rider.html"><i class="fas fa-eye mr-2"></i>View</a>
+                                                            <a class="dropdown-item" href="edit-rider.html"><i class="fas fa-edit mr-2"></i>Edit</a>
+                                                            <a class="dropdown-item" href="rider-parcels.html"><i class="fas fa-box mr-2"></i>Parcels</a>
+                                                            <a class="dropdown-item" href="track-rider.html"><i class="fas fa-map-marker-alt mr-2"></i>Track</a>
+                                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-pause mr-2"></i>Suspend</a>
+                                                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-trash mr-2"></i>Delete</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize DataTable
+            $('#ridersTable').DataTable({
+                "pageLength": 25,
+                "order": [[0, "asc"]], // Sort by ID ascending
+                "responsive": true,
+                "language": {
+                    "search": "Search:",
+                    "lengthMenu": "Show _MENU_ entries per page",
+                    "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                    "infoEmpty": "Showing 0 to 0 of 0 entries",
+                    "infoFiltered": "(filtered from _MAX_ total entries)"
+                }
+            });
+
+            // Search functionality
+            $('#searchInput').on('keyup', function() {
+                $('#ridersTable').DataTable().search(this.value).draw();
+            });
+        });
+    </script>
+</body>
+</html>

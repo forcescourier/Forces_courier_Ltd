@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login - Courier Dashboard</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <link href="../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8 col-md-10">
+                        <div class="auth-form">
+                            <div class="text-center mb-4">
+                                <a href="../../index.html" class="brand-logo">
+                                    <img src="../../assets/images/logo-text.png" alt="Courier Dashboard" height="50">
+                                </a>
+                                <h4 class="text-black font-w600 mt-4">Welcome Back!</h4>
+                                <p class="text-muted">Sign in to your account to continue</p>
+                            </div>
+
+                            <div class="card">
+                                <div class="card-body">
+                                    <form id="loginForm">
+                                        <div class="form-group">
+                                            <label class="text-label">Email Address</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="flaticon-381-email"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <label class="text-label">Password</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text">
+                                                        <i class="flaticon-381-lock"></i>
+                                                    </span>
+                                                </div>
+                                                <input type="password" class="form-control" id="password" placeholder="Enter your password" required>
+                                                <div class="input-group-append">
+                                                    <span class="input-group-text" id="togglePassword" style="cursor: pointer;">
+                                                        <i class="flaticon-381-eye"></i>
+                                                    </span>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="custom-control custom-checkbox">
+                                                        <input type="checkbox" class="custom-control-input" id="rememberMe">
+                                                        <label class="custom-control-label" for="rememberMe">Remember me</label>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6 text-right">
+                                                    <a href="#" class="text-primary">Forgot password?</a>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-primary btn-block" id="loginBtn">
+                                                <i class="flaticon-381-login"></i> Sign In
+                                            </button>
+                                        </div>
+
+                                        <div class="form-group text-center">
+                                            <p class="text-muted">Or sign in with</p>
+                                            <div class="row">
+                                                <div class="col-4">
+                                                    <button type="button" class="btn btn-outline-primary btn-block">
+                                                        <i class="flaticon-381-google"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="col-4">
+                                                    <button type="button" class="btn btn-outline-info btn-block">
+                                                        <i class="flaticon-381-facebook"></i>
+                                                    </button>
+                                                </div>
+                                                <div class="col-4">
+                                                    <button type="button" class="btn btn-outline-dark btn-block">
+                                                        <i class="flaticon-381-github"></i>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div class="text-center mt-4">
+                                <p class="text-muted">Don't have an account? <a href="#" class="text-primary">Sign up</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Demo Accounts -->
+                <div class="row justify-content-center mt-5">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h5 class="card-title">Demo Accounts</h5>
+                                <p class="text-muted mb-0">Use these accounts to test the system</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="demo-account">
+                                            <h6 class="text-primary">Administrator</h6>
+                                            <p class="mb-1"><strong>Email:</strong> admin@courier.com</p>
+                                            <p class="mb-1"><strong>Password:</strong> admin123</p>
+                                            <button type="button" class="btn btn-sm btn-outline-primary" onclick="fillDemoAccount('admin@courier.com', 'admin123')">
+                                                Use This Account
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="demo-account">
+                                            <h6 class="text-success">Manager</h6>
+                                            <p class="mb-1"><strong>Email:</strong> manager@courier.com</p>
+                                            <p class="mb-1"><strong>Password:</strong> manager123</p>
+                                            <button type="button" class="btn btn-sm btn-outline-success" onclick="fillDemoAccount('manager@courier.com', 'manager123')">
+                                                Use This Account
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="demo-account">
+                                            <h6 class="text-info">Operator</h6>
+                                            <p class="mb-1"><strong>Email:</strong> operator@courier.com</p>
+                                            <p class="mb-1"><strong>Password:</strong> operator123</p>
+                                            <button type="button" class="btn btn-sm btn-outline-info" onclick="fillDemoAccount('operator@courier.com', 'operator123')">
+                                                Use This Account
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Information -->
+                <div class="row justify-content-center mt-4">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="system-info">
+                                            <i class="flaticon-381-server text-primary" style="font-size: 2rem;"></i>
+                                            <h6 class="mt-2">System Status</h6>
+                                            <span class="badge badge-success">Online</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="system-info">
+                                            <i class="flaticon-381-users text-success" style="font-size: 2rem;"></i>
+                                            <h6 class="mt-2">Active Users</h6>
+                                            <span class="badge badge-info">24</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="system-info">
+                                            <i class="flaticon-381-box text-warning" style="font-size: 2rem;"></i>
+                                            <h6 class="mt-2">Total Parcels</h6>
+                                            <span class="badge badge-warning">1,234</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="system-info">
+                                            <i class="flaticon-381-chart text-danger" style="font-size: 2rem;"></i>
+                                            <h6 class="mt-2">Success Rate</h6>
+                                            <span class="badge badge-danger">98.5%</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../vendor/global/global.min.js"></script>
+    <script src="../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../assets/js/custom.min.js"></script>
+    
+    <script>
+        // Toggle password visibility
+        document.getElementById('togglePassword').addEventListener('click', function() {
+            const passwordInput = document.getElementById('password');
+            const icon = this.querySelector('i');
+            
+            if (passwordInput.type === 'password') {
+                passwordInput.type = 'text';
+                icon.className = 'flaticon-381-eye-off';
+            } else {
+                passwordInput.type = 'password';
+                icon.className = 'flaticon-381-eye';
+            }
+        });
+
+        // Fill demo account
+        function fillDemoAccount(email, password) {
+            document.getElementById('email').value = email;
+            document.getElementById('password').value = password;
+            document.getElementById('rememberMe').checked = true;
+        }
+
+        // Form submission
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+            const rememberMe = document.getElementById('rememberMe').checked;
+            
+            // Show loading state
+            const loginBtn = document.getElementById('loginBtn');
+            const originalText = loginBtn.innerHTML;
+            loginBtn.innerHTML = '<i class="flaticon-381-loading"></i> Signing in...';
+            loginBtn.disabled = true;
+            
+            // Simulate login process
+            setTimeout(() => {
+                // Validate credentials (demo validation)
+                if (email === 'admin@courier.com' && password === 'admin123') {
+                    // Success - redirect to dashboard
+                    showSuccessMessage('Login successful! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                } else if (email === 'manager@courier.com' && password === 'manager123') {
+                    // Success - redirect to dashboard
+                    showSuccessMessage('Login successful! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                } else if (email === 'operator@courier.com' && password === 'operator123') {
+                    // Success - redirect to dashboard
+                    showSuccessMessage('Login successful! Redirecting...');
+                    setTimeout(() => {
+                        window.location.href = 'index.html';
+                    }, 1500);
+                } else {
+                    // Error
+                    showErrorMessage('Invalid email or password. Please try again.');
+                    loginBtn.innerHTML = originalText;
+                    loginBtn.disabled = false;
+                }
+            }, 2000);
+        });
+
+        // Success message
+        function showSuccessMessage(message) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-success alert-dismissible fade show';
+            alertDiv.innerHTML = `
+                <i class="flaticon-381-check"></i> ${message}
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+            `;
+            
+            const form = document.getElementById('loginForm');
+            form.parentNode.insertBefore(alertDiv, form);
+        }
+
+        // Error message
+        function showErrorMessage(message) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-danger alert-dismissible fade show';
+            alertDiv.innerHTML = `
+                <i class="flaticon-381-close"></i> ${message}
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+            `;
+            
+            const form = document.getElementById('loginForm');
+            form.parentNode.insertBefore(alertDiv, form);
+        }
+
+        // Auto-fill demo account on page load (for demo purposes)
+        document.addEventListener('DOMContentLoaded', function() {
+            // Auto-fill admin account for demo
+            setTimeout(() => {
+                fillDemoAccount('admin@courier.com', 'admin123');
+            }, 1000);
+        });
+
+        // Social login handlers
+        document.querySelectorAll('.btn-outline-primary, .btn-outline-info, .btn-outline-dark').forEach(button => {
+            button.addEventListener('click', function() {
+                showInfoMessage('Social login integration coming soon!');
+            });
+        });
+
+        // Info message
+        function showInfoMessage(message) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-info alert-dismissible fade show';
+            alertDiv.innerHTML = `
+                <i class="flaticon-381-info"></i> ${message}
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+            `;
+            
+            const form = document.getElementById('loginForm');
+            form.parentNode.insertBefore(alertDiv, form);
+        }
+
+        // Forgot password handler
+        document.querySelector('a[href="#"]').addEventListener('click', function(e) {
+            e.preventDefault();
+            showInfoMessage('Password reset functionality coming soon!');
+        });
+
+        // Sign up handler
+        document.querySelectorAll('a[href="#"]').forEach(link => {
+            if (link.textContent === 'Sign up') {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    showInfoMessage('User registration functionality coming soon!');
+                });
+            }
+        });
+    </script>
+
+    <style>
+        .auth-form {
+            padding: 2rem 0;
+        }
+        
+        .demo-account {
+            padding: 1rem;
+            border: 1px solid #e3e6f0;
+            border-radius: 0.35rem;
+            text-align: center;
+        }
+        
+        .system-info {
+            padding: 1rem;
+        }
+        
+        .system-info i {
+            margin-bottom: 0.5rem;
+        }
+        
+        .system-info h6 {
+            margin-bottom: 0.5rem;
+            font-size: 0.875rem;
+        }
+        
+        .footer {
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            background: #fff;
+            border-top: 1px solid #e3e6f0;
+            padding: 1rem 0;
+            text-align: center;
+        }
+        
+        .content-body {
+            padding-bottom: 80px;
+        }
+        
+        @media (max-width: 768px) {
+            .auth-form {
+                padding: 1rem;
+            }
+            
+            .demo-account {
+                margin-bottom: 1rem;
+            }
+        }
+    </style>
+</body>
+</html>

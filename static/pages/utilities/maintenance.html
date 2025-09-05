@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Maintenance - Courier Dashboard</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <link href="../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Maintenance</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i><span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i><span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../index.html" class="ai-icon"><i class="flaticon-381-networking"></i><span class="nav-text">Dashboard</span></a></li>
+                    <li><a href="../management/parcels/parcels.html" class="ai-icon"><i class="flaticon-381-box"></i><span class="nav-text">Parcels</span></a></li>
+                    <li><a href="../management/merchants/merchants.html" class="ai-icon"><i class="flaticon-381-user-7"></i><span class="nav-text">Merchants</span></a></li>
+                    <li><a href="../management/riders/riders.html" class="ai-icon"><i class="flaticon-381-user-2"></i><span class="nav-text">Riders</span></a></li>
+                    <li><a href="../management/services/services.html" class="ai-icon"><i class="flaticon-381-list"></i><span class="nav-text">Services</span></a></li>
+                    <li><a href="../management/areas/areas.html" class="ai-icon"><i class="flaticon-381-location"></i><span class="nav-text">Areas</span></a></li>
+                    <li><a href="../management/payments/payments.html" class="ai-icon"><i class="flaticon-381-price-tag"></i><span class="nav-text">Payments</span></a></li>
+                    <li><a href="../management/invoices/invoices.html" class="ai-icon"><i class="flaticon-381-file"></i><span class="nav-text">Invoices</span></a></li>
+                    <li><a href="../reports/reports.html" class="ai-icon"><i class="flaticon-381-chart"></i><span class="nav-text">Reports</span></a></li>
+                    <li><a href="../../settings.html" class="ai-icon"><i class="flaticon-381-settings"></i><span class="nav-text">Settings</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>System Maintenance</h4>
+                            <span>We're improving your experience</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Maintenance</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Maintenance Status -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-10">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div class="maintenance-icon mb-4">
+                                    <i class="flaticon-381-settings text-warning" style="font-size: 8rem;"></i>
+                                </div>
+                                <h1 class="display-4 text-warning mb-3">Under Maintenance</h1>
+                                <h3 class="mb-3">We're Making Things Better</h3>
+                                <p class="text-muted mb-4">Our team is performing scheduled maintenance to improve system performance, security, and reliability. We apologize for any inconvenience.</p>
+                                
+                                <!-- Maintenance Timer -->
+                                <div class="maintenance-timer mb-4">
+                                    <div class="row text-center">
+                                        <div class="col-md-3">
+                                            <div class="timer-item">
+                                                <div class="timer-number" id="maintenanceHours">02</div>
+                                                <div class="timer-label">Hours</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="timer-item">
+                                                <div class="timer-number" id="maintenanceMinutes">45</div>
+                                                <div class="timer-label">Minutes</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="timer-item">
+                                                <div class="timer-number" id="maintenanceSeconds">30</div>
+                                                <div class="timer-label">Seconds</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="timer-item">
+                                                <div class="timer-number" id="maintenanceProgress">65</div>
+                                                <div class="timer-label">% Complete</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="maintenance-info mb-4">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="info-item">
+                                                <i class="flaticon-381-calendar text-success"></i>
+                                                <h6 class="mt-2">Started</h6>
+                                                <p class="text-muted">2024-06-15 14:00</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="info-item">
+                                                <i class="flaticon-381-clock text-info"></i>
+                                                <h6 class="mt-2">Estimated</h6>
+                                                <p class="text-muted">2 hours 45 min</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="info-item">
+                                                <i class="flaticon-381-users text-primary"></i>
+                                                <h6 class="mt-2">Team</h6>
+                                                <p class="text-muted">5 Engineers</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="maintenance-actions mb-4">
+                                    <button type="button" class="btn btn-warning btn-lg mr-3" onclick="checkStatus()">
+                                        <i class="flaticon-381-refresh"></i> Check Status
+                                    </button>
+                                    <button type="button" class="btn btn-outline-warning btn-lg" onclick="getNotifications()">
+                                        <i class="flaticon-381-bell"></i> Get Updates
+                                    </button>
+                                </div>
+
+                                <div class="maintenance-help">
+                                    <div class="alert alert-info">
+                                        <h6><i class="flaticon-381-info"></i> What's happening?</h6>
+                                        <p class="mb-0">We're upgrading our infrastructure, optimizing databases, and implementing new security features to provide you with a better experience.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Maintenance Details -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Maintenance Details</h4>
+                                <p class="text-muted mb-0">What we're working on</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="maintenance-tasks">
+                                    <div class="task-item mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="task-status mr-3">
+                                                <i class="flaticon-381-check text-success"></i>
+                                            </div>
+                                            <div class="task-content flex-grow-1">
+                                                <h6 class="mb-1">Database Optimization</h6>
+                                                <p class="text-muted mb-0">Optimizing database queries and indexes for improved performance</p>
+                                            </div>
+                                            <div class="task-progress">
+                                                <span class="badge badge-success">Completed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="task-item mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="task-status mr-3">
+                                                <i class="flaticon-381-check text-success"></i>
+                                            </div>
+                                            <div class="task-content flex-grow-1">
+                                                <h6 class="mb-1">Security Updates</h6>
+                                                <p class="text-muted mb-0">Installing latest security patches and updates</p>
+                                            </div>
+                                            <div class="task-progress">
+                                                <span class="badge badge-success">Completed</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="task-item mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="task-status mr-3">
+                                                <i class="flaticon-381-loading text-warning"></i>
+                                            </div>
+                                            <div class="task-content flex-grow-1">
+                                                <h6 class="mb-1">Cache Clearing</h6>
+                                                <p class="text-muted mb-0">Clearing system cache and temporary files</p>
+                                            </div>
+                                            <div class="task-progress">
+                                                <span class="badge badge-warning">In Progress</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="task-item mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="task-status mr-3">
+                                                <i class="flaticon-381-clock text-muted"></i>
+                                            </div>
+                                            <div class="task-content flex-grow-1">
+                                                <h6 class="mb-1">System Restart</h6>
+                                                <p class="text-muted mb-0">Restarting services with new configurations</p>
+                                            </div>
+                                            <div class="task-progress">
+                                                <span class="badge badge-secondary">Pending</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="task-item mb-3">
+                                        <div class="d-flex align-items-center">
+                                            <div class="task-status mr-3">
+                                                <i class="flaticon-381-clock text-muted"></i>
+                                            </div>
+                                            <div class="task-content flex-grow-1">
+                                                <h6 class="mb-1">Final Testing</h6>
+                                                <p class="text-muted mb-0">Comprehensive testing of all systems and features</p>
+                                            </div>
+                                            <div class="task-progress">
+                                                <span class="badge badge-secondary">Pending</span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- System Status -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">System Status</h4>
+                                <p class="text-muted mb-0">Current system health during maintenance</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="status-item text-center mb-3">
+                                            <div class="status-icon mb-2">
+                                                <i class="flaticon-381-server text-warning" style="font-size: 2rem;"></i>
+                                            </div>
+                                            <h6 class="text-warning">Main Server</h6>
+                                            <span class="badge badge-warning">Maintenance</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="status-item text-center mb-3">
+                                            <div class="status-icon mb-2">
+                                                <i class="flaticon-381-database text-warning" style="font-size: 2rem;"></i>
+                                            </div>
+                                            <h6 class="text-warning">Database</h6>
+                                            <span class="badge badge-warning">Maintenance</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="status-item text-center mb-3">
+                                            <div class="status-icon mb-2">
+                                                <i class="flaticon-381-cloud text-success" style="font-size: 2rem;"></i>
+                                            </div>
+                                            <h6 class="text-success">CDN</h6>
+                                            <span class="badge badge-success">Online</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="status-item text-center mb-3">
+                                            <div class="status-icon mb-2">
+                                                <i class="flaticon-381-email text-danger" style="font-size: 2rem;"></i>
+                                            </div>
+                                            <h6 class="text-danger">Email Service</h6>
+                                            <span class="badge badge-danger">Offline</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Tracking -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Maintenance Progress</h4>
+                                <p class="text-muted mb-0">Track our progress in real-time</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="progress-section">
+                                    <div class="progress-item mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Database Optimization</span>
+                                            <span>100%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" style="width: 100%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="progress-item mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Security Updates</span>
+                                            <span>100%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" style="width: 100%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="progress-item mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Cache Clearing</span>
+                                            <span>75%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" style="width: 75%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="progress-item mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>System Restart</span>
+                                            <span>0%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-secondary" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="progress-item mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Final Testing</span>
+                                            <span>0%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-secondary" style="width: 0%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alternative Access -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Alternative Access</h4>
+                                <p class="text-muted mb-0">What you can do during maintenance</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="alternative-item mb-3">
+                                            <h6 class="text-primary">
+                                                <i class="flaticon-381-mobile"></i> Mobile App
+                                            </h6>
+                                            <p class="text-muted small">Our mobile app may still be accessible during maintenance. Try accessing it if you need urgent information.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="alternative-item mb-3">
+                                            <h6 class="text-success">
+                                                <i class="flaticon-381-phone"></i> Phone Support
+                                            </h6>
+                                            <p class="text-muted small">Our support team is available via phone for urgent matters during maintenance windows.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="alternative-item mb-3">
+                                            <h6 class="text-info">
+                                                <i class="flaticon-381-email"></i> Email Support
+                                            </h6>
+                                            <p class="text-muted small">Send us an email for non-urgent inquiries. We'll respond as soon as systems are back online.</p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="alternative-item mb-3">
+                                            <h6 class="text-warning">
+                                                <i class="flaticon-381-status"></i> Status Page
+                                            </h6>
+                                            <p class="text-muted small">Check our status page for real-time updates on maintenance progress and system health.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="mb-3">Need assistance during maintenance?</h5>
+                                <p class="text-muted mb-3">Our support team is here to help with any urgent matters</p>
+                                <div class="contact-options">
+                                    <button type="button" class="btn btn-primary mr-2" onclick="callSupport()">
+                                        <i class="flaticon-381-phone"></i> Call Support
+                                    </button>
+                                    <button type="button" class="btn btn-success mr-2" onclick="emailSupport()">
+                                        <i class="flaticon-381-email"></i> Email Support
+                                    </button>
+                                    <button type="button" class="btn btn-info" onclick="checkStatusPage()">
+                                        <i class="flaticon-381-status"></i> Status Page
+                                    </button>
+                                </div>
+                                <div class="contact-info mt-3">
+                                    <p class="text-muted mb-1"><strong>Support Hotline:</strong> +880 1234-567890</p>
+                                    <p class="text-muted mb-1"><strong>Email:</strong> support@courier.com</p>
+                                    <p class="text-muted mb-0"><strong>Emergency:</strong> Available 24/7 during maintenance</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../vendor/global/global.min.js"></script>
+    <script src="../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../assets/js/custom.min.js"></script>
+    <script src="../../assets/js/deznav-init.js"></script>
+    
+    <script>
+        // Maintenance countdown timer
+        let maintenanceSeconds = 30;
+        let maintenanceMinutes = 45;
+        let maintenanceHours = 2;
+        let progress = 65;
+
+        // Update maintenance timer every second
+        const maintenanceTimer = setInterval(function() {
+            if (maintenanceSeconds > 0) {
+                maintenanceSeconds--;
+            } else {
+                maintenanceSeconds = 59;
+                if (maintenanceMinutes > 0) {
+                    maintenanceMinutes--;
+                } else {
+                    maintenanceMinutes = 59;
+                    if (maintenanceHours > 0) {
+                        maintenanceHours--;
+                    } else {
+                        // Maintenance completed
+                        clearInterval(maintenanceTimer);
+                        showCompletionMessage();
+                        return;
+                    }
+                }
+            }
+
+            // Update display
+            document.getElementById('maintenanceHours').innerHTML = maintenanceHours.toString().padStart(2, '0');
+            document.getElementById('maintenanceMinutes').innerHTML = maintenanceMinutes.toString().padStart(2, '0');
+            document.getElementById('maintenanceSeconds').innerHTML = maintenanceSeconds.toString().padStart(2, '0');
+        }, 1000);
+
+        // Update progress every 30 seconds
+        const progressTimer = setInterval(function() {
+            if (progress < 100) {
+                progress += Math.floor(Math.random() * 5) + 1; // Random progress increment
+                if (progress > 100) progress = 100;
+                
+                document.getElementById('maintenanceProgress').innerHTML = progress;
+                
+                // Update progress bars
+                updateProgressBars();
+            }
+        }, 30000);
+
+        // Update progress bars
+        function updateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach((bar, index) => {
+                if (index === 2) { // Cache Clearing
+                    if (progress >= 70) {
+                        bar.style.width = '100%';
+                        bar.className = 'progress-bar bg-success';
+                        updateTaskStatus(2, 'completed');
+                    } else if (progress >= 50) {
+                        bar.style.width = '75%';
+                    }
+                } else if (index === 3) { // System Restart
+                    if (progress >= 80) {
+                        bar.style.width = '100%';
+                        bar.className = 'progress-bar bg-success';
+                        updateTaskStatus(3, 'completed');
+                    } else if (progress >= 70) {
+                        bar.style.width = '50%';
+                        bar.className = 'progress-bar bg-warning';
+                        updateTaskStatus(3, 'in-progress');
+                    }
+                } else if (index === 4) { // Final Testing
+                    if (progress >= 90) {
+                        bar.style.width = '100%';
+                        bar.className = 'progress-bar bg-success';
+                        updateTaskStatus(4, 'completed');
+                    } else if (progress >= 80) {
+                        bar.style.width = '50%';
+                        bar.className = 'progress-bar bg-warning';
+                        updateTaskStatus(4, 'in-progress');
+                    }
+                }
+            });
+        }
+
+        // Update task status
+        function updateTaskStatus(taskIndex, status) {
+            const taskItems = document.querySelectorAll('.task-item');
+            const taskStatus = taskItems[taskIndex].querySelector('.task-status i');
+            const taskProgress = taskItems[taskIndex].querySelector('.task-progress .badge');
+            
+            if (status === 'completed') {
+                taskStatus.className = 'flaticon-381-check text-success';
+                taskProgress.className = 'badge badge-success';
+                taskProgress.textContent = 'Completed';
+            } else if (status === 'in-progress') {
+                taskStatus.className = 'flaticon-381-loading text-warning';
+                taskProgress.className = 'badge badge-warning';
+                taskProgress.textContent = 'In Progress';
+            }
+        }
+
+        // Check status function
+        function checkStatus() {
+            const checkBtn = document.querySelector('.btn-warning');
+            const originalText = checkBtn.innerHTML;
+            checkBtn.innerHTML = '<i class="flaticon-381-loading"></i> Checking...';
+            checkBtn.disabled = true;
+            
+            setTimeout(() => {
+                showStatusUpdate();
+                checkBtn.innerHTML = originalText;
+                checkBtn.disabled = false;
+            }, 2000);
+        }
+
+        // Get notifications function
+        function getNotifications() {
+            alert('Notifications enabled! You\'ll receive updates via email and SMS when maintenance is complete.');
+        }
+
+        // Support functions
+        function callSupport() {
+            alert('Calling support...\n\nPhone: +880 1234-567890\n\nOur team will assist you immediately.');
+        }
+
+        function emailSupport() {
+            alert('Opening email client...\n\nEmail: support@courier.com\nSubject: Maintenance Support Request');
+        }
+
+        function checkStatusPage() {
+            alert('Opening status page...\n\nThis would redirect to our real-time status monitoring page.');
+        }
+
+        // Show status update
+        function showStatusUpdate() {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-info alert-dismissible fade show';
+            alertDiv.innerHTML = `
+                <i class="flaticon-381-info"></i> Status Update: Maintenance is progressing well. Current progress: ${progress}%
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+            `;
+            
+            const cardBody = document.querySelector('.card-body');
+            cardBody.insertBefore(alertDiv, cardBody.firstChild);
+        }
+
+        // Show completion message
+        function showCompletionMessage() {
+            const completionDiv = document.createElement('div');
+            completionDiv.className = 'alert alert-success text-center';
+            completionDiv.innerHTML = `
+                <h4><i class="flaticon-381-check"></i> Maintenance Complete!</h4>
+                <p class="mb-0">All systems are back online. You can now access the dashboard normally.</p>
+                <a href="../../index.html" class="btn btn-success mt-3">Go to Dashboard</a>
+            `;
+            
+            const contentBody = document.querySelector('.content-body');
+            contentBody.insertBefore(completionDiv, contentBody.firstChild);
+        }
+
+        // Auto-refresh status every 5 minutes
+        setTimeout(() => {
+            const autoRefreshDiv = document.createElement('div');
+            autoRefreshDiv.className = 'alert alert-info text-center';
+            autoRefreshDiv.innerHTML = `
+                <i class="flaticon-381-info"></i> 
+                <strong>Auto-refresh enabled</strong> - This page will automatically refresh every 5 minutes to show the latest status.
+            `;
+            
+            const contentBody = document.querySelector('.content-body');
+            contentBody.insertBefore(autoRefreshDiv, contentBody.firstChild);
+        }, 300000); // 5 minutes
+
+        // Maintenance tracking (demo)
+        console.log('Maintenance started at:', new Date().toISOString());
+        console.log('Estimated duration: 2 hours 45 minutes');
+        console.log('Current progress:', progress + '%');
+    </script>
+
+    <style>
+        .maintenance-icon {
+            animation: rotate 4s linear infinite;
+        }
+        
+        @keyframes rotate {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        .timer-item {
+            padding: 1rem;
+        }
+        
+        .timer-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #ffc107;
+            line-height: 1;
+        }
+        
+        .timer-label {
+            font-size: 0.875rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .info-item {
+            padding: 1rem;
+        }
+        
+        .info-item i {
+            margin-bottom: 0.5rem;
+        }
+        
+        .task-item {
+            padding: 1rem;
+            border: 1px solid #e3e6f0;
+            border-radius: 0.35rem;
+            margin-bottom: 1rem;
+        }
+        
+        .task-status i {
+            font-size: 1.5rem;
+        }
+        
+        .status-item {
+            padding: 1rem;
+        }
+        
+        .status-icon {
+            margin-bottom: 0.5rem;
+        }
+        
+        .alternative-item {
+            padding: 1rem;
+            border: 1px solid #e3e6f0;
+            border-radius: 0.35rem;
+            height: 100%;
+        }
+        
+        .contact-options .btn {
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress {
+            height: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .maintenance-actions .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .contact-options .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+            
+            .timer-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</body>
+</html>

@@ -1,0 +1,342 @@
+/* Form Components CSS - Courier Management System */
+/* Enhanced form styling following the project theme specifications */
+
+/* Enhanced Form Controls */
+.form-control-enhanced {
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    padding: 0.5rem 0.75rem;
+    font-size: 0.875rem;
+    background: #ffffff;
+    border: 2px solid #e9ecef;
+    color: #495057;
+    height: 38px;
+    width: 100%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    font-weight: 500;
+    display: block;
+    line-height: 1.5;
+}
+
+.form-control-enhanced:focus {
+    background: #ffffff;
+    border-color: var(--accent-yellow-dark);
+    box-shadow: 0 0 0 0.2rem rgba(255, 193, 7, 0.25), 0 4px 8px rgba(0,0,0,0.15);
+    color: #495057;
+    outline: none;
+    transform: translateY(-1px);
+}
+
+.form-control-enhanced::placeholder {
+    color: #6c757d;
+    font-style: normal;
+    opacity: 0.8;
+    font-weight: 400;
+}
+
+/* Select dropdown specific styling */
+select.form-control-enhanced {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%236b7280' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='m6 8 4 4 4-4'/%3e%3c/svg%3e");
+    background-position: right 0.5rem center;
+    background-repeat: no-repeat;
+    background-size: 1.5em 1.5em;
+    padding-right: 2.5rem;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select.form-control-enhanced option {
+    background: #ffffff;
+    color: #495057;
+    padding: 0.5rem;
+    font-weight: 500;
+    border: none;
+    font-size: 0.875rem;
+}
+
+/* Filter Form Styling */
+.filter-form {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(0, 122, 100, 0.2);
+    border-radius: 1rem;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 8px 32px rgba(0, 122, 100, 0.1);
+}
+
+.filter-section {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 255, 254, 0.9) 100%);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 1.25rem;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 12px 40px rgba(0, 122, 100, 0.15), 0 4px 16px rgba(255, 215, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+}
+
+.filter-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 3px;
+    background: var(--gradient-combined);
+    border-radius: 1.25rem 1.25rem 0 0;
+}
+
+/* Form Group Enhancements */
+.form-group-enhanced {
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.form-group-enhanced label {
+    font-weight: 600;
+    color: var(--primary-dark);
+    margin-bottom: 0.5rem;
+    font-size: 0.875rem;
+    letter-spacing: 0.3px;
+}
+
+.form-group-enhanced .form-control-enhanced {
+    margin-top: 0.25rem;
+}
+
+/* Input Group Styling */
+.input-group-enhanced .input-group-text {
+    background: var(--gradient-primary);
+    color: white;
+    border: 2px solid var(--primary-color);
+    border-radius: 0.5rem 0 0 0.5rem;
+    font-weight: 500;
+    padding: 0.5rem 0.75rem;
+}
+
+.input-group-enhanced .form-control-enhanced {
+    border-radius: 0 0.5rem 0.5rem 0;
+    border-left: none;
+}
+
+.input-group-enhanced .form-control-enhanced:focus {
+    border-color: var(--accent-yellow-dark);
+    border-left: 2px solid var(--accent-yellow-dark);
+}
+
+/* Button Styling */
+.btn-enhanced {
+    background: var(--gradient-primary);
+    border: 2px solid var(--primary-color);
+    color: #ffffff;
+    height: 40px;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    cursor: pointer;
+    font-size: 0.875rem;
+}
+
+.btn-enhanced:hover {
+    background: var(--gradient-accent);
+    border-color: var(--accent-yellow-dark);
+    color: #333;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 122, 100, 0.3);
+}
+
+.btn-enhanced:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 6px rgba(0, 122, 100, 0.2);
+}
+
+.btn-enhanced:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25);
+    outline: none;
+}
+
+/* Button Variants */
+.btn-outline-enhanced {
+    background: transparent;
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    height: 40px;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    padding: 0.5rem 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.btn-outline-enhanced:hover {
+    background: var(--gradient-primary);
+    border-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 122, 100, 0.3);
+}
+
+/* Success Button */
+.btn-success-enhanced {
+    background: var(--gradient-primary);
+    border: 2px solid var(--primary-color);
+    color: white;
+}
+
+.btn-success-enhanced:hover {
+    background: linear-gradient(135deg, #20c997, #17a2b8);
+    transform: translateY(-2px);
+}
+
+/* Warning Button */
+.btn-warning-enhanced {
+    background: var(--gradient-accent);
+    border: 2px solid var(--accent-yellow-dark);
+    color: #333;
+}
+
+.btn-warning-enhanced:hover {
+    background: var(--gradient-primary);
+    border-color: var(--primary-color);
+    color: white;
+    transform: translateY(-2px);
+}
+
+/* Danger Button */
+.btn-danger-enhanced {
+    background: linear-gradient(135deg, #dc3545, #bd2130);
+    border: 2px solid #dc3545;
+    color: white;
+}
+
+.btn-danger-enhanced:hover {
+    background: linear-gradient(135deg, #bd2130, #a71e2a);
+    transform: translateY(-2px);
+}
+
+/* Checkbox and Radio Styling */
+.custom-checkbox-enhanced .custom-control-input:checked ~ .custom-control-label::before {
+    background: var(--gradient-primary);
+    border-color: var(--primary-color);
+}
+
+.custom-checkbox-enhanced .custom-control-label::before {
+    border: 2px solid var(--primary-color);
+    border-radius: 0.25rem;
+}
+
+.custom-radio-enhanced .custom-control-input:checked ~ .custom-control-label::before {
+    background: var(--gradient-primary);
+    border-color: var(--primary-color);
+}
+
+.custom-radio-enhanced .custom-control-label::before {
+    border: 2px solid var(--primary-color);
+}
+
+/* Switch Styling */
+.custom-switch-enhanced .custom-control-input:checked ~ .custom-control-label::before {
+    background: var(--gradient-primary);
+    border-color: var(--primary-color);
+}
+
+.custom-switch-enhanced .custom-control-label::before {
+    border: 2px solid #e9ecef;
+}
+
+/* File Upload Styling */
+.custom-file-enhanced .custom-file-input:focus ~ .custom-file-label {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25);
+}
+
+.custom-file-enhanced .custom-file-label {
+    border: 2px solid #e9ecef;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    background: white;
+    font-weight: 500;
+    transition: all 0.3s ease;
+}
+
+.custom-file-enhanced .custom-file-label::after {
+    background: var(--gradient-primary);
+    border-left: 2px solid var(--primary-color);
+    color: white;
+    font-weight: 600;
+    border-radius: 0 0.5rem 0.5rem 0;
+}
+
+/* Validation States */
+.is-valid-enhanced {
+    border-color: var(--primary-color) !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23007A64' d='m2.3 6.73.69-.2 1.44-1.44L6.03 3.7 7.17 5l-3.99 4-3.17-1.95z'/%3e%3c/svg%3e");
+}
+
+.is-invalid-enhanced {
+    border-color: #dc3545 !important;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='%23dc3545' viewBox='-2 -2 7 7'%3e%3cpath stroke='%23dc3545' d='m0 0l3 3m0-3L0 3'/%3e%3c/svg%3e");
+}
+
+/* Form Validation Feedback */
+.valid-feedback-enhanced {
+    color: var(--primary-color);
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+.invalid-feedback-enhanced {
+    color: #dc3545;
+    font-weight: 500;
+    font-size: 0.75rem;
+}
+
+/* Floating Labels */
+.form-floating-enhanced {
+    position: relative;
+}
+
+.form-floating-enhanced > .form-control-enhanced {
+    padding: 1rem 0.75rem 0.25rem;
+}
+
+.form-floating-enhanced > label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 1rem 0.75rem;
+    pointer-events: none;
+    border: 2px solid transparent;
+    transform-origin: 0 0;
+    transition: all 0.1s ease-in-out;
+    color: var(--primary-color);
+    font-weight: 500;
+}
+
+/* Responsive Form Adjustments */
+@media (max-width: 768px) {
+    .filter-section {
+        padding: 1rem;
+        border-radius: 0.75rem;
+    }
+    
+    .form-control-enhanced {
+        height: 42px;
+        font-size: 1rem;
+    }
+    
+    .btn-enhanced,
+    .btn-outline-enhanced {
+        height: 44px;
+        font-size: 1rem;
+    }
+}

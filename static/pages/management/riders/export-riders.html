@@ -1,0 +1,506 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Export Riders - Courier Management System</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="../../../assets/css/custom-primary.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                Export Riders
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a>
+                    </li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a>
+                    </li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-2"></i>
+                            <span class="nav-text">Riders</span>
+                        </a>
+                    </li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-location"></i>
+                            <span class="nav-text">Areas</span>
+                        </a>
+                    </li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-price-tag"></i>
+                            <span class="nav-text">Payments</span>
+                        </a>
+                    </li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-file"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a>
+                    </li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a>
+                    </li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Export Riders</h4>
+                            <span>Export rider data in various formats</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../riders/riders.html">Riders</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Export</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Export Options -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Export Configuration</h4>
+                            </div>
+                            <div class="card-body">
+                                <form id="export-form">
+                                    <!-- Export Format -->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">File Format <span class="text-danger">*</span></label>
+                                                <select class="form-control" id="export-format" required>
+                                                    <option value="">Select Format</option>
+                                                    <option value="csv">CSV (.csv)</option>
+                                                    <option value="excel">Excel (.xlsx)</option>
+                                                    <option value="pdf">PDF (.pdf)</option>
+                                                    <option value="json">JSON (.json)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Rider Status</label>
+                                                <select class="form-control" id="rider-status">
+                                                    <option value="all" selected>All Riders</option>
+                                                    <option value="active">Active Only</option>
+                                                    <option value="inactive">Inactive Only</option>
+                                                    <option value="pending">Pending Approval</option>
+                                                    <option value="suspended">Suspended</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Filters -->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Zone</label>
+                                                <select class="form-control" id="zone-filter">
+                                                    <option value="all" selected>All Zones</option>
+                                                    <option value="north">North Zone</option>
+                                                    <option value="south">South Zone</option>
+                                                    <option value="east">East Zone</option>
+                                                    <option value="west">West Zone</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Vehicle Type</label>
+                                                <select class="form-control" id="vehicle-type">
+                                                    <option value="all" selected>All Vehicles</option>
+                                                    <option value="bike">Motorcycle</option>
+                                                    <option value="scooter">Scooter</option>
+                                                    <option value="car">Car</option>
+                                                    <option value="bicycle">Bicycle</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Date Range -->
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Registration Date</label>
+                                                <select class="form-control" id="date-range">
+                                                    <option value="all" selected>All Time</option>
+                                                    <option value="today">Today</option>
+                                                    <option value="last7days">Last 7 Days</option>
+                                                    <option value="last30days">Last 30 Days</option>
+                                                    <option value="this_month">This Month</option>
+                                                    <option value="last_month">Last Month</option>
+                                                    <option value="custom">Custom Range</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Performance Rating</label>
+                                                <select class="form-control" id="rating-filter">
+                                                    <option value="all" selected>All Ratings</option>
+                                                    <option value="5">5 Stars</option>
+                                                    <option value="4">4+ Stars</option>
+                                                    <option value="3">3+ Stars</option>
+                                                    <option value="below3">Below 3 Stars</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Custom Date Range -->
+                                    <div class="row" id="custom-date-range" style="display: none;">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Start Date</label>
+                                                <input type="date" class="form-control" id="start-date">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">End Date</label>
+                                                <input type="date" class="form-control" id="end-date">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Field Selection -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Select Fields to Export</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-id" checked>
+                                                <label class="custom-control-label" for="field-id">Rider ID</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-name" checked>
+                                                <label class="custom-control-label" for="field-name">Full Name</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-phone" checked>
+                                                <label class="custom-control-label" for="field-phone">Phone</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-email" checked>
+                                                <label class="custom-control-label" for="field-email">Email</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-national-id">
+                                                <label class="custom-control-label" for="field-national-id">National ID</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-address">
+                                                <label class="custom-control-label" for="field-address">Address</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-vehicle">
+                                                <label class="custom-control-label" for="field-vehicle">Vehicle Type</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-license">
+                                                <label class="custom-control-label" for="field-license">License Number</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-zone">
+                                                <label class="custom-control-label" for="field-zone">Zone Assignment</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-emergency">
+                                                <label class="custom-control-label" for="field-emergency">Emergency Contact</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-status">
+                                                <label class="custom-control-label" for="field-status">Status</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-rating">
+                                                <label class="custom-control-label" for="field-rating">Rating</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-deliveries">
+                                                <label class="custom-control-label" for="field-deliveries">Total Deliveries</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-earnings">
+                                                <label class="custom-control-label" for="field-earnings">Total Earnings</label>
+                                            </div>
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="field-joined">
+                                                <label class="custom-control-label" for="field-joined">Joined Date</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="mt-3">
+                                        <button type="button" class="btn btn-sm btn-outline-primary" id="select-all">Select All</button>
+                                        <button type="button" class="btn btn-sm btn-outline-secondary" id="deselect-all">Deselect All</button>
+                                    </div>
+
+                                    <!-- Export Button -->
+                                    <div class="row mt-4">
+                                        <div class="col-md-12">
+                                            <div class="text-center">
+                                                <button type="submit" class="btn btn-primary btn-lg">
+                                                    <i class="flaticon-381-download mr-2"></i>Export Riders
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export Progress -->
+                <div class="row" id="export-progress" style="display: none;">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Export Progress</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="progress mb-3">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" id="progress-bar">0%</div>
+                                </div>
+                                <div class="text-center">
+                                    <p id="progress-text">Preparing export...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © Courier Management System 2024</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        // Show/hide custom date range
+        document.getElementById('date-range').addEventListener('change', function() {
+            const customRange = document.getElementById('custom-date-range');
+            if (this.value === 'custom') {
+                customRange.style.display = 'block';
+            } else {
+                customRange.style.display = 'none';
+            }
+        });
+
+        // Select/deselect all fields
+        document.getElementById('select-all').addEventListener('click', function() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][id^="field-"]');
+            checkboxes.forEach(cb => cb.checked = true);
+        });
+
+        document.getElementById('deselect-all').addEventListener('click', function() {
+            const checkboxes = document.querySelectorAll('input[type="checkbox"][id^="field-"]');
+            checkboxes.forEach(cb => cb.checked = false);
+        });
+
+        // Export form submission
+        document.getElementById('export-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Show progress
+            document.getElementById('export-progress').style.display = 'block';
+            
+            // Simulate export progress
+            let progress = 0;
+            const interval = setInterval(() => {
+                progress += 10;
+                const progressBar = document.getElementById('progress-bar');
+                const progressText = document.getElementById('progress-text');
+                
+                progressBar.style.width = progress + '%';
+                progressBar.textContent = progress + '%';
+                
+                if (progress <= 30) {
+                    progressText.textContent = 'Collecting rider data...';
+                } else if (progress <= 60) {
+                    progressText.textContent = 'Processing records...';
+                } else if (progress <= 90) {
+                    progressText.textContent = 'Generating file...';
+                } else {
+                    progressText.textContent = 'Finalizing export...';
+                }
+                
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    progressText.textContent = 'Export completed! Download will start automatically.';
+                    
+                    // Simulate file download
+                    setTimeout(() => {
+                        const format = document.getElementById('export-format').value;
+                        const filename = `riders_export_${new Date().getTime()}.${format}`;
+                        alert(`Export completed! File: ${filename}`);
+                        document.getElementById('export-progress').style.display = 'none';
+                    }, 1000);
+                }
+            }, 500);
+        });
+    </script>
+
+</body>
+</html>

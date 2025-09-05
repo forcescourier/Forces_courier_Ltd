@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Merchant Payments - Courier Dashboard</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Merchant Payments</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i><span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i><span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon"><i class="flaticon-381-networking"></i><span class="nav-text">Dashboard</span></a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon"><i class="flaticon-381-box"></i><span class="nav-text">Parcels</span></a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon"><i class="flaticon-381-user-7"></i><span class="nav-text">Merchants</span></a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon"><i class="flaticon-381-user-2"></i><span class="nav-text">Riders</span></a></li>
+                    <li><a href="../services/services.html" class="ai-icon"><i class="flaticon-381-list"></i><span class="nav-text">Services</span></a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon"><i class="flaticon-381-location"></i><span class="nav-text">Areas</span></a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon"><i class="flaticon-381-price-tag"></i><span class="nav-text">Payments</span></a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon"><i class="flaticon-381-file"></i><span class="nav-text">Invoices</span></a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon"><i class="flaticon-381-chart"></i><span class="nav-text">Reports</span></a></li>
+                    <li><a href="../../../settings.html" class="ai-icon"><i class="flaticon-381-settings"></i><span class="nav-text">Settings</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Merchant Payments</h4>
+                            <span>Payment history for ABC Trading Company</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../merchants/merchants.html">Merchants</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Merchant Payments</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Merchant Info Card -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h5>ABC Trading Company</h5>
+                                        <p class="text-muted mb-2">
+                                            <i class="flaticon-381-user mr-2"></i>Contact: Ahmed Khan<br>
+                                            <i class="flaticon-381-phone-call mr-2"></i>Phone: +880 1712-345678<br>
+                                            <i class="flaticon-381-mail mr-2"></i>Email: ahmed@abctrading.com<br>
+                                            <i class="flaticon-381-location mr-2"></i>Address: Dhaka, Bangladesh
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4 text-right">
+                                        <a href="view-merchant.html" class="btn btn-info btn-sm">
+                                            <i class="flaticon-381-eye"></i> View Merchant
+                                        </a>
+                                        <a href="edit-merchant.html" class="btn btn-warning btn-sm">
+                                            <i class="flaticon-381-edit"></i> Edit Merchant
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Statistics -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary text-primary">
+                                        <i class="flaticon-381-price-tag"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">৳45,680</span></h3>
+                                        <p class="mb-0">Total Revenue</p>
+                                        <small class="text-muted">All time</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success text-success">
+                                        <i class="flaticon-381-check"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">৳42,150</span></h3>
+                                        <p class="mb-0">Paid Amount</p>
+                                        <small class="text-muted">92% paid</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning text-warning">
+                                        <i class="flaticon-381-clock"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">৳3,530</span></h3>
+                                        <p class="mb-0">Pending Amount</p>
+                                        <small class="text-muted">8% pending</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info text-info">
+                                        <i class="flaticon-381-file"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">24</span></h3>
+                                        <p class="mb-0">Total Invoices</p>
+                                        <small class="text-muted">This month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Charts -->
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Payment Methods Distribution</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="payment-methods-chart" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Monthly Payment Trend</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="monthly-trend-chart" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter and Search -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Payment Status</label>
+                                            <select class="form-control">
+                                                <option value="">All Statuses</option>
+                                                <option value="paid">Paid</option>
+                                                <option value="pending">Pending</option>
+                                                <option value="overdue">Overdue</option>
+                                                <option value="failed">Failed</option>
+                                                <option value="refunded">Refunded</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Payment Method</label>
+                                            <select class="form-control">
+                                                <option value="">All Methods</option>
+                                                <option value="bank_transfer">Bank Transfer</option>
+                                                <option value="credit_card">Credit Card</option>
+                                                <option value="debit_card">Debit Card</option>
+                                                <option value="cash">Cash</option>
+                                                <option value="check">Check</option>
+                                                <option value="paypal">PayPal</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Date Range</label>
+                                            <select class="form-control">
+                                                <option value="today">Today</option>
+                                                <option value="yesterday">Yesterday</option>
+                                                <option value="last7days" selected>Last 7 Days</option>
+                                                <option value="last30days">Last 30 Days</option>
+                                                <option value="this_month">This Month</option>
+                                                <option value="last_month">Last Month</option>
+                                                <option value="custom">Custom Range</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Search</label>
+                                            <input type="text" class="form-control" placeholder="Search payments...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-primary">
+                                            <i class="flaticon-381-search"></i> Apply Filters
+                                        </button>
+                                        <button type="button" class="btn btn-light">
+                                            <i class="flaticon-381-refresh"></i> Clear Filters
+                                        </button>
+                                        <button type="button" class="btn btn-success">
+                                            <i class="flaticon-381-download"></i> Export
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payments Table -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Payment History</h4>
+                                <div class="card-tools">
+                                    <span class="badge badge-primary">24 Total Payments</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Payment ID</th>
+                                                <th>Invoice Number</th>
+                                                <th>Amount</th>
+                                                <th>Payment Method</th>
+                                                <th>Status</th>
+                                                <th>Payment Date</th>
+                                                <th>Due Date</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <strong>PAY-2024-001</strong><br>
+                                                    <small class="text-muted">Transaction: TXN123456</small>
+                                                </td>
+                                                <td>
+                                                    <a href="generate-invoice.html">INV-2024-001</a><br>
+                                                    <small class="text-muted">3 parcels</small>
+                                                </td>
+                                                <td><strong>৳2,450</strong></td>
+                                                <td><span class="badge badge-info">Bank Transfer</span></td>
+                                                <td><span class="badge badge-success">Paid</span></td>
+                                                <td>2024-01-15 14:30</td>
+                                                <td>2024-01-20</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-info btn-sm">View</a>
+                                                    <a href="#" class="btn btn-success btn-sm">Download</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>PAY-2024-002</strong><br>
+                                                    <small class="text-muted">Transaction: TXN123457</small>
+                                                </td>
+                                                <td>
+                                                    <a href="generate-invoice.html">INV-2024-002</a><br>
+                                                    <small class="text-muted">2 parcels</small>
+                                                </td>
+                                                <td><strong>৳1,850</strong></td>
+                                                <td><span class="badge badge-primary">Credit Card</span></td>
+                                                <td><span class="badge badge-success">Paid</span></td>
+                                                <td>2024-01-14 16:45</td>
+                                                <td>2024-01-19</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-info btn-sm">View</a>
+                                                    <a href="#" class="btn btn-success btn-sm">Download</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>PAY-2024-003</strong><br>
+                                                    <small class="text-muted">Transaction: TXN123458</small>
+                                                </td>
+                                                <td>
+                                                    <a href="generate-invoice.html">INV-2024-003</a><br>
+                                                    <small class="text-muted">5 parcels</small>
+                                                </td>
+                                                <td><strong>৳3,200</strong></td>
+                                                <td><span class="badge badge-secondary">Cash</span></td>
+                                                <td><span class="badge badge-warning">Pending</span></td>
+                                                <td>-</td>
+                                                <td>2024-01-25</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-info btn-sm">View</a>
+                                                    <button class="btn btn-warning btn-sm">Mark Paid</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>PAY-2024-004</strong><br>
+                                                    <small class="text-muted">Transaction: TXN123459</small>
+                                                </td>
+                                                <td>
+                                                    <a href="generate-invoice.html">INV-2024-004</a><br>
+                                                    <small class="text-muted">1 parcel</small>
+                                                </td>
+                                                <td><strong>৳650</strong></td>
+                                                <td><span class="badge badge-warning">PayPal</span></td>
+                                                <td><span class="badge badge-danger">Failed</span></td>
+                                                <td>-</td>
+                                                <td>2024-01-22</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-info btn-sm">View</a>
+                                                    <button class="btn btn-danger btn-sm">Retry</button>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>PAY-2024-005</strong><br>
+                                                    <small class="text-muted">Transaction: TXN123460</small>
+                                                </td>
+                                                <td>
+                                                    <a href="generate-invoice.html">INV-2024-005</a><br>
+                                                    <small class="text-muted">4 parcels</small>
+                                                </td>
+                                                <td><strong>৳2,800</strong></td>
+                                                <td><span class="badge badge-info">Bank Transfer</span></td>
+                                                <td><span class="badge badge-success">Paid</span></td>
+                                                <td>2024-01-13 11:20</td>
+                                                <td>2024-01-18</td>
+                                                <td>
+                                                    <a href="#" class="btn btn-info btn-sm">View</a>
+                                                    <a href="#" class="btn btn-success btn-sm">Download</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <!-- Pagination -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-muted">Showing 1 to 5 of 24 payments</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <nav aria-label="Page navigation">
+                                            <ul class="pagination justify-content-end">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+    <script src="../../../vendor/chart.js/Chart.bundle.min.js"></script>
+    
+    <script>
+        // Payment Methods Chart
+        const paymentMethodsCtx = document.getElementById('payment-methods-chart').getContext('2d');
+        new Chart(paymentMethodsCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Bank Transfer', 'Credit Card', 'Cash', 'PayPal', 'Check'],
+                datasets: [{
+                    data: [45, 25, 15, 10, 5],
+                    backgroundColor: [
+                        '#007bff',
+                        '#28a745',
+                        '#ffc107',
+                        '#17a2b8',
+                        '#6c757d'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        });
+
+        // Monthly Trend Chart
+        const monthlyTrendCtx = document.getElementById('monthly-trend-chart').getContext('2d');
+        new Chart(monthlyTrendCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Revenue',
+                    data: [12500, 15800, 14200, 16800, 18900, 15600],
+                    borderColor: '#007bff',
+                    backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '৳' + value.toLocaleString();
+                            }
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

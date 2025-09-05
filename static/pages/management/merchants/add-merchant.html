@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Add Merchant - Courier Dashboard</title>
+    
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    
+    <!-- Custom Stylesheet -->
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                Add New Merchant
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a>
+                    </li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a>
+                    </li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-2"></i>
+                            <span class="nav-text">Riders</span>
+                        </a>
+                    </li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-location"></i>
+                            <span class="nav-text">Areas</span>
+                        </a>
+                    </li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-price-tag"></i>
+                            <span class="nav-text">Payments</span>
+                        </a>
+                    </li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-file"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a>
+                    </li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a>
+                    </li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Add New Merchant</h4>
+                            <span>Register a new merchant account</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../merchants/merchants.html">Merchants</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Add Merchant</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Add Merchant Form -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Merchant Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <!-- Basic Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3">Basic Information</h5>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Business Name <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-briefcase"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Enter business name" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Business Type <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-list"></i></span>
+                                                    </div>
+                                                    <select class="form-control" required>
+                                                        <option value="">Select Business Type</option>
+                                                        <option value="electronics">Electronics Retail</option>
+                                                        <option value="clothing">Clothing & Fashion</option>
+                                                        <option value="food">Food & Beverages</option>
+                                                        <option value="automotive">Automotive</option>
+                                                        <option value="health">Health & Beauty</option>
+                                                        <option value="home">Home & Garden</option>
+                                                        <option value="sports">Sports & Outdoor</option>
+                                                        <option value="books">Books & Media</option>
+                                                        <option value="jewelry">Jewelry & Accessories</option>
+                                                        <option value="other">Other</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Contact Person <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-user"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Enter contact person name" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Phone Number <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-phone-call"></i></span>
+                                                    </div>
+                                                    <input type="tel" class="form-control" placeholder="Enter phone number" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Email Address <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-mail"></i></span>
+                                                    </div>
+                                                    <input type="email" class="form-control" placeholder="Enter email address" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Website</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-internet"></i></span>
+                                                    </div>
+                                                    <input type="url" class="form-control" placeholder="https://example.com">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Address Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Address Information</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="text-label">Business Address <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-location"></i></span>
+                                                    </div>
+                                                    <textarea class="form-control" rows="3" placeholder="Enter complete business address" required></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">City <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-location"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Enter city" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">State/Province</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-location"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Enter state/province">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Postal Code <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-location"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Enter postal code" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Country <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-location"></i></span>
+                                                    </div>
+                                                    <select class="form-control" required>
+                                                        <option value="">Select Country</option>
+                                                        <option value="BD">Bangladesh</option>
+                                                        <option value="IN">India</option>
+                                                        <option value="PK">Pakistan</option>
+                                                        <option value="LK">Sri Lanka</option>
+                                                        <option value="NP">Nepal</option>
+                                                        <option value="US">United States</option>
+                                                        <option value="GB">United Kingdom</option>
+                                                        <option value="CA">Canada</option>
+                                                        <option value="AU">Australia</option>
+                                                        <option value="DE">Germany</option>
+                                                        <option value="FR">France</option>
+                                                        <option value="JP">Japan</option>
+                                                        <option value="CN">China</option>
+                                                        <option value="SG">Singapore</option>
+                                                        <option value="MY">Malaysia</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Service Areas</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-location"></i></span>
+                                                    </div>
+                                                    <textarea class="form-control" rows="2" placeholder="Enter service areas separated by commas"></textarea>
+                                                </div>
+                                                <small class="text-muted">Enter the areas where this merchant provides services</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Business Details -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Business Details</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Business Hours</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-clock"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="e.g., 9:00 AM - 6:00 PM">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Tax ID / VAT Number</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-id-card"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Enter tax ID or VAT number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label class="text-label">Business Description</label>
+                                        <div class="input-group">
+                                            <div class="input-group-prepend">
+                                                <span class="input-group-text"><i class="flaticon-381-note"></i></span>
+                                            </div>
+                                            <textarea class="form-control" rows="4" placeholder="Describe the business, services, and specialties"></textarea>
+                                        </div>
+                                    </div>
+
+                                    <!-- Payment Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Payment Information</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Payment Method <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-price-tag"></i></span>
+                                                    </div>
+                                                    <select class="form-control" required>
+                                                        <option value="">Select Payment Method</option>
+                                                        <option value="credit_card">Credit Card</option>
+                                                        <option value="bank_transfer">Bank Transfer</option>
+                                                        <option value="cash">Cash</option>
+                                                        <option value="check">Check</option>
+                                                        <option value="digital_wallet">Digital Wallet</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Credit Limit</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-price-tag"></i></span>
+                                                    </div>
+                                                    <input type="number" class="form-control" placeholder="Enter credit limit">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Bank Name</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-bank"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Enter bank name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Account Number</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-id-card"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Enter account number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Account Settings -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Account Settings</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Username <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-user"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Enter username" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Password <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-lock"></i></span>
+                                                    </div>
+                                                    <input type="password" class="form-control" placeholder="Enter password" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Confirm Password <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-lock"></i></span>
+                                                    </div>
+                                                    <input type="password" class="form-control" placeholder="Confirm password" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Account Status</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-flag"></i></span>
+                                                    </div>
+                                                    <select class="form-control">
+                                                        <option value="active">Active</option>
+                                                        <option value="pending">Pending Approval</option>
+                                                        <option value="suspended">Suspended</option>
+                                                        <option value="inactive">Inactive</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Additional Settings -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Additional Settings</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Auto-approval</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="autoApproval">
+                                                    <label class="custom-control-label" for="autoApproval">Automatically approve new orders</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Priority Merchant</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="priorityMerchant">
+                                                    <label class="custom-control-label" for="priorityMerchant">Mark as priority merchant</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Email Notifications</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="emailNotif" checked>
+                                                    <label class="custom-control-label" for="emailNotif">Send email notifications</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">SMS Notifications</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="smsNotif">
+                                                    <label class="custom-control-label" for="smsNotif">Send SMS notifications</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="text-right mt-4">
+                                                <a href="../merchants/merchants.html" class="btn btn-light mr-2">Cancel</a>
+                                                <button type="button" class="btn btn-info mr-2">Save Draft</button>
+                                                <button type="submit" class="btn btn-primary">Create Merchant</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+</body>
+</html>

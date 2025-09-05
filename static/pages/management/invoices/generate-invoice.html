@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Generate Invoice - Courier Dashboard</title>
+    
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    
+    <!-- Custom Stylesheet -->
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                Generate Invoice
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a>
+                    </li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a>
+                    </li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-2"></i>
+                            <span class="nav-text">Riders</span>
+                        </a>
+                    </li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-location"></i>
+                            <span class="nav-text">Areas</span>
+                        </a>
+                    </li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-price-tag"></i>
+                            <span class="nav-text">Payments</span>
+                        </a>
+                    </li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-file"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a>
+                    </li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a>
+                    </li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Generate Invoice</h4>
+                            <span>Create a new invoice for services</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../invoices/invoices.html">Invoices</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Generate Invoice</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Invoice Generation Form -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Invoice Details</h4>
+                            </div>
+                            <div class="card-body">
+                                <form>
+                                    <!-- Invoice Header -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3">Invoice Information</h5>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Invoice Number <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-file"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="INV-2024-001" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Invoice Date <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-calendar"></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Due Date <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-calendar"></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Invoice Status</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-flag"></i></span>
+                                                    </div>
+                                                    <select class="form-control">
+                                                        <option value="draft">Draft</option>
+                                                        <option value="sent">Sent</option>
+                                                        <option value="paid">Paid</option>
+                                                        <option value="overdue">Overdue</option>
+                                                        <option value="cancelled">Cancelled</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Client Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Client Information</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Client Type <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-user"></i></span>
+                                                    </div>
+                                                    <select class="form-control" required>
+                                                        <option value="">Select Client Type</option>
+                                                        <option value="merchant">Merchant</option>
+                                                        <option value="individual">Individual Customer</option>
+                                                        <option value="business">Business Customer</option>
+                                                        <option value="corporate">Corporate Client</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Client Name <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-user"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Enter client name" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Client Email <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-mail"></i></span>
+                                                    </div>
+                                                    <input type="email" class="form-control" placeholder="Enter client email" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Client Phone</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-phone-call"></i></span>
+                                                    </div>
+                                                    <input type="tel" class="form-control" placeholder="Enter client phone">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="text-label">Client Address</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-location"></i></span>
+                                                    </div>
+                                                    <textarea class="form-control" rows="3" placeholder="Enter client address"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Service Items -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Service Items</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="table-responsive">
+                                                <table class="table table-bordered" id="invoice-items">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Description</th>
+                                                            <th>Quantity</th>
+                                                            <th>Unit Price</th>
+                                                            <th>Tax (%)</th>
+                                                            <th>Amount</th>
+                                                            <th>Action</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>
+                                                                <input type="text" class="form-control" placeholder="Service description" required>
+                                                            </td>
+                                                            <td>
+                                                                <input type="number" class="form-control quantity" value="1" min="1" required>
+                                                            </td>
+                                                            <td>
+                                                                <input type="number" class="form-control unit-price" step="0.01" placeholder="0.00" required>
+                                                            </td>
+                                                            <td>
+                                                                <input type="number" class="form-control tax-rate" step="0.01" placeholder="0.00" value="0">
+                                                            </td>
+                                                            <td>
+                                                                <input type="text" class="form-control amount" readonly>
+                                                            </td>
+                                                            <td>
+                                                                <button type="button" class="btn btn-danger btn-sm remove-row">
+                                                                    <i class="flaticon-381-trash"></i>
+                                                                </button>
+                                                            </td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                            <button type="button" class="btn btn-info btn-sm" id="add-item">
+                                                <i class="flaticon-381-add"></i> Add Item
+                                            </button>
+                                        </div>
+                                    </div>
+
+                                    <!-- Invoice Summary -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Invoice Summary</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Subtotal</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-price-tag"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="subtotal" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Tax Amount</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-percentage"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="tax-amount" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Discount Amount</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-price-tag"></i></span>
+                                                    </div>
+                                                    <input type="number" class="form-control" id="discount-amount" step="0.01" placeholder="0.00" value="0">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Total Amount</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-price-tag"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" id="total-amount" readonly>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Payment Terms -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Payment Terms</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Payment Terms</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-calendar"></i></span>
+                                                    </div>
+                                                    <select class="form-control">
+                                                        <option value="net_15">Net 15</option>
+                                                        <option value="net_30" selected>Net 30</option>
+                                                        <option value="net_45">Net 45</option>
+                                                        <option value="net_60">Net 60</option>
+                                                        <option value="due_on_receipt">Due on Receipt</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Payment Method</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-credit-card"></i></span>
+                                                    </div>
+                                                    <select class="form-control">
+                                                        <option value="bank_transfer">Bank Transfer</option>
+                                                        <option value="credit_card">Credit Card</option>
+                                                        <option value="debit_card">Debit Card</option>
+                                                        <option value="cash">Cash</option>
+                                                        <option value="check">Check</option>
+                                                        <option value="paypal">PayPal</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Additional Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Additional Information</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Notes</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-note"></i></span>
+                                                    </div>
+                                                    <textarea class="form-control" rows="3" placeholder="Enter any additional notes"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Terms & Conditions</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-file"></i></span>
+                                                    </div>
+                                                    <textarea class="form-control" rows="3" placeholder="Enter terms and conditions"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Reference Number</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-id-card"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Enter reference number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Currency</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-price-tag"></i></span>
+                                                    </div>
+                                                    <select class="form-control">
+                                                        <option value="USD" selected>USD - US Dollar</option>
+                                                        <option value="EUR">EUR - Euro</option>
+                                                        <option value="GBP">GBP - British Pound</option>
+                                                        <option value="BDT">BDT - Bangladeshi Taka</option>
+                                                        <option value="INR">INR - Indian Rupee</option>
+                                                        <option value="PKR">PKR - Pakistani Rupee</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="text-right mt-4">
+                                                <a href="../invoices/invoices.html" class="btn btn-light mr-2">Cancel</a>
+                                                <button type="button" class="btn btn-info mr-2">Save Draft</button>
+                                                <button type="button" class="btn btn-warning mr-2">Preview Invoice</button>
+                                                <button type="submit" class="btn btn-primary">Generate Invoice</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+    
+    <!-- Invoice Calculation Script -->
+    <script>
+        $(document).ready(function() {
+            // Add new item row
+            $('#add-item').click(function() {
+                var newRow = `
+                    <tr>
+                        <td>
+                            <input type="text" class="form-control" placeholder="Service description" required>
+                        </td>
+                        <td>
+                            <input type="number" class="form-control quantity" value="1" min="1" required>
+                        </td>
+                        <td>
+                            <input type="number" class="form-control unit-price" step="0.01" placeholder="0.00" required>
+                        </td>
+                        <td>
+                            <input type="number" class="form-control tax-rate" step="0.01" placeholder="0.00" value="0">
+                        </td>
+                        <td>
+                            <input type="text" class="form-control amount" readonly>
+                        </td>
+                        <td>
+                            <button type="button" class="btn btn-danger btn-sm remove-row">
+                                <i class="flaticon-381-trash"></i>
+                            </button>
+                        </td>
+                    </tr>
+                `;
+                $('#invoice-items tbody').append(newRow);
+            });
+
+            // Remove item row
+            $(document).on('click', '.remove-row', function() {
+                if ($('#invoice-items tbody tr').length > 1) {
+                    $(this).closest('tr').remove();
+                    calculateTotals();
+                }
+            });
+
+            // Calculate amount for each row
+            $(document).on('input', '.quantity, .unit-price, .tax-rate', function() {
+                calculateRowAmount($(this).closest('tr'));
+                calculateTotals();
+            });
+
+            function calculateRowAmount(row) {
+                var quantity = parseFloat(row.find('.quantity').val()) || 0;
+                var unitPrice = parseFloat(row.find('.unit-price').val()) || 0;
+                var taxRate = parseFloat(row.find('.tax-rate').val()) || 0;
+                
+                var subtotal = quantity * unitPrice;
+                var taxAmount = subtotal * (taxRate / 100);
+                var total = subtotal + taxAmount;
+                
+                row.find('.amount').val(total.toFixed(2));
+            }
+
+            function calculateTotals() {
+                var subtotal = 0;
+                var taxAmount = 0;
+                
+                $('#invoice-items tbody tr').each(function() {
+                    var quantity = parseFloat($(this).find('.quantity').val()) || 0;
+                    var unitPrice = parseFloat($(this).find('.unit-price').val()) || 0;
+                    var taxRate = parseFloat($(this).find('.tax-rate').val()) || 0;
+                    
+                    var rowSubtotal = quantity * unitPrice;
+                    var rowTaxAmount = rowSubtotal * (taxRate / 100);
+                    
+                    subtotal += rowSubtotal;
+                    taxAmount += rowTaxAmount;
+                });
+                
+                var discountAmount = parseFloat($('#discount-amount').val()) || 0;
+                var totalAmount = subtotal + taxAmount - discountAmount;
+                
+                $('#subtotal').val(subtotal.toFixed(2));
+                $('#tax-amount').val(taxAmount.toFixed(2));
+                $('#total-amount').val(totalAmount.toFixed(2));
+            }
+
+            // Initialize calculations
+            calculateTotals();
+        });
+    </script>
+</body>
+</html>

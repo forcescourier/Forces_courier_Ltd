@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Coming Soon - Courier Dashboard</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <link href="../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Coming Soon</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i><span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i><span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../index.html" class="ai-icon"><i class="flaticon-381-networking"></i><span class="nav-text">Dashboard</span></a></li>
+                    <li><a href="../management/parcels/parcels.html" class="ai-icon"><i class="flaticon-381-box"></i><span class="nav-text">Parcels</span></a></li>
+                    <li><a href="../management/merchants/merchants.html" class="ai-icon"><i class="flaticon-381-user-7"></i><span class="nav-text">Merchants</span></a></li>
+                    <li><a href="../management/riders/riders.html" class="ai-icon"><i class="flaticon-381-user-2"></i><span class="nav-text">Riders</span></a></li>
+                    <li><a href="../management/services/services.html" class="ai-icon"><i class="flaticon-381-list"></i><span class="nav-text">Services</span></a></li>
+                    <li><a href="../management/areas/areas.html" class="ai-icon"><i class="flaticon-381-location"></i><span class="nav-text">Areas</span></a></li>
+                    <li><a href="../management/payments/payments.html" class="ai-icon"><i class="flaticon-381-price-tag"></i><span class="nav-text">Payments</span></a></li>
+                    <li><a href="../management/invoices/invoices.html" class="ai-icon"><i class="flaticon-381-file"></i><span class="nav-text">Invoices</span></a></li>
+                    <li><a href="../reports/reports.html" class="ai-icon"><i class="flaticon-381-chart"></i><span class="nav-text">Reports</span></a></li>
+                    <li><a href="../../settings.html" class="ai-icon"><i class="flaticon-381-settings"></i><span class="nav-text">Settings</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Coming Soon</h4>
+                            <span>Exciting new features are on the way</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Coming Soon</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Coming Soon Content -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8 col-lg-10">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div class="coming-soon-icon mb-4">
+                                    <i class="flaticon-381-rocket text-primary" style="font-size: 8rem;"></i>
+                                </div>
+                                <h1 class="display-4 text-primary mb-3">Coming Soon!</h1>
+                                <h3 class="mb-3">We're Working on Something Amazing</h3>
+                                <p class="text-muted mb-4">Our development team is hard at work creating new features that will revolutionize your courier management experience.</p>
+                                
+                                <!-- Countdown Timer -->
+                                <div class="countdown-timer mb-4">
+                                    <div class="row text-center">
+                                        <div class="col-md-3">
+                                            <div class="countdown-item">
+                                                <div class="countdown-number" id="days">00</div>
+                                                <div class="countdown-label">Days</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="countdown-item">
+                                                <div class="countdown-number" id="hours">00</div>
+                                                <div class="countdown-label">Hours</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="countdown-item">
+                                                <div class="countdown-number" id="minutes">00</div>
+                                                <div class="countdown-label">Minutes</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-3">
+                                            <div class="countdown-item">
+                                                <div class="countdown-number" id="seconds">00</div>
+                                                <div class="countdown-label">Seconds</div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="launch-info mb-4">
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="info-item">
+                                                <i class="flaticon-381-calendar text-success"></i>
+                                                <h6 class="mt-2">Launch Date</h6>
+                                                <p class="text-muted">December 15, 2024</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="info-item">
+                                                <i class="flaticon-381-users text-info"></i>
+                                                <h6 class="mt-2">Beta Users</h6>
+                                                <p class="text-muted">500+ Registered</p>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="info-item">
+                                                <i class="flaticon-381-star text-warning"></i>
+                                                <h6 class="mt-2">Features</h6>
+                                                <p class="text-muted">25+ New Features</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="coming-soon-actions mb-4">
+                                    <button type="button" class="btn btn-primary btn-lg mr-3" onclick="notifyMe()">
+                                        <i class="flaticon-381-bell"></i> Notify Me
+                                    </button>
+                                    <button type="button" class="btn btn-outline-primary btn-lg" onclick="joinBeta()">
+                                        <i class="flaticon-381-users"></i> Join Beta
+                                    </button>
+                                </div>
+
+                                <div class="coming-soon-help">
+                                    <div class="alert alert-info">
+                                        <h6><i class="flaticon-381-info"></i> Stay Updated</h6>
+                                        <p class="mb-0">Get notified when new features are released and be among the first to try them out!</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Upcoming Features -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Upcoming Features</h4>
+                                <p class="text-muted mb-0">Sneak peek at what's coming</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="feature-item mb-3">
+                                            <div class="feature-icon mb-2">
+                                                <i class="flaticon-381-mobile text-primary" style="font-size: 2rem;"></i>
+                                            </div>
+                                            <h6 class="text-primary">Mobile App</h6>
+                                            <p class="text-muted small">Native mobile applications for iOS and Android with real-time tracking and push notifications.</p>
+                                            <span class="badge badge-primary">Phase 1</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="feature-item mb-3">
+                                            <div class="feature-icon mb-2">
+                                                <i class="flaticon-381-ai text-success" style="font-size: 2rem;"></i>
+                                            </div>
+                                            <h6 class="text-success">AI-Powered Analytics</h6>
+                                            <p class="text-muted small">Advanced machine learning algorithms for predictive analytics and route optimization.</p>
+                                            <span class="badge badge-success">Phase 2</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="feature-item mb-3">
+                                            <div class="feature-icon mb-2">
+                                                <i class="flaticon-381-chat text-warning" style="font-size: 2rem;"></i>
+                                            </div>
+                                            <h6 class="text-warning">Live Chat Support</h6>
+                                            <p class="text-muted small">24/7 customer support with integrated live chat and chatbot assistance.</p>
+                                            <span class="badge badge-warning">Phase 1</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="feature-item mb-3">
+                                            <div class="feature-icon mb-2">
+                                                <i class="flaticon-381-blockchain text-info" style="font-size: 2rem;"></i>
+                                            </div>
+                                            <h6 class="text-info">Blockchain Integration</h6>
+                                            <p class="text-muted small">Secure and transparent transaction tracking using blockchain technology.</p>
+                                            <span class="badge badge-info">Phase 3</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Development Progress -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Development Progress</h4>
+                                <p class="text-muted mb-0">Track our development milestones</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="progress-section">
+                                    <div class="progress-item mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Planning & Design</span>
+                                            <span>100%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-success" style="width: 100%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="progress-item mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Core Development</span>
+                                            <span>75%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-primary" style="width: 75%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="progress-item mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Testing & QA</span>
+                                            <span>45%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-warning" style="width: 45%"></div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="progress-item mb-3">
+                                        <div class="d-flex justify-content-between mb-1">
+                                            <span>Deployment</span>
+                                            <span>20%</span>
+                                        </div>
+                                        <div class="progress">
+                                            <div class="progress-bar bg-info" style="width: 20%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Newsletter Signup -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="mb-3">Get Early Access</h5>
+                                <p class="text-muted mb-3">Be the first to know when new features are released</p>
+                                <div class="newsletter-signup">
+                                    <div class="input-group">
+                                        <input type="email" class="form-control" placeholder="Enter your email address" id="newsletterEmail">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" onclick="subscribeNewsletter()">
+                                                <i class="flaticon-381-send"></i> Subscribe
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="newsletter-info mt-3">
+                                    <small class="text-muted">We'll never spam you. Unsubscribe at any time.</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Social Media -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="mb-3">Follow Our Progress</h5>
+                                <p class="text-muted mb-3">Stay connected with us on social media for updates and behind-the-scenes content</p>
+                                <div class="social-links">
+                                    <a href="#" class="btn btn-outline-primary mr-2 mb-2" onclick="followSocial('facebook')">
+                                        <i class="flaticon-381-facebook"></i> Facebook
+                                    </a>
+                                    <a href="#" class="btn btn-outline-info mr-2 mb-2" onclick="followSocial('twitter')">
+                                        <i class="flaticon-381-twitter"></i> Twitter
+                                    </a>
+                                    <a href="#" class="btn btn-outline-danger mr-2 mb-2" onclick="followSocial('instagram')">
+                                        <i class="flaticon-381-instagram"></i> Instagram
+                                    </a>
+                                    <a href="#" class="btn btn-outline-dark mb-2" onclick="followSocial('linkedin')">
+                                        <i class="flaticon-381-linkedin"></i> LinkedIn
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../vendor/global/global.min.js"></script>
+    <script src="../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../assets/js/custom.min.js"></script>
+    <script src="../../assets/js/deznav-init.js"></script>
+    
+    <script>
+        // Set the launch date (December 15, 2024)
+        const launchDate = new Date('December 15, 2024 00:00:00').getTime();
+
+        // Update countdown every second
+        const countdown = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = launchDate - now;
+
+            // Calculate time units
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            // Update display
+            document.getElementById('days').innerHTML = days.toString().padStart(2, '0');
+            document.getElementById('hours').innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').innerHTML = seconds.toString().padStart(2, '0');
+
+            // If countdown is finished
+            if (distance < 0) {
+                clearInterval(countdown);
+                document.getElementById('days').innerHTML = '00';
+                document.getElementById('hours').innerHTML = '00';
+                document.getElementById('minutes').innerHTML = '00';
+                document.getElementById('seconds').innerHTML = '00';
+                
+                // Show launch message
+                showLaunchMessage();
+            }
+        }, 1000);
+
+        // Notify me function
+        function notifyMe() {
+            const email = prompt('Enter your email address to get notified:');
+            if (email && email.includes('@')) {
+                showSuccessMessage('Thank you! We\'ll notify you when the feature is ready.');
+                // In real app, this would save to database
+                console.log('Notification email saved:', email);
+            } else if (email) {
+                alert('Please enter a valid email address.');
+            }
+        }
+
+        // Join beta function
+        function joinBeta() {
+            const email = prompt('Enter your email to join the beta program:');
+            if (email && email.includes('@')) {
+                showSuccessMessage('Welcome to the beta program! You\'ll receive access details soon.');
+                // In real app, this would save to database
+                console.log('Beta user registered:', email);
+            } else if (email) {
+                alert('Please enter a valid email address.');
+            }
+        }
+
+        // Subscribe newsletter function
+        function subscribeNewsletter() {
+            const email = document.getElementById('newsletterEmail').value.trim();
+            if (email && email.includes('@')) {
+                showSuccessMessage('Successfully subscribed to our newsletter!');
+                document.getElementById('newsletterEmail').value = '';
+                // In real app, this would save to database
+                console.log('Newsletter subscription:', email);
+            } else {
+                alert('Please enter a valid email address.');
+            }
+            return false;
+        }
+
+        // Social media functions
+        function followSocial(platform) {
+            const platforms = {
+                facebook: 'https://facebook.com/courierdashboard',
+                twitter: 'https://twitter.com/courierdashboard',
+                instagram: 'https://instagram.com/courierdashboard',
+                linkedin: 'https://linkedin.com/company/courierdashboard'
+            };
+            
+            if (platforms[platform]) {
+                window.open(platforms[platform], '_blank');
+            }
+        }
+
+        // Success message
+        function showSuccessMessage(message) {
+            const alertDiv = document.createElement('div');
+            alertDiv.className = 'alert alert-success alert-dismissible fade show';
+            alertDiv.innerHTML = `
+                <i class="flaticon-381-check"></i> ${message}
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+            `;
+            
+            const cardBody = document.querySelector('.card-body');
+            cardBody.insertBefore(alertDiv, cardBody.firstChild);
+        }
+
+        // Launch message
+        function showLaunchMessage() {
+            const launchDiv = document.createElement('div');
+            launchDiv.className = 'alert alert-success text-center';
+            launchDiv.innerHTML = `
+                <h4><i class="flaticon-381-check"></i> Feature Launched!</h4>
+                <p class="mb-0">The wait is over! Check out our new features now.</p>
+            `;
+            
+            const contentBody = document.querySelector('.content-body');
+            contentBody.insertBefore(launchDiv, contentBody.firstChild);
+        }
+
+        // Newsletter enter key handler
+        document.getElementById('newsletterEmail').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                subscribeNewsletter();
+            }
+        });
+
+        // Auto-focus newsletter input
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.getElementById('newsletterEmail').focus();
+            }, 1000);
+        });
+    </script>
+
+    <style>
+        .coming-soon-icon {
+            animation: float 3s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-20px);
+            }
+        }
+        
+        .countdown-item {
+            padding: 1rem;
+        }
+        
+        .countdown-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #007bff;
+            line-height: 1;
+        }
+        
+        .countdown-label {
+            font-size: 0.875rem;
+            color: #6c757d;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .info-item {
+            padding: 1rem;
+        }
+        
+        .info-item i {
+            margin-bottom: 0.5rem;
+        }
+        
+        .feature-item {
+            padding: 1rem;
+            border: 1px solid #e3e6f0;
+            border-radius: 0.35rem;
+            height: 100%;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .feature-icon {
+            margin-bottom: 0.5rem;
+        }
+        
+        .progress {
+            height: 0.5rem;
+        }
+        
+        .newsletter-signup .form-control {
+            border-radius: 25px 0 0 25px;
+        }
+        
+        .newsletter-signup .btn {
+            border-radius: 0 25px 25px 0;
+        }
+        
+        .social-links .btn {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .coming-soon-actions .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .countdown-number {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</body>
+</html>

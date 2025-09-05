@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Payments - Courier Management System</title>
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/jqvmap/css/jqvmap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../vendor/chartist/css/chartist.min.css">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../vendor/bootstrap-datetimepicker/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;family=Roboto:wght@100;300;400;500;700;900&amp;display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="../../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                Payments Management
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a>
+                    </li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a>
+                    </li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a>
+                    </li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a>
+                    </li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a>
+                    </li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a>
+                    </li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a>
+                    </li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Payments Management</h4>
+                            <span>Manage all payment transactions and collections</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Payments</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Action Buttons -->
+                <div class="row mb-3">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3 mb-2">
+                                        <a href="collect-payment.html" class="btn btn-primary btn-block">
+                                            <i class="fas fa-money-bill-wave mr-2"></i>Collect Payment
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <a href="payment-methods.html" class="btn btn-success btn-block">
+                                            <i class="fas fa-credit-card mr-2"></i>Payment Methods
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <a href="payment-reports.html" class="btn btn-info btn-block">
+                                            <i class="fas fa-chart-bar mr-2"></i>Payment Reports
+                                        </a>
+                                    </div>
+                                    <div class="col-md-3 mb-2">
+                                        <a href="refund-management.html" class="btn btn-warning btn-block">
+                                            <i class="fas fa-undo mr-2"></i>Refunds
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary ai-icon">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">৳45,250</h3>
+                                        <p class="mb-0">Total Collected</p>
+                                        <small>This month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success ai-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">৳38,750</h3>
+                                        <p class="mb-0">Completed</p>
+                                        <small>Successfully processed</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning ai-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">৳6,500</h3>
+                                        <p class="mb-0">Pending</p>
+                                        <small>Awaiting confirmation</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info ai-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">156</h3>
+                                        <p class="mb-0">Transactions</p>
+                                        <small>Total this month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Methods Chart -->
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Payment Methods Distribution</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="paymentMethodsChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Daily Collection Trend</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="collectionTrendChart" width="400" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payments Table -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Recent Payments</h4>
+                                <div class="card-tools">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control" placeholder="Search payments..." id="searchInput">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="paymentsTable" class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>ID</th>
+                                                <th>Merchant</th>
+                                                <th>Amount</th>
+                                                <th>Method</th>
+                                                <th>Status</th>
+                                                <th>Date</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>#P001</td>
+                                                <td>ABC Electronics</td>
+                                                <td>৳2,500</td>
+                                                <td>Bank Transfer</td>
+                                                <td><span class="badge badge-success">Completed</span></td>
+                                                <td>2024-01-15</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="view-payment.html"><i class="fas fa-eye mr-2"></i>View</a>
+                                                            <a class="dropdown-item" href="download-receipt.html"><i class="fas fa-download mr-2"></i>Receipt</a>
+                                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-undo mr-2"></i>Refund</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#P002</td>
+                                                <td>XYZ Fashion</td>
+                                                <td>৳1,800</td>
+                                                <td>Cash</td>
+                                                <td><span class="badge badge-success">Completed</span></td>
+                                                <td>2024-01-14</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="view-payment.html"><i class="fas fa-eye mr-2"></i>View</a>
+                                                            <a class="dropdown-item" href="download-receipt.html"><i class="fas fa-download mr-2"></i>Receipt</a>
+                                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-undo mr-2"></i>Refund</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#P003</td>
+                                                <td>Tech Solutions</td>
+                                                <td>৳3,200</td>
+                                                <td>Mobile Banking</td>
+                                                <td><span class="badge badge-warning">Pending</span></td>
+                                                <td>2024-01-13</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="view-payment.html"><i class="fas fa-eye mr-2"></i>View</a>
+                                                            <a class="dropdown-item text-success" href="#"><i class="fas fa-check mr-2"></i>Confirm</a>
+                                                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-times mr-2"></i>Reject</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#P004</td>
+                                                <td>Home Decor</td>
+                                                <td>৳950</td>
+                                                <td>Credit Card</td>
+                                                <td><span class="badge badge-success">Completed</span></td>
+                                                <td>2024-01-12</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="view-payment.html"><i class="fas fa-eye mr-2"></i>View</a>
+                                                            <a class="dropdown-item" href="download-receipt.html"><i class="fas fa-download mr-2"></i>Receipt</a>
+                                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-undo mr-2"></i>Refund</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>#P005</td>
+                                                <td>Sports Gear</td>
+                                                <td>৳1,650</td>
+                                                <td>Cash</td>
+                                                <td><span class="badge badge-success">Completed</span></td>
+                                                <td>2024-01-11</td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="view-payment.html"><i class="fas fa-eye mr-2"></i>View</a>
+                                                            <a class="dropdown-item" href="download-receipt.html"><i class="fas fa-download mr-2"></i>Receipt</a>
+                                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-undo mr-2"></i>Refund</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../../../vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            // Initialize DataTable
+            $('#paymentsTable').DataTable({
+                "pageLength": 25,
+                "order": [[5, "desc"]], // Sort by date descending
+                "responsive": true,
+                "language": {
+                    "search": "Search:",
+                    "lengthMenu": "Show _MENU_ entries per page",
+                    "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+                    "infoEmpty": "Showing 0 to 0 of 0 entries",
+                    "infoFiltered": "(filtered from _MAX_ total entries)"
+                }
+            });
+
+            // Search functionality
+            $('#searchInput').on('keyup', function() {
+                $('#paymentsTable').DataTable().search(this.value).draw();
+            });
+
+            // Payment Methods Chart
+            const paymentMethodsCtx = document.getElementById('paymentMethodsChart').getContext('2d');
+            new Chart(paymentMethodsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['Cash', 'Bank Transfer', 'Mobile Banking', 'Credit Card'],
+                    datasets: [{
+                        data: [45, 30, 20, 5],
+                        backgroundColor: ['#28a745', '#007bff', '#ffc107', '#dc3545']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Collection Trend Chart
+            const collectionTrendCtx = document.getElementById('collectionTrendChart').getContext('2d');
+            new Chart(collectionTrendCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Jan 10', 'Jan 11', 'Jan 12', 'Jan 13', 'Jan 14', 'Jan 15'],
+                    datasets: [{
+                        label: 'Daily Collection',
+                        data: [2500, 3200, 2800, 3500, 4200, 3800],
+                        borderColor: '#007bff',
+                        backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>

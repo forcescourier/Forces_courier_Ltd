@@ -1,0 +1,418 @@
+/* Custom Courier Management System Color Variables */
+:root {
+    --primary-color: #007A64;
+    --primary-dark: #005a4a;
+    --primary-light: #00A885;
+    --primary-lighter: #e8f8f5;
+    --primary-border: #a8ddd0;
+    --accent-yellow: #FFD700;
+    --accent-yellow-light: #FFF176;
+    --accent-yellow-dark: #FFC107;
+    --warning-yellow: #FF9800;
+    --gradient-primary: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+    --gradient-accent: linear-gradient(135deg, var(--accent-yellow) 0%, var(--accent-yellow-dark) 100%);
+    --gradient-combined: linear-gradient(135deg, var(--primary-color) 0%, var(--accent-yellow) 100%);
+}
+
+/* Primary Color Overrides */
+.btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+}
+
+.btn-outline-primary {
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:focus,
+.btn-outline-primary:active {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Primary Background Classes */
+.bg-primary {
+    background-color: var(--primary-color) !important;
+}
+
+.bg-primary-light {
+    background-color: var(--primary-lighter) !important;
+}
+
+/* Primary Border Classes */
+.border-primary {
+    border-color: var(--primary-color) !important;
+}
+
+.border-left-primary {
+    border-left-color: var(--primary-color) !important;
+}
+
+/* Primary Text Classes */
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+/* Primary Icon Backgrounds */
+.bgl-primary {
+    background-color: var(--primary-lighter) !important;
+}
+
+.bgl-primary i {
+    color: var(--primary-color) !important;
+}
+
+/* Primary Badge */
+.badge-primary {
+    background-color: var(--primary-color) !important;
+}
+
+/* Primary Links */
+a {
+    color: var(--primary-color);
+}
+
+a:hover {
+    color: var(--primary-dark);
+}
+
+/* Primary Form Elements */
+.form-control:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25) !important;
+}
+
+.custom-control-input:checked ~ .custom-control-label::before {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Primary Table Elements */
+.table-primary {
+    background-color: var(--primary-lighter) !important;
+}
+
+.table-hover tbody tr:hover {
+    background-color: var(--primary-lighter) !important;
+}
+
+/* Primary Navigation */
+.nav-pills .nav-link.active {
+    background-color: var(--primary-color) !important;
+}
+
+.nav-tabs .nav-link.active {
+    border-color: var(--primary-color) var(--primary-color) #fff !important;
+    color: var(--primary-color) !important;
+}
+
+/* Primary Pagination */
+.page-item.active .page-link {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.page-link {
+    color: var(--primary-color) !important;
+}
+
+.page-link:hover {
+    color: var(--primary-dark) !important;
+}
+
+/* Primary Dropdown */
+.dropdown-item.active,
+.dropdown-item:active {
+    background-color: var(--primary-color) !important;
+}
+
+/* Primary Progress Bars */
+.progress-bar {
+    background-color: var(--primary-color) !important;
+}
+
+/* Primary Alerts */
+.alert-primary {
+    color: #004085;
+    background-color: var(--primary-lighter) !important;
+    border-color: var(--primary-border) !important;
+}
+
+/* Primary Cards */
+.card-header-primary {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.card-border-primary {
+    border-top: 4px solid var(--primary-color) !important;
+}
+
+/* Primary Sidebar */
+.deznav .metismenu > li > a.active {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+.deznav .metismenu > li > a:hover {
+    background-color: var(--primary-lighter) !important;
+    color: var(--primary-color) !important;
+}
+
+/* Primary Header */
+.header .dashboard_bar {
+    color: var(--primary-color) !important;
+}
+
+/* Primary Footer */
+.footer {
+    border-top: 1px solid var(--primary-border) !important;
+}
+
+/* Primary Buttons in Cards */
+.card .btn-primary {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Primary Status Indicators */
+.status-primary {
+    color: var(--primary-color) !important;
+}
+
+/* Primary Charts */
+.chart-primary {
+    color: var(--primary-color) !important;
+}
+
+/* Primary Icons */
+.icon-primary {
+    color: var(--primary-color) !important;
+}
+
+/* Primary Hover Effects */
+.hover-primary:hover {
+    color: var(--primary-color) !important;
+}
+
+.hover-bg-primary:hover {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Primary Focus States */
+.focus-primary:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+}
+
+/* Primary Selection */
+::selection {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Primary Scrollbar */
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color) !important;
+}
+
+/* Primary Loading Spinners */
+.spinner-primary {
+    border-color: var(--primary-lighter) !important;
+    border-top-color: var(--primary-color) !important;
+}
+
+/* Primary Tooltips */
+.tooltip-primary .tooltip-inner {
+    background-color: var(--primary-color) !important;
+}
+
+.tooltip-primary .arrow::before {
+    border-top-color: var(--primary-color) !important;
+}
+
+/* Primary Modals */
+.modal-header-primary {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Primary Tabs */
+.tab-content .tab-pane.active {
+    border-color: var(--primary-color) !important;
+}
+
+/* Primary Accordion */
+.accordion .card-header button:not(.collapsed) {
+    background-color: var(--primary-color) !important;
+    color: white !important;
+}
+
+/* Primary Breadcrumbs */
+.breadcrumb-item.active {
+    color: var(--primary-color) !important;
+}
+
+/* Primary List Groups */
+.list-group-item-primary {
+    background-color: var(--primary-lighter) !important;
+    color: var(--primary-dark) !important;
+}
+
+/* Primary Input Groups */
+.input-group-text {
+    background-color: var(--primary-lighter) !important;
+    border-color: var(--primary-border) !important;
+    color: var(--primary-color) !important;
+}
+
+/* Primary Custom Select */
+.custom-select:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
+/* Primary File Input */
+.custom-file-input:focus ~ .custom-file-label {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25) !important;
+}
+
+/* Primary Range Input */
+.custom-range::-webkit-slider-thumb {
+    background-color: var(--primary-color) !important;
+}
+
+.custom-range::-moz-range-thumb {
+    background-color: var(--primary-color) !important;
+}
+
+/* Primary Switch */
+.custom-switch .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Primary Checkbox */
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Primary Radio */
+.custom-radio .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Primary Validation */
+.was-validated .form-control:valid {
+    border-color: var(--primary-color) !important;
+}
+
+.was-validated .form-control:valid:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25) !important;
+}
+
+/* Primary Success States */
+.is-valid {
+    border-color: var(--primary-color) !important;
+}
+
+.is-valid:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25) !important;
+}
+
+/* Primary Loading States */
+.btn-primary.loading {
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+}
+
+/* Primary Disabled States */
+.btn-primary:disabled {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+    opacity: 0.65;
+}
+
+/* Primary Active States */
+.btn-primary:active {
+    background-color: var(--primary-dark) !important;
+    border-color: var(--primary-dark) !important;
+}
+
+/* Primary Focus Ring */
+.btn-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25) !important;
+}
+
+/* Primary Outline Focus */
+.btn-outline-primary:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25) !important;
+}
+
+/* Primary Link Focus */
+.btn-link:focus {
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25) !important;
+}
+
+/* Primary Input Focus */
+.form-control:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25) !important;
+}
+
+/* Primary Select Focus */
+.form-select:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25) !important;
+}
+
+/* Primary Textarea Focus */
+.form-control:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+}
+
+/* Primary File Input Focus */
+.form-control:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+}
+
+/* Primary Range Focus */
+.form-range:focus::-webkit-slider-thumb {
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25) !important;
+}
+
+.form-range:focus::-moz-range-thumb {
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25) !important;
+}
+
+/* Primary Switch Focus */
+.custom-switch .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25) !important;
+}
+
+/* Primary Checkbox Focus */
+.custom-checkbox .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25) !important;
+}
+
+/* Primary Radio Focus */
+.custom-radio .custom-control-input:focus ~ .custom-control-label::before {
+    box-shadow: 0 0 0 0.2rem rgba(0, 122, 100, 0.25) !important;
+}

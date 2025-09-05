@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Payment Reports - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Payment Reports</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Payment Reports</h4>
+                            <span>Comprehensive payment analytics and financial reporting dashboard</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../payments/payments.html">Payments</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Reports</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Report Filters -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Report Configuration</h4>
+                                <div class="card-action">
+                                    <button type="button" class="btn btn-success btn-sm" onclick="exportReport()">
+                                        <i class="fas fa-download mr-2"></i>Export Report
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Time Period</label>
+                                            <select class="form-control" id="timePeriod">
+                                                <option value="today">Today</option>
+                                                <option value="yesterday">Yesterday</option>
+                                                <option value="last7days" selected>Last 7 Days</option>
+                                                <option value="last30days">Last 30 Days</option>
+                                                <option value="thismonth">This Month</option>
+                                                <option value="lastmonth">Last Month</option>
+                                                <option value="custom">Custom Range</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Payment Method</label>
+                                            <select class="form-control">
+                                                <option value="">All Methods</option>
+                                                <option value="cash">Cash</option>
+                                                <option value="card">Card</option>
+                                                <option value="mobile">Mobile Money</option>
+                                                <option value="bank">Bank Transfer</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>Status</label>
+                                            <select class="form-control">
+                                                <option value="">All Status</option>
+                                                <option value="completed">Completed</option>
+                                                <option value="pending">Pending</option>
+                                                <option value="failed">Failed</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label>&nbsp;</label>
+                                            <button type="button" class="btn btn-primary btn-block" onclick="generateReport()">
+                                                <i class="fas fa-chart-bar mr-2"></i>Generate Report
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary ai-icon">
+                                        <i class="fas fa-money-bill-wave"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">৳1.2M</h3>
+                                        <p class="mb-0">Total Revenue</p>
+                                        <small class="text-success">+12.5% vs last period</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success ai-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">2,345</h3>
+                                        <p class="mb-0">Transactions</p>
+                                        <small class="text-success">+8.3% vs last period</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning ai-icon">
+                                        <i class="fas fa-calculator"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">৳512</h3>
+                                        <p class="mb-0">Avg Transaction</p>
+                                        <small class="text-info">+3.8% vs last period</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info ai-icon">
+                                        <i class="fas fa-percentage"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">98.2%</h3>
+                                        <p class="mb-0">Success Rate</p>
+                                        <small class="text-success">+0.5% vs last period</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Payment Trends</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="paymentTrendsChart" height="100"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Payment Methods</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="paymentMethodsChart" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Detailed Analytics -->
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Top Payment Methods</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="payment-method-stats">
+                                    <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                                        <div>
+                                            <i class="fas fa-mobile-alt fa-2x text-danger mr-3"></i>
+                                            <strong>bKash</strong>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-success font-weight-bold">৳485,230</span>
+                                            <small class="text-muted d-block">45.2% of total</small>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                                        <div>
+                                            <i class="fas fa-money-bill-wave fa-2x text-success mr-3"></i>
+                                            <strong>Cash</strong>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-success font-weight-bold">৳312,150</span>
+                                            <small class="text-muted d-block">29.1% of total</small>
+                                        </div>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                                        <div>
+                                            <i class="fab fa-cc-visa fa-2x text-primary mr-3"></i>
+                                            <strong>Card</strong>
+                                        </div>
+                                        <div class="text-right">
+                                            <span class="text-success font-weight-bold">৲186,320</span>
+                                            <small class="text-muted d-block">17.4% of total</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Financial Summary</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="financial-summary">
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <span>Gross Revenue:</span>
+                                        <span class="font-weight-bold text-success">৳1,245,678.50</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <span>Processing Fees:</span>
+                                        <span class="text-warning">৳18,685.18</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <span>Refunds:</span>
+                                        <span class="text-danger">৳12,456.78</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-3">
+                                        <span>VAT Collected:</span>
+                                        <span>৳186,851.78</span>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-between">
+                                        <strong>Net Revenue:</strong>
+                                        <strong class="text-success">৳1,214,536.54</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        // Generate report
+        function generateReport() {
+            const period = $('#timePeriod').val();
+            alert(`Generating payment report for: ${period}`);
+            // Simulate data refresh
+            location.reload();
+        }
+
+        // Export report
+        function exportReport() {
+            alert('Exporting payment report...');
+        }
+
+        // Initialize charts
+        $(document).ready(function() {
+            // Payment Trends Chart
+            const trendsCtx = document.getElementById('paymentTrendsChart').getContext('2d');
+            new Chart(trendsCtx, {
+                type: 'line',
+                data: {
+                    labels: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun'],
+                    datasets: [{
+                        label: 'Revenue',
+                        data: [12000, 15000, 13000, 18000, 16000, 20000, 22000],
+                        borderColor: '#007bff',
+                        backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                        tension: 0.4
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+
+            // Payment Methods Chart
+            const methodsCtx = document.getElementById('paymentMethodsChart').getContext('2d');
+            new Chart(methodsCtx, {
+                type: 'doughnut',
+                data: {
+                    labels: ['bKash', 'Cash', 'Card', 'Nagad', 'Bank'],
+                    datasets: [{
+                        data: [45.2, 29.1, 17.4, 5.8, 2.5],
+                        backgroundColor: ['#dc3545', '#28a745', '#007bff', '#ffc107', '#6c757d']
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Payment Gateway - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .gateway-card { transition: all 0.3s ease; border: 2px solid transparent; }
+        .gateway-card.active { border-color: #007bff; box-shadow: 0 4px 15px rgba(0,123,255,0.2); }
+        .gateway-card:hover { transform: translateY(-2px); box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        .gateway-logo { width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; border-radius: 8px; font-size: 24px; color: white; }
+        .status-indicator { width: 12px; height: 12px; border-radius: 50%; display: inline-block; margin-right: 8px; }
+        .status-active { background-color: #28a745; }
+        .status-inactive { background-color: #dc3545; }
+        .status-testing { background-color: #ffc107; }
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Payment Gateway</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Payment Gateway Configuration</h4>
+                            <span>Manage payment providers and gateway settings</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../payments/payments.html">Payments</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Gateway</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Gateway Overview -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary ai-icon">
+                                        <i class="fas fa-credit-card"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">6</h3>
+                                        <p class="mb-0">Active Gateways</p>
+                                        <small class="text-success">2 newly added</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success ai-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">98.5%</h3>
+                                        <p class="mb-0">Success Rate</p>
+                                        <small class="text-success">+0.5% this month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning ai-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">1.2s</h3>
+                                        <p class="mb-0">Avg Response Time</p>
+                                        <small class="text-info">Excellent performance</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info ai-icon">
+                                        <i class="fas fa-percentage"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">2.1%</h3>
+                                        <p class="mb-0">Avg Fee Rate</p>
+                                        <small class="text-muted">Industry standard</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gateway Cards -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Payment Gateways</h4>
+                                <div class="card-action">
+                                    <button type="button" class="btn btn-success" onclick="addGateway()">
+                                        <i class="fas fa-plus mr-2"></i>Add Gateway
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <!-- SSL Commerz Gateway -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card gateway-card active">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <div class="gateway-logo bg-primary mr-3">
+                                                        <i class="fas fa-shield-alt"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0">SSL Commerz</h6>
+                                                        <small class="text-muted">Primary Gateway</small>
+                                                    </div>
+                                                    <div class="ml-auto">
+                                                        <span class="status-indicator status-active"></span>
+                                                        <small class="text-success">Active</small>
+                                                    </div>
+                                                </div>
+                                                <div class="gateway-stats mb-3">
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>Success Rate:</span>
+                                                        <span class="text-success">99.2%</span>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>Transaction Fee:</span>
+                                                        <span>1.5% + ৳5</span>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>Monthly Volume:</span>
+                                                        <span>৳1.2M</span>
+                                                    </div>
+                                                </div>
+                                                <div class="gateway-actions">
+                                                    <button class="btn btn-primary btn-sm mr-2" onclick="configureGateway('sslcommerz')">
+                                                        <i class="fas fa-cog mr-1"></i>Configure
+                                                    </button>
+                                                    <button class="btn btn-info btn-sm" onclick="testGateway('sslcommerz')">
+                                                        <i class="fas fa-vial mr-1"></i>Test
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- bKash Gateway -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card gateway-card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <div class="gateway-logo bg-danger mr-3">
+                                                        <i class="fas fa-mobile-alt"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0">bKash</h6>
+                                                        <small class="text-muted">Mobile Money</small>
+                                                    </div>
+                                                    <div class="ml-auto">
+                                                        <span class="status-indicator status-active"></span>
+                                                        <small class="text-success">Active</small>
+                                                    </div>
+                                                </div>
+                                                <div class="gateway-stats mb-3">
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>Success Rate:</span>
+                                                        <span class="text-success">97.8%</span>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>Transaction Fee:</span>
+                                                        <span>1.85%</span>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>Monthly Volume:</span>
+                                                        <span>৳850K</span>
+                                                    </div>
+                                                </div>
+                                                <div class="gateway-actions">
+                                                    <button class="btn btn-primary btn-sm mr-2" onclick="configureGateway('bkash')">
+                                                        <i class="fas fa-cog mr-1"></i>Configure
+                                                    </button>
+                                                    <button class="btn btn-info btn-sm" onclick="testGateway('bkash')">
+                                                        <i class="fas fa-vial mr-1"></i>Test
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Nagad Gateway -->
+                                    <div class="col-md-4 mb-4">
+                                        <div class="card gateway-card">
+                                            <div class="card-body">
+                                                <div class="d-flex align-items-center mb-3">
+                                                    <div class="gateway-logo bg-warning mr-3">
+                                                        <i class="fas fa-coins"></i>
+                                                    </div>
+                                                    <div>
+                                                        <h6 class="mb-0">Nagad</h6>
+                                                        <small class="text-muted">Mobile Money</small>
+                                                    </div>
+                                                    <div class="ml-auto">
+                                                        <span class="status-indicator status-testing"></span>
+                                                        <small class="text-warning">Testing</small>
+                                                    </div>
+                                                </div>
+                                                <div class="gateway-stats mb-3">
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>Success Rate:</span>
+                                                        <span class="text-warning">N/A</span>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>Transaction Fee:</span>
+                                                        <span>1.5%</span>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between">
+                                                        <span>Monthly Volume:</span>
+                                                        <span>৳0</span>
+                                                    </div>
+                                                </div>
+                                                <div class="gateway-actions">
+                                                    <button class="btn btn-primary btn-sm mr-2" onclick="configureGateway('nagad')">
+                                                        <i class="fas fa-cog mr-1"></i>Configure
+                                                    </button>
+                                                    <button class="btn btn-success btn-sm" onclick="activateGateway('nagad')">
+                                                        <i class="fas fa-play mr-1"></i>Activate
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gateway Configuration -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Gateway Configuration</h4>
+                            </div>
+                            <div class="card-body">
+                                <form id="gatewayConfigForm">
+                                    <div class="form-group">
+                                        <label>Select Gateway</label>
+                                        <select class="form-control" id="selectedGateway">
+                                            <option value="sslcommerz">SSL Commerz</option>
+                                            <option value="bkash">bKash</option>
+                                            <option value="nagad">Nagad</option>
+                                            <option value="rocket">Rocket</option>
+                                            <option value="stripe">Stripe</option>
+                                        </select>
+                                    </div>
+
+                                    <div id="gatewaySettings">
+                                        <h6 class="mb-3"><i class="fas fa-shield-alt text-primary mr-2"></i>SSL Commerz Configuration</h6>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Store ID</label>
+                                                    <input type="text" class="form-control" value="swiftcourier123">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Store Password</label>
+                                                    <input type="password" class="form-control" value="••••••••••••">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Environment</label>
+                                                    <select class="form-control">
+                                                        <option>Sandbox</option>
+                                                        <option selected>Live</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Currency</label>
+                                                    <select class="form-control">
+                                                        <option value="BDT" selected>Bangladeshi Taka (BDT)</option>
+                                                        <option value="USD">US Dollar (USD)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="enableGateway" checked>
+                                            <label class="form-check-label" for="enableGateway">
+                                                Enable this gateway for payments
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions">
+                                        <button type="button" class="btn btn-secondary mr-2" onclick="resetConfig()">Reset</button>
+                                        <button type="button" class="btn btn-info mr-2" onclick="testConnection()">Test Connection</button>
+                                        <button type="submit" class="btn btn-success">Save Configuration</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Gateway Status -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Gateway Status</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="gateway-status-list">
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <strong>SSL Commerz</strong>
+                                            <small class="d-block text-muted">Last check: 2 min ago</small>
+                                        </div>
+                                        <span class="badge badge-success">Online</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <strong>bKash</strong>
+                                            <small class="d-block text-muted">Last check: 5 min ago</small>
+                                        </div>
+                                        <span class="badge badge-success">Online</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3">
+                                        <div>
+                                            <strong>Nagad</strong>
+                                            <small class="d-block text-muted">Last check: 1 hour ago</small>
+                                        </div>
+                                        <span class="badge badge-warning">Testing</span>
+                                    </div>
+                                </div>
+                                <button class="btn btn-primary btn-block" onclick="checkAllStatus()">
+                                    <i class="fas fa-sync mr-2"></i>Check All Status
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        // Gateway management functions
+        function configureGateway(gateway) {
+            $('#selectedGateway').val(gateway);
+            alert(`Configuring ${gateway} gateway...`);
+        }
+
+        function testGateway(gateway) {
+            alert(`Testing connection to ${gateway}...`);
+            setTimeout(function() {
+                alert(`${gateway} test successful!`);
+            }, 2000);
+        }
+
+        function activateGateway(gateway) {
+            if (confirm(`Activate ${gateway} gateway?`)) {
+                alert(`${gateway} gateway activated successfully!`);
+                location.reload();
+            }
+        }
+
+        function addGateway() {
+            alert('Opening gateway marketplace...');
+        }
+
+        function resetConfig() {
+            if (confirm('Reset gateway configuration to default values?')) {
+                location.reload();
+            }
+        }
+
+        function testConnection() {
+            const gateway = $('#selectedGateway').val();
+            alert(`Testing ${gateway} connection...`);
+            setTimeout(function() {
+                alert('Connection test successful!');
+            }, 2000);
+        }
+
+        function checkAllStatus() {
+            alert('Checking all gateway status...');
+            setTimeout(function() {
+                alert('All gateways status updated!');
+                location.reload();
+            }, 3000);
+        }
+
+        // Form submission
+        $('#gatewayConfigForm').submit(function(e) {
+            e.preventDefault();
+            const gateway = $('#selectedGateway').val();
+            alert(`${gateway} configuration saved successfully!`);
+        });
+
+        // Gateway selection change
+        $('#selectedGateway').change(function() {
+            const gateway = $(this).val();
+            // Update configuration form based on selected gateway
+            // In a real implementation, this would load gateway-specific settings
+        });
+    </script>
+</body>
+</html>
