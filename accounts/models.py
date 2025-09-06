@@ -3,6 +3,12 @@ from django.db import models
 
 # Create your models here.
 class Merchant(models.Model):
+
+    STATUS_CHOICES=(
+        ("pending","Pending Approval"),
+        ("approved","Approved"),
+        ("rejected","Rejected"),
+    )
     merchant_id = models.BigAutoField(primary_key=True)
     merchant_name = models.CharField(max_length=100)
     merchant_email = models.EmailField(unique=True)
@@ -14,6 +20,10 @@ class Merchant(models.Model):
     merchant_username = models.CharField(max_length=50, unique=True)
     merchant_password = models.CharField(max_length=255)
     merchant_category = models.CharField(max_length=100)
+    merchant_business_description=models.TextField(blank=True)
+    status=models.CharField(max_length=20, choices=STATUS_CHOICES, default="pending")
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     def _str_(self):
         return self.merchant_name

@@ -1,0 +1,452 @@
+{%extends 'base.html'%}
+
+{%block titale %}<title>Merchent-Details</title>{%endblock%}
+{%block content%}
+<!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Merchant Details</h4>
+                            <span>View complete merchant information</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'merchant' %}">Merchants</a></li>
+                            <li class="breadcrumb-item active"><a href="{% url 'view_merchant' merchant.merchant_username %}">View Merchant</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Merchant Information -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Merchant Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="text-label">Merchant ID</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="flaticon-381-id-card"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" value="MCH-{{ merchant.merchant_id }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="text-label">Status</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="flaticon-381-flag"></i></span>
+                                                </div>
+                                                <select class="form-control">
+                                                     <option {% if merchant.status == 'approved' %}selected{% endif %}>Active</option>
+                                                     <option {% if merchant.status == 'pending' %}selected{% endif %}>Pending</option>
+                                                     <option {% if merchant.status == 'rejected' %}selected{% endif %}>Suspended</option>
+                                                     <option {% if merchant.status == 'inactive' %}selected{% endif %}>Inactive</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="text-label">Business Name</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="flaticon-381-briefcase"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{ merchant.merchant_business_name }}" readonly readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="text-label">Business Type</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="flaticon-381-list"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{ merchant.business_type }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="text-label">Contact Person</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="flaticon-381-user"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{ merchant.merchant_name }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="text-label">Phone Number</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="flaticon-381-phone-call"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{ merchant.merchant_phone }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="text-label">Email Address</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="flaticon-381-mail"></i></span>
+                                                </div>
+                                                <input type="email" class="form-control" value="{{ merchant.merchant_email }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="text-label">Website</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="flaticon-381-internet"></i></span>
+                                                </div>
+                                                <input type="url" class="form-control" value="{{ merchant.merchant_business_url }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="text-label">Business Address</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="flaticon-381-location"></i></span>
+                                                </div>
+                                                <textarea class="form-control" rows="3" readonly>{{ merchant.business_address }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="text-label">Service Areas</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="flaticon-381-location"></i></span>
+                                                </div>
+                                                <textarea class="form-control" rows="3" readonly>{{ merchant.service_areas }}</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="text-label">Registration Date</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="flaticon-381-calendar"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{ merchant.created_at|date:'Y-m-d' }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="form-group">
+                                            <label class="text-label">Last Updated</label>
+                                            <div class="input-group">
+                                                <div class="input-group-prepend">
+                                                    <span class="input-group-text"><i class="flaticon-381-calendar"></i></span>
+                                                </div>
+                                                <input type="text" class="form-control" value="{{ merchant.updated_at|date:'Y-m-d' }}" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group">
+                                    <label class="text-label">Business Description</label>
+                                    <div class="input-group">
+                                        <div class="input-group-prepend">
+                                            <span class="input-group-text"><i class="flaticon-381-note"></i></span>
+                                        </div>
+                                        <textarea class="form-control" rows="4" readonly>{{ merchant.description }}</textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Merchant Profile -->
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div class="profile-pic mb-3">
+                                    <img src="../../../assets/images/profile/3.jpg" width="120" class="rounded-circle" alt="">
+                                </div>
+                                <h4 class="mb-1">{{merchant.merchant_business_name}}</h4>
+                                <p class="text-muted">{{merchant.merchant_name}}</p>
+                                <div class="badge badge-success mb-3">{{merchant.status}}</div>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <h5 class="mb-0">45</h5>
+                                        <small class="text-muted">Parcels</small>
+                                    </div>
+                                    <div class="col-6">
+                                        <h5 class="mb-0">$2,450</h5>
+                                        <small class="text-muted">Revenue</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Quick Actions</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-grid gap-2">
+                                    <a href="edit-merchant.html" class="btn btn-primary">
+                                        <i class="flaticon-381-edit mr-2"></i>Edit Merchant
+                                    </a>
+                                    <button type="button" class="btn btn-info">
+                                        <i class="flaticon-381-box mr-2"></i>View Parcels
+                                    </button>
+                                    <button type="button" class="btn btn-warning">
+                                        <i class="flaticon-381-file mr-2"></i>Generate Invoice
+                                    </button>
+                                    <button type="button" class="btn btn-success">
+                                        <i class="flaticon-381-send mr-2"></i>Send Message
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Contact Information -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Contact Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="media mb-3">
+                                    <div class="media-left">
+                                        <span class="bgl-primary rounded-circle">
+                                            <i class="flaticon-381-phone-call text-primary"></i>
+                                        </span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="mb-1">Phone</h6>
+                                        <p class="mb-0">+1 234-567-8900</p>
+                                    </div>
+                                </div>
+                                <div class="media mb-3">
+                                    <div class="media-left">
+                                        <span class="bgl-primary rounded-circle">
+                                            <i class="flaticon-381-mail text-primary"></i>
+                                        </span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="mb-1">Email</h6>
+                                        <p class="mb-0">john@abcelectronics.com</p>
+                                    </div>
+                                </div>
+                                <div class="media">
+                                    <div class="media-left">
+                                        <span class="bgl-primary rounded-circle">
+                                            <i class="flaticon-381-location text-primary"></i>
+                                        </span>
+                                    </div>
+                                    <div class="media-body">
+                                        <h6 class="mb-1">Address</h6>
+                                        <p class="mb-0">123 Main Street, Downtown</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Merchant Statistics -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary ai-icon">
+                                        <i class="flaticon-381-box"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0"><span class="counter ml-0">45</span></h3>
+                                        <p class="mb-0">Total Parcels</p>
+                                        <small>All time shipments</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success ai-icon">
+                                        <i class="flaticon-381-check"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0"><span class="counter ml-0">38</span></h3>
+                                        <p class="mb-0">Delivered</p>
+                                        <small>Successfully completed</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning ai-icon">
+                                        <i class="flaticon-381-clock"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0"><span class="counter ml-0">5</span></h3>
+                                        <p class="mb-0">In Transit</p>
+                                        <small>Currently moving</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info ai-icon">
+                                        <i class="flaticon-381-price-tag"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0"><span class="counter ml-0">$2,450</span></h3>
+                                        <p class="mb-0">Total Revenue</p>
+                                        <small>All time earnings</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Parcels -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Recent Parcels</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-striped table-bordered">
+                                        <thead>
+                                            <tr>
+                                                <th>Tracking Number</th>
+                                                <th>Status</th>
+                                                <th>Pickup Date</th>
+                                                <th>Expected Delivery</th>
+                                                <th>Amount</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="bgl-primary rounded-circle p-2 mr-3">
+                                                            <i class="flaticon-381-box text-primary"></i>
+                                                        </span>
+                                                        <div>
+                                                            <h6 class="mb-0">TRK-2024-001</h6>
+                                                            <small class="text-muted">Electronics Package</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-warning">In Transit</span></td>
+                                                <td>2024-01-15</td>
+                                                <td>2024-01-17</td>
+                                                <td>$25.00</td>
+                                                <td>
+                                                    <a href="view-parcel.html" class="btn btn-sm btn-primary">View</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="bgl-primary rounded-circle p-2 mr-3">
+                                                            <i class="flaticon-381-box text-primary"></i>
+                                                        </span>
+                                                        <div>
+                                                            <h6 class="mb-0">TRK-2024-002</h6>
+                                                            <small class="text-muted">Laptop Accessories</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-success">Delivered</span></td>
+                                                <td>2024-01-14</td>
+                                                <td>2024-01-16</td>
+                                                <td>$30.00</td>
+                                                <td>
+                                                    <a href="view-parcel.html" class="btn btn-sm btn-primary">View</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="bgl-primary rounded-circle p-2 mr-3">
+                                                            <i class="flaticon-381-box text-primary"></i>
+                                                        </span>
+                                                        <div>
+                                                            <h6 class="mb-0">TRK-2024-003</h6>
+                                                            <small class="text-muted">Smartphone</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-info">Out for Delivery</span></td>
+                                                <td>2024-01-16</td>
+                                                <td>2024-01-16</td>
+                                                <td>$35.00</td>
+                                                <td>
+                                                    <a href="view-parcel.html" class="btn btn-sm btn-primary">View</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        {%endblock%}
