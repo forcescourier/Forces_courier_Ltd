@@ -10,4 +10,7 @@ urlpatterns = [
     path("merchants/<str:merchant_username>/edit/", views.edit_merchant, name="edit_merchant"),
    # path("merchants/<int:merchant_id>/parcels/", views.merchant_parcels, name="merchant_parcels"),
     #path("merchants/<int:merchant_id>/payments/", views.merchant_payments, name="merchant_payments"),
+    path("addmerchant/", views.add_merchant, name="addmerchant"),
+    path("export/", views.export_page, name="export_page"),
+    path("export/download/", views.export_merchants, name="export_merchants"),
 ]

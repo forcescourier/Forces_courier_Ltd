@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
-
-{%block title%}<title>Edit Merchant</title>{%endblock%}
+{%block title%}<title>Add Merchant</title>{%endblock%}
 {%block content%}
+
 <!--**********************************
             Content body start
         ***********************************-->
@@ -10,98 +10,39 @@
                 <div class="row page-titles mx-0">
                     <div class="col-sm-6 p-md-0">
                         <div class="welcome-text">
-                            <h4>Edit Merchant</h4>
-                            <span>Update merchant information</span>
+                            <h4>Add New Merchant</h4>
+                            <span>Register a new merchant account</span>
                         </div>
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
                             <li class="breadcrumb-item"><a href="{% url 'merchant' %}">Merchants</a></li>
-                            <li class="breadcrumb-item"><a href="{% url 'view_merchant' merchant.merchant_username %}">View Merchant</a></li>
-                            <li class="breadcrumb-item active"><a href="#">Edit Merchant</a></li>
+                            <li class="breadcrumb-item active"><a href="{% url 'addmerchant' %}">Add Merchant</a></li>
                         </ol>
                     </div>
                 </div>
 
-                <!-- Edit Merchant Form -->
+                {% if form.errors %}
+                   <div class="alert alert-danger">
+                  {{ form.errors }}
+                  </div>
+                {% endif %}
+
+                <!-- Add Merchant Form -->
                 <div class="row">
                     <div class="col-xl-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Edit Merchant Information</h4>
+                                <h4 class="card-title">Merchant Information</h4>
                             </div>
                             <div class="card-body">
-                                <form method="post">
+                                <form method="POST" >
+                                    {% csrf_token %}
                                     <!-- Basic Information -->
-                                     {%csrf_token%}
-                                     
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h5 class="mb-3">Basic Information</h5>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="text-label">Merchant ID</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="flaticon-381-id-card"></i></span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="merchant_id" value="{{merchant.merchant_id}}" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        
-
-                                        <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="text-label">Username <span class="text-danger">*</span></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="flaticon-381-user"></i></span>
-                                                    </div>
-                                                    <input type="text" class="form-control" name="merchant_username" value="{{merchant.merchant_username}}" required>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <div class="form-group">
-                                            <label class="text-label">Password</label>
-                                            <div class="input-group">
-                                                <div class="input-group-prepend">
-                                                    <span class="input-group-text">
-                                                        <i class="flaticon-381-lock"></i>
-                                                    </span>
-                                                </div>
-                                                <input type="password" class="form-control" name="merchant_password" value="{{merchant.merchant_password}}" placeholder="password" required>
-                                                <div class="input-group-append">
-                                                    <span class="input-group-text"  style="cursor: pointer;">
-                                                        <i class="flaticon-381-eye"></i>
-                                                    </span>
-                                                </div>
-                                            </div>
-                                        </div>
-
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="text-label">Status <span class="text-danger">*</span></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="flaticon-381-flag"></i></span>
-                                                    </div>
-                                                    <select class="form-control" name="status">
-                                                      <option value="active" {% if merchant.status == "approved" %}selected{% endif %}>Active</option>
-                                                      <option value="pending" {% if merchant.status == "pending" %}selected{% endif %}>Pending</option>
-                                                      <option value="suspended" {% if merchant.status == "rejected" %}selected{% endif %}>Suspended</option>
-                                                    <option value="inactive" {% if merchant.status == "inactive" %}selected{% endif %}>Inactive</option>
-                                                    </select>
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                     
@@ -113,46 +54,11 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="flaticon-381-briefcase"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="merchant_business_name" value="{{merchant.merchant_business_name}}" required>
+                                                    <input type="text" class="form-control" name="merchant_business_name" placeholder="Enter business name" required>
                                                 </div>
                                             </div>
                                         </div>
-
-                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="text-label">Phone Number <span class="text-danger">*</span></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="flaticon-381-phone-call"></i></span>
-                                                    </div>
-                                                    <input type="tel" class="form-control" name="merchant_business_number"  value="{{merchant.merchant_business_number}}" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
                                        
-
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="text-label">Merchant Type <span class="text-danger">*</span></label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="flaticon-381-briefcase"></i></span>
-                                                    </div>
-                                                     <input type="tel" class="form-control" name="merchant_category"  value="{{merchant.merchant_category}}" required>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <!-- Contact Information -->
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <h5 class="mb-3 mt-4">Contact Information</h5>
-                                        </div>
-                                    </div>
-
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
@@ -161,7 +67,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="flaticon-381-user"></i></span>
                                                     </div>
-                                                    <input type="text" class="form-control" name="merchant_name" value="{{merchant.merchant_name}}" required>
+                                                    <input type="text" class="form-control" name="merchant_name" placeholder="Enter contact person name" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -172,7 +78,20 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="flaticon-381-phone-call"></i></span>
                                                     </div>
-                                                    <input type="tel" class="form-control" name="merchant_phone"  value="{{merchant.merchant_phone}}" required>
+                                                    <input type="tel" class="form-control" name="merchant_phone" placeholder="Enter phone number" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Business Phone Number <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-phone-call"></i></span>
+                                                    </div>
+                                                    <input type="tel" class="form-control" name="merchant_business_number" placeholder="Enter Business phone number" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -186,7 +105,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="flaticon-381-mail"></i></span>
                                                     </div>
-                                                    <input type="email" class="form-control" name="merchant_email" value="{{merchant.merchant_email}}" required>
+                                                    <input type="email" class="form-control" name="merchant_email" placeholder="Enter email address" required>
                                                 </div>
                                             </div>
                                         </div>
@@ -197,7 +116,7 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="flaticon-381-internet"></i></span>
                                                     </div>
-                                                    <input type="url" class="form-control" name="merchant_business_url"  value="{{merchant.merchant_business_url}}" placeholder="https://example.com">
+                                                    <input type="url" class="form-control" name="merchant_business_url" placeholder="https://example.com">
                                                 </div>
                                             </div>
                                         </div>
@@ -218,11 +137,15 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="flaticon-381-location"></i></span>
                                                     </div>
-                                                    <textarea class="form-control" rows="3" name="merchant_pickup_address" >{{merchant.merchant_pickup_address}}</textarea>
+                                                    <textarea class="form-control" rows="3" name="merchant_pickup_address" placeholder="Enter complete business address" required></textarea>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
+
+
+                                    
+                                       
 
                                     <!-- Business Details -->
                                     <div class="row">
@@ -231,18 +154,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="text-label">Registration Date</label>
-                                                <div class="input-group">
-                                                    <div class="input-group-prepend">
-                                                        <span class="input-group-text"><i class="flaticon-381-calendar"></i></span>
-                                                    </div>
-                                                    <input type="date" class="form-control" value="{{ merchant.created_at|date:'Y-m-d' }}" readonly>
-                                                </div>
-                                            </div>
-                                        </div>
+                                    
                                        
 
                                     <div class="form-group">
@@ -251,11 +163,11 @@
                                             <div class="input-group-prepend">
                                                 <span class="input-group-text"><i class="flaticon-381-note"></i></span>
                                             </div>
-                                            <textarea class="form-control" rows="4" placeholder="Describe the business, services, and specialties" name="merchant.merchant_business_description">{{ merchant.merchant_business_description }}</textarea>
+                                            <textarea class="form-control" rows="4" name="merchant_business_description" placeholder="Describe the business, services, and specialties"></textarea>
                                         </div>
                                     </div>
-                                   <!--after implement Payment app-->
-                                    <!-- Payment Information -->
+
+                                    <!-- Payment Information 
                                     <div class="row">
                                         <div class="col-md-12">
                                             <h5 class="mb-3 mt-4">Payment Information</h5>
@@ -265,12 +177,13 @@
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
-                                                <label class="text-label">Payment Method</label>
+                                                <label class="text-label">Payment Method <span class="text-danger">*</span></label>
                                                 <div class="input-group">
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="flaticon-381-price-tag"></i></span>
                                                     </div>
-                                                    <select class="form-control">
+                                                    <select class="form-control" >
+                                                        <option value="">Select Payment Method</option>
                                                         <option value="credit_card">Credit Card</option>
                                                         <option value="bank_transfer">Bank Transfer</option>
                                                         <option value="cash">Cash</option>
@@ -287,7 +200,107 @@
                                                     <div class="input-group-prepend">
                                                         <span class="input-group-text"><i class="flaticon-381-price-tag"></i></span>
                                                     </div>
-                                                    <input type="number" class="form-control" value="5000" placeholder="Enter credit limit">
+                                                    <input type="number" class="form-control" placeholder="Enter credit limit">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Bank Name</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-bank"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Enter bank name">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Account Number</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-id-card"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="Enter account number">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>-->
+
+                                    <!-- Account Settings -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Account Settings</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Username <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-user"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="merchant_username" placeholder="Enter username" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Password <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-lock"></i></span>
+                                                    </div>
+                                                    <input type="password" class="form-control" name="merchant_password" placeholder="Enter password" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Confirm Password <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-lock"></i></span>
+                                                    </div>
+                                                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm password" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Account Status</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-flag"></i></span>
+                                                    </div>
+                                                    <select class="form-control" name="status">
+                                                        <option value="approved">Active</option>
+                                                        <option value="pending">Pending Approval</option>
+                                                        <option value="rejected">Suspended</option>
+                                                        <option value="inactive">Inactive</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Merchant Type <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-briefcase"></i></span>
+                                                    </div>
+                                                     <input type="tel" class="form-control" name="merchant_category" >
                                                 </div>
                                             </div>
                                         </div>
@@ -299,13 +312,13 @@
                                             <h5 class="mb-3 mt-4">Additional Settings</h5>
                                         </div>
                                     </div>
-
+<!--
                                     <div class="row">
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="text-label">Auto-approval</label>
                                                 <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="autoApproval" checked>
+                                                    <input type="checkbox" class="custom-control-input" >
                                                     <label class="custom-control-label" for="autoApproval">Automatically approve new orders</label>
                                                 </div>
                                             </div>
@@ -314,7 +327,7 @@
                                             <div class="form-group">
                                                 <label class="text-label">Priority Merchant</label>
                                                 <div class="custom-control custom-switch">
-                                                    <input type="checkbox" class="custom-control-input" id="priorityMerchant">
+                                                    <input type="checkbox" class="custom-control-input" >
                                                     <label class="custom-control-label" for="priorityMerchant">Mark as priority merchant</label>
                                                 </div>
                                             </div>
@@ -340,14 +353,15 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
+                                    </div> -->
 
                                     <!-- Action Buttons -->
                                     <div class="row">
                                         <div class="col-md-12">
                                             <div class="text-right mt-4">
-                                                <a href={% url 'view_merchant' merchant.merchant_username%} class="btn btn-light mr-2">Cancel</a>
-                                                <button type="submit" class="btn btn-primary">Update Merchant</button>
+                                                <a href="{% url 'merchant' %}" class="btn btn-light mr-2">Cancel</a>
+                                                <button type="button" class="btn btn-info mr-2">Save Draft</button>
+                                                <button type="submit" class="btn btn-primary">Create Merchant</button>
                                             </div>
                                         </div>
                                     </div>
@@ -360,5 +374,5 @@
         </div>
         <!--**********************************
             Content body end
-    -->
-{%endblock%}
+        ***********************************-->
+        {%endblock%}
