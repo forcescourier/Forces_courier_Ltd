@@ -13,4 +13,7 @@ urlpatterns = [
     path("addmerchant/", views.add_merchant, name="addmerchant"),
     path("export/", views.export_page, name="export_page"),
     path("export/download/", views.export_merchants, name="export_merchants"),
+    path('soldier/', views.soldier,name='soldier'),
+    path("soldier/<str:soldiers_name>/", views.soldier_detail, name="soldier_detail"),
+    path("soldier-edit/<str:soldiers_name>/", views.soldier_edit, name="soldier_edit"),
 ]

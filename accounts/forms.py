@@ -1,7 +1,7 @@
 from django import forms
 from django.core.exceptions import ValidationError
 from django.contrib.auth.hashers import make_password
-from .models import Merchant
+from .models import Merchant, DeliverySoldier
 
 
 class MerchantForm(forms.ModelForm):
@@ -45,3 +45,32 @@ class MerchantAddForm(forms.ModelForm):
         if commit:
             merchant.save()
         return merchant
+    
+
+class SoldierForm(forms.ModelForm):
+    class Meta:
+        model = DeliverySoldier
+        exclude = ["created_at", "updated_at", "soldiers_password_hash"]  # we usually don’t edit these
+        widgets = {
+            "soldiers_name": forms.TextInput(attrs={"class": "form-control", "required": True}),
+            "soldiers_phone": forms.TextInput(attrs={"class": "form-control"}),
+            "soldiers_email": forms.EmailInput(attrs={"class": "form-control"}),
+            "soldiers_username": forms.TextInput(attrs={"class": "form-control"}),
+            "soldiers_address": forms.Textarea(attrs={"class": "form-control", "rows": 3}),
+            "soldiers_Blood_group": forms.TextInput(attrs={"class": "form-control"}),
+            "soldiers_dob": forms.DateInput(attrs={"class": "form-control", "type": "date"}),
+            "soldiers_gender": forms.Select(attrs={"class": "form-control"}),
+            "status": forms.Select(attrs={"class": "form-control"}),
+
+            # Vehicle Info
+            "soldiers_vehicle_type": forms.Select(attrs={"class": "form-control"}),
+            "soldiers_vehicle_brand": forms.TextInput(attrs={"class": "form-control"}),
+            "soldiers_vehicle_number": forms.TextInput(attrs={"class": "form-control"}),
+            "license_expiry": forms.DateInput(attrs={"class": "form-control", "type": "date"}),
+            "insurance_status": forms.CheckboxInput(attrs={"class": "form-check-input"}),
+            "insurance_expiry": forms.DateInput(attrs={"class": "form-control", "type": "date"}),
+
+            # Image
+            "photo": forms.FileInput(attrs={"class": "form-control-file"}),
+        }
+            

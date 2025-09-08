@@ -15,6 +15,14 @@ class Parcel(models.Model):
         'logistics.Area', on_delete=models.CASCADE, null=True, blank=True, related_name='parcels'
     )
 
+
+    assigned_soldier = models.ForeignKey(
+        'accounts.DeliverySoldier',
+        on_delete=models.SET_NULL,  # If soldier is deleted, keep parcel but set null
+        null=True, blank=True,
+        related_name='parcels'      # 👈 this gives soldier.parcels
+    )
+
     # Customer details
     parcels_customer_name = models.CharField(max_length=100)
     parcels_customer_phone = models.CharField(max_length=20)

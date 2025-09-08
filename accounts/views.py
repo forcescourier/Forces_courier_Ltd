@@ -4,8 +4,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required, user_passes_test
-from .models import Merchant
-from .forms import MerchantForm, MerchantAddForm
+from .models import Merchant, DeliverySoldier
+from .forms import MerchantForm, MerchantAddForm, SoldierForm
 import io
 import pandas as pd
 from django.http import HttpResponse
@@ -18,6 +18,8 @@ from django.db.models import Q
 from django.utils import timezone
 from datetime import timedelta
 
+from django.db.models import Count
+from parcels.models import Parcel
 
 
 
@@ -87,7 +89,7 @@ def edit_merchant(request, merchant_username):
         form= MerchantForm(instance=merchant)
 
     return render(request, "accounts/merchant-edit.html", {"merchant": merchant, "form": form})
-
+# ADD merchant func
 def add_merchant(request):
     if request.method == "POST":
         form = MerchantAddForm(request.POST)
@@ -100,11 +102,11 @@ def add_merchant(request):
         print("wrong") 
     return render(request, "accounts/merchant-add.html", {"form": form})
 
-
+# merchant information export page
 def export_page(request):
     return render(request, "accounts/export.html") 
 
-
+#merchant info export 
 def export_merchants(request):
     merchants = Merchant.objects.all()
 
@@ -203,3 +205,69 @@ def export_merchants(request):
         return response
 
     return HttpResponse("Invalid export format", status=400)
+
+
+# rider func
+def soldier(request):
+    
+    soldiers = (
+        DeliverySoldier.objects
+        .select_related("soldiers_area_id")      
+        .prefetch_related("parcels")            
+    )
+
+    # Statistics
+    total_soldiers = soldiers.count()
+    active_soldiers = soldiers.filter(status="active").count()
+    off_duty = soldiers.filter(status="off_duty").count()
+    suspended = soldiers.filter(status="suspended").count()
+
+    # total parcels from FK relation (if each soldier has one parcel_id only)
+    total_parcels = soldiers.aggregate(total=Count("soldiers_parcel_id"))["total"] or 0
+
+    context = {
+        "soldiers": soldiers,
+        "total_soldiers": total_soldiers,
+        "active_soldiers": active_soldiers,
+        "off_duty": off_duty,
+        "suspended": suspended,
+        "total_parcels": total_parcels,
+    }
+    return render(request, "accounts/soldier.html", context)
+
+
+def soldier_detail(request, soldiers_name):
+    # Get soldier by ID with related area + parcels
+    soldier = get_object_or_404(
+        DeliverySoldier.objects.select_related("soldiers_area_id").prefetch_related("parcels"),
+        soldiers_name=soldiers_name
+    )
+
+    # Statistics
+    total_deliveries = soldier.parcels.count()
+    recent_deliveries = soldier.parcels.order_by("-created_at")[:5]  # last 5
+    monthly_earnings = 1245  # for now, hardcoded; later calculate
+    rating = 4.8  # placeholder
+
+    context = {
+        "soldier": soldier,
+        "total_deliveries": total_deliveries,
+        "recent_deliveries": recent_deliveries,
+        "monthly_earnings": monthly_earnings,
+        "rating": rating,
+    }
+    return render(request, "accounts/soldier-view.html", context)
+
+def soldier_edit(request, soldiers_name):
+    soldier = get_object_or_404(DeliverySoldier, soldiers_name=soldiers_name)
+
+    if request.method == "POST":
+        form = SoldierForm(request.POST, request.FILES, instance=soldier)
+        if form.is_valid():
+            form.save()
+            return redirect("soldier_detail", soldiers_name=soldier.soldiers_name)
+    else:
+        form = SoldierForm(instance=soldier)
+
+    return render(request, "accounts/soldier-edit.html", {"form": form, "soldier": soldier})
+
