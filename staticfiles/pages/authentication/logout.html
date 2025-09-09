@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Logout - Courier Dashboard</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <link href="../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Logout</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i><span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i><span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../index.html" class="ai-icon"><i class="flaticon-381-networking"></i><span class="nav-text">Dashboard</span></a></li>
+                    <li><a href="../management/parcels/parcels.html" class="ai-icon"><i class="flaticon-381-box"></i><span class="nav-text">Parcels</span></a></li>
+                    <li><a href="../management/merchants/merchants.html" class="ai-icon"><i class="flaticon-381-user-7"></i><span class="nav-text">Merchants</span></a></li>
+                    <li><a href="../management/riders/riders.html" class="ai-icon"><i class="flaticon-381-user-2"></i><span class="nav-text">Riders</span></a></li>
+                    <li><a href="../management/services/services.html" class="ai-icon"><i class="flaticon-381-list"></i><span class="nav-text">Services</span></a></li>
+                    <li><a href="../management/areas/areas.html" class="ai-icon"><i class="flaticon-381-location"></i><span class="nav-text">Areas</span></a></li>
+                    <li><a href="../management/payments/payments.html" class="ai-icon"><i class="flaticon-381-price-tag"></i><span class="nav-text">Payments</span></a></li>
+                    <li><a href="../management/invoices/invoices.html" class="ai-icon"><i class="flaticon-381-file"></i><span class="nav-text">Invoices</span></a></li>
+                    <li><a href="../reports/reports.html" class="ai-icon"><i class="flaticon-381-chart"></i><span class="nav-text">Reports</span></a></li>
+                    <li><a href="../../settings.html" class="ai-icon"><i class="flaticon-381-settings"></i><span class="nav-text">Settings</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Logout</h4>
+                            <span>Confirm your logout action</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Logout</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Logout Confirmation -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-6 col-lg-8 col-md-10">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <div class="logout-icon mb-4">
+                                    <i class="flaticon-381-exit text-danger" style="font-size: 4rem;"></i>
+                                </div>
+                                <h3 class="mb-3">Are you sure you want to logout?</h3>
+                                <p class="text-muted mb-4">You will be redirected to the login page. Make sure to save any unsaved work before proceeding.</p>
+                                
+                                <div class="logout-info mb-4">
+                                    <div class="row text-center">
+                                        <div class="col-4">
+                                            <h5 class="text-primary">Admin User</h5>
+                                            <small class="text-muted">Current User</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5 class="text-info">14:30</h5>
+                                            <small class="text-muted">Login Time</small>
+                                        </div>
+                                        <div class="col-4">
+                                            <h5 class="text-success">2h 15m</h5>
+                                            <small class="text-muted">Session Duration</small>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="logout-actions">
+                                    <button type="button" class="btn btn-secondary btn-lg mr-3" onclick="cancelLogout()">
+                                        <i class="flaticon-381-arrow-left"></i> Cancel
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-lg" onclick="confirmLogout()">
+                                        <i class="flaticon-381-exit"></i> Logout
+                                    </button>
+                                </div>
+
+                                <div class="logout-tips mt-4">
+                                    <div class="alert alert-info">
+                                        <h6><i class="flaticon-381-info"></i> Quick Tips:</h6>
+                                        <ul class="list-unstyled mb-0 text-left">
+                                            <li><i class="flaticon-381-check text-success"></i> Save any unsaved work</li>
+                                            <li><i class="flaticon-381-check text-success"></i> Close any open documents</li>
+                                            <li><i class="flaticon-381-check text-success"></i> Remember to log back in when needed</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Session Summary -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Session Summary</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary">Activities Performed</h6>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                <i class="flaticon-381-box text-info"></i>
+                                                <span class="ml-2">Viewed 15 parcels</span>
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="flaticon-381-chart text-success"></i>
+                                                <span class="ml-2">Generated 3 reports</span>
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="flaticon-381-user-7 text-warning"></i>
+                                                <span class="ml-2">Updated 2 merchant profiles</span>
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="flaticon-381-settings text-primary"></i>
+                                                <span class="ml-2">Modified system settings</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary">System Information</h6>
+                                        <ul class="list-unstyled">
+                                            <li class="mb-2">
+                                                <i class="flaticon-381-calendar text-info"></i>
+                                                <span class="ml-2">Login: 2024-06-15 12:15</span>
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="flaticon-381-location text-success"></i>
+                                                <span class="ml-2">IP: 192.168.1.100</span>
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="flaticon-381-device text-warning"></i>
+                                                <span class="ml-2">Browser: Chrome 120.0</span>
+                                            </li>
+                                            <li class="mb-2">
+                                                <i class="flaticon-381-location text-primary"></i>
+                                                <span class="ml-2">Location: Dhaka, Bangladesh</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Alternative Actions -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Before You Go</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4 text-center">
+                                        <div class="action-item mb-3">
+                                            <i class="flaticon-381-save text-primary" style="font-size: 2rem;"></i>
+                                            <h6 class="mt-2">Save Work</h6>
+                                            <p class="text-muted small">Save any unsaved changes</p>
+                                            <button type="button" class="btn btn-outline-primary btn-sm">Save All</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="action-item mb-3">
+                                            <i class="flaticon-381-download text-success" style="font-size: 2rem;"></i>
+                                            <h6 class="mt-2">Export Data</h6>
+                                            <p class="text-muted small">Download important data</p>
+                                            <button type="button" class="btn btn-outline-success btn-sm">Export</button>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4 text-center">
+                                        <div class="action-item mb-3">
+                                            <i class="flaticon-381-settings text-warning" style="font-size: 2rem;"></i>
+                                            <h6 class="mt-2">Settings</h6>
+                                            <p class="text-muted small">Review your preferences</p>
+                                            <a href="../../settings.html" class="btn btn-outline-warning btn-sm">Review</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Stay Logged In Option -->
+                <div class="row justify-content-center">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="mb-3">Changed your mind?</h5>
+                                <p class="text-muted mb-3">You can stay logged in and continue working</p>
+                                <button type="button" class="btn btn-primary" onclick="cancelLogout()">
+                                    <i class="flaticon-381-arrow-left"></i> Continue Working
+                                </button>
+                                <p class="text-muted small mt-2">Your session will remain active</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../vendor/global/global.min.js"></script>
+    <script src="../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../assets/js/custom.min.js"></script>
+    <script src="../../assets/js/deznav-init.js"></script>
+    
+    <script>
+        // Auto-logout countdown
+        let logoutCountdown = 30; // 30 seconds
+        let countdownInterval;
+
+        function startCountdown() {
+            countdownInterval = setInterval(() => {
+                logoutCountdown--;
+                if (logoutCountdown <= 0) {
+                    performLogout();
+                }
+            }, 1000);
+        }
+
+        function confirmLogout() {
+            // Show confirmation dialog
+            if (confirm('Are you sure you want to logout? This action cannot be undone.')) {
+                performLogout();
+            }
+        }
+
+        function cancelLogout() {
+            // Redirect back to dashboard
+            window.location.href = 'index.html';
+        }
+
+        function performLogout() {
+            // Clear any stored session data
+            localStorage.removeItem('userSession');
+            sessionStorage.clear();
+            
+            // Show logout message
+            Swal.fire({
+                title: 'Logging out...',
+                text: 'Please wait while we secure your session',
+                icon: 'info',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true
+            }).then(() => {
+                // Redirect to login page
+                window.location.href = 'login.html';
+            });
+        }
+
+        // Start countdown when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            // Start countdown after 5 seconds
+            setTimeout(() => {
+                startCountdown();
+            }, 5000);
+        });
+
+        // Save work function
+        function saveAllWork() {
+            Swal.fire({
+                title: 'Saving...',
+                text: 'Saving all your work',
+                icon: 'info',
+                showConfirmButton: false,
+                timer: 1500,
+                timerProgressBar: true
+            }).then(() => {
+                Swal.fire('Saved!', 'All your work has been saved successfully.', 'success');
+            });
+        }
+
+        // Export data function
+        function exportData() {
+            Swal.fire({
+                title: 'Exporting...',
+                text: 'Preparing your data for download',
+                icon: 'info',
+                showConfirmButton: false,
+                timer: 2000,
+                timerProgressBar: true
+            }).then(() => {
+                Swal.fire('Exported!', 'Your data has been exported successfully.', 'success');
+            });
+        }
+
+        // Add event listeners
+        document.querySelector('.btn-outline-primary').addEventListener('click', saveAllWork);
+        document.querySelector('.btn-outline-success').addEventListener('click', exportData);
+
+        // Show countdown in page title
+        setInterval(() => {
+            if (logoutCountdown > 0) {
+                document.title = `Logout (${logoutCountdown}s) - Courier Dashboard`;
+            }
+        }, 1000);
+    </script>
+</body>
+</html>

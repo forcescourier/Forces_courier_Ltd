@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Service Areas - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Service Area Coverage Management</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Service Area Coverage</h4>
+                            <span>Manage which areas each service covers and monitor service availability</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../services/services.html">Services</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Service Areas</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Service Selection Header -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Service Area Management</h4>
+                                <div class="card-action">
+                                    <div class="input-group mr-3" style="width: 250px;">
+                                        <select class="form-control" id="serviceSelect">
+                                            <option value="same_day">Same Day Delivery</option>
+                                            <option value="next_day">Next Day Delivery</option>
+                                            <option value="economy">Economy Delivery</option>
+                                            <option value="express">Express Delivery</option>
+                                        </select>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button" id="switchService">
+                                                <i class="fas fa-sync"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#expandCoverageModal">
+                                        <i class="fas fa-plus mr-2"></i>Expand Coverage
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Coverage Statistics -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary ai-icon">
+                                        <i class="fas fa-map"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">12</h3>
+                                        <p class="mb-0">Covered Areas</p>
+                                        <small>Same Day Service</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success ai-icon">
+                                        <i class="fas fa-percentage"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">85%</h3>
+                                        <p class="mb-0">Coverage Rate</p>
+                                        <small>Of total areas</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning ai-icon">
+                                        <i class="fas fa-users"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">2.1M</h3>
+                                        <p class="mb-0">Population Served</p>
+                                        <small>Within coverage</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info ai-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">2.5h</h3>
+                                        <p class="mb-0">Avg Delivery Time</p>
+                                        <small>Across all areas</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8">
+                        <!-- Service Area Coverage Table -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Same Day Delivery - Area Coverage</h4>
+                                <div class="card-tools">
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-primary" id="showAll">All</button>
+                                        <button type="button" class="btn btn-outline-primary" id="showActive">Active</button>
+                                        <button type="button" class="btn btn-outline-primary" id="showInactive">Inactive</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table id="serviceAreasTable" class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Area</th>
+                                                <th>Status</th>
+                                                <th>Launch Date</th>
+                                                <th>Performance</th>
+                                                <th>Capacity</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h6 class="mb-0">Dhaka Central</h6>
+                                                            <small class="text-muted">Zone: Central</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>Jan 15, 2023</td>
+                                                <td>
+                                                    <div>96% success</div>
+                                                    <small class="text-success">2.1h avg time</small>
+                                                </td>
+                                                <td>
+                                                    <div>85/100</div>
+                                                    <div class="progress" style="height: 4px;">
+                                                        <div class="progress-bar bg-success" style="width: 85%"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#" onclick="viewAreaDetails('A001')"><i class="fas fa-eye mr-2"></i>View Details</a>
+                                                            <a class="dropdown-item" href="#" onclick="adjustCapacity('A001')"><i class="fas fa-cog mr-2"></i>Adjust Capacity</a>
+                                                            <a class="dropdown-item text-warning" href="#" onclick="suspendService('A001')"><i class="fas fa-pause mr-2"></i>Suspend</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h6 class="mb-0">Dhaka North</h6>
+                                                            <small class="text-muted">Zone: North</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>Feb 01, 2023</td>
+                                                <td>
+                                                    <div>92% success</div>
+                                                    <small class="text-success">2.8h avg time</small>
+                                                </td>
+                                                <td>
+                                                    <div>72/80</div>
+                                                    <div class="progress" style="height: 4px;">
+                                                        <div class="progress-bar bg-warning" style="width: 90%"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#" onclick="viewAreaDetails('A002')"><i class="fas fa-eye mr-2"></i>View Details</a>
+                                                            <a class="dropdown-item" href="#" onclick="adjustCapacity('A002')"><i class="fas fa-cog mr-2"></i>Adjust Capacity</a>
+                                                            <a class="dropdown-item text-warning" href="#" onclick="suspendService('A002')"><i class="fas fa-pause mr-2"></i>Suspend</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h6 class="mb-0">Chittagong Port</h6>
+                                                            <small class="text-muted">Zone: Port</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                                <td>Mar 10, 2023</td>
+                                                <td>
+                                                    <div>88% success</div>
+                                                    <small class="text-warning">3.2h avg time</small>
+                                                </td>
+                                                <td>
+                                                    <div>45/60</div>
+                                                    <div class="progress" style="height: 4px;">
+                                                        <div class="progress-bar bg-info" style="width: 75%"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#" onclick="viewAreaDetails('A003')"><i class="fas fa-eye mr-2"></i>View Details</a>
+                                                            <a class="dropdown-item" href="#" onclick="adjustCapacity('A003')"><i class="fas fa-cog mr-2"></i>Adjust Capacity</a>
+                                                            <a class="dropdown-item text-warning" href="#" onclick="suspendService('A003')"><i class="fas fa-pause mr-2"></i>Suspend</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="media">
+                                                        <div class="media-body">
+                                                            <h6 class="mb-0">Sylhet City</h6>
+                                                            <small class="text-muted">Zone: City</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-warning">Limited</span></td>
+                                                <td>Apr 20, 2023</td>
+                                                <td>
+                                                    <div>82% success</div>
+                                                    <small class="text-warning">4.1h avg time</small>
+                                                </td>
+                                                <td>
+                                                    <div>28/40</div>
+                                                    <div class="progress" style="height: 4px;">
+                                                        <div class="progress-bar bg-warning" style="width: 70%"></div>
+                                                    </div>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#" onclick="viewAreaDetails('A004')"><i class="fas fa-eye mr-2"></i>View Details</a>
+                                                            <a class="dropdown-item" href="#" onclick="adjustCapacity('A004')"><i class="fas fa-cog mr-2"></i>Adjust Capacity</a>
+                                                            <a class="dropdown-item text-success" href="#" onclick="enableFullService('A004')"><i class="fas fa-play mr-2"></i>Enable Full</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Coverage Map -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Service Coverage Map</h4>
+                            </div>
+                            <div class="card-body p-0">
+                                <div id="serviceCoverageMap" style="height: 350px; width: 100%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Coverage Distribution -->
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h4 class="card-title">Service Distribution</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="serviceDistributionChart" height="150"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Expand Coverage Modal -->
+        <div class="modal fade" id="expandCoverageModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Expand Service Coverage</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="expandCoverageForm">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="text-label">Select Areas to Add</label>
+                                        <select class="form-control" multiple>
+                                            <option value="A005">Rajshahi City</option>
+                                            <option value="A006">Khulna Port</option>
+                                            <option value="A007">Barisal Central</option>
+                                            <option value="A008">Rangpur North</option>
+                                        </select>
+                                        <small class="form-text text-muted">Hold Ctrl to select multiple areas</small>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="text-label">Launch Strategy</label>
+                                        <select class="form-control">
+                                            <option value="immediate">Immediate Launch</option>
+                                            <option value="phased">Phased Rollout</option>
+                                            <option value="pilot">Pilot Program</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="text-label">Initial Capacity</label>
+                                        <input type="number" class="form-control" placeholder="50" min="10" max="200">
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="text-label">Launch Date</label>
+                                        <input type="date" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-success" id="confirmExpansion">Expand Coverage</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../vendor/datatables/js/jquery.dataTables.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize coverage map
+        let map = L.map('serviceCoverageMap').setView([23.8103, 90.4125], 7);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Service coverage areas
+        let serviceAreas = [
+            {name: 'Dhaka Central', center: [23.8103, 90.4125], radius: 15000, status: 'active'},
+            {name: 'Dhaka North', center: [23.8703, 90.3925], radius: 12000, status: 'active'},
+            {name: 'Chittagong Port', center: [22.3569, 91.7832], radius: 18000, status: 'active'},
+            {name: 'Sylhet City', center: [24.8949, 91.8687], radius: 10000, status: 'limited'}
+        ];
+
+        // Add coverage circles
+        serviceAreas.forEach(area => {
+            let color = area.status === 'active' ? '#28a745' : '#ffc107';
+            L.circle(area.center, {
+                color: color,
+                fillColor: color,
+                fillOpacity: 0.3,
+                radius: area.radius
+            }).addTo(map).bindPopup(`<b>${area.name}</b><br>Status: ${area.status}`);
+        });
+
+        // Service distribution chart
+        const ctx = document.getElementById('serviceDistributionChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ['Active', 'Limited', 'Planned', 'Suspended'],
+                datasets: [{
+                    data: [12, 3, 5, 1],
+                    backgroundColor: ['#28a745', '#ffc107', '#007bff', '#dc3545']
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                plugins: {
+                    legend: {
+                        position: 'bottom'
+                    }
+                }
+            }
+        });
+
+        // Filter functions
+        $('#showAll').click(function() {
+            $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+            $('#showActive, #showInactive').removeClass('btn-primary').addClass('btn-outline-primary');
+            $('#serviceAreasTable').DataTable().search('').draw();
+        });
+
+        $('#showActive').click(function() {
+            $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+            $('#showAll, #showInactive').removeClass('btn-primary').addClass('btn-outline-primary');
+            $('#serviceAreasTable').DataTable().column(1).search('Active').draw();
+        });
+
+        $('#showInactive').click(function() {
+            $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+            $('#showAll, #showActive').removeClass('btn-primary').addClass('btn-outline-primary');
+            $('#serviceAreasTable').DataTable().column(1).search('Limited|Suspended', true, false).draw();
+        });
+
+        // Area management functions
+        function viewAreaDetails(areaId) {
+            alert(`Viewing details for area: ${areaId}`);
+        }
+
+        function adjustCapacity(areaId) {
+            alert(`Opening capacity adjustment for area: ${areaId}`);
+        }
+
+        function suspendService(areaId) {
+            if (confirm(`Suspend service in area ${areaId}?`)) {
+                alert(`Service suspended in area ${areaId}`);
+                location.reload();
+            }
+        }
+
+        function enableFullService(areaId) {
+            if (confirm(`Enable full service in area ${areaId}?`)) {
+                alert(`Full service enabled in area ${areaId}`);
+                location.reload();
+            }
+        }
+
+        // Service switching
+        $('#switchService').click(function() {
+            let selectedService = $('#serviceSelect').val();
+            alert(`Switching to ${selectedService} service coverage view`);
+            location.reload();
+        });
+
+        // Expand coverage
+        $('#confirmExpansion').click(function() {
+            alert('Service coverage expanded successfully!');
+            $('#expandCoverageModal').modal('hide');
+            location.reload();
+        });
+
+        // Initialize DataTable
+        $(document).ready(function() {
+            $('#serviceAreasTable').DataTable({
+                "pageLength": 10,
+                "order": [[0, "asc"]],
+                "responsive": true
+            });
+        });
+
+        // Map resize handler
+        setTimeout(function() {
+            map.invalidateSize();
+        }, 100);
+    </script>
+</body>
+</html>

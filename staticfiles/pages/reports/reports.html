@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Reports - Courier Dashboard</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <link href="../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Reports</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i><span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i><span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../index.html" class="ai-icon"><i class="flaticon-381-networking"></i><span class="nav-text">Dashboard</span></a></li>
+                    <li><a href="../management/parcels/parcels.html" class="ai-icon"><i class="flaticon-381-box"></i><span class="nav-text">Parcels</span></a></li>
+                    <li><a href="../management/merchants/merchants.html" class="ai-icon"><i class="flaticon-381-user-7"></i><span class="nav-text">Merchants</span></a></li>
+                    <li><a href="../management/riders/riders.html" class="ai-icon"><i class="flaticon-381-user-2"></i><span class="nav-text">Riders</span></a></li>
+                    <li><a href="../management/services/services.html" class="ai-icon"><i class="flaticon-381-list"></i><span class="nav-text">Services</span></a></li>
+                    <li><a href="../management/areas/areas.html" class="ai-icon"><i class="flaticon-381-location"></i><span class="nav-text">Areas</span></a></li>
+                    <li><a href="../management/payments/payments.html" class="ai-icon"><i class="flaticon-381-price-tag"></i><span class="nav-text">Payments</span></a></li>
+                    <li><a href="../management/invoices/invoices.html" class="ai-icon"><i class="flaticon-381-file"></i><span class="nav-text">Invoices</span></a></li>
+                    <li><a href="../reports/reports.html" class="ai-icon"><i class="flaticon-381-chart"></i><span class="nav-text">Reports</span></a></li>
+                    <li><a href="../../settings.html" class="ai-icon"><i class="flaticon-381-settings"></i><span class="nav-text">Settings</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Reports Center</h4>
+                            <span>Access comprehensive analytics and insights</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Reports</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Quick Stats -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary text-primary">
+                                        <i class="flaticon-381-box"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">2,456</span></h3>
+                                        <p class="mb-0">Total Reports Generated</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success text-success">
+                                        <i class="flaticon-381-chart"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">156</span></h3>
+                                        <p class="mb-0">Reports This Month</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning text-warning">
+                                        <i class="flaticon-381-download"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">89</span></h3>
+                                        <p class="mb-0">Downloads Today</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info text-info">
+                                        <i class="flaticon-381-users"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">24</span></h3>
+                                        <p class="mb-0">Active Report Users</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Report Categories -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Report Categories</h4>
+                                <p class="text-muted mb-0">Choose from our comprehensive range of reports</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <!-- Parcel Reports -->
+                                    <div class="col-xl-4 col-lg-6 col-md-6">
+                                        <div class="report-category">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="report-icon mb-3">
+                                                        <i class="flaticon-381-box text-primary" style="font-size: 3rem;"></i>
+                                                    </div>
+                                                    <h5 class="card-title">Parcel Reports</h5>
+                                                    <p class="text-muted">Track delivery performance, analyze trends, and monitor parcel status</p>
+                                                    <div class="report-features mb-3">
+                                                        <span class="badge badge-primary mr-1">Delivery Analytics</span>
+                                                        <span class="badge badge-info mr-1">Trend Analysis</span>
+                                                        <span class="badge badge-success">Performance Metrics</span>
+                                                    </div>
+                                                    <a href="parcel-reports.html" class="btn btn-primary btn-block">
+                                                        <i class="flaticon-381-chart"></i> View Reports
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Rider Reports -->
+                                    <div class="col-xl-4 col-lg-6 col-md-6">
+                                        <div class="report-category">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="report-icon mb-3">
+                                                        <i class="flaticon-381-user-2 text-success" style="font-size: 3rem;"></i>
+                                                    </div>
+                                                    <h5 class="card-title">Rider Reports</h5>
+                                                    <p class="text-muted">Monitor rider performance, track efficiency, and analyze delivery patterns</p>
+                                                    <div class="report-features mb-3">
+                                                        <span class="badge badge-success mr-1">Performance</span>
+                                                        <span class="badge badge-warning mr-1">Efficiency</span>
+                                                        <span class="badge badge-info">Analytics</span>
+                                                    </div>
+                                                    <a href="rider-reports.html" class="btn btn-success btn-block">
+                                                        <i class="flaticon-381-chart"></i> View Reports
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Merchant Reports -->
+                                    <div class="col-xl-4 col-lg-6 col-md-6">
+                                        <div class="report-category">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="report-icon mb-3">
+                                                        <i class="flaticon-381-user-7 text-warning" style="font-size: 3rem;"></i>
+                                                    </div>
+                                                    <h5 class="card-title">Merchant Reports</h5>
+                                                    <p class="text-muted">Analyze merchant performance, track partnerships, and monitor growth</p>
+                                                    <div class="report-features mb-3">
+                                                        <span class="badge badge-warning mr-1">Performance</span>
+                                                        <span class="badge badge-primary mr-1">Partnerships</span>
+                                                        <span class="badge badge-success">Growth</span>
+                                                    </div>
+                                                    <a href="merchant-reports.html" class="btn btn-warning btn-block">
+                                                        <i class="flaticon-381-chart"></i> View Reports
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Area Reports -->
+                                    <div class="col-xl-4 col-lg-6 col-md-6">
+                                        <div class="report-category">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="report-icon mb-3">
+                                                        <i class="flaticon-381-location text-info" style="font-size: 3rem;"></i>
+                                                    </div>
+                                                    <h5 class="card-title">Area Reports</h5>
+                                                    <p class="text-muted">Geographic performance analysis, coverage mapping, and regional insights</p>
+                                                    <div class="report-features mb-3">
+                                                        <span class="badge badge-info mr-1">Geographic</span>
+                                                        <span class="badge badge-primary mr-1">Coverage</span>
+                                                        <span class="badge badge-success">Regional</span>
+                                                    </div>
+                                                    <a href="area-reports.html" class="btn btn-info btn-block">
+                                                        <i class="flaticon-381-chart"></i> View Reports
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Service Reports -->
+                                    <div class="col-xl-4 col-lg-6 col-md-6">
+                                        <div class="report-category">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="report-icon mb-3">
+                                                        <i class="flaticon-381-list text-danger" style="font-size: 3rem;"></i>
+                                                    </div>
+                                                    <h5 class="card-title">Service Reports</h5>
+                                                    <p class="text-muted">Service performance analysis, quality metrics, and customer satisfaction</p>
+                                                    <div class="report-features mb-3">
+                                                        <span class="badge badge-danger mr-1">Performance</span>
+                                                        <span class="badge badge-success mr-1">Quality</span>
+                                                        <span class="badge badge-info">Satisfaction</span>
+                                                    </div>
+                                                    <a href="service-reports.html" class="btn btn-danger btn-block">
+                                                        <i class="flaticon-381-chart"></i> View Reports
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Payment Reports -->
+                                    <div class="col-xl-4 col-lg-6 col-md-6">
+                                        <div class="report-category">
+                                            <div class="card">
+                                                <div class="card-body text-center">
+                                                    <div class="report-icon mb-3">
+                                                        <i class="flaticon-381-price-tag text-primary" style="font-size: 3rem;"></i>
+                                                    </div>
+                                                    <h5 class="card-title">Payment Reports</h5>
+                                                    <p class="text-muted">Financial analytics, revenue tracking, and payment performance insights</p>
+                                                    <div class="report-features mb-3">
+                                                        <span class="badge badge-primary mr-1">Financial</span>
+                                                        <span class="badge badge-success mr-1">Revenue</span>
+                                                        <span class="badge badge-info">Performance</span>
+                                                    </div>
+                                                    <a href="payment-reports.html" class="btn btn-primary btn-block">
+                                                        <i class="flaticon-381-chart"></i> View Reports
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Reports -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Recent Reports</h4>
+                                <div class="card-tools">
+                                    <button type="button" class="btn btn-primary btn-sm" onclick="generateQuickReport()">
+                                        <i class="flaticon-381-plus"></i> Generate Report
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-borderless">
+                                        <thead>
+                                            <tr>
+                                                <th>Report Name</th>
+                                                <th>Type</th>
+                                                <th>Generated By</th>
+                                                <th>Date</th>
+                                                <th>Status</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="mr-3 bgl-primary text-primary rounded-circle p-2">
+                                                            <i class="flaticon-381-box"></i>
+                                                        </span>
+                                                        <div>
+                                                            <h6 class="mb-0">Daily Parcel Summary</h6>
+                                                            <small class="text-muted">Comprehensive daily overview</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-primary">Parcel</span></td>
+                                                <td>Admin User</td>
+                                                <td>2024-06-15 14:30</td>
+                                                <td><span class="badge badge-success">Completed</span></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-eye"></i> View</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-download"></i> Download</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-share"></i> Share</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="mr-3 bgl-success text-success rounded-circle p-2">
+                                                            <i class="flaticon-381-user-2"></i>
+                                                        </span>
+                                                        <div>
+                                                            <h6 class="mb-0">Rider Performance Analysis</h6>
+                                                            <small class="text-muted">Monthly rider evaluation</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-success">Rider</span></td>
+                                                <td>Manager User</td>
+                                                <td>2024-06-15 12:15</td>
+                                                <td><span class="badge badge-success">Completed</span></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-eye"></i> View</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-download"></i> Download</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-share"></i> Share</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="mr-3 bgl-warning text-warning rounded-circle p-2">
+                                                            <i class="flaticon-381-user-7"></i>
+                                                        </span>
+                                                        <div>
+                                                            <h6 class="mb-0">Merchant Growth Report</h6>
+                                                            <small class="text-muted">Quarterly merchant analysis</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-warning">Merchant</span></td>
+                                                <td>Admin User</td>
+                                                <td>2024-06-14 16:45</td>
+                                                <td><span class="badge badge-warning">Processing</span></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-eye"></i> View</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-download"></i> Download</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-share"></i> Share</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <span class="mr-3 bgl-info text-info rounded-circle p-2">
+                                                            <i class="flaticon-381-location"></i>
+                                                        </span>
+                                                        <div>
+                                                            <h6 class="mb-0">Area Coverage Analysis</h6>
+                                                            <small class="text-muted">Geographic performance review</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><span class="badge badge-info">Area</span></td>
+                                                <td>Operator User</td>
+                                                <td>2024-06-14 11:20</td>
+                                                <td><span class="badge badge-success">Completed</span></td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-eye"></i> View</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-download"></i> Download</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-share"></i> Share</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Quick Actions -->
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Quick Actions</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="quick-actions">
+                                    <button type="button" class="btn btn-primary btn-block mb-3" onclick="generateQuickReport()">
+                                        <i class="flaticon-381-plus"></i> Generate New Report
+                                    </button>
+                                    <button type="button" class="btn btn-success btn-block mb-3" onclick="scheduleReport()">
+                                        <i class="flaticon-381-calendar"></i> Schedule Report
+                                    </button>
+                                    <button type="button" class="btn btn-info btn-block mb-3" onclick="exportAllReports()">
+                                        <i class="flaticon-381-download"></i> Export All Reports
+                                    </button>
+                                    <button type="button" class="btn btn-warning btn-block mb-3" onclick="shareReport()">
+                                        <i class="flaticon-381-share"></i> Share Report
+                                    </button>
+                                    <button type="button" class="btn btn-danger btn-block" onclick="deleteOldReports()">
+                                        <i class="flaticon-381-delete"></i> Clean Old Reports
+                                    </button>
+                                </div>
+
+                                <hr>
+
+                                <div class="report-templates">
+                                    <h6 class="text-primary">Report Templates</h6>
+                                    <div class="template-item mb-2">
+                                        <a href="#" class="text-muted" onclick="useTemplate('daily')">
+                                            <i class="flaticon-381-file"></i> Daily Summary Template
+                                        </a>
+                                    </div>
+                                    <div class="template-item mb-2">
+                                        <a href="#" class="text-muted" onclick="useTemplate('weekly')">
+                                            <i class="flaticon-381-file"></i> Weekly Analysis Template
+                                        </a>
+                                    </div>
+                                    <div class="template-item mb-2">
+                                        <a href="#" class="text-muted" onclick="useTemplate('monthly')">
+                                            <i class="flaticon-381-file"></i> Monthly Report Template
+                                        </a>
+                                    </div>
+                                    <div class="template-item mb-2">
+                                        <a href="#" class="text-muted" onclick="useTemplate('quarterly')">
+                                            <i class="flaticon-381-file"></i> Quarterly Review Template
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Report Analytics -->
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Report Generation Trends</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="reportTrendsChart" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Report Type Distribution</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="reportTypeChart" height="200"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../vendor/global/global.min.js"></script>
+    <script src="../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../vendor/chart.js/Chart.bundle.min.js"></script>
+    <script src="../../assets/js/custom.min.js"></script>
+    <script src="../../assets/js/deznav-init.js"></script>
+    
+    <script>
+        // Report Generation Trends Chart
+        const reportTrendsCtx = document.getElementById('reportTrendsChart').getContext('2d');
+        new Chart(reportTrendsCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Reports Generated',
+                    data: [45, 52, 48, 61, 55, 67, 72, 68, 75, 82, 78, 89],
+                    borderColor: '#007bff',
+                    backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Report Type Distribution Chart
+        const reportTypeCtx = document.getElementById('reportTypeChart').getContext('2d');
+        new Chart(reportTypeCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Parcel', 'Rider', 'Merchant', 'Area', 'Service', 'Payment'],
+                datasets: [{
+                    data: [30, 25, 20, 15, 5, 5],
+                    backgroundColor: [
+                        '#007bff',
+                        '#28a745',
+                        '#ffc107',
+                        '#17a2b8',
+                        '#dc3545',
+                        '#6f42c1'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false
+            }
+        });
+
+        // Quick Actions Functions
+        function generateQuickReport() {
+            alert('Opening report generation wizard...');
+        }
+
+        function scheduleReport() {
+            alert('Opening report scheduler...');
+        }
+
+        function exportAllReports() {
+            alert('Starting export process...');
+        }
+
+        function shareReport() {
+            alert('Opening share dialog...');
+        }
+
+        function deleteOldReports() {
+            if (confirm('Are you sure you want to delete old reports? This action cannot be undone.')) {
+                alert('Old reports deleted successfully!');
+            }
+        }
+
+        function useTemplate(templateType) {
+            alert(`Using ${templateType} template...`);
+        }
+
+        // Counter animation
+        $('.counter').each(function () {
+            $(this).prop('Counter', 0).animate({
+                Counter: $(this).text()
+            }, {
+                duration: 2000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+    </script>
+
+    <style>
+        .report-category {
+            margin-bottom: 1.5rem;
+        }
+        
+        .report-category .card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .report-category .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+        
+        .report-features .badge {
+            font-size: 0.75rem;
+        }
+        
+        .quick-actions .btn {
+            text-align: left;
+        }
+        
+        .template-item a {
+            text-decoration: none;
+        }
+        
+        .template-item a:hover {
+            color: #007bff !important;
+        }
+    </style>
+</body>
+</html>

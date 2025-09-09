@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Invoice Templates - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .template-preview {
+            border: 2px solid #e9ecef;
+            border-radius: 8px;
+            padding: 15px;
+            margin-bottom: 20px;
+            background: #f8f9fa;
+            min-height: 300px;
+        }
+        .template-card {
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        .template-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        .template-card.active {
+            border: 2px solid #007bff;
+        }
+        .color-picker {
+            width: 40px;
+            height: 40px;
+            border: none;
+            border-radius: 50%;
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Invoice Templates</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Invoice Templates</h4>
+                            <span>Design and manage custom invoice templates for your business needs</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../invoices/invoices.html">Invoices</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Templates</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Template Selection -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Available Templates</h4>
+                                <div class="card-action">
+                                    <button type="button" class="btn btn-success" data-toggle="modal" data-target="#createTemplateModal">
+                                        <i class="fas fa-plus mr-2"></i>Create New Template
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="card template-card" data-template="standard">
+                                            <div class="card-body">
+                                                <div class="text-center mb-3">
+                                                    <i class="fas fa-file-invoice fa-3x text-primary"></i>
+                                                </div>
+                                                <h5 class="card-title text-center">Standard Template</h5>
+                                                <p class="card-text text-center">Clean and professional layout with company logo and basic invoice information.</p>
+                                                <div class="text-center">
+                                                    <span class="badge badge-success">Active</span>
+                                                    <span class="badge badge-info ml-1">Default</span>
+                                                </div>
+                                                <div class="mt-3 text-center">
+                                                    <button class="btn btn-primary btn-sm mr-2" onclick="editTemplate('standard')">
+                                                        <i class="fas fa-edit mr-1"></i>Edit
+                                                    </button>
+                                                    <button class="btn btn-info btn-sm" onclick="previewTemplate('standard')">
+                                                        <i class="fas fa-eye mr-1"></i>Preview
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card template-card" data-template="detailed">
+                                            <div class="card-body">
+                                                <div class="text-center mb-3">
+                                                    <i class="fas fa-file-alt fa-3x text-success"></i>
+                                                </div>
+                                                <h5 class="card-title text-center">Detailed Template</h5>
+                                                <p class="card-text text-center">Comprehensive layout with detailed item descriptions, terms & conditions.</p>
+                                                <div class="text-center">
+                                                    <span class="badge badge-success">Active</span>
+                                                </div>
+                                                <div class="mt-3 text-center">
+                                                    <button class="btn btn-primary btn-sm mr-2" onclick="editTemplate('detailed')">
+                                                        <i class="fas fa-edit mr-1"></i>Edit
+                                                    </button>
+                                                    <button class="btn btn-info btn-sm" onclick="previewTemplate('detailed')">
+                                                        <i class="fas fa-eye mr-1"></i>Preview
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="card template-card" data-template="compact">
+                                            <div class="card-body">
+                                                <div class="text-center mb-3">
+                                                    <i class="fas fa-file fa-3x text-warning"></i>
+                                                </div>
+                                                <h5 class="card-title text-center">Compact Template</h5>
+                                                <p class="card-text text-center">Minimal design for quick invoices with essential information only.</p>
+                                                <div class="text-center">
+                                                    <span class="badge badge-warning">Inactive</span>
+                                                </div>
+                                                <div class="mt-3 text-center">
+                                                    <button class="btn btn-primary btn-sm mr-2" onclick="editTemplate('compact')">
+                                                        <i class="fas fa-edit mr-1"></i>Edit
+                                                    </button>
+                                                    <button class="btn btn-info btn-sm" onclick="previewTemplate('compact')">
+                                                        <i class="fas fa-eye mr-1"></i>Preview
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Template Editor -->
+                <div class="row">
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Template Editor</h4>
+                            </div>
+                            <div class="card-body">
+                                <form id="templateEditorForm">
+                                    <!-- Template Details -->
+                                    <h6 class="mb-3"><i class="fas fa-info-circle text-primary mr-2"></i>Template Details</h6>
+                                    <div class="form-group">
+                                        <label>Template Name *</label>
+                                        <input type="text" class="form-control" id="templateName" value="Standard Template">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Description</label>
+                                        <textarea class="form-control" rows="2" id="templateDescription">Clean and professional invoice template</textarea>
+                                    </div>
+
+                                    <!-- Layout Settings -->
+                                    <h6 class="mb-3"><i class="fas fa-layout text-success mr-2"></i>Layout Settings</h6>
+                                    <div class="form-group">
+                                        <label>Page Size</label>
+                                        <select class="form-control">
+                                            <option>A4</option>
+                                            <option>Letter</option>
+                                            <option>Legal</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Orientation</label>
+                                        <select class="form-control">
+                                            <option>Portrait</option>
+                                            <option>Landscape</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Branding -->
+                                    <h6 class="mb-3"><i class="fas fa-palette text-info mr-2"></i>Branding</h6>
+                                    <div class="form-group">
+                                        <label>Primary Color</label>
+                                        <div class="d-flex align-items-center">
+                                            <input type="color" class="color-picker mr-3" value="#007bff">
+                                            <span>#007bff</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Secondary Color</label>
+                                        <div class="d-flex align-items-center">
+                                            <input type="color" class="color-picker mr-3" value="#6c757d">
+                                            <span>#6c757d</span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Font Family</label>
+                                        <select class="form-control">
+                                            <option>Arial</option>
+                                            <option>Helvetica</option>
+                                            <option>Times New Roman</option>
+                                            <option>Georgia</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Company Information -->
+                                    <h6 class="mb-3"><i class="fas fa-building text-warning mr-2"></i>Company Information</h6>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="showLogo" checked>
+                                            <label class="form-check-label" for="showLogo">
+                                                Show Company Logo
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="showAddress" checked>
+                                            <label class="form-check-label" for="showAddress">
+                                                Show Company Address
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="showContact" checked>
+                                            <label class="form-check-label" for="showContact">
+                                                Show Contact Information
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <!-- Invoice Fields -->
+                                    <h6 class="mb-3"><i class="fas fa-list text-secondary mr-2"></i>Invoice Fields</h6>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="showItemDesc" checked>
+                                            <label class="form-check-label" for="showItemDesc">
+                                                Show Item Descriptions
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="showVAT" checked>
+                                            <label class="form-check-label" for="showVAT">
+                                                Show VAT/Tax Details
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="showNotes">
+                                            <label class="form-check-label" for="showNotes">
+                                                Show Notes Section
+                                            </label>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="checkbox" id="showTerms">
+                                            <label class="form-check-label" for="showTerms">
+                                                Show Terms & Conditions
+                                            </label>
+                                        </div>
+                                    </div>
+
+                                    <div class="text-right">
+                                        <button type="button" class="btn btn-secondary mr-2" onclick="resetTemplate()">Reset</button>
+                                        <button type="button" class="btn btn-info mr-2" onclick="previewChanges()">Preview</button>
+                                        <button type="button" class="btn btn-success" onclick="saveTemplate()">Save Template</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Template Preview</h4>
+                                <div class="card-action">
+                                    <button class="btn btn-info btn-sm mr-2" onclick="downloadTemplate()">
+                                        <i class="fas fa-download mr-1"></i>Download
+                                    </button>
+                                    <button class="btn btn-primary btn-sm" onclick="printPreview()">
+                                        <i class="fas fa-print mr-1"></i>Print Preview
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="template-preview" id="templatePreview">
+                                    <!-- Sample Invoice Preview -->
+                                    <div class="invoice-header mb-4">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <img src="../../../assets/images/logo-text.png" alt="Logo" style="max-height: 50px;">
+                                                <h5 class="mt-2">Swift Courier Services</h5>
+                                                <p class="mb-0">123 Business Street<br>
+                                                Dhaka 1000, Bangladesh<br>
+                                                Phone: +880 2 1234567</p>
+                                            </div>
+                                            <div class="col-md-6 text-right">
+                                                <h3 class="text-primary">INVOICE</h3>
+                                                <h5>#INV-2024-001234</h5>
+                                                <p class="mb-0">Date: December 15, 2024<br>
+                                                Due: December 30, 2024</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="invoice-details mb-4">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h6><strong>Bill To:</strong></h6>
+                                                <p>ABC Electronics Ltd.<br>
+                                                456 Commercial Avenue<br>
+                                                Gulshan, Dhaka 1212</p>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h6><strong>Ship To:</strong></h6>
+                                                <p>John Smith<br>
+                                                789 Residential Road<br>
+                                                Dhanmondi, Dhaka 1205</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <table class="table table-bordered mb-4">
+                                        <thead class="table-primary">
+                                            <tr>
+                                                <th>Description</th>
+                                                <th>Qty</th>
+                                                <th>Rate</th>
+                                                <th>Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Same Day Delivery Service</td>
+                                                <td>1</td>
+                                                <td>৳150.00</td>
+                                                <td>৳150.00</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <p><strong>Notes:</strong><br>
+                                            Thank you for your business!</p>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <table class="table table-borderless">
+                                                <tr>
+                                                    <td>Subtotal:</td>
+                                                    <td class="text-right">৳150.00</td>
+                                                </tr>
+                                                <tr>
+                                                    <td>VAT (15%):</td>
+                                                    <td class="text-right">৳22.50</td>
+                                                </tr>
+                                                <tr class="table-primary">
+                                                    <td><strong>Total:</strong></td>
+                                                    <td class="text-right"><strong>৳172.50</strong></td>
+                                                </tr>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Create Template Modal -->
+        <div class="modal fade" id="createTemplateModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Create New Template</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="newTemplateForm">
+                            <div class="form-group">
+                                <label>Template Name *</label>
+                                <input type="text" class="form-control" required placeholder="Enter template name">
+                            </div>
+                            <div class="form-group">
+                                <label>Based On</label>
+                                <select class="form-control">
+                                    <option value="">Start from scratch</option>
+                                    <option value="standard">Standard Template</option>
+                                    <option value="detailed">Detailed Template</option>
+                                    <option value="compact">Compact Template</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>Description</label>
+                                <textarea class="form-control" rows="3" placeholder="Template description"></textarea>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-success" id="createTemplate">Create Template</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        // Template selection
+        $('.template-card').click(function() {
+            $('.template-card').removeClass('active');
+            $(this).addClass('active');
+            
+            const templateType = $(this).data('template');
+            loadTemplateSettings(templateType);
+        });
+
+        // Load template settings
+        function loadTemplateSettings(templateType) {
+            // Simulate loading template settings
+            switch(templateType) {
+                case 'standard':
+                    $('#templateName').val('Standard Template');
+                    $('#templateDescription').val('Clean and professional invoice template');
+                    break;
+                case 'detailed':
+                    $('#templateName').val('Detailed Template');
+                    $('#templateDescription').val('Comprehensive layout with detailed information');
+                    break;
+                case 'compact':
+                    $('#templateName').val('Compact Template');
+                    $('#templateDescription').val('Minimal design for quick invoices');
+                    break;
+            }
+        }
+
+        // Template management functions
+        function editTemplate(templateId) {
+            $('.template-card[data-template="' + templateId + '"]').click();
+            alert('Template loaded in editor for customization');
+        }
+
+        function previewTemplate(templateId) {
+            alert(`Opening full preview for ${templateId} template`);
+        }
+
+        function previewChanges() {
+            alert('Updating preview with current settings...');
+            // Update the preview pane based on current settings
+        }
+
+        function saveTemplate() {
+            if (confirm('Save template changes?')) {
+                alert('Template saved successfully!');
+            }
+        }
+
+        function resetTemplate() {
+            if (confirm('Reset template to default settings?')) {
+                const activeTemplate = $('.template-card.active').data('template');
+                loadTemplateSettings(activeTemplate);
+                alert('Template reset to default settings');
+            }
+        }
+
+        function downloadTemplate() {
+            alert('Downloading template file...');
+        }
+
+        function printPreview() {
+            window.print();
+        }
+
+        // Create new template
+        $('#createTemplate').click(function() {
+            const templateName = $('#newTemplateForm input[type="text"]').val();
+            
+            if (!templateName.trim()) {
+                alert('Please enter a template name');
+                return;
+            }
+            
+            alert(`Creating new template: ${templateName}`);
+            $('#createTemplateModal').modal('hide');
+            location.reload();
+        });
+
+        // Color picker updates
+        $('.color-picker').change(function() {
+            const color = $(this).val();
+            $(this).next('span').text(color);
+            previewChanges();
+        });
+
+        // Initialize
+        $(document).ready(function() {
+            $('.template-card[data-template="standard"]').addClass('active');
+            loadTemplateSettings('standard');
+        });
+    </script>
+</body>
+</html>

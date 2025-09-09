@@ -15,9 +15,9 @@
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="../riders/riders.html">Riders</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Edit Rider</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'dashboard' %}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'soldier' %}">Riders</a></li>
+                            <li class="breadcrumb-item active"><a href="{% url 'soldier_edit' soldier.soldiers_name %}">Edit Rider</a></li>
                         </ol>
                     </div>
                 </div>
@@ -49,7 +49,8 @@
                                 <h4 class="card-title">Edit Information</h4>
                             </div>
                             <div class="card-body">
-                                <form id="edit-rider-form">
+                                <form method="POST" enctype="multipart/form-data">
+                                    {% csrf_token %}
                                     <!-- Personal Information -->
                                     <div class="row">
                                         <div class="col-md-12">
@@ -59,12 +60,19 @@
 
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <div class="form-group">
-                                                <label class="text-label">Photo</label>
-                                                <input type="text" class="form-control" name="photo" value="{{soldier.photo}}" >
-                                            </div>
+                                          <div class="form-group">
+                                             <label class="text-label">Current Photo</label><br>
+                                                 {% if soldier.photo %}
+                                                     <img src="{{ soldier.photo.url }}" alt="photo" class="rounded" width="100">
+                                                 {% else %}
+                                                       <img src="/media/soldier/default.png" alt="default" class="rounded" width="100">
+                                                {% endif %}
+                                          </div>
+                                          <div class="form-group">
+                                            <label class="text-label">Upload New Photo</label>
+                                                 <input type="file" class="form-control" name="photo">
+                                          </div>
                                         </div>
-                                        
                                     </div>
                                     
                                     <div class="row">
@@ -81,7 +89,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="text-label">Date of Birth <span class="text-danger">*</span></label>
-                                                <input type="date" class="form-control" name="soldier_dob" value="{{soldier.soldiers_dob}}" required>
+                                                <input type="date" class="form-control" name="soldiers_dob" value="{{soldier.soldiers_dob}}" required>
                                             </div>
                                         </div>
                                         <div class="col-md-6">
@@ -149,7 +157,7 @@
                                         <div class="col-md-12">
                                             <div class="form-group">
                                                 <label class="text-label">Current Address <span class="text-danger">*</span></label>
-                                                <textarea class="form-control" rows="2" name="soldier_address" required>{{soldier.soldiers_address}}</textarea>
+                                                <textarea class="form-control" rows="2" name="soldiers_address" required>{{soldier.soldiers_address}}</textarea>
                                             </div>
                                         </div>
                                     
@@ -160,7 +168,7 @@
                                         <div class="col-md-6">
                                             <div class="form-group">
                                                 <label class="text-label">Service Areas</label>
-                                                <textarea class="form-control" name="soldiers_area_id" rows="2">{{soldier.soldiers_area_id}}</textarea>
+                                                      {{ form.soldiers_area_id }}
                                                 <small class="text-muted">Areas where rider provides services</small>
                                             </div>
                                         </div>
@@ -216,24 +224,24 @@
                                      <div class="row">
                                         <div class="col-md-6">
                                                <div class="form-group">
-                                                   <label class="text-label">License Expiry <span class="text-danger">*</span></label>
-                                                   <input type="text" class="form-control" name="license_expiry" value="{{soldier.license_expiry}}" required>
+                                                   <label class="text-label">License Expiry</label>
+                                                   <input type="date" class="form-control" name="license_expiry" value="{{soldier.license_expiry}}" >
                                                </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-6">
                                                   <label class="text-label">Insurance Status <span class="text-danger">*</span></label>
                                                    <select class="form-control" name="insurance_status" required>
-                                                     <option value="yes" {% if soldier.soldiers_vehicle_type == "yes" %} selected {% endif %}>Yes</option>
-                                                     <option value="no" {% if soldier.soldiers_vehicle_type == "no" %} selected {% endif %}>No</option>
+                                                     <option value="yes" {% if soldier.soldiers_insurance_status == "yes" %} selected {% endif %}>Yes</option>
+                                                     <option value="no" {% if soldier.soldiers_insurance_status == "no" %} selected {% endif %}>No</option>
                                                      
                                                  </select>
                                                 </div>
                                             </div>
                                             <div class="form-group">
                                                 <div class="col-md-6">
-                                                  <label class="text-label">Insurance Expiry <span class="text-danger">*</span></label>
-                                                  <input type="text" class="form-control" name="insurance_expiry" value="{{soldier.insurance_expiry}}" required>
+                                                  <label class="text-label">Insurance Expiry </label>
+                                                  <input type="date" class="form-control" name="insurance_expiry" value="{{soldier.insurance_expiry}}">
                                                 </div>
                                             </div>
                                      </div>
@@ -396,6 +404,7 @@
                             </div>
                         </div>
                     </div>
+                    {{ form.errors }}
                 </div>
             </div>
         </div>

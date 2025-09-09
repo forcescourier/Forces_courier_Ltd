@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>View Service - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Service Details</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Same Day Delivery - Service Details</h4>
+                            <span>Comprehensive information and performance metrics for this delivery service</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../services/services.html">Services</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">View Service</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Service Header -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Same Day Delivery (ID: SRV001)</h4>
+                                <div class="card-action">
+                                    <span class="badge badge-success mr-2">Active</span>
+                                    <a href="edit-service.html" class="btn btn-primary btn-sm mr-2">
+                                        <i class="fas fa-edit"></i> Edit Service
+                                    </a>
+                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#serviceReportModal">
+                                        <i class="fas fa-chart-bar"></i> Generate Report
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Statistics -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary ai-icon">
+                                        <i class="fas fa-box"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">6,245</h3>
+                                        <p class="mb-0">Total Deliveries</p>
+                                        <small>This month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success ai-icon">
+                                        <i class="fas fa-percentage"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">96.2%</h3>
+                                        <p class="mb-0">Success Rate</p>
+                                        <small>On-time delivery</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning ai-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">2.1h</h3>
+                                        <p class="mb-0">Avg Delivery Time</p>
+                                        <small>From pickup to delivery</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info ai-icon">
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">৳642K</h3>
+                                        <p class="mb-0">Revenue</p>
+                                        <small>This month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8">
+                        <!-- Service Information -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Service Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td><strong>Service Name:</strong></td>
+                                                <td>Same Day Delivery</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Service Code:</strong></td>
+                                                <td>SRV001</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Category:</strong></td>
+                                                <td>Express Delivery</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Base Price:</strong></td>
+                                                <td>৳150</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Delivery Window:</strong></td>
+                                                <td>Same Day (24 hours)</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td><strong>Status:</strong></td>
+                                                <td><span class="badge badge-success">Active</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Launch Date:</strong></td>
+                                                <td>January 15, 2023</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Areas Covered:</strong></td>
+                                                <td>12 areas</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Weight Limit:</strong></td>
+                                                <td>Up to 5 kg</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Operating Hours:</strong></td>
+                                                <td>08:00 AM - 08:00 PM</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <h6><strong>Service Description:</strong></h6>
+                                        <p class="text-muted">Our Same Day Delivery service provides fast and reliable delivery within the same day of pickup. Perfect for urgent documents, gifts, and essential items that need to reach their destination quickly. Available across major urban areas with guaranteed delivery within 24 hours.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance Chart -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Service Performance (Last 30 Days)</h4>
+                                <div class="card-tools">
+                                    <div class="btn-group btn-group-sm">
+                                        <button type="button" class="btn btn-primary" id="chartDeliveries">Deliveries</button>
+                                        <button type="button" class="btn btn-outline-primary" id="chartRevenue">Revenue</button>
+                                        <button type="button" class="btn btn-outline-primary" id="chartSuccess">Success Rate</button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="servicePerformanceChart" height="100"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Coverage Areas -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Coverage Areas</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>Dhaka Central</strong>
+                                            <small class="text-muted d-block">845 deliveries</small>
+                                        </div>
+                                        <span class="badge badge-success">98%</span>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>Dhaka North</strong>
+                                            <small class="text-muted d-block">672 deliveries</small>
+                                        </div>
+                                        <span class="badge badge-success">95%</span>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>Chittagong Port</strong>
+                                            <small class="text-muted d-block">523 deliveries</small>
+                                        </div>
+                                        <span class="badge badge-success">92%</span>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        <div>
+                                            <strong>Sylhet City</strong>
+                                            <small class="text-muted d-block">298 deliveries</small>
+                                        </div>
+                                        <span class="badge badge-warning">88%</span>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <a href="service-areas.html" class="btn btn-primary btn-block">
+                                        <i class="fas fa-map mr-2"></i>Manage Coverage
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Pricing Information -->
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h4 class="card-title">Pricing Structure</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="pricing-info">
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span>Base Rate:</span>
+                                        <strong>৳150</strong>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span>Per KM:</span>
+                                        <strong>৳15</strong>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-2">
+                                        <span>Weight Charge:</span>
+                                        <strong>৳25/kg</strong>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-between align-items-center">
+                                        <span><strong>Avg Order:</strong></span>
+                                        <strong class="text-primary">৳185</strong>
+                                    </div>
+                                </div>
+                                <div class="mt-3">
+                                    <a href="service-pricing.html" class="btn btn-info btn-block">
+                                        <i class="fas fa-dollar-sign mr-2"></i>Manage Pricing
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="card mt-3">
+                            <div class="card-header">
+                                <h4 class="card-title">Recent Activity</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="timeline-sm">
+                                    <div class="timeline-sm-item">
+                                        <div class="timeline-sm-date">2 hrs ago</div>
+                                        <div>Pricing updated for premium areas</div>
+                                    </div>
+                                    <div class="timeline-sm-item">
+                                        <div class="timeline-sm-date">5 hrs ago</div>
+                                        <div>New coverage area added: Rajshahi</div>
+                                    </div>
+                                    <div class="timeline-sm-item">
+                                        <div class="timeline-sm-date">1 day ago</div>
+                                        <div>Service capacity increased by 20%</div>
+                                    </div>
+                                    <div class="timeline-sm-item">
+                                        <div class="timeline-sm-date">3 days ago</div>
+                                        <div>Performance optimization deployed</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Service Report Modal -->
+        <div class="modal fade" id="serviceReportModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Generate Service Report</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="reportForm">
+                            <div class="form-group">
+                                <label class="text-label">Report Type</label>
+                                <select class="form-control">
+                                    <option value="performance">Performance Report</option>
+                                    <option value="financial">Financial Summary</option>
+                                    <option value="coverage">Coverage Analysis</option>
+                                    <option value="operational">Operational Report</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="text-label">Date Range</label>
+                                <select class="form-control">
+                                    <option value="7days">Last 7 Days</option>
+                                    <option value="30days">Last 30 Days</option>
+                                    <option value="quarter">This Quarter</option>
+                                    <option value="year">This Year</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="text-label">Include Areas</label>
+                                <select class="form-control" multiple>
+                                    <option value="all" selected>All Coverage Areas</option>
+                                    <option value="dhaka_central">Dhaka Central</option>
+                                    <option value="dhaka_north">Dhaka North</option>
+                                    <option value="chittagong">Chittagong Port</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="generateServiceReport">Generate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        // Chart data
+        let chartData = {
+            deliveries: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'Deliveries',
+                    data: [1450, 1620, 1580, 1750],
+                    borderColor: '#007bff',
+                    backgroundColor: 'rgba(0,123,255,0.1)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            revenue: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'Revenue (৳K)',
+                    data: [145, 162, 158, 175],
+                    borderColor: '#28a745',
+                    backgroundColor: 'rgba(40,167,69,0.1)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            },
+            success: {
+                labels: ['Week 1', 'Week 2', 'Week 3', 'Week 4'],
+                datasets: [{
+                    label: 'Success Rate (%)',
+                    data: [94.2, 95.8, 96.1, 96.2],
+                    borderColor: '#ffc107',
+                    backgroundColor: 'rgba(255,193,7,0.1)',
+                    borderWidth: 2,
+                    fill: true
+                }]
+            }
+        };
+
+        // Initialize performance chart
+        const ctx = document.getElementById('servicePerformanceChart').getContext('2d');
+        let performanceChart = new Chart(ctx, {
+            type: 'line',
+            data: chartData.deliveries,
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Chart switching
+        $('#chartDeliveries').click(function() {
+            $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+            $('#chartRevenue, #chartSuccess').removeClass('btn-primary').addClass('btn-outline-primary');
+            performanceChart.data = chartData.deliveries;
+            performanceChart.update();
+        });
+
+        $('#chartRevenue').click(function() {
+            $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+            $('#chartDeliveries, #chartSuccess').removeClass('btn-primary').addClass('btn-outline-primary');
+            performanceChart.data = chartData.revenue;
+            performanceChart.update();
+        });
+
+        $('#chartSuccess').click(function() {
+            $(this).removeClass('btn-outline-primary').addClass('btn-primary');
+            $('#chartDeliveries, #chartRevenue').removeClass('btn-primary').addClass('btn-outline-primary');
+            performanceChart.data = chartData.success;
+            performanceChart.update();
+        });
+
+        // Generate report
+        $('#generateServiceReport').click(function() {
+            let loadingBtn = $(this);
+            loadingBtn.html('<i class="fas fa-spinner fa-spin mr-2"></i>Generating...');
+            loadingBtn.prop('disabled', true);
+
+            setTimeout(function() {
+                alert('Service report generated successfully!');
+                $('#serviceReportModal').modal('hide');
+                loadingBtn.html('Generate');
+                loadingBtn.prop('disabled', false);
+            }, 2000);
+        });
+    </script>
+</body>
+</html>

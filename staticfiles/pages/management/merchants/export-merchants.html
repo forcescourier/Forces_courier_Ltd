@@ -1,0 +1,888 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Export Merchants - Courier Dashboard</title>
+    
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    
+    <!-- Custom Stylesheet -->
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                Export Merchants
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a>
+                    </li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a>
+                    </li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-2"></i>
+                            <span class="nav-text">Riders</span>
+                        </a>
+                    </li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-location"></i>
+                            <span class="nav-text">Areas</span>
+                        </a>
+                    </li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-price-tag"></i>
+                            <span class="nav-text">Payments</span>
+                        </a>
+                    </li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-file"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a>
+                    </li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a>
+                    </li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Export Merchants</h4>
+                            <span>Export merchant data in various formats</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../merchants/merchants.html">Merchants</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Export</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Export Options -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Export Configuration</h4>
+                            </div>
+                            <div class="card-body">
+                                <form id="export-form">
+                                    <!-- Export Format -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3">Export Format</h5>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">File Format <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-file"></i></span>
+                                                    </div>
+                                                    <select class="form-control" id="export-format" required>
+                                                        <option value="">Select Format</option>
+                                                        <option value="csv">CSV (.csv)</option>
+                                                        <option value="excel">Excel (.xlsx)</option>
+                                                        <option value="pdf">PDF (.pdf)</option>
+                                                        <option value="json">JSON (.json)</option>
+                                                        <option value="xml">XML (.xml)</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Character Encoding</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-settings"></i></span>
+                                                    </div>
+                                                    <select class="form-control">
+                                                        <option value="utf-8" selected>UTF-8</option>
+                                                        <option value="iso-8859-1">ISO-8859-1</option>
+                                                        <option value="windows-1252">Windows-1252</option>
+                                                        <option value="ascii">ASCII</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Data Selection -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Data Selection</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Export Type</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-list"></i></span>
+                                                    </div>
+                                                    <select class="form-control" id="export-type">
+                                                        <option value="all" selected>All Merchants</option>
+                                                        <option value="active">Active Merchants Only</option>
+                                                        <option value="inactive">Inactive Merchants Only</option>
+                                                        <option value="pending">Pending Approval</option>
+                                                        <option value="suspended">Suspended Merchants</option>
+                                                        <option value="custom">Custom Selection</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Date Range</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-calendar"></i></span>
+                                                    </div>
+                                                    <select class="form-control">
+                                                        <option value="all" selected>All Time</option>
+                                                        <option value="today">Today</option>
+                                                        <option value="yesterday">Yesterday</option>
+                                                        <option value="last7days">Last 7 Days</option>
+                                                        <option value="last30days">Last 30 Days</option>
+                                                        <option value="last90days">Last 90 Days</option>
+                                                        <option value="this_month">This Month</option>
+                                                        <option value="last_month">Last Month</option>
+                                                        <option value="this_year">This Year</option>
+                                                        <option value="custom">Custom Range</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" id="custom-date-range" style="display: none;">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Start Date</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-calendar"></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">End Date</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-calendar"></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Field Selection -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Field Selection</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="text-label">Select Fields to Export</label>
+                                                <div class="row">
+                                                    <div class="col-md-4">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-id" checked>
+                                                            <label class="custom-control-label" for="field-id">Merchant ID</label>
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-business-name" checked>
+                                                            <label class="custom-control-label" for="field-business-name">Business Name</label>
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-contact-person" checked>
+                                                            <label class="custom-control-label" for="field-contact-person">Contact Person</label>
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-phone" checked>
+                                                            <label class="custom-control-label" for="field-phone">Phone</label>
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-email" checked>
+                                                            <label class="custom-control-label" for="field-email">Email</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-address">
+                                                            <label class="custom-control-label" for="field-address">Address</label>
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-city">
+                                                            <label class="custom-control-label" for="field-city">City</label>
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-country">
+                                                            <label class="custom-control-label" for="field-country">Country</label>
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-business-type">
+                                                            <label class="custom-control-label" for="field-business-type">Business Type</label>
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-website">
+                                                            <label class="custom-control-label" for="field-website">Website</label>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-status">
+                                                            <label class="custom-control-label" for="field-status">Status</label>
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-join-date">
+                                                            <label class="custom-control-label" for="field-join-date">Join Date</label>
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-last-login">
+                                                            <label class="custom-control-label" for="field-last-login">Last Login</label>
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-total-parcels">
+                                                            <label class="custom-control-label" for="field-total-parcels">Total Parcels</label>
+                                                        </div>
+                                                        <div class="custom-control custom-checkbox">
+                                                            <input type="checkbox" class="custom-control-input" id="field-total-revenue">
+                                                            <label class="custom-control-label" for="field-total-revenue">Total Revenue</label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="mt-2">
+                                                    <button type="button" class="btn btn-sm btn-outline-primary" id="select-all-fields">Select All</button>
+                                                    <button type="button" class="btn btn-sm btn-outline-secondary" id="deselect-all-fields">Deselect All</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Filter Options -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Filter Options</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Business Type</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-list"></i></span>
+                                                    </div>
+                                                    <select class="form-control">
+                                                        <option value="">All Types</option>
+                                                        <option value="retail">Retail</option>
+                                                        <option value="wholesale">Wholesale</option>
+                                                        <option value="manufacturing">Manufacturing</option>
+                                                        <option value="ecommerce">E-commerce</option>
+                                                        <option value="logistics">Logistics</option>
+                                                        <option value="other">Other</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Country</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-location"></i></span>
+                                                    </div>
+                                                    <select class="form-control">
+                                                        <option value="">All Countries</option>
+                                                        <option value="BD">Bangladesh</option>
+                                                        <option value="IN">India</option>
+                                                        <option value="PK">Pakistan</option>
+                                                        <option value="LK">Sri Lanka</option>
+                                                        <option value="NP">Nepal</option>
+                                                        <option value="US">United States</option>
+                                                        <option value="GB">United Kingdom</option>
+                                                        <option value="CA">Canada</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Status</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-flag"></i></span>
+                                                    </div>
+                                                    <select class="form-control">
+                                                        <option value="">All Statuses</option>
+                                                        <option value="active">Active</option>
+                                                        <option value="inactive">Inactive</option>
+                                                        <option value="pending">Pending</option>
+                                                        <option value="suspended">Suspended</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Minimum Parcels</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-box"></i></span>
+                                                    </div>
+                                                    <input type="number" class="form-control" placeholder="0" min="0">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Minimum Revenue</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-price-tag"></i></span>
+                                                    </div>
+                                                    <input type="number" class="form-control" placeholder="0.00" step="0.01" min="0">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Export Options -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Export Options</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">File Naming</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-file"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" placeholder="merchants_export" value="merchants_export">
+                                                </div>
+                                                <small class="text-muted">File will be named: [prefix]_[date].[extension]</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Include Headers</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="include-headers" checked>
+                                                    <label class="custom-control-label" for="include-headers">Include column headers</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Data Formatting</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="format-dates">
+                                                    <label class="custom-control-label" for="format-dates">Format dates (DD/MM/YYYY)</label>
+                                                </div>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="format-currency">
+                                                    <label class="custom-control-label" for="format-currency">Format currency values</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Compression</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="compress-file">
+                                                    <label class="custom-control-label" for="compress-file">Compress file (ZIP)</label>
+                                                </div>
+                                                <small class="text-muted">Reduces file size for large exports</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="text-right mt-4">
+                                                <a href="../merchants/merchants.html" class="btn btn-light mr-2">Cancel</a>
+                                                <button type="button" class="btn btn-info mr-2" id="preview-export">
+                                                    <i class="flaticon-381-eye"></i> Preview Export
+                                                </button>
+                                                <button type="submit" class="btn btn-primary">
+                                                    <i class="flaticon-381-download"></i> Export Data
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export Preview -->
+                <div class="row" id="export-preview" style="display: none;">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Export Preview</h4>
+                                <span class="badge badge-info" id="preview-count"></span>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped" id="preview-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Merchant ID</th>
+                                                <th>Business Name</th>
+                                                <th>Contact Person</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Status</th>
+                                                <th>Join Date</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Preview data will be populated here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <div class="text-center mt-3">
+                                    <button type="button" class="btn btn-success" id="confirm-export">
+                                        <i class="flaticon-381-download"></i> Confirm Export
+                                    </button>
+                                    <button type="button" class="btn btn-secondary" id="modify-export">
+                                        <i class="flaticon-381-settings"></i> Modify Settings
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export Progress -->
+                <div class="row" id="export-progress" style="display: none;">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Export Progress</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="progress mb-3">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" id="progress-bar">0%</div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <div class="text-center">
+                                            <h5 id="processed-count">0</h5>
+                                            <small>Records Processed</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="text-center">
+                                            <h5 id="total-count">0</h5>
+                                            <small>Total Records</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <div class="text-center">
+                                            <h5 id="estimated-time">--</h5>
+                                            <small>Estimated Time</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center mt-3">
+                                    <button type="button" class="btn btn-danger" id="cancel-export">
+                                        <i class="flaticon-381-close"></i> Cancel Export
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Export History -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Recent Exports</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Date</th>
+                                                <th>File Name</th>
+                                                <th>Format</th>
+                                                <th>Records</th>
+                                                <th>Status</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>2024-01-15 14:30</td>
+                                                <td>merchants_export_20240115.csv</td>
+                                                <td>CSV</td>
+                                                <td>1,250</td>
+                                                <td><span class="badge badge-success">Completed</span></td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-info">Download</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2024-01-14 09:15</td>
+                                                <td>active_merchants_20240114.xlsx</td>
+                                                <td>Excel</td>
+                                                <td>856</td>
+                                                <td><span class="badge badge-success">Completed</span></td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-info">Download</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>2024-01-13 16:45</td>
+                                                <td>merchant_report_20240113.pdf</td>
+                                                <td>PDF</td>
+                                                <td>2,100</td>
+                                                <td><span class="badge badge-success">Completed</span></td>
+                                                <td>
+                                                    <a href="#" class="btn btn-sm btn-info">Download</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+    
+    <!-- Export Script -->
+    <script>
+        $(document).ready(function() {
+            let exportInProgress = false;
+            
+            // Show/hide custom date range
+            $('select').on('change', function() {
+                if ($(this).val() === 'custom') {
+                    $('#custom-date-range').show();
+                } else {
+                    $('#custom-date-range').hide();
+                }
+            });
+            
+            // Select all fields
+            $('#select-all-fields').click(function() {
+                $('input[type="checkbox"]').prop('checked', true);
+            });
+            
+            // Deselect all fields
+            $('#deselect-all-fields').click(function() {
+                $('input[type="checkbox"]').prop('checked', false);
+            });
+            
+            // Preview export
+            $('#preview-export').click(function() {
+                const format = $('#export-format').val();
+                if (!format) {
+                    alert('Please select an export format first.');
+                    return;
+                }
+                
+                // Simulate preview generation
+                $(this).prop('disabled', true).html('<i class="flaticon-381-loading"></i> Generating...');
+                
+                setTimeout(() => {
+                    displayPreview();
+                    $('#export-preview').show();
+                    $('#preview-export').prop('disabled', false).html('<i class="flaticon-381-eye"></i> Preview Export');
+                }, 1500);
+            });
+            
+            // Display preview
+            function displayPreview() {
+                const mockData = [
+                    { id: 'M001', name: 'ABC Company', contact: 'John Doe', phone: '+1234567890', email: 'john@abc.com', status: 'Active', joinDate: '2023-01-15' },
+                    { id: 'M002', name: 'XYZ Corp', contact: 'Jane Smith', phone: '+1987654321', email: 'jane@xyz.com', status: 'Active', joinDate: '2023-02-20' },
+                    { id: 'M003', name: 'DEF Ltd', contact: 'Bob Johnson', phone: '+1122334455', email: 'bob@def.com', status: 'Pending', joinDate: '2023-03-10' },
+                    { id: 'M004', name: 'GHI Industries', contact: 'Alice Brown', phone: '+1555666777', email: 'alice@ghi.com', status: 'Active', joinDate: '2023-04-05' },
+                    { id: 'M005', name: 'JKL Solutions', contact: 'Charlie Wilson', phone: '+1888999000', email: 'charlie@jkl.com', status: 'Suspended', joinDate: '2023-05-12' }
+                ];
+                
+                const tbody = $('#preview-table tbody');
+                tbody.empty();
+                
+                mockData.forEach(row => {
+                    const statusClass = row.status === 'Active' ? 'badge-success' : 
+                                     row.status === 'Pending' ? 'badge-warning' : 'badge-danger';
+                    tbody.append(`
+                        <tr>
+                            <td>${row.id}</td>
+                            <td>${row.name}</td>
+                            <td>${row.contact}</td>
+                            <td>${row.phone}</td>
+                            <td>${row.email}</td>
+                            <td><span class="badge ${statusClass}">${row.status}</span></td>
+                            <td>${row.joinDate}</td>
+                        </tr>
+                    `);
+                });
+                
+                $('#preview-count').text(`${mockData.length} records preview`);
+            }
+            
+            // Confirm export
+            $('#confirm-export').click(function() {
+                startExport();
+            });
+            
+            // Modify export
+            $('#modify-export').click(function() {
+                $('#export-preview').hide();
+            });
+            
+            // Start export
+            function startExport() {
+                if (exportInProgress) return;
+                
+                exportInProgress = true;
+                $('#export-preview').hide();
+                $('#export-progress').show();
+                
+                const totalRecords = 1250; // Simulated total
+                let processed = 0;
+                
+                $('#total-count').text(totalRecords);
+                
+                const exportInterval = setInterval(() => {
+                    processed += Math.floor(Math.random() * 50) + 10; // Random progress
+                    if (processed > totalRecords) processed = totalRecords;
+                    
+                    $('#processed-count').text(processed);
+                    const progress = (processed / totalRecords) * 100;
+                    $('#progress-bar').css('width', progress + '%').text(Math.round(progress) + '%');
+                    
+                    // Calculate estimated time
+                    const remaining = totalRecords - processed;
+                    const rate = processed / 2; // records per second
+                    const estimatedSeconds = Math.ceil(remaining / rate);
+                    $('#estimated-time').text(estimatedSeconds + 's');
+                    
+                    if (processed >= totalRecords) {
+                        clearInterval(exportInterval);
+                        exportInProgress = false;
+                        completeExport();
+                    }
+                }, 1000);
+            }
+            
+            // Complete export
+            function completeExport() {
+                $('#export-progress').hide();
+                
+                // Show success message and trigger download
+                const format = $('#export-format').val();
+                const fileName = `merchants_export_${new Date().toISOString().split('T')[0]}.${format}`;
+                
+                alert(`Export completed successfully!\nFile: ${fileName}\nRecords: 1,250`);
+                
+                // Simulate download
+                const link = document.createElement('a');
+                link.href = '#';
+                link.download = fileName;
+                link.click();
+            }
+            
+            // Cancel export
+            $('#cancel-export').click(function() {
+                if (confirm('Are you sure you want to cancel the export?')) {
+                    exportInProgress = false;
+                    $('#export-progress').hide();
+                    $('#export-preview').show();
+                }
+            });
+            
+            // Form submission
+            $('#export-form').submit(function(e) {
+                e.preventDefault();
+                startExport();
+            });
+        });
+    </script>
+</body>
+</html>

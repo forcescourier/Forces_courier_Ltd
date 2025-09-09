@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Invoice Reports - Courier Dashboard</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Invoice Reports</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i><span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i><span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon"><i class="flaticon-381-networking"></i><span class="nav-text">Dashboard</span></a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon"><i class="flaticon-381-box"></i><span class="nav-text">Parcels</span></a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon"><i class="flaticon-381-user-7"></i><span class="nav-text">Merchants</span></a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon"><i class="flaticon-381-user-2"></i><span class="nav-text">Riders</span></a></li>
+                    <li><a href="../services/services.html" class="ai-icon"><i class="flaticon-381-list"></i><span class="nav-text">Services</span></a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon"><i class="flaticon-381-location"></i><span class="nav-text">Areas</span></a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon"><i class="flaticon-381-price-tag"></i><span class="nav-text">Payments</span></a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon"><i class="flaticon-381-file"></i><span class="nav-text">Invoices</span></a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon"><i class="flaticon-381-chart"></i><span class="nav-text">Reports</span></a></li>
+                    <li><a href="../../../settings.html" class="ai-icon"><i class="flaticon-381-settings"></i><span class="nav-text">Settings</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Invoice Reports</h4>
+                            <span>Comprehensive invoice analytics and billing insights</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../../reports/reports.html">Reports</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Invoice Reports</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Report Filters -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Report Type</label>
+                                            <select class="form-control" id="report-type">
+                                                <option value="overview" selected>Overview Report</option>
+                                                <option value="billing">Billing Report</option>
+                                                <option value="collections">Collections Report</option>
+                                                <option value="outstanding">Outstanding Report</option>
+                                                <option value="custom">Custom Report</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Date Range</label>
+                                            <select class="form-control" id="date-range">
+                                                <option value="today">Today</option>
+                                                <option value="yesterday">Yesterday</option>
+                                                <option value="last7days">Last 7 Days</option>
+                                                <option value="last30days" selected>Last 30 Days</option>
+                                                <option value="this_month">This Month</option>
+                                                <option value="last_month">Last Month</option>
+                                                <option value="this_year">This Year</option>
+                                                <option value="custom">Custom Range</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Invoice Status</label>
+                                            <select class="form-control">
+                                                <option value="">All Statuses</option>
+                                                <option value="paid">Paid</option>
+                                                <option value="pending">Pending</option>
+                                                <option value="overdue">Overdue</option>
+                                                <option value="cancelled">Cancelled</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Customer Type</label>
+                                            <select class="form-control">
+                                                <option value="">All Customers</option>
+                                                <option value="merchant">Merchant</option>
+                                                <option value="individual">Individual</option>
+                                                <option value="corporate">Corporate</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-primary" id="generate-report">
+                                            <i class="flaticon-381-chart"></i> Generate Report
+                                        </button>
+                                        <button type="button" class="btn btn-success" id="export-report">
+                                            <i class="flaticon-381-download"></i> Export Report
+                                        </button>
+                                        <button type="button" class="btn btn-info" id="schedule-report">
+                                            <i class="flaticon-381-calendar"></i> Schedule Report
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Key Metrics -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary text-primary">
+                                        <i class="flaticon-381-file"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">2,456</span></h3>
+                                        <p class="mb-0">Total Invoices</p>
+                                        <small class="text-muted">+18% from last month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success text-success">
+                                        <i class="flaticon-381-check"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">2,189</span></h3>
+                                        <p class="mb-0">Paid Invoices</p>
+                                        <small class="text-muted">89.1% payment rate</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning text-warning">
+                                        <i class="flaticon-381-clock"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">189</span></h3>
+                                        <p class="mb-0">Pending Invoices</p>
+                                        <small class="text-muted">7.7% pending rate</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info text-info">
+                                        <i class="flaticon-381-price-tag"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">৳8,45,680</span></h3>
+                                        <p class="mb-0">Total Billed Amount</p>
+                                        <small class="text-muted">+22% from last month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Invoice Performance Metrics -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success text-success">
+                                        <i class="flaticon-381-chart"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">89.1%</span></h3>
+                                        <p class="mb-0">Collection Rate</p>
+                                        <small class="text-muted">+3.2% from last month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning text-warning">
+                                        <i class="flaticon-381-calendar"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">12.3</span></h3>
+                                        <p class="mb-0">Avg. Days to Pay</p>
+                                        <small class="text-muted">-2.1 days improvement</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary text-primary">
+                                        <i class="flaticon-381-user-7"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">89</span></h3>
+                                        <p class="mb-0">Active Customers</p>
+                                        <small class="text-muted">+12 new this month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info text-info">
+                                        <i class="flaticon-381-star"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">4.6</span></h3>
+                                        <p class="mb-0">Customer Satisfaction</p>
+                                        <small class="text-muted">+0.2 from last month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row 1 -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Invoice Generation & Collections</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="invoice-collections-chart" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Invoice Status Distribution</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="invoice-status-chart" height="300"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Charts Row 2 -->
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Collections by Month</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="collections-month-chart" height="250"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Outstanding Amounts by Customer</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="outstanding-customer-chart" height="250"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Invoice Details Table -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Recent Invoice Details</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Invoice #</th>
+                                                <th>Customer</th>
+                                                <th>Amount</th>
+                                                <th>Issue Date</th>
+                                                <th>Due Date</th>
+                                                <th>Status</th>
+                                                <th>Payment Method</th>
+                                                <th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>INV-001</strong></td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="../../../assets/images/profile/2.jpg" class="rounded-circle mr-3" width="40" alt="">
+                                                        <div>
+                                                            <h6 class="mb-0">Ahmed Khan</h6>
+                                                            <small class="text-muted">ahmed@email.com</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>৳450</strong></td>
+                                                <td>2024-06-01</td>
+                                                <td>2024-06-15</td>
+                                                <td><span class="badge badge-success">Paid</span></td>
+                                                <td>
+                                                    <span class="badge badge-info">Credit Card</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-eye"></i> View Invoice</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-download"></i> Download PDF</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-edit"></i> Edit</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-email"></i> Send Email</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>INV-002</strong></td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="../../../assets/images/profile/3.jpg" class="rounded-circle mr-3" width="40" alt="">
+                                                        <div>
+                                                            <h6 class="mb-0">Fatima Begum</h6>
+                                                            <small class="text-muted">fatima@email.com</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>৳320</strong></td>
+                                                <td>2024-06-02</td>
+                                                <td>2024-06-16</td>
+                                                <td><span class="badge badge-success">Paid</span></td>
+                                                <td>
+                                                    <span class="badge badge-success">Mobile Banking</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-eye"></i> View Invoice</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-download"></i> Download PDF</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-edit"></i> Edit</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-email"></i> Send Email</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>INV-003</strong></td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="../../../assets/images/profile/4.jpg" class="rounded-circle mr-3" width="40" alt="">
+                                                        <div>
+                                                            <h6 class="mb-0">Karim Hassan</h6>
+                                                            <small class="text-muted">karim@email.com</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>৳280</strong></td>
+                                                <td>2024-06-03</td>
+                                                <td>2024-06-17</td>
+                                                <td><span class="badge badge-warning">Pending</span></td>
+                                                <td>
+                                                    <span class="badge badge-warning">Cash on Delivery</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-eye"></i> View Invoice</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-download"></i> Download PDF</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-edit"></i> Edit</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-email"></i> Send Email</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>INV-004</strong></td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="../../../assets/images/profile/5.jpg" class="rounded-circle mr-3" width="40" alt="">
+                                                        <div>
+                                                            <h6 class="mb-0">Momin Rahman</h6>
+                                                            <small class="text-muted">momin@email.com</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>৳520</strong></td>
+                                                <td>2024-06-04</td>
+                                                <td>2024-06-18</td>
+                                                <td><span class="badge badge-success">Paid</span></td>
+                                                <td>
+                                                    <span class="badge badge-info">Bank Transfer</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-eye"></i> View Invoice</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-download"></i> Download PDF</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-edit"></i> Edit</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-email"></i> Send Email</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>INV-005</strong></td>
+                                                <td>
+                                                    <div class="d-flex align-items-center">
+                                                        <img src="../../../assets/images/profile/6.jpg" class="rounded-circle mr-3" width="40" alt="">
+                                                        <div>
+                                                            <h6 class="mb-0">Sajid Islam</h6>
+                                                            <small class="text-muted">sajid@email.com</small>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                                <td><strong>৳380</strong></td>
+                                                <td>2024-06-05</td>
+                                                <td>2024-06-19</td>
+                                                <td><span class="badge badge-danger">Overdue</span></td>
+                                                <td>
+                                                    <span class="badge badge-danger">Debit Card</span>
+                                                </td>
+                                                <td>
+                                                    <div class="dropdown">
+                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                                                            Actions
+                                                        </button>
+                                                        <div class="dropdown-menu">
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-eye"></i> View Invoice</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-download"></i> Download PDF</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-edit"></i> Edit</a>
+                                                            <a class="dropdown-item" href="#"><i class="flaticon-381-email"></i> Send Email</a>
+                                                        </div>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Invoice Statistics -->
+                <div class="row">
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Monthly Invoice Generation</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>January</strong></td>
+                                                <td class="text-right">1,890</td>
+                                                <td class="text-right">৳6,45,680</td>
+                                                <td class="text-right">+5.8%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>February</strong></td>
+                                                <td class="text-right">1,950</td>
+                                                <td class="text-right">৳6,78,920</td>
+                                                <td class="text-right">+3.2%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>March</strong></td>
+                                                <td class="text-right">2,120</td>
+                                                <td class="text-right">৳7,23,450</td>
+                                                <td class="text-right">+6.6%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>April</strong></td>
+                                                <td class="text-right">2,180</td>
+                                                <td class="text-right">৳7,45,890</td>
+                                                <td class="text-right">+2.8%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>May</strong></td>
+                                                <td class="text-right">2,320</td>
+                                                <td class="text-right">৳7,89,120</td>
+                                                <td class="text-right">+5.8%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>June</strong></td>
+                                                <td class="text-right">2,456</td>
+                                                <td class="text-right">৳8,45,680</td>
+                                                <td class="text-right">+7.1%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Customer Payment Performance</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-borderless">
+                                        <tbody>
+                                            <tr>
+                                                <td><strong>Ahmed Khan</strong></td>
+                                                <td class="text-right">৳2,450</td>
+                                                <td class="text-right">98.5%</td>
+                                                <td class="text-right">+4.2%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Fatima Begum</strong></td>
+                                                <td class="text-right">৳1,890</td>
+                                                <td class="text-right">96.8%</td>
+                                                <td class="text-right">+3.8%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Karim Hassan</strong></td>
+                                                <td class="text-right">৳1,450</td>
+                                                <td class="text-right">94.2%</td>
+                                                <td class="text-right">+2.1%</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Momin Rahman</strong></td>
+                                                <td class="text-right">৳2,120</td>
+                                                <td class="text-right">97.1%</td>
+                                                <td class="text-right">+5.6%</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+    <script src="../../../vendor/chart.js/Chart.bundle.min.js"></script>
+    
+    <script>
+        // Invoice Collections Chart
+        const invoiceCollectionsCtx = document.getElementById('invoice-collections-chart').getContext('2d');
+        new Chart(invoiceCollectionsCtx, {
+            type: 'line',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+                datasets: [{
+                    label: 'Invoices Generated',
+                    data: [1890, 1950, 2120, 2180, 2320, 2456, 2400, 2600, 2500, 2700, 2650, 2456],
+                    borderColor: '#007bff',
+                    backgroundColor: 'rgba(0, 123, 255, 0.1)',
+                    tension: 0.4,
+                    fill: true
+                }, {
+                    label: 'Collections (৳K)',
+                    data: [645, 678, 723, 745, 789, 845, 820, 880, 850, 920, 890, 845],
+                    borderColor: '#28a745',
+                    backgroundColor: 'rgba(40, 167, 69, 0.1)',
+                    tension: 0.4,
+                    fill: false,
+                    yAxisID: 'y1'
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        position: 'left'
+                    },
+                    y1: {
+                        beginAtZero: true,
+                        position: 'right',
+                        grid: {
+                            drawOnChartArea: false
+                        }
+                    }
+                }
+            }
+        });
+
+        // Invoice Status Chart
+        const invoiceStatusCtx = document.getElementById('invoice-status-chart').getContext('2d');
+        new Chart(invoiceStatusCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Paid', 'Pending', 'Overdue', 'Cancelled'],
+                datasets: [{
+                    data: [2189, 189, 78, 0],
+                    backgroundColor: [
+                        '#28a745',
+                        '#ffc107',
+                        '#dc3545',
+                        '#6c757d'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                legend: {
+                    position: 'bottom'
+                }
+            }
+        });
+
+        // Collections by Month Chart
+        const collectionsMonthCtx = document.getElementById('collections-month-chart').getContext('2d');
+        new Chart(collectionsMonthCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+                datasets: [{
+                    label: 'Collections (৳)',
+                    data: [645680, 678920, 723450, 745890, 789120, 845680],
+                    backgroundColor: [
+                        '#007bff',
+                        '#28a745',
+                        '#17a2b8',
+                        '#ffc107',
+                        '#fd7e14',
+                        '#6c757d'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '৳' + (value/1000) + 'K';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+
+        // Outstanding by Customer Chart
+        const outstandingCustomerCtx = document.getElementById('outstanding-customer-chart').getContext('2d');
+        new Chart(outstandingCustomerCtx, {
+            type: 'horizontalBar',
+            data: {
+                labels: ['Ahmed Khan', 'Fatima Begum', 'Karim Hassan', 'Momin Rahman', 'Sajid Islam'],
+                datasets: [{
+                    label: 'Outstanding Amount (৳)',
+                    data: [0, 0, 280, 0, 380],
+                    backgroundColor: [
+                        '#28a745',
+                        '#28a745',
+                        '#ffc107',
+                        '#28a745',
+                        '#dc3545'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    x: {
+                        beginAtZero: true
+                    }
+                }
+            }
+        });
+
+        // Generate Report
+        $('#generate-report').click(function() {
+            $(this).prop('disabled', true).html('<i class="flaticon-381-loading"></i> Generating...');
+            
+            setTimeout(() => {
+                $(this).prop('disabled', false).html('<i class="flaticon-381-chart"></i> Generate Report');
+                alert('Report generated successfully!');
+            }, 2000);
+        });
+
+        // Export Report
+        $('#export-report').click(function() {
+            alert('Report export started...');
+        });
+
+        // Schedule Report
+        $('#schedule-report').click(function() {
+            alert('Report scheduling feature coming soon...');
+        });
+    </script>
+</body>
+</html>

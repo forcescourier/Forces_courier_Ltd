@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>View Payment - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .payment-status {
+            font-size: 1.2em;
+            font-weight: bold;
+        }
+        .payment-details-card {
+            border-left: 4px solid #007bff;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+        .timeline-item {
+            position: relative;
+            padding-bottom: 1rem;
+            border-left: 2px solid #e9ecef;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -6px;
+            top: 0;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #007bff;
+        }
+        .timeline-item:last-child {
+            border-left: none;
+        }
+        @media print {
+            .no-print { display: none !important; }
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Payment Details</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Payment Details #PAY-2024-001234</h4>
+                            <span>Complete transaction information and customer details</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../payments/payments.html">Payments</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Payment Details</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Payment Status & Actions -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-3">
+                                        <div class="payment-status text-success">
+                                            <i class="fas fa-check-circle mr-2"></i>Payment Completed
+                                        </div>
+                                        <small class="text-muted">Transaction ID: TXN-2024-789456</small>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <h3 class="text-primary mb-0">৳250.00</h3>
+                                        <small class="text-muted">Amount Paid</small>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <span class="badge badge-primary p-2">
+                                            <i class="fab fa-cc-visa mr-2"></i>Credit Card
+                                        </span>
+                                        <small class="text-muted d-block">Payment Method</small>
+                                    </div>
+                                    <div class="col-md-3 text-right no-print">
+                                        <a href="download-receipt.html" class="btn btn-success mr-2">
+                                            <i class="fas fa-download mr-2"></i>Download Receipt
+                                        </a>
+                                        <button class="btn btn-info" onclick="window.print()">
+                                            <i class="fas fa-print mr-2"></i>Print
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Payment Details -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card payment-details-card">
+                            <div class="card-header">
+                                <h4 class="card-title">Transaction Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="mb-3"><i class="fas fa-info-circle text-primary mr-2"></i>Payment Details</h6>
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td><strong>Payment ID:</strong></td>
+                                                <td>PAY-2024-001234</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Transaction ID:</strong></td>
+                                                <td>TXN-2024-789456</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Payment Date:</strong></td>
+                                                <td>December 15, 2024, 2:30 PM</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Payment Method:</strong></td>
+                                                <td>
+                                                    <span class="badge badge-primary">
+                                                        <i class="fab fa-cc-visa mr-1"></i>Credit Card
+                                                    </span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Card Number:</strong></td>
+                                                <td>**** **** **** 1234</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Gateway:</strong></td>
+                                                <td>SSL Commerz</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Reference:</strong></td>
+                                                <td>PKG-2024-001234</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="mb-3"><i class="fas fa-user text-success mr-2"></i>Customer Information</h6>
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td><strong>Customer Name:</strong></td>
+                                                <td>John Smith</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Email:</strong></td>
+                                                <td>john.smith@email.com</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Phone:</strong></td>
+                                                <td>+880 1712345678</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Address:</strong></td>
+                                                <td>123 Customer Street<br>Dhaka 1000, Bangladesh</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Customer ID:</strong></td>
+                                                <td>CUST-2024-567</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+
+                                <hr>
+
+                                <!-- Payment Breakdown -->
+                                <h6 class="mb-3"><i class="fas fa-calculator text-warning mr-2"></i>Payment Breakdown</h6>
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td>Service Charge:</td>
+                                                <td class="text-right">৳200.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Weight Charge:</td>
+                                                <td class="text-right">৳25.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Delivery Fee:</td>
+                                                <td class="text-right">৳15.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>VAT (15%):</td>
+                                                <td class="text-right">৳36.00</td>
+                                            </tr>
+                                            <tr class="table-primary">
+                                                <td><strong>Total Amount:</strong></td>
+                                                <td class="text-right"><strong>৳276.00</strong></td>
+                                            </tr>
+                                            <tr class="table-success">
+                                                <td><strong>Amount Paid:</strong></td>
+                                                <td class="text-right"><strong>৳250.00</strong></td>
+                                            </tr>
+                                            <tr class="table-warning">
+                                                <td><strong>Processing Fee:</strong></td>
+                                                <td class="text-right"><strong>৳26.00</strong></td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Transaction Timeline -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Transaction Timeline</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="timeline">
+                                    <div class="timeline-item">
+                                        <div class="ml-3">
+                                            <h6>Payment Initiated</h6>
+                                            <p class="text-muted mb-0">Customer started payment process</p>
+                                            <small class="text-muted">Dec 15, 2024 - 2:25 PM</small>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="ml-3">
+                                            <h6>Payment Processing</h6>
+                                            <p class="text-muted mb-0">Payment sent to gateway</p>
+                                            <small class="text-muted">Dec 15, 2024 - 2:26 PM</small>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="ml-3">
+                                            <h6>Payment Authorized</h6>
+                                            <p class="text-muted mb-0">Bank authorization received</p>
+                                            <small class="text-muted">Dec 15, 2024 - 2:28 PM</small>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="ml-3">
+                                            <h6 class="text-success">Payment Completed</h6>
+                                            <p class="text-muted mb-0">Transaction successful</p>
+                                            <small class="text-muted">Dec 15, 2024 - 2:30 PM</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Related Actions -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Actions</h4>
+                            </div>
+                            <div class="card-body">
+                                <a href="view-parcel.html" class="btn btn-info btn-block mb-2">
+                                    <i class="fas fa-box mr-2"></i>View Related Parcel
+                                </a>
+                                <a href="view-invoice.html" class="btn btn-primary btn-block mb-2">
+                                    <i class="fas fa-file-invoice mr-2"></i>View Invoice
+                                </a>
+                                <button class="btn btn-warning btn-block mb-2" onclick="processRefund()">
+                                    <i class="fas fa-undo mr-2"></i>Process Refund
+                                </button>
+                                <button class="btn btn-secondary btn-block" onclick="sendReceipt()">
+                                    <i class="fas fa-envelope mr-2"></i>Send Receipt
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- System Information -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">System Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <table class="table table-borderless table-sm">
+                                    <tr>
+                                        <td>Gateway Response:</td>
+                                        <td><span class="badge badge-success">SUCCESS</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Response Code:</td>
+                                        <td>200</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gateway Fee:</td>
+                                        <td>৳15.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Net Amount:</td>
+                                        <td>৳235.00</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Settlement Status:</td>
+                                        <td><span class="badge badge-info">Pending</span></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        // Action functions
+        function processRefund() {
+            if (confirm('Are you sure you want to process a refund for this payment?')) {
+                window.location.href = 'refund-management.html';
+            }
+        }
+
+        function sendReceipt() {
+            if (confirm('Send receipt to customer email: john.smith@email.com?')) {
+                alert('Receipt sent successfully!');
+            }
+        }
+
+        // Auto-refresh status if needed
+        $(document).ready(function() {
+            // Check for payment status updates every 30 seconds if status is pending
+            const paymentStatus = $('.payment-status').text().trim();
+            if (paymentStatus.includes('Pending') || paymentStatus.includes('Processing')) {
+                setInterval(function() {
+                    // In a real application, this would make an API call to check status
+                    console.log('Checking payment status...');
+                }, 30000);
+            }
+        });
+    </script>
+</body>
+</html>

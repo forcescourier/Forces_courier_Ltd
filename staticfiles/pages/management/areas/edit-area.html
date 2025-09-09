@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Edit Area - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Edit Area</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Edit Area</h4>
+                            <span>Update delivery area information and settings</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../areas/areas.html">Areas</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Edit Area</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Area Info Header -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Area: Dhaka Central (ID: A001)</h4>
+                                <div class="card-action">
+                                    <span class="badge badge-success">Active</span>
+                                    <button type="button" class="btn btn-sm btn-warning ml-2" id="deactivate-area">
+                                        <i class="fas fa-pause"></i> Deactivate
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Area Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <form id="edit-area-form">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Area Name <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" value="Dhaka Central" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Area Code <span class="text-danger">*</span></label>
+                                                <input type="text" class="form-control" value="A001" readonly>
+                                                <small class="text-muted">Area code cannot be changed</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">City <span class="text-danger">*</span></label>
+                                                <select class="form-control" required>
+                                                    <option value="Dhaka" selected>Dhaka</option>
+                                                    <option value="Chittagong">Chittagong</option>
+                                                    <option value="Sylhet">Sylhet</option>
+                                                    <option value="Rajshahi">Rajshahi</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Zone <span class="text-danger">*</span></label>
+                                                <select class="form-control" required>
+                                                    <option value="Central Zone" selected>Central Zone</option>
+                                                    <option value="North Zone">North Zone</option>
+                                                    <option value="South Zone">South Zone</option>
+                                                    <option value="East Zone">East Zone</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="text-label">Description</label>
+                                                <textarea class="form-control" rows="3">Main central area of Dhaka city with high commercial activity</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mb-3 mt-4">Geographic Information</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Postal Codes</label>
+                                                <input type="text" class="form-control" value="1000, 1001, 1002, 1003">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Coverage Radius (km)</label>
+                                                <input type="number" class="form-control" step="0.1" value="5.5">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Center Latitude</label>
+                                                <input type="text" class="form-control" id="latitude" value="23.8103">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Center Longitude</label>
+                                                <input type="text" class="form-control" id="longitude" value="90.4125">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mb-3 mt-4">Service Configuration</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Available Services</label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="sameDay" checked>
+                                                    <label class="form-check-label" for="sameDay">Same Day Delivery</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="nextDay" checked>
+                                                    <label class="form-check-label" for="nextDay">Next Day Delivery</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="economy" checked>
+                                                    <label class="form-check-label" for="economy">Economy Delivery</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Priority Level</label>
+                                                <select class="form-control">
+                                                    <option value="high" selected>High Priority</option>
+                                                    <option value="medium">Medium Priority</option>
+                                                    <option value="low">Low Priority</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <h5 class="mb-3 mt-4">Operating Hours</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Start Time</label>
+                                                <input type="time" class="form-control" value="08:00">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">End Time</label>
+                                                <input type="time" class="form-control" value="20:00">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Status</label>
+                                                <select class="form-control">
+                                                    <option value="active" selected>Active</option>
+                                                    <option value="pending">Pending</option>
+                                                    <option value="inactive">Inactive</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Launch Date</label>
+                                                <input type="date" class="form-control" value="2023-01-15">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="text-right mt-4">
+                                                <a href="../areas/areas.html" class="btn btn-light mr-2">Cancel</a>
+                                                <button type="button" class="btn btn-info mr-2" id="save-changes">Save Changes</button>
+                                                <button type="submit" class="btn btn-primary">Update Area</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Area Statistics</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="widget-stat mb-3">
+                                    <div class="media">
+                                        <span class="mr-3 bgl-primary ai-icon">
+                                            <i class="fas fa-bike"></i>
+                                        </span>
+                                        <div class="media-body">
+                                            <h4 class="mb-0">8</h4>
+                                            <small>Active Riders</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-stat mb-3">
+                                    <div class="media">
+                                        <span class="mr-3 bgl-success ai-icon">
+                                            <i class="fas fa-box"></i>
+                                        </span>
+                                        <div class="media-body">
+                                            <h4 class="mb-0">145</h4>
+                                            <small>Deliveries Today</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="widget-stat">
+                                    <div class="media">
+                                        <span class="mr-3 bgl-warning ai-icon">
+                                            <i class="fas fa-clock"></i>
+                                        </span>
+                                        <div class="media-body">
+                                            <h4 class="mb-0">95%</h4>
+                                            <small>On-Time Rate</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Area Location</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="map" style="height: 300px; width: 100%;"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+
+    <script>
+        // Initialize map
+        let map = L.map('map').setView([23.8103, 90.4125], 13);
+        let marker = L.marker([23.8103, 90.4125]).addTo(map);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© OpenStreetMap contributors'
+        }).addTo(map);
+
+        // Map click handler
+        map.on('click', function(e) {
+            marker.setLatLng([e.latlng.lat, e.latlng.lng]);
+            document.getElementById('latitude').value = e.latlng.lat.toFixed(6);
+            document.getElementById('longitude').value = e.latlng.lng.toFixed(6);
+        });
+
+        // Form submission
+        document.getElementById('edit-area-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let loadingBtn = document.querySelector('button[type="submit"]');
+            loadingBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>Updating...';
+            loadingBtn.disabled = true;
+            
+            setTimeout(function() {
+                alert('Area updated successfully!');
+                window.location.href = 'areas.html';
+            }, 2000);
+        });
+
+        // Save changes
+        document.getElementById('save-changes').addEventListener('click', function() {
+            alert('Changes saved successfully!');
+        });
+
+        // Deactivate area
+        document.getElementById('deactivate-area').addEventListener('click', function() {
+            if (confirm('Are you sure you want to deactivate this area?')) {
+                alert('Area deactivated successfully!');
+            }
+        });
+    </script>
+</body>
+</html>

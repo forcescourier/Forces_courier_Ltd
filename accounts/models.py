@@ -1,3 +1,7 @@
+import os
+from django.utils.text import slugify
+from datetime import datetime
+
 from django.db import models
 import datetime
 
@@ -32,6 +36,12 @@ class Merchant(models.Model):
 
 # delivery soldier/rider model
 
+def soldier_upload_path(instance, filename):
+    base, ext = os.path.splitext(filename)
+    safe_name = slugify(base)  # removes spaces & unsafe chars
+    return f"soldier/{safe_name}_{datetime.now().strftime('%Y%m%d%H%M%S')}{ext}"
+
+
 class DeliverySoldier(models.Model):
 
     STATUS_CHOICES=(
@@ -40,12 +50,12 @@ class DeliverySoldier(models.Model):
         ("suspended","suspended"),
     )
     soldiers_id = models.AutoField(primary_key=True)  
-    soldiers_parcel_id = models.ForeignKey('parcels.Parcel', on_delete=models.CASCADE)
+    soldiers_parcel_id = models.ForeignKey('parcels.Parcel', on_delete=models.CASCADE, blank=True, null=True)
     soldiers_area_id = models.ForeignKey('logistics.Area', on_delete=models.CASCADE)
     photo=models.ImageField(upload_to="soldier/", default="soldier/default.png", null=True, blank=True)
     soldiers_name = models.CharField(max_length=100)
     soldiers_phone = models.CharField(max_length=20)
-    soldiers_nid = models.IntegerField()  # National ID
+    soldiers_nid = models.IntegerField(unique=True)  # National ID
     soldiers_email = models.EmailField(unique=True)
     soldiers_username = models.CharField(max_length=50, unique=True)
     soldiers_address=models.TextField()
@@ -66,8 +76,8 @@ class DeliverySoldier(models.Model):
     soldiers_vehicle_brand = models.CharField(max_length=100, blank=True, null=True)
     soldiers_vehicle_number = models.CharField(max_length=50, blank=True, null=True)  # License plate
     license_expiry = models.DateField(null=True, blank=True)
-    insurance_status = models.BooleanField(default=True)  # True = valid, False = expired
-    insurance_expiry = models.DateField(null=True, blank=True)
+    insurance_status = models.BooleanField(default=True, blank=True, null=True)  # True = valid, False = expired
+    insurance_expiry = models.DateField(null=True,blank=True )
     def __str__(self):
         return f"{self.soldiers_name} ({self.soldiers_username})"
 

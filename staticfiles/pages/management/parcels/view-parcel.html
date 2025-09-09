@@ -1,0 +1,559 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Parcels Management - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+    <style>
+        .filter-section {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .table-responsive {
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        }
+        .parcels-table th {
+            background: #007bff;
+            color: white;
+            font-weight: 600;
+            text-align: center;
+            vertical-align: middle;
+            border: none;
+        }
+        .parcels-table td {
+            vertical-align: middle;
+            border-bottom: 1px solid #dee2e6;
+        }
+        .sender-receiver-info {
+            font-size: 0.85rem;
+            line-height: 1.3;
+        }
+        .info-label {
+            font-weight: 600;
+            color: #495057;
+        }
+        .status-badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+        .amount-info {
+            font-size: 0.9rem;
+            line-height: 1.2;
+        }
+        .filter-card {
+            border: 1px solid #e3e6f0;
+            border-radius: 8px;
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Parcels Management</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Parcels Management</h4>
+                            <span>Comprehensive parcel listing with advanced filtering and detailed information</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../parcels/parcels.html">Parcels</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">View All</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Advanced Filters Section -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card filter-card">
+                            <div class="card-header bg-primary">
+                                <h4 class="card-title text-white mb-0">
+                                    <i class="fas fa-filter mr-2"></i>Advanced Filters
+                                </h4>
+                                <button type="button" class="btn btn-outline-light btn-sm" onclick="toggleFilters()">
+                                    <i class="fas fa-chevron-down" id="filterToggleIcon"></i>
+                                </button>
+                            </div>
+                            <div class="card-body filter-section" id="filterSection">
+                                <form id="filterForm">
+                                    <div class="row">
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-label"><i class="fas fa-search mr-1"></i>Search</label>
+                                            <input type="text" class="form-control" id="searchFilter" placeholder="Parcel ID, Name, Phone...">
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <label class="form-label"><i class="fas fa-flag mr-1"></i>Status</label>
+                                            <select class="form-control" id="statusFilter">
+                                                <option value="">All Status</option>
+                                                <option value="pending">Pending</option>
+                                                <option value="pickup">Pickup Assigned</option>
+                                                <option value="transit">In Transit</option>
+                                                <option value="delivery">Out for Delivery</option>
+                                                <option value="delivered">Delivered</option>
+                                                <option value="returned">Returned</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <label class="form-label"><i class="fas fa-map-marker-alt mr-1"></i>Area</label>
+                                            <select class="form-control" id="areaFilter">
+                                                <option value="">All Areas</option>
+                                                <option value="dhaka">Dhaka</option>
+                                                <option value="chittagong">Chittagong</option>
+                                                <option value="sylhet">Sylhet</option>
+                                                <option value="rajshahi">Rajshahi</option>
+                                                <option value="barisal">Barisal</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <label class="form-label"><i class="fas fa-calendar mr-1"></i>Date From</label>
+                                            <input type="date" class="form-control" id="dateFromFilter">
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <label class="form-label"><i class="fas fa-calendar mr-1"></i>Date To</label>
+                                            <input type="date" class="form-control" id="dateToFilter">
+                                        </div>
+                                        <div class="col-md-1 mb-3">
+                                            <label class="form-label">&nbsp;</label>
+                                            <button type="button" class="btn btn-primary btn-block" onclick="applyFilters()">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-right">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm mr-2" onclick="clearFilters()">
+                                                <i class="fas fa-times mr-1"></i>Clear Filters
+                                            </button>
+                                            <button type="button" class="btn btn-success btn-sm" onclick="exportData()">
+                                                <i class="fas fa-download mr-1"></i>Export Excel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8">
+                        <!-- Parcel Information -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Parcel Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="mb-3"><i class="fas fa-user text-primary mr-2"></i>Sender Details</h6>
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td><strong>Name:</strong></td>
+                                                <td>John Smith</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Phone:</strong></td>
+                                                <td>+880 1712345678</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Address:</strong></td>
+                                                <td>House 45, Road 12, Dhanmondi, Dhaka</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6 class="mb-3"><i class="fas fa-user-check text-success mr-2"></i>Receiver Details</h6>
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td><strong>Name:</strong></td>
+                                                <td>Jane Doe</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Phone:</strong></td>
+                                                <td>+880 1987654321</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Address:</strong></td>
+                                                <td>Plot 78, Block C, Bashundhara R/A, Dhaka</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h6 class="mb-3"><i class="fas fa-box text-warning mr-2"></i>Parcel Details</h6>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <table class="table table-borderless">
+                                                    <tr>
+                                                        <td><strong>Content:</strong></td>
+                                                        <td>Electronics - Laptop</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Weight:</strong></td>
+                                                        <td>2.5 kg</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Dimensions:</strong></td>
+                                                        <td>35x25x5 cm</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <table class="table table-borderless">
+                                                    <tr>
+                                                        <td><strong>Service:</strong></td>
+                                                        <td>Same Day Delivery</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Total Amount:</strong></td>
+                                                        <td><strong class="text-success">৳212.50</strong></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Payment:</strong></td>
+                                                        <td><span class="badge badge-success">Paid</span></td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tracking History -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Tracking History</h4>
+                                <button class="btn btn-primary btn-sm" onclick="refreshTracking()">
+                                    <i class="fas fa-sync"></i> Refresh
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="timeline">
+                                    <div class="timeline-item active">
+                                        <div class="timeline-badge bg-success">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h6 class="timeline-title">Package Picked Up</h6>
+                                                <p><small class="text-muted">Today 10:30 AM</small></p>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Package collected from sender location by Rider: Karim Ahmed</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item active">
+                                        <div class="timeline-badge bg-info">
+                                            <i class="fas fa-shipping-fast"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h6 class="timeline-title">In Transit</h6>
+                                                <p><small class="text-muted">Today 11:15 AM</small></p>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Package is on the way to destination hub</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-badge bg-warning">
+                                            <i class="fas fa-truck"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h6 class="timeline-title">Out for Delivery</h6>
+                                                <p><small class="text-muted">Expected: Today 2:00 PM</small></p>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Package will be dispatched for final delivery</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-badge bg-secondary">
+                                            <i class="fas fa-home"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h6 class="timeline-title">Delivered</h6>
+                                                <p><small class="text-muted">Expected: Today 4:00 PM</small></p>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Package will be delivered to recipient</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Quick Status -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Current Status</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="status-icon">
+                                    <i class="fas fa-shipping-fast fa-3x text-warning mb-3"></i>
+                                </div>
+                                <h5 class="text-warning">In Transit</h5>
+                                <p class="text-muted">Expected delivery: Today 4:00 PM</p>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar bg-warning" style="width: 60%"></div>
+                                </div>
+                                <p><small>60% Complete</small></p>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Information -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Delivery Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item d-flex justify-content-between">
+                                        <span>Pickup Date:</span>
+                                        <strong>Dec 15, 2024</strong>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between">
+                                        <span>Expected Delivery:</span>
+                                        <strong>Dec 15, 2024</strong>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between">
+                                        <span>Assigned Rider:</span>
+                                        <strong>Karim Ahmed</strong>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between">
+                                        <span>Rider Phone:</span>
+                                        <strong>+880 1555123456</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Quick Actions</h4>
+                            </div>
+                            <div class="card-body">
+                                <button class="btn btn-success btn-block mb-2" onclick="markDelivered()">
+                                    <i class="fas fa-check mr-2"></i>Mark as Delivered
+                                </button>
+                                <button class="btn btn-warning btn-block mb-2" onclick="reportIssue()">
+                                    <i class="fas fa-exclamation-triangle mr-2"></i>Report Issue
+                                </button>
+                                <button class="btn btn-info btn-block" onclick="contactCustomer()">
+                                    <i class="fas fa-phone mr-2"></i>Contact Customer
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Related Parcels -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Related Parcels</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group list-group-flush">
+                                    <a href="#" class="list-group-item">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <strong>PKG-2024-001235</strong>
+                                                <small class="text-muted d-block">Same sender</small>
+                                            </div>
+                                            <span class="badge badge-success">Delivered</span>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <strong>PKG-2024-001233</strong>
+                                                <small class="text-muted d-block">Same route</small>
+                                            </div>
+                                            <span class="badge badge-primary">Pending</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        function printLabel() {
+            alert('Printing shipping label for PKG-2024-001234');
+        }
+
+        function sendUpdate() {
+            alert('SMS update sent to customer');
+        }
+
+        function refreshTracking() {
+            alert('Tracking information refreshed');
+            location.reload();
+        }
+
+        function markDelivered() {
+            if (confirm('Mark this parcel as delivered?')) {
+                alert('Parcel marked as delivered successfully!');
+                location.reload();
+            }
+        }
+
+        function reportIssue() {
+            alert('Opening issue report form');
+        }
+
+        function contactCustomer() {
+            alert('Initiating customer contact');
+        }
+
+        // Auto-refresh tracking every 30 seconds
+        setInterval(function() {
+            // In real implementation, this would fetch updated tracking data
+            console.log('Auto-refreshing tracking data...');
+        }, 30000);
+    </script>
+</body>
+</html>

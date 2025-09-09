@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>View Rider - Courier Dashboard</title>
+    
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    
+    <!-- Custom Stylesheet -->
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                Rider Profile
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a>
+                    </li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a>
+                    </li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-2"></i>
+                            <span class="nav-text">Riders</span>
+                        </a>
+                    </li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-location"></i>
+                            <span class="nav-text">Areas</span>
+                        </a>
+                    </li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-price-tag"></i>
+                            <span class="nav-text">Payments</span>
+                        </a>
+                    </li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-file"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a>
+                    </li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a>
+                    </li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Rider Profile</h4>
+                            <span>Detailed information and performance metrics</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../riders/riders.html">Riders</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">View Rider</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Rider Header -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row align-items-center">
+                                    <div class="col-md-2 text-center">
+                                        <img src="../../../assets/images/profile/rider-avatar.jpg" alt="Rider Photo" class="rounded-circle" width="100" height="100">
+                                    </div>
+                                    <div class="col-md-7">
+                                        <h3 class="mb-1">Ahmed Hassan</h3>
+                                        <p class="text-muted mb-1">Rider ID: R001</p>
+                                        <div class="status-badges">
+                                            <span class="badge badge-success">Active</span>
+                                            <span class="badge badge-info">Online</span>
+                                            <span class="badge badge-warning">Delivering (2)</span>
+                                        </div>
+                                        <p class="mt-2 mb-0">
+                                            <i class="fas fa-map-marker-alt text-muted"></i> Currently in North Zone
+                                            <br>
+                                            <i class="fas fa-calendar text-muted"></i> Joined: January 15, 2023
+                                        </p>
+                                    </div>
+                                    <div class="col-md-3 text-right">
+                                        <a href="edit-rider.html?id=R001" class="btn btn-primary btn-sm">
+                                            <i class="fas fa-edit"></i> Edit Profile
+                                        </a>
+                                        <button class="btn btn-info btn-sm ml-1" id="send-message">
+                                            <i class="fas fa-comment"></i> Message
+                                        </button>
+                                        <br><br>
+                                        <button class="btn btn-warning btn-sm" id="track-rider">
+                                            <i class="fas fa-map-marker-alt"></i> Track Location
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Performance Statistics -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary ai-icon">
+                                        <i class="fas fa-box"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">247</h3>
+                                        <p class="mb-0">Total Deliveries</p>
+                                        <small class="text-success">+12 this month</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success ai-icon">
+                                        <i class="fas fa-star"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">4.8</h3>
+                                        <p class="mb-0">Rating</p>
+                                        <small class="text-muted">Based on 185 reviews</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning ai-icon">
+                                        <i class="fas fa-clock"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">96%</h3>
+                                        <p class="mb-0">On-Time Rate</p>
+                                        <small class="text-success">Excellent performance</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info ai-icon">
+                                        <i class="fas fa-dollar-sign"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">$1,245</h3>
+                                        <p class="mb-0">Monthly Earnings</p>
+                                        <small class="text-muted">January 2024</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Rider Information Tabs -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <ul class="nav nav-tabs" role="tablist">
+                                    <li class="nav-item">
+                                        <a class="nav-link active" data-toggle="tab" href="#personal-info">Personal Info</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#vehicle-info">Vehicle Info</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#recent-deliveries">Recent Deliveries</a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" data-toggle="tab" href="#earnings">Earnings</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="card-body">
+                                <div class="tab-content">
+                                    <!-- Personal Information Tab -->
+                                    <div class="tab-pane fade show active" id="personal-info">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Basic Information</h5>
+                                                <table class="table table-borderless">
+                                                    <tr>
+                                                        <td><strong>Full Name:</strong></td>
+                                                        <td>Ahmed Hassan</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Date of Birth:</strong></td>
+                                                        <td>May 15, 1990</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Gender:</strong></td>
+                                                        <td>Male</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>National ID:</strong></td>
+                                                        <td>1234567890123</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Blood Group:</strong></td>
+                                                        <td>B+</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5>Contact Information</h5>
+                                                <table class="table table-borderless">
+                                                    <tr>
+                                                        <td><strong>Phone:</strong></td>
+                                                        <td>+880123456789</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Alternative Phone:</strong></td>
+                                                        <td>+880987654321</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Email:</strong></td>
+                                                        <td>ahmed.hassan@example.com</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Emergency Contact:</strong></td>
+                                                        <td>+880555666777</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Address:</strong></td>
+                                                        <td>123 Main Street, Apt 4B<br>Dhaka 1000, Bangladesh</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="row mt-4">
+                                            <div class="col-md-6">
+                                                <h5>Employment Details</h5>
+                                                <table class="table table-borderless">
+                                                    <tr>
+                                                        <td><strong>Employment Type:</strong></td>
+                                                        <td>Full Time</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Join Date:</strong></td>
+                                                        <td>January 15, 2023</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Base Salary:</strong></td>
+                                                        <td>$25,000</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Commission Rate:</strong></td>
+                                                        <td>5.5%</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5>Service Areas</h5>
+                                                <div class="mt-3">
+                                                    <span class="badge badge-primary mr-1 mb-1">Dhaka North</span>
+                                                    <span class="badge badge-primary mr-1 mb-1">Gulshan</span>
+                                                    <span class="badge badge-primary mr-1 mb-1">Banani</span>
+                                                    <span class="badge badge-primary mr-1 mb-1">Dhanmondi</span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Vehicle Information Tab -->
+                                    <div class="tab-pane fade" id="vehicle-info">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <h5>Vehicle Details</h5>
+                                                <table class="table table-borderless">
+                                                    <tr>
+                                                        <td><strong>Vehicle Type:</strong></td>
+                                                        <td>Motorcycle</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Brand:</strong></td>
+                                                        <td>Honda</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Model:</strong></td>
+                                                        <td>CB150R</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Year:</strong></td>
+                                                        <td>2022</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>License Plate:</strong></td>
+                                                        <td>DH-1234-5678</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <h5>License Information</h5>
+                                                <table class="table table-borderless">
+                                                    <tr>
+                                                        <td><strong>License Number:</strong></td>
+                                                        <td>DL123456789</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>License Expiry:</strong></td>
+                                                        <td>December 31, 2025</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Insurance Status:</strong></td>
+                                                        <td><span class="badge badge-success">Valid</span></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Insurance Expiry:</strong></td>
+                                                        <td>March 15, 2025</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Recent Deliveries Tab -->
+                                    <div class="tab-pane fade" id="recent-deliveries">
+                                        <div class="table-responsive">
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th>Tracking #</th>
+                                                        <th>Pickup</th>
+                                                        <th>Delivery</th>
+                                                        <th>Status</th>
+                                                        <th>Date</th>
+                                                        <th>Rating</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr>
+                                                        <td>TRK001234</td>
+                                                        <td>ABC Store, Gulshan</td>
+                                                        <td>123 Road, Banani</td>
+                                                        <td><span class="badge badge-success">Delivered</span></td>
+                                                        <td>Jan 15, 2024</td>
+                                                        <td>5.0 ⭐</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TRK001235</td>
+                                                        <td>XYZ Shop, Dhanmondi</td>
+                                                        <td>456 Street, Gulshan</td>
+                                                        <td><span class="badge badge-warning">In Transit</span></td>
+                                                        <td>Jan 16, 2024</td>
+                                                        <td>-</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td>TRK001236</td>
+                                                        <td>DEF Market, Banani</td>
+                                                        <td>789 Lane, Dhanmondi</td>
+                                                        <td><span class="badge badge-success">Delivered</span></td>
+                                                        <td>Jan 14, 2024</td>
+                                                        <td>4.8 ⭐</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+
+                                    <!-- Earnings Tab -->
+                                    <div class="tab-pane fade" id="earnings">
+                                        <div class="row">
+                                            <div class="col-md-4">
+                                                <div class="card border-primary">
+                                                    <div class="card-body text-center">
+                                                        <h5 class="text-primary">This Month</h5>
+                                                        <h3>$1,245</h3>
+                                                        <small class="text-success">+8.5% vs last month</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="card border-success">
+                                                    <div class="card-body text-center">
+                                                        <h5 class="text-success">Last Month</h5>
+                                                        <h3>$1,148</h3>
+                                                        <small class="text-muted">December 2023</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-4">
+                                                <div class="card border-info">
+                                                    <div class="card-body text-center">
+                                                        <h5 class="text-info">Total Earnings</h5>
+                                                        <h3>$14,520</h3>
+                                                        <small class="text-muted">Since joining</small>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="row mt-4">
+                                            <div class="col-md-12">
+                                                <h5>Earnings Breakdown</h5>
+                                                <table class="table table-striped">
+                                                    <thead>
+                                                        <tr>
+                                                            <th>Month</th>
+                                                            <th>Base Salary</th>
+                                                            <th>Commission</th>
+                                                            <th>Bonus</th>
+                                                            <th>Total</th>
+                                                        </tr>
+                                                    </thead>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td>January 2024</td>
+                                                            <td>$800</td>
+                                                            <td>$395</td>
+                                                            <td>$50</td>
+                                                            <td><strong>$1,245</strong></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>December 2023</td>
+                                                            <td>$800</td>
+                                                            <td>$298</td>
+                                                            <td>$50</td>
+                                                            <td><strong>$1,148</strong></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>November 2023</td>
+                                                            <td>$800</td>
+                                                            <td>$365</td>
+                                                            <td>$25</td>
+                                                            <td><strong>$1,190</strong></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!-- Message Modal -->
+    <div class="modal fade" id="messageModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title">Send Message to Ahmed Hassan</h4>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label>Subject</label>
+                            <input type="text" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Message</label>
+                            <textarea class="form-control" rows="4" required></textarea>
+                        </div>
+                        <div class="custom-control custom-switch">
+                            <input type="checkbox" class="custom-control-input" id="sendSMS">
+                            <label class="custom-control-label" for="sendSMS">Also send as SMS</label>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary">Send Message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        // Send message modal
+        document.getElementById('send-message').addEventListener('click', function() {
+            $('#messageModal').modal('show');
+        });
+
+        // Track rider
+        document.getElementById('track-rider').addEventListener('click', function() {
+            window.open('rider-tracking.html', '_blank');
+        });
+    </script>
+</body>
+</html>

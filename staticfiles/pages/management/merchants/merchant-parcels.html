@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Merchant Parcels - Courier Dashboard</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Merchant Parcels</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i><span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i><span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon"><i class="flaticon-381-networking"></i><span class="nav-text">Dashboard</span></a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon"><i class="flaticon-381-box"></i><span class="nav-text">Parcels</span></a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon"><i class="flaticon-381-user-7"></i><span class="nav-text">Merchants</span></a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon"><i class="flaticon-381-user-2"></i><span class="nav-text">Riders</span></a></li>
+                    <li><a href="../services/services.html" class="ai-icon"><i class="flaticon-381-list"></i><span class="nav-text">Services</span></a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon"><i class="flaticon-381-location"></i><span class="nav-text">Areas</span></a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon"><i class="flaticon-381-price-tag"></i><span class="nav-text">Payments</span></a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon"><i class="flaticon-381-file"></i><span class="nav-text">Invoices</span></a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon"><i class="flaticon-381-chart"></i><span class="nav-text">Reports</span></a></li>
+                    <li><a href="../../../settings.html" class="ai-icon"><i class="flaticon-381-settings"></i><span class="nav-text">Settings</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Merchant Parcels</h4>
+                            <span>View parcels for ABC Trading Company</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../merchants/merchants.html">Merchants</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Merchant Parcels</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Merchant Info Card -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-8">
+                                        <h5>ABC Trading Company</h5>
+                                        <p class="text-muted mb-2">
+                                            <i class="flaticon-381-user mr-2"></i>Contact: Ahmed Khan<br>
+                                            <i class="flaticon-381-phone-call mr-2"></i>Phone: +880 1712-345678<br>
+                                            <i class="flaticon-381-mail mr-2"></i>Email: ahmed@abctrading.com<br>
+                                            <i class="flaticon-381-location mr-2"></i>Address: Dhaka, Bangladesh
+                                        </p>
+                                    </div>
+                                    <div class="col-md-4 text-right">
+                                        <a href="view-merchant.html" class="btn btn-info btn-sm">
+                                            <i class="flaticon-381-eye"></i> View Merchant
+                                        </a>
+                                        <a href="edit-merchant.html" class="btn btn-warning btn-sm">
+                                            <i class="flaticon-381-edit"></i> Edit Merchant
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Statistics Cards -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary text-primary">
+                                        <i class="flaticon-381-box"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">156</span></h3>
+                                        <p class="mb-0">Total Parcels</p>
+                                        <small class="text-muted">All time</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success text-success">
+                                        <i class="flaticon-381-check"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">142</span></h3>
+                                        <p class="mb-0">Delivered</p>
+                                        <small class="text-muted">91% success rate</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning text-warning">
+                                        <i class="flaticon-381-clock"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">8</span></h3>
+                                        <p class="mb-0">In Transit</p>
+                                        <small class="text-muted">Currently active</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-danger text-danger">
+                                        <i class="flaticon-381-close"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black"><span class="counter ml-0">6</span></h3>
+                                        <p class="mb-0">Failed</p>
+                                        <small class="text-muted">4% failure rate</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Filter and Search -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Status</label>
+                                            <select class="form-control">
+                                                <option value="">All Statuses</option>
+                                                <option value="pending">Pending</option>
+                                                <option value="picked_up">Picked Up</option>
+                                                <option value="in_transit">In Transit</option>
+                                                <option value="out_for_delivery">Out for Delivery</option>
+                                                <option value="delivered">Delivered</option>
+                                                <option value="failed">Failed</option>
+                                                <option value="returned">Returned</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Date Range</label>
+                                            <select class="form-control">
+                                                <option value="today">Today</option>
+                                                <option value="yesterday">Yesterday</option>
+                                                <option value="last7days" selected>Last 7 Days</option>
+                                                <option value="last30days">Last 30 Days</option>
+                                                <option value="this_month">This Month</option>
+                                                <option value="last_month">Last Month</option>
+                                                <option value="custom">Custom Range</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Service Type</label>
+                                            <select class="form-control">
+                                                <option value="">All Services</option>
+                                                <option value="express">Express</option>
+                                                <option value="standard">Standard</option>
+                                                <option value="economy">Economy</option>
+                                                <option value="same_day">Same Day</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="form-group">
+                                            <label class="text-label">Search</label>
+                                            <input type="text" class="form-control" placeholder="Search parcels...">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-3">
+                                    <div class="col-md-12">
+                                        <button type="button" class="btn btn-primary">
+                                            <i class="flaticon-381-search"></i> Apply Filters
+                                        </button>
+                                        <button type="button" class="btn btn-light">
+                                            <i class="flaticon-381-refresh"></i> Clear Filters
+                                        </button>
+                                        <button type="button" class="btn btn-success">
+                                            <i class="flaticon-381-download"></i> Export
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Parcels Table -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Parcel List</h4>
+                                <div class="card-tools">
+                                    <span class="badge badge-primary">156 Total Parcels</span>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Tracking Number</th>
+                                                <th>Recipient</th>
+                                                <th>Destination</th>
+                                                <th>Service Type</th>
+                                                <th>Status</th>
+                                                <th>Created Date</th>
+                                                <th>Amount</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>
+                                                    <strong>TRK-2024-001</strong><br>
+                                                    <small class="text-muted">Weight: 2.5 kg</small>
+                                                </td>
+                                                <td>
+                                                    <strong>John Smith</strong><br>
+                                                    <small class="text-muted">+880 1812-345678</small>
+                                                </td>
+                                                <td>
+                                                    <strong>Chittagong</strong><br>
+                                                    <small class="text-muted">Port City</small>
+                                                </td>
+                                                <td><span class="badge badge-info">Express</span></td>
+                                                <td><span class="badge badge-success">Delivered</span></td>
+                                                <td>2024-01-15 09:30</td>
+                                                <td>৳450</td>
+                                                <td>
+                                                    <a href="view-parcel.html" class="btn btn-info btn-sm">View</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>TRK-2024-002</strong><br>
+                                                    <small class="text-muted">Weight: 1.8 kg</small>
+                                                </td>
+                                                <td>
+                                                    <strong>Sarah Johnson</strong><br>
+                                                    <small class="text-muted">+880 1912-345678</small>
+                                                </td>
+                                                <td>
+                                                    <strong>Sylhet</strong><br>
+                                                    <small class="text-muted">Tea City</small>
+                                                </td>
+                                                <td><span class="badge badge-primary">Standard</span></td>
+                                                <td><span class="badge badge-warning">In Transit</span></td>
+                                                <td>2024-01-15 10:15</td>
+                                                <td>৳320</td>
+                                                <td>
+                                                    <a href="view-parcel.html" class="btn btn-info btn-sm">View</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>TRK-2024-003</strong><br>
+                                                    <small class="text-muted">Weight: 3.2 kg</small>
+                                                </td>
+                                                <td>
+                                                    <strong>Mike Wilson</strong><br>
+                                                    <small class="text-muted">+880 1612-345678</small>
+                                                </td>
+                                                <td>
+                                                    <strong>Rajshahi</strong><br>
+                                                    <small class="text-muted">Silk City</small>
+                                                </td>
+                                                <td><span class="badge badge-secondary">Economy</span></td>
+                                                <td><span class="badge badge-info">Out for Delivery</span></td>
+                                                <td>2024-01-15 11:00</td>
+                                                <td>৳280</td>
+                                                <td>
+                                                    <a href="view-parcel.html" class="btn btn-info btn-sm">View</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>TRK-2024-004</strong><br>
+                                                    <small class="text-muted">Weight: 0.8 kg</small>
+                                                </td>
+                                                <td>
+                                                    <strong>Emily Davis</strong><br>
+                                                    <small class="text-muted">+880 1512-345678</small>
+                                                </td>
+                                                <td>
+                                                    <strong>Khulna</strong><br>
+                                                    <small class="text-muted">Port City</small>
+                                                </td>
+                                                <td><span class="badge badge-warning">Same Day</span></td>
+                                                <td><span class="badge badge-warning">Pending</span></td>
+                                                <td>2024-01-15 12:30</td>
+                                                <td>৳650</td>
+                                                <td>
+                                                    <a href="view-parcel.html" class="btn btn-info btn-sm">View</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    <strong>TRK-2024-005</strong><br>
+                                                    <small class="text-muted">Weight: 4.5 kg</small>
+                                                </td>
+                                                <td>
+                                                    <strong>David Brown</strong><br>
+                                                    <small class="text-muted">+880 1412-345678</small>
+                                                </td>
+                                                <td>
+                                                    <strong>Barisal</strong><br>
+                                                    <small class="text-muted">Venice of Bengal</small>
+                                                </td>
+                                                <td><span class="badge badge-primary">Standard</span></td>
+                                                <td><span class="badge badge-danger">Failed</span></td>
+                                                <td>2024-01-15 13:45</td>
+                                                <td>৳380</td>
+                                                <td>
+                                                    <a href="view-parcel.html" class="btn btn-info btn-sm">View</a>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <!-- Pagination -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <p class="text-muted">Showing 1 to 5 of 156 parcels</p>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <nav aria-label="Page navigation">
+                                            <ul class="pagination justify-content-end">
+                                                <li class="page-item disabled">
+                                                    <a class="page-link" href="#" tabindex="-1">Previous</a>
+                                                </li>
+                                                <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">4</a></li>
+                                                <li class="page-item"><a class="page-link" href="#">5</a></li>
+                                                <li class="page-item">
+                                                    <a class="page-link" href="#">Next</a>
+                                                </li>
+                                            </ul>
+                                        </nav>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+</body>
+</html>

@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Bulk Invoice Generation - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../vendor/datatables/css/jquery.dataTables.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Bulk Invoice Generation</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Bulk Invoice Generation</h4>
+                            <span>Generate multiple invoices efficiently for deliveries and services</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../invoices/invoices.html">Invoices</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Bulk Invoice</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Bulk Generation Configuration -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Invoice Generation Criteria</h4>
+                            </div>
+                            <div class="card-body">
+                                <form id="bulkInvoiceForm">
+                                    <!-- Generation Method -->
+                                    <h6 class="mb-3"><i class="fas fa-filter text-primary mr-2"></i>Generation Method</h6>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="text-label">Select Method *</label>
+                                                <select class="form-control" id="generationMethod" required>
+                                                    <option value="">Choose Generation Method</option>
+                                                    <option value="date_range">By Date Range</option>
+                                                    <option value="customer">By Customer</option>
+                                                    <option value="parcel_status">By Parcel Status</option>
+                                                    <option value="service_type">By Service Type</option>
+                                                    <option value="manual_selection">Manual Selection</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Date Range Criteria -->
+                                    <div id="dateRangeCriteria" style="display: none;">
+                                        <h6 class="mb-3"><i class="fas fa-calendar text-success mr-2"></i>Date Range Selection</h6>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="text-label">From Date</label>
+                                                    <input type="date" class="form-control" id="fromDate">
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label class="text-label">To Date</label>
+                                                    <input type="date" class="form-control" id="toDate">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Customer Criteria -->
+                                    <div id="customerCriteria" style="display: none;">
+                                        <h6 class="mb-3"><i class="fas fa-users text-info mr-2"></i>Customer Selection</h6>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="text-label">Select Customers</label>
+                                                    <select class="form-control" multiple id="customerSelect">
+                                                        <option value="all">All Customers</option>
+                                                        <option value="ABC001">ABC Electronics Ltd.</option>
+                                                        <option value="XYZ002">XYZ Trading Co.</option>
+                                                        <option value="DEF003">DEF Manufacturing</option>
+                                                        <option value="GHI004">GHI Retail Store</option>
+                                                    </select>
+                                                    <small class="form-text text-muted">Hold Ctrl to select multiple customers</small>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Parcel Status Criteria -->
+                                    <div id="parcelStatusCriteria" style="display: none;">
+                                        <h6 class="mb-3"><i class="fas fa-shipping-fast text-warning mr-2"></i>Parcel Status</h6>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="text-label">Invoice for Parcels with Status</label>
+                                                    <select class="form-control" multiple id="parcelStatus">
+                                                        <option value="delivered">Delivered</option>
+                                                        <option value="in_transit">In Transit</option>
+                                                        <option value="picked_up">Picked Up</option>
+                                                        <option value="out_for_delivery">Out for Delivery</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Service Type Criteria -->
+                                    <div id="serviceTypeCriteria" style="display: none;">
+                                        <h6 class="mb-3"><i class="fas fa-list text-secondary mr-2"></i>Service Type</h6>
+                                        <div class="row">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="text-label">Select Service Types</label>
+                                                    <select class="form-control" multiple id="serviceType">
+                                                        <option value="same_day">Same Day Delivery</option>
+                                                        <option value="next_day">Next Day Delivery</option>
+                                                        <option value="economy">Economy Delivery</option>
+                                                        <option value="express">Express Delivery</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Invoice Configuration -->
+                                    <hr>
+                                    <h6 class="mb-3"><i class="fas fa-cogs text-dark mr-2"></i>Invoice Configuration</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Invoice Template</label>
+                                                <select class="form-control">
+                                                    <option value="standard">Standard Template</option>
+                                                    <option value="detailed">Detailed Template</option>
+                                                    <option value="compact">Compact Template</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Due Date (Days from Invoice Date)</label>
+                                                <input type="number" class="form-control" value="15" min="1" max="90">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Group By</label>
+                                                <select class="form-control">
+                                                    <option value="customer">Group by Customer</option>
+                                                    <option value="service">Group by Service</option>
+                                                    <option value="date">Group by Date</option>
+                                                    <option value="individual">Individual Invoices</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Currency</label>
+                                                <select class="form-control">
+                                                    <option value="BDT">BDT (৳)</option>
+                                                    <option value="USD">USD ($)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Additional Options -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="includeVAT" checked>
+                                                    <label class="form-check-label" for="includeVAT">
+                                                        Include VAT (15%)
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="autoSendEmail">
+                                                    <label class="form-check-label" for="autoSendEmail">
+                                                        Auto-send invoices via email
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="generatePDF" checked>
+                                                    <label class="form-check-label" for="generatePDF">
+                                                        Generate PDF copies
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions text-right">
+                                        <button type="button" class="btn btn-secondary mr-2" onclick="history.back()">Cancel</button>
+                                        <button type="button" class="btn btn-info mr-2" id="previewInvoices">Preview Selection</button>
+                                        <button type="submit" class="btn btn-success">Generate Invoices</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Generation Summary -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Generation Summary</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="summary-stats">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Items to Invoice:</span>
+                                        <span class="font-weight-bold" id="itemsCount">0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Total Amount:</span>
+                                        <span class="font-weight-bold text-success" id="totalAmount">৳0.00</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>VAT Amount:</span>
+                                        <span id="vatAmount">৳0.00</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Invoices to Generate:</span>
+                                        <span class="font-weight-bold text-primary" id="invoiceCount">0</span>
+                                    </div>
+                                </div>
+                                <hr>
+                                <div class="text-center">
+                                    <button class="btn btn-primary btn-sm btn-block" id="calculateSummary">
+                                        <i class="fas fa-calculator mr-2"></i>Calculate Summary
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Bulk Generations -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Recent Bulk Generations</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="recent-generations">
+                                    <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                                        <div>
+                                            <strong>Customer Invoices</strong>
+                                            <small class="text-muted d-block">25 invoices - Dec 14</small>
+                                        </div>
+                                        <span class="text-success">৳45,230</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                                        <div>
+                                            <strong>Weekly Batch</strong>
+                                            <small class="text-muted d-block">18 invoices - Dec 12</small>
+                                        </div>
+                                        <span class="text-success">৳32,150</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                                        <div>
+                                            <strong>Express Services</strong>
+                                            <small class="text-muted d-block">12 invoices - Dec 10</small>
+                                        </div>
+                                        <span class="text-success">৳28,900</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Quick Actions</h4>
+                            </div>
+                            <div class="card-body">
+                                <a href="invoice-templates.html" class="btn btn-info btn-block mb-2">
+                                    <i class="fas fa-file-alt mr-2"></i>Manage Templates
+                                </a>
+                                <a href="invoice-settings.html" class="btn btn-secondary btn-block">
+                                    <i class="fas fa-cog mr-2"></i>Invoice Settings
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        // Show/hide criteria based on generation method
+        $('#generationMethod').change(function() {
+            const method = $(this).val();
+            
+            // Hide all criteria sections
+            $('#dateRangeCriteria, #customerCriteria, #parcelStatusCriteria, #serviceTypeCriteria').hide();
+            
+            // Show relevant criteria section
+            switch(method) {
+                case 'date_range':
+                    $('#dateRangeCriteria').show();
+                    break;
+                case 'customer':
+                    $('#customerCriteria').show();
+                    break;
+                case 'parcel_status':
+                    $('#parcelStatusCriteria').show();
+                    break;
+                case 'service_type':
+                    $('#serviceTypeCriteria').show();
+                    break;
+                case 'manual_selection':
+                    alert('Manual selection will open a separate selection interface');
+                    break;
+            }
+        });
+
+        // Calculate summary
+        $('#calculateSummary').click(function() {
+            const method = $('#generationMethod').val();
+            
+            if (!method) {
+                alert('Please select a generation method first');
+                return;
+            }
+            
+            // Simulate calculation based on method
+            let itemsCount, totalAmount, invoiceCount;
+            
+            switch(method) {
+                case 'date_range':
+                    itemsCount = 45;
+                    totalAmount = 67500.00;
+                    invoiceCount = 12;
+                    break;
+                case 'customer':
+                    itemsCount = 28;
+                    totalAmount = 42300.00;
+                    invoiceCount = 8;
+                    break;
+                case 'parcel_status':
+                    itemsCount = 52;
+                    totalAmount = 78900.00;
+                    invoiceCount = 15;
+                    break;
+                case 'service_type':
+                    itemsCount = 36;
+                    totalAmount = 54600.00;
+                    invoiceCount = 10;
+                    break;
+                default:
+                    itemsCount = 0;
+                    totalAmount = 0;
+                    invoiceCount = 0;
+            }
+            
+            const vatAmount = $('#includeVAT').is(':checked') ? totalAmount * 0.15 : 0;
+            const finalTotal = totalAmount + vatAmount;
+            
+            $('#itemsCount').text(itemsCount);
+            $('#totalAmount').text(`৳${finalTotal.toFixed(2)}`);
+            $('#vatAmount').text(`৳${vatAmount.toFixed(2)}`);
+            $('#invoiceCount').text(invoiceCount);
+        });
+
+        // Preview invoices
+        $('#previewInvoices').click(function() {
+            const method = $('#generationMethod').val();
+            
+            if (!method) {
+                alert('Please select a generation method first');
+                return;
+            }
+            
+            alert('Opening preview window for selected invoices...');
+        });
+
+        // Form submission
+        $('#bulkInvoiceForm').submit(function(e) {
+            e.preventDefault();
+            
+            const method = $('#generationMethod').val();
+            
+            if (!method) {
+                alert('Please select a generation method');
+                return;
+            }
+            
+            const submitBtn = $(this).find('button[type="submit"]');
+            submitBtn.html('<i class="fas fa-spinner fa-spin mr-2"></i>Generating...').prop('disabled', true);
+            
+            setTimeout(function() {
+                const invoiceCount = $('#invoiceCount').text();
+                alert(`Successfully generated ${invoiceCount} invoices!\n\nInvoices have been created and are ready for review.`);
+                window.location.href = 'invoices.html';
+            }, 3000);
+        });
+
+        // Set default dates
+        const today = new Date().toISOString().split('T')[0];
+        const lastWeek = new Date(Date.now() - 7 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+        $('#fromDate').val(lastWeek);
+        $('#toDate').val(today);
+    </script>
+</body>
+</html>

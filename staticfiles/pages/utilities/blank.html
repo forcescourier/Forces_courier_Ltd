@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Blank Page - Courier Dashboard</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../assets/images/favicon.png">
+    <link href="../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Blank Page</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i><span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i><span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../index.html" class="ai-icon"><i class="flaticon-381-networking"></i><span class="nav-text">Dashboard</span></a></li>
+                    <li><a href="../management/parcels/parcels.html" class="ai-icon"><i class="flaticon-381-box"></i><span class="nav-text">Parcels</span></a></li>
+                    <li><a href="../management/merchants/merchants.html" class="ai-icon"><i class="flaticon-381-user-7"></i><span class="nav-text">Merchants</span></a></li>
+                    <li><a href="../management/riders/riders.html" class="ai-icon"><i class="flaticon-381-user-2"></i><span class="nav-text">Riders</span></a></li>
+                    <li><a href="../management/services/services.html" class="ai-icon"><i class="flaticon-381-list"></i><span class="nav-text">Services</span></a></li>
+                    <li><a href="../management/areas/areas.html" class="ai-icon"><i class="flaticon-381-location"></i><span class="nav-text">Areas</span></a></li>
+                    <li><a href="../management/payments/payments.html" class="ai-icon"><i class="flaticon-381-price-tag"></i><span class="nav-text">Payments</span></a></li>
+                    <li><a href="../management/invoices/invoices.html" class="ai-icon"><i class="flaticon-381-file"></i><span class="nav-text">Invoices</span></a></li>
+                    <li><a href="../reports/reports.html" class="ai-icon"><i class="flaticon-381-chart"></i><span class="nav-text">Reports</span></a></li>
+                    <li><a href="../../settings.html" class="ai-icon"><i class="flaticon-381-settings"></i><span class="nav-text">Settings</span></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Blank Page</h4>
+                            <span>Start building your content here</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../index.html">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Blank Page</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Page Content -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Welcome to Your Blank Page</h4>
+                                <p class="text-muted mb-0">This is a blank page template. Start adding your content here.</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="text-center py-5">
+                                    <div class="blank-page-icon mb-4">
+                                        <i class="flaticon-381-edit text-primary" style="font-size: 6rem;"></i>
+                                    </div>
+                                    <h3 class="text-primary mb-3">Ready to Build Something Amazing?</h3>
+                                    <p class="text-muted mb-4">This blank page provides you with a clean slate to create your custom content. Use the AdminTemplate components and utilities to build your page.</p>
+                                    
+                                    <div class="blank-page-actions mb-4">
+                                        <button type="button" class="btn btn-primary btn-lg mr-3" onclick="showComponents()">
+                                            <i class="flaticon-381-list"></i> View Components
+                                        </button>
+                                        <button type="button" class="btn btn-outline-primary btn-lg" onclick="showExamples()">
+                                            <i class="flaticon-381-file"></i> View Examples
+                                        </button>
+                                    </div>
+
+                                    <div class="blank-page-info">
+                                        <div class="alert alert-info">
+                                            <h6><i class="flaticon-381-info"></i> Getting Started</h6>
+                                            <p class="mb-0">Use the navigation menu to explore different pages and see how components are implemented. You can copy and modify existing code to build your custom pages.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Start Guide -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Quick Start Guide</h4>
+                                <p class="text-muted mb-0">Essential information to get you started</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="quick-start-steps">
+                                    <div class="step-item mb-4">
+                                        <div class="d-flex align-items-start">
+                                            <div class="step-number mr-3">
+                                                <span class="badge badge-primary">1</span>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6 class="text-primary">Explore Existing Pages</h6>
+                                                <p class="text-muted">Browse through the existing pages to understand the structure and see how different components are used.</p>
+                                                <div class="step-actions">
+                                                    <a href="../../index.html" class="btn btn-sm btn-outline-primary mr-2">Dashboard</a>
+                                                    <a href="../management/parcels/parcels.html" class="btn btn-sm btn-outline-primary mr-2">Parcels</a>
+                                                    <a href="../reports/reports.html" class="btn btn-sm btn-outline-primary">Reports</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="step-item mb-4">
+                                        <div class="d-flex align-items-start">
+                                            <div class="step-number mr-3">
+                                                <span class="badge badge-primary">2</span>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6 class="text-primary">Understand the Structure</h6>
+                                                <p class="text-muted">Learn about the layout structure including header, sidebar, content area, and footer components.</p>
+                                                <div class="step-actions">
+                                                    <button type="button" class="btn btn-sm btn-outline-info" onclick="showStructure()">View Structure</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="step-item mb-4">
+                                        <div class="d-flex align-items-start">
+                                            <div class="step-number mr-3">
+                                                <span class="badge badge-primary">3</span>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6 class="text-primary">Use Available Components</h6>
+                                                <p class="text-muted">Utilize the pre-built components like cards, tables, forms, charts, and more to build your content.</p>
+                                                <div class="step-actions">
+                                                    <button type="button" class="btn btn-sm btn-outline-success" onclick="showComponents()">Browse Components</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="step-item mb-4">
+                                        <div class="d-flex align-items-start">
+                                            <div class="step-number mr-3">
+                                                <span class="badge badge-primary">4</span>
+                                            </div>
+                                            <div class="step-content">
+                                                <h6 class="text-primary">Customize and Style</h6>
+                                                <p class="text-muted">Modify colors, fonts, spacing, and other styles to match your design requirements.</p>
+                                                <div class="step-actions">
+                                                    <button type="button" class="btn btn-sm btn-outline-warning" onclick="showStyling()">View Styling</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Useful Links -->
+                    <div class="col-xl-4">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Useful Links</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="useful-links">
+                                    <div class="link-item mb-3">
+                                        <h6 class="text-primary">
+                                            <i class="flaticon-381-file"></i> Documentation
+                                        </h6>
+                                        <p class="text-muted small">Access comprehensive documentation for all components and features.</p>
+                                        <a href="#" class="btn btn-sm btn-outline-primary" onclick="openDocumentation()">View Docs</a>
+                                    </div>
+
+                                    <div class="link-item mb-3">
+                                        <h6 class="text-success">
+                                            <i class="flaticon-381-code"></i> Code Examples
+                                        </h6>
+                                        <p class="text-muted small">Browse through code examples to understand implementation patterns.</p>
+                                        <a href="#" class="btn btn-sm btn-outline-success" onclick="openExamples()">View Examples</a>
+                                    </div>
+
+                                    <div class="link-item mb-3">
+                                        <h6 class="text-info">
+                                            <i class="flaticon-381-palette"></i> Theme Customization
+                                        </h6>
+                                        <p class="text-muted small">Learn how to customize themes and create your own color schemes.</p>
+                                        <a href="#" class="btn btn-sm btn-outline-info" onclick="openThemes()">Customize</a>
+                                    </div>
+
+                                    <div class="link-item mb-3">
+                                        <h6 class="text-warning">
+                                            <i class="flaticon-381-support"></i> Support
+                                        </h6>
+                                        <p class="text-muted small">Get help and support from our technical team when you need assistance.</p>
+                                        <a href="#" class="btn btn-sm btn-outline-warning" onclick="openSupport()">Get Help</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Component Showcase -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Component Showcase</h4>
+                                <p class="text-muted mb-0">Examples of commonly used components</p>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary mb-3">Basic Components</h6>
+                                        <div class="component-examples">
+                                            <button type="button" class="btn btn-primary mr-2 mb-2">Primary Button</button>
+                                            <button type="button" class="btn btn-success mr-2 mb-2">Success Button</button>
+                                            <button type="button" class="btn btn-warning mr-2 mb-2">Warning Button</button>
+                                            <button type="button" class="btn btn-danger mb-2">Danger Button</button>
+                                        </div>
+                                        
+                                        <div class="mt-3">
+                                            <div class="alert alert-primary" role="alert">
+                                                This is a primary alert—check it out!
+                                            </div>
+                                            <div class="alert alert-success" role="alert">
+                                                This is a success alert—check it out!
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="col-md-6">
+                                        <h6 class="text-primary mb-3">Form Elements</h6>
+                                        <div class="component-examples">
+                                            <div class="form-group">
+                                                <label>Sample Input</label>
+                                                <input type="text" class="form-control" placeholder="Enter text here">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Sample Select</label>
+                                                <select class="form-control">
+                                                    <option>Option 1</option>
+                                                    <option>Option 2</option>
+                                                    <option>Option 3</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                                    <label class="custom-control-label" for="customCheck1">Sample checkbox</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Getting Help -->
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body text-center">
+                                <h5 class="mb-3">Need Help Getting Started?</h5>
+                                <p class="text-muted mb-3">Our team is here to help you build amazing pages</p>
+                                <div class="help-options">
+                                    <button type="button" class="btn btn-primary mr-2" onclick="contactTeam()">
+                                        <i class="flaticon-381-phone"></i> Contact Team
+                                    </button>
+                                    <button type="button" class="btn btn-success mr-2" onclick="scheduleDemo()">
+                                        <i class="flaticon-381-calendar"></i> Schedule Demo
+                                    </button>
+                                    <button type="button" class="btn btn-info" onclick="joinCommunity()">
+                                        <i class="flaticon-381-users"></i> Join Community
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../vendor/global/global.min.js"></script>
+    <script src="../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../assets/js/custom.min.js"></script>
+    <script src="../../assets/js/deznav-init.js"></script>
+    
+    <script>
+        // Show components function
+        function showComponents() {
+            alert('Opening component library...\n\nThis would show all available components with examples and documentation.');
+        }
+
+        // Show examples function
+        function showExamples() {
+            alert('Opening examples gallery...\n\nThis would display various page examples and templates you can use as starting points.');
+        }
+
+        // Show structure function
+        function showStructure() {
+            alert('Showing page structure...\n\nThis would highlight the different sections of the page layout.');
+        }
+
+        // Show styling function
+        function showStyling() {
+            alert('Opening styling guide...\n\nThis would show CSS classes, variables, and customization options.');
+        }
+
+        // Open documentation function
+        function openDocumentation() {
+            alert('Opening documentation...\n\nThis would redirect to the comprehensive documentation section.');
+        }
+
+        // Open examples function
+        function openExamples() {
+            alert('Opening examples...\n\nThis would show code examples and implementation patterns.');
+        }
+
+        // Open themes function
+        function openThemes() {
+            alert('Opening theme customization...\n\nThis would show theme options and color schemes.');
+        }
+
+        // Open support function
+        function openSupport() {
+            alert('Opening support...\n\nThis would redirect to the support and help section.');
+        }
+
+        // Contact team function
+        function contactTeam() {
+            alert('Contacting team...\n\nEmail: team@courier.com\nPhone: +880 1234-567890');
+        }
+
+        // Schedule demo function
+        function scheduleDemo() {
+            alert('Scheduling demo...\n\nThis would open a calendar to schedule a personalized demo session.');
+        }
+
+        // Join community function
+        function joinCommunity() {
+            alert('Joining community...\n\nThis would redirect to our community forum and discussion boards.');
+        }
+
+        // Page load tracking
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Blank page loaded successfully');
+            console.log('Ready for content development');
+        });
+    </script>
+
+    <style>
+        .blank-page-icon {
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateY(0);
+            }
+            40% {
+                transform: translateY(-10px);
+            }
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+        
+        .step-number .badge {
+            font-size: 1.2rem;
+            padding: 0.5rem 0.75rem;
+        }
+        
+        .step-content h6 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .step-actions {
+            margin-top: 1rem;
+        }
+        
+        .link-item {
+            padding: 1rem;
+            border: 1px solid #e3e6f0;
+            border-radius: 0.35rem;
+            margin-bottom: 1rem;
+        }
+        
+        .link-item h6 {
+            margin-bottom: 0.5rem;
+        }
+        
+        .component-examples {
+            margin-bottom: 1rem;
+        }
+        
+        .help-options .btn {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .blank-page-actions .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 1rem;
+            }
+            
+            .help-options .btn {
+                display: block;
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</body>
+</html>

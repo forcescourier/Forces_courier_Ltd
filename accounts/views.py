@@ -5,7 +5,8 @@ from django.contrib import messages
 
 from django.contrib.auth.decorators import login_required, user_passes_test
 from .models import Merchant, DeliverySoldier
-from .forms import MerchantForm, MerchantAddForm, SoldierForm
+from logistics.models import Area
+from .forms import MerchantForm, MerchantAddForm, SoldierForm, SoldierAddForm
 import io
 import pandas as pd
 from django.http import HttpResponse
@@ -265,9 +266,29 @@ def soldier_edit(request, soldiers_name):
         form = SoldierForm(request.POST, request.FILES, instance=soldier)
         if form.is_valid():
             form.save()
-            return redirect("soldier_detail", soldiers_name=soldier.soldiers_name)
+            return redirect("soldier_detail" , soldiers_name=soldier.soldiers_name)
     else:
         form = SoldierForm(instance=soldier)
 
     return render(request, "accounts/soldier-edit.html", {"form": form, "soldier": soldier})
+
+# add soldier func
+def soldier_add(request):
+     areas = Area.objects.all()
+     if request.method == "POST":
+        form = SoldierAddForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            return redirect("soldier")  # create this url for soldier list page
+     else:
+        form = SoldierAddForm()
+     return render(request, "accounts/soldier-add.html", {"form": form, "areas":areas})
+
+
+def delete_soldier(request, soldiers_name):
+    soldier = get_object_or_404(DeliverySoldier, soldiers_name=soldiers_name)
+    if request.method == "POST":
+        soldier.delete()
+        return redirect("soldier")  # update to your soldier list view name
+    return render(request, "accounts/soldier-delete.html", {"soldier": soldier})
 

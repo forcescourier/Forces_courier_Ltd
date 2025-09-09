@@ -15,9 +15,9 @@
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="../riders/riders.html">Riders</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">View Rider</a></li>
+                            <li class="breadcrumb-item"><a href="{% url "dashboard"%}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url "soldier"%}">Delivery Soldiers</a></li>
+                            <li class="breadcrumb-item active"><a href="{% url "soldier_detail" soldier.soldiers_name%}">View Rider</a></li>
                         </ol>
                     </div>
                 </div>
@@ -29,7 +29,7 @@
                             <div class="card-body">
                                 <div class="row align-items-center">
                                     <div class="col-md-2 text-center">
-                                        <img src="{{ soldier.photo.url }}" alt="Rider Photo" class="rounded-circle" width="100" height="100">
+                                        <img src="{{ soldier.photo.url }}" alt="Photo" class="rounded-circle" width="100" height="100">
                                     </div>
                                     <div class="col-md-7">
                                         <h3 class="mb-1">{{ soldier.soldiers_name }}n</h3>

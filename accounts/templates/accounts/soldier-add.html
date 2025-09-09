@@ -1,0 +1,501 @@
+{%extends "base.html"%}
+{%block title%}<title>Add Soldier</title>{%endblock%}
+{%block content%}
+<!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Add New Rider</h4>
+                            <span>Register a new rider account</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../riders/riders.html">Riders</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Add Rider</a></li>
+                        </ol>
+                    </div>
+                </div>
+                {{ form.errors }}
+                <!-- Add Rider Form -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Rider Information</h4>
+                                
+                            </div>
+                            <div class="card-body">
+                                <form method="post" enctype="multipart/form-data">
+                                      {% csrf_token %}
+                                    <!-- Personal Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3">Personal Information</h5>
+                                        </div>
+                                    </div>
+                                    
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Add Photo <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        
+                                                    </div>
+                                                    <input type="file" class="form-control" name="photo" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Full Name <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-user"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="soldiers_name" placeholder="Enter first name" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Date of Birth <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-calendar"></i></span>
+                                                    </div>
+                                                    <input type="date" Name="soldiers_dob" class="form-control" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Gender <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-user"></i></span>
+                                                    </div>
+                                                    <select class="form-control" name="soldiers_gender" required>
+                                                        <option value="">Select Gender</option>
+                                                        <option value="male">Male</option>
+                                                        <option value="female">Female</option>
+                                                        <option value="others">Others</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">National ID / Passport <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-id-card"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="soldiers_nid" placeholder="Enter ID number" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Blood Group</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-heart"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="soldiers_Blood_group" placeholder="Blood Group" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Contact Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Contact Information</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Phone Number <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-phone-call"></i></span>
+                                                    </div>
+                                                    <input type="tel" class="form-control" name="soldiers_phone" placeholder="Enter phone number" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Email Address <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-mail"></i></span>
+                                                    </div>
+                                                    <input type="email" class="form-control" name="soldiers_email" placeholder="Enter email address" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    <!-- Address Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Address Information</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="text-label">Current Address <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-location"></i></span>
+                                                    </div>
+                                                    <textarea class="form-control" rows="3" name="soldiers_address" placeholder="Enter current address" required></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                   
+
+                                    <div class="row">
+                                        
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label" for="soldiers_area_id">Service Areas</label>
+                                                
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-location"></i></span>
+                                                    </div>
+                                                    {{ form.soldiers_area_id }}
+                                                </div>
+                                                <small class="text-muted">Enter the areas where this rider will provide services</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Vehicle Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Vehicle Information</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Vehicle Type <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-bike"></i></span>
+                                                    </div>
+                                                    <select class="form-control" name="soldiers_vehicle_type" required>
+                                                        <option value="">Select Vehicle Type</option>
+                                                        <option value="motorcycle">Motorcycle</option>
+                                                        <option value="scooter">Scooter</option>
+                                                        <option value="bicycle">Bicycle</option>
+                                                        <option value="car">Car</option>
+                                                        <option value="van">Van</option>
+                                                        <option value="truck">Truck</option>
+                                                        <option value="other">Other</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Vehicle Brand</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-bike"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="soldiers_vehicle_brand" placeholder="Enter vehicle brand">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                        
+                                       
+
+                                    <div class="row">
+                                       
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">License Number <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-id-card"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="soldiers_vehicle_number" placeholder="Enter driver license number" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">License Expiry Date <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-calendar"></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control" name="license_expiry" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Insurance Status <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-bike"></i></span>
+                                                    </div>
+                                                    <select class="form-control" name="insurance_status" required>
+                                                        <option value="">Select Status</option>
+                                                        <option value="True">Yes</option>
+                                                        <option value="False">No</option>
+                                                        
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Insurance Expiry Date</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-calendar"></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control" name="insurance_expiry">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Employment Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Employment Information</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Employment Type <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-briefcase"></i></span>
+                                                    </div>
+                                                    <select class="form-control">
+                                                        <option value="">Select Employment Type</option>
+                                                        <option value="full_time">Full Time</option>
+                                                        <option value="part_time">Part Time</option>
+                                                        <option value="contract">Contract</option>
+                                                        <option value="freelance">Freelance</option>
+                                                        <option value="temporary">Temporary</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Join Date <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-calendar"></i></span>
+                                                    </div>
+                                                    <input type="date" class="form-control" >
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Base Salary</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-price-tag"></i></span>
+                                                    </div>
+                                                    <input type="number" class="form-control" step="0.01" placeholder="Enter base salary">
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Commission Rate (%)</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-percentage"></i></span>
+                                                    </div>
+                                                    <input type="number" class="form-control" step="0.1" placeholder="Enter commission rate">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Account Settings -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Account Settings</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Username <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-user"></i></span>
+                                                    </div>
+                                                    <input type="text" class="form-control" name="soldiers_username" placeholder="Enter username" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Password <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-lock"></i></span>
+                                                    </div>
+                                                    <input type="password" class="form-control" name="soldiers_password_hash" placeholder="Enter password" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Confirm Password <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-lock"></i></span>
+                                                    </div>
+                                                    <input type="password" class="form-control" name="confirm_password" placeholder="Confirm password" required>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Account Status</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-flag"></i></span>
+                                                    </div>
+                                                    <select class="form-control" name="status">
+                                                        <option value="active">Active</option>
+                                                        <option value="pending">Pending Approval</option>
+                                                        <option value="suspended">Suspended</option>
+                                                        <option value="inactive">Inactive</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Additional Settings -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Additional Settings</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Email Notifications</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="emailNotif" checked>
+                                                    <label class="custom-control-label" for="emailNotif">Send email notifications</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">SMS Notifications</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="smsNotif" checked>
+                                                    <label class="custom-control-label" for="smsNotif">Send SMS notifications</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Push Notifications</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="pushNotif">
+                                                    <label class="custom-control-label" for="pushNotif">Send push notifications</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Auto-assign Parcels</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="autoAssign">
+                                                    <label class="custom-control-label" for="autoAssign">Automatically assign parcels</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="text-right mt-4">
+                                                <a href="../riders/riders.html" class="btn btn-light mr-2">Cancel</a>
+                                                <button type="button" class="btn btn-info mr-2">Save Draft</button>
+                                                <button type="submit" class="btn btn-primary">Create Rider</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+    {%endblock%}

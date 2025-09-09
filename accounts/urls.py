@@ -1,4 +1,5 @@
 
+
 from django.urls import path
 from . import views
 
@@ -16,4 +17,6 @@ urlpatterns = [
     path('soldier/', views.soldier,name='soldier'),
     path("soldier/<str:soldiers_name>/", views.soldier_detail, name="soldier_detail"),
     path("soldier-edit/<str:soldiers_name>/", views.soldier_edit, name="soldier_edit"),
+    path('add-soldier/', views.soldier_add, name="add_soldier"),
+    path("soldier/delete/<str:soldiers_name>/", views.delete_soldier, name="delete_soldier"),
 ]

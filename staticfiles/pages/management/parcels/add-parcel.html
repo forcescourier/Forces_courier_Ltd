@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Add Parcel - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Add New Parcel</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Add New Parcel</h4>
+                            <span>Create a new parcel delivery request with complete shipping details</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../parcels/parcels.html">Parcels</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Add Parcel</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8">
+                        <!-- Parcel Form -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Parcel Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <form id="addParcelForm">
+                                    <!-- Sender Info -->
+                                    <h5 class="mb-3"><i class="fas fa-user text-primary mr-2"></i>Sender Information</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Sender Name *</label>
+                                                <input type="text" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Phone *</label>
+                                                <input type="tel" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Pickup Address *</label>
+                                                <textarea class="form-control" rows="2" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>City *</label>
+                                                <select class="form-control" id="senderCity" required>
+                                                    <option value="">Select City</option>
+                                                    <option value="Dhaka">Dhaka</option>
+                                                    <option value="Chittagong">Chittagong</option>
+                                                    <option value="Sylhet">Sylhet</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Area *</label>
+                                                <select class="form-control" id="senderArea" required>
+                                                    <option value="">Select Area</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- Receiver Info -->
+                                    <h5 class="mb-3"><i class="fas fa-user-check text-success mr-2"></i>Receiver Information</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Receiver Name *</label>
+                                                <input type="text" class="form-control" required>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Phone *</label>
+                                                <input type="tel" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Delivery Address *</label>
+                                                <textarea class="form-control" rows="2" required></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>City *</label>
+                                                <select class="form-control" id="receiverCity" required>
+                                                    <option value="">Select City</option>
+                                                    <option value="Dhaka">Dhaka</option>
+                                                    <option value="Chittagong">Chittagong</option>
+                                                    <option value="Sylhet">Sylhet</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Area *</label>
+                                                <select class="form-control" id="receiverArea" required>
+                                                    <option value="">Select Area</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- Parcel Details -->
+                                    <h5 class="mb-3"><i class="fas fa-box text-warning mr-2"></i>Parcel Details</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Content Type *</label>
+                                                <select class="form-control" required>
+                                                    <option value="">Select Type</option>
+                                                    <option value="documents">Documents</option>
+                                                    <option value="electronics">Electronics</option>
+                                                    <option value="clothing">Clothing</option>
+                                                    <option value="food">Food Items</option>
+                                                    <option value="other">Other</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Weight (kg) *</label>
+                                                <input type="number" class="form-control" step="0.1" min="0" id="parcelWeight" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Description *</label>
+                                                <input type="text" class="form-control" placeholder="Brief description" required>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- Service Options -->
+                                    <h5 class="mb-3"><i class="fas fa-shipping-fast text-info mr-2"></i>Service Options</h5>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Service Type *</label>
+                                                <select class="form-control" id="serviceType" required>
+                                                    <option value="">Select Service</option>
+                                                    <option value="same_day">Same Day - ৳150</option>
+                                                    <option value="next_day">Next Day - ৳100</option>
+                                                    <option value="economy">Economy - ৳80</option>
+                                                    <option value="express">Express - ৳200</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Pickup Date *</label>
+                                                <input type="date" class="form-control" required>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Payment Method *</label>
+                                                <select class="form-control" required>
+                                                    <option value="">Select Payment</option>
+                                                    <option value="cash">Cash</option>
+                                                    <option value="card">Card</option>
+                                                    <option value="bkash">bKash</option>
+                                                    <option value="nagad">Nagad</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Options</label>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="insurance">
+                                                    <label class="form-check-label">Insurance (+৳20)</label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="sms" checked>
+                                                    <label class="form-check-label">SMS Notifications</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions text-right">
+                                        <button type="button" class="btn btn-secondary mr-2" onclick="history.back()">Cancel</button>
+                                        <button type="button" class="btn btn-warning mr-2" id="saveDraft">Save Draft</button>
+                                        <button type="submit" class="btn btn-success">Create Parcel</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Cost Calculator -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Cost Calculator</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="cost-breakdown">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Base Charge:</span>
+                                        <span id="baseCharge">৳0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Weight Charge:</span>
+                                        <span id="weightCharge">৳0</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Insurance:</span>
+                                        <span id="insuranceCharge">৳0</span>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-between">
+                                        <strong>Total:</strong>
+                                        <strong class="text-success" id="totalAmount">৳0</strong>
+                                    </div>
+                                </div>
+                                <button type="button" class="btn btn-primary btn-block mt-3" id="calculateCost">
+                                    Calculate Cost
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Quick Actions</h4>
+                            </div>
+                            <div class="card-body">
+                                <a href="bulk-import.html" class="btn btn-info btn-block mb-2">
+                                    <i class="fas fa-upload mr-2"></i>Bulk Import
+                                </a>
+                                <a href="../parcels/parcels.html" class="btn btn-secondary btn-block">
+                                    <i class="fas fa-list mr-2"></i>View All Parcels
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        // Area data
+        const areaData = {
+            'Dhaka': ['Dhaka Central', 'Dhaka North', 'Dhaka South', 'Uttara', 'Gulshan'],
+            'Chittagong': ['Chittagong Port', 'Chittagong City', 'Agrabad'],
+            'Sylhet': ['Sylhet City', 'Sylhet Sadar', 'Zindabazar']
+        };
+
+        // Service pricing
+        const servicePricing = {
+            'same_day': { base: 150, perKg: 25 },
+            'next_day': { base: 100, perKg: 20 },
+            'economy': { base: 80, perKg: 15 },
+            'express': { base: 200, perKg: 30 }
+        };
+
+        // Update areas when city changes
+        $('#senderCity, #receiverCity').change(function() {
+            const selectedCity = $(this).val();
+            const targetArea = $(this).attr('id') === 'senderCity' ? '#senderArea' : '#receiverArea';
+            
+            $(targetArea).empty().append('<option value="">Select Area</option>');
+            
+            if (selectedCity && areaData[selectedCity]) {
+                areaData[selectedCity].forEach(area => {
+                    $(targetArea).append(`<option value="${area}">${area}</option>`);
+                });
+            }
+        });
+
+        // Calculate cost
+        $('#calculateCost, #serviceType, #parcelWeight, #insurance').on('click change', function() {
+            const serviceType = $('#serviceType').val();
+            const weight = parseFloat($('#parcelWeight').val()) || 0;
+            const insurance = $('#insurance').is(':checked');
+
+            if (serviceType && weight > 0) {
+                const pricing = servicePricing[serviceType];
+                const baseCharge = pricing.base;
+                const weightCharge = weight * pricing.perKg;
+                const insuranceCharge = insurance ? 20 : 0;
+                const total = baseCharge + weightCharge + insuranceCharge;
+
+                $('#baseCharge').text(`৳${baseCharge}`);
+                $('#weightCharge').text(`৳${weightCharge.toFixed(2)}`);
+                $('#insuranceCharge').text(`৳${insuranceCharge}`);
+                $('#totalAmount').text(`৳${total.toFixed(2)}`);
+            }
+        });
+
+        // Form submission
+        $('#addParcelForm').submit(function(e) {
+            e.preventDefault();
+            
+            const submitBtn = $(this).find('button[type="submit"]');
+            submitBtn.html('<i class="fas fa-spinner fa-spin mr-2"></i>Creating...').prop('disabled', true);
+            
+            setTimeout(function() {
+                alert('Parcel created successfully! ID: PKG-2024-001234');
+                window.location.href = 'parcels.html';
+            }, 2000);
+        });
+
+        // Save draft
+        $('#saveDraft').click(function() {
+            alert('Parcel saved as draft!');
+        });
+    </script>
+</body>
+</html>

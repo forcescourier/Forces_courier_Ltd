@@ -61,6 +61,7 @@ class SoldierForm(forms.ModelForm):
             "soldiers_dob": forms.DateInput(attrs={"class": "form-control", "type": "date"}),
             "soldiers_gender": forms.Select(attrs={"class": "form-control"}),
             "status": forms.Select(attrs={"class": "form-control"}),
+            "soldiers_area_id":forms.Select(attrs={"class": "form-control"}),
 
             # Vehicle Info
             "soldiers_vehicle_type": forms.Select(attrs={"class": "form-control"}),
@@ -74,3 +75,42 @@ class SoldierForm(forms.ModelForm):
             "photo": forms.FileInput(attrs={"class": "form-control-file"}),
         }
             
+class SoldierAddForm(forms.ModelForm):
+    soldiers_password_hash = forms.CharField(
+        widget=forms.PasswordInput(),
+        label="Password"
+    )
+    confirm_password = forms.CharField(
+        widget=forms.PasswordInput(),
+        label="Confirm Password"
+    )
+
+    class Meta:
+        model = DeliverySoldier
+        fields = [
+            "photo", "soldiers_name", "soldiers_phone", "soldiers_nid",
+            "soldiers_email", "soldiers_username", "soldiers_address",
+            "soldiers_password_hash", "status", "soldiers_Blood_group",
+            "soldiers_dob", "soldiers_gender",
+            "soldiers_vehicle_type", "soldiers_vehicle_brand", "soldiers_vehicle_number",
+            "license_expiry", "insurance_status", "insurance_expiry","soldiers_area_id"
+        ]
+        widgets = {
+            "soldiers_dob": forms.DateInput(attrs={"type": "date"}),
+            "license_expiry": forms.DateInput(attrs={"type": "date"}),
+            "insurance_expiry": forms.DateInput(attrs={"type": "date"}),
+        }
+
+    def clean(self):
+        cleaned_data = super().clean()
+        password = cleaned_data.get("soldiers_password_hash")
+        confirm_password = cleaned_data.get("confirm_password")
+
+        if password != confirm_password:
+            raise forms.ValidationError("Passwords do not match")
+
+        # hash password
+        if password:
+            cleaned_data["soldiers_password_hash"] = make_password(password)
+
+        return cleaned_data

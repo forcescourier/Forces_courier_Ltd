@@ -15,8 +15,8 @@
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Riders</a></li>
+                            <li class="breadcrumb-item"><a href="{% url "dashboard"%}">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="{% url "soldier"%}">Delivery Soldiers</a></li>
                         </ol>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-3 mb-2">
-                                        <a href="add-rider.html" class="btn btn-primary btn-block">
+                                        <a href="{% url 'add_soldier'%}" class="btn btn-primary btn-block">
                                             <i class="fas fa-bike mr-2"></i>Add New Rider
                                         </a>
                                     </div>
@@ -161,7 +161,7 @@
                                                 <td><img src="{{soldier.photo.url}}" width="40" height="40" class="rounded-circle"></td>
                                                 <td>{{soldier.soldiers_name}}</td>
                                                 <td>{{soldier.soldiers_phone}}</td>
-                                                <td>{{soldier.soldiers_vehicle}}</td>
+                                                <td>{{soldier.soldiers_vehicle_type}}</td>
                                                 <td>{{ soldier.soldiers_area_id }}</td>
                                                 
                                                 
@@ -197,7 +197,7 @@
                                                             {% elif soldier.status == "off_duty" %}
                                                               <a class="dropdown-item text-success" href="#"><i class="fas fa-play mr-2"></i>Activate</a>
                                                             {% endif %}
-                                                              <a class="dropdown-item text-danger" href="#"><i class="fas fa-trash mr-2"></i>Delete</a>
+                                                              <a class="dropdown-item text-danger" href="{% url 'delete_soldier' soldier.soldiers_name %}"><i class="fas fa-trash mr-2"></i>Delete</a>
                                                         </div>
                                                     </div>
                                                 </td>

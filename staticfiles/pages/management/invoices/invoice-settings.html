@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Invoice Settings - Courier Management System</title>
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    <link href="../../../vendor/bootstrap-select/dist/css/bootstrap-select.min.css" rel="stylesheet">
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+
+    <div id="main-wrapper">
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="logo-compact" src="../../../assets/images/logo-text.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">Invoice Settings</div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a></li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a></li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a></li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-bike"></i>
+                            <span class="nav-text">Riders</span>
+                        </a></li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a></li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-map"></i>
+                            <span class="nav-text">Areas</span>
+                        </a></li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-wallet"></i>
+                            <span class="nav-text">Payments</span>
+                        </a></li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-invoice"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a></li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a></li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Invoice Settings</h4>
+                            <span>Configure invoice preferences, numbering, and system settings</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../invoices/invoices.html">Invoices</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Settings</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Invoice Configuration -->
+                <div class="row">
+                    <div class="col-xl-8">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Invoice Configuration</h4>
+                            </div>
+                            <div class="card-body">
+                                <form id="invoiceSettingsForm">
+                                    <!-- General Settings -->
+                                    <h6 class="mb-3"><i class="fas fa-cog text-primary mr-2"></i>General Settings</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Default Invoice Template</label>
+                                                <select class="form-control">
+                                                    <option value="standard">Standard Template</option>
+                                                    <option value="detailed">Detailed Template</option>
+                                                    <option value="compact">Compact Template</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Default Currency</label>
+                                                <select class="form-control">
+                                                    <option value="BDT">Bangladeshi Taka (৳)</option>
+                                                    <option value="USD">US Dollar ($)</option>
+                                                    <option value="EUR">Euro (€)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Default Payment Terms (Days)</label>
+                                                <input type="number" class="form-control" value="15" min="1" max="365">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Language</label>
+                                                <select class="form-control">
+                                                    <option value="en">English</option>
+                                                    <option value="bn">Bengali</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Invoice Numbering -->
+                                    <hr>
+                                    <h6 class="mb-3"><i class="fas fa-hashtag text-success mr-2"></i>Invoice Numbering</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Number Format</label>
+                                                <select class="form-control" id="numberFormat">
+                                                    <option value="INV-{YYYY}-{NNNN}">INV-YYYY-NNNN</option>
+                                                    <option value="IV{YY}{MM}{NNNN}">IVYYMMNNNN</option>
+                                                    <option value="{YYYY}{MM}{DD}-{NNN}">YYYYMMDD-NNN</option>
+                                                    <option value="custom">Custom Format</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Next Invoice Number</label>
+                                                <input type="number" class="form-control" value="1235" min="1">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row" id="customFormatRow" style="display: none;">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Custom Format Pattern</label>
+                                                <input type="text" class="form-control" placeholder="e.g., INV-{YYYY}-{NNNN}">
+                                                <small class="form-text text-muted">
+                                                    Available patterns: {YYYY} = Year, {YY} = Short Year, {MM} = Month, {DD} = Day, {NNNN} = Sequential Number
+                                                </small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Reset Counter</label>
+                                                <select class="form-control">
+                                                    <option value="never">Never</option>
+                                                    <option value="yearly">Yearly</option>
+                                                    <option value="monthly">Monthly</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Preview</label>
+                                                <input type="text" class="form-control" value="INV-2024-0001235" readonly>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Tax & Pricing -->
+                                    <hr>
+                                    <h6 class="mb-3"><i class="fas fa-percentage text-warning mr-2"></i>Tax & Pricing</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Default VAT Rate (%)</label>
+                                                <input type="number" class="form-control" value="15" step="0.01" min="0" max="100">
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>VAT Registration Number</label>
+                                                <input type="text" class="form-control" placeholder="Enter VAT registration number">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="inclusiveTax" checked>
+                                                    <label class="form-check-label" for="inclusiveTax">
+                                                        Tax Inclusive Pricing
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="showTaxSummary" checked>
+                                                    <label class="form-check-label" for="showTaxSummary">
+                                                        Show Tax Summary on Invoice
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Email Settings -->
+                                    <hr>
+                                    <h6 class="mb-3"><i class="fas fa-envelope text-info mr-2"></i>Email Settings</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="autoSendEmail">
+                                                    <label class="form-check-label" for="autoSendEmail">
+                                                        Auto-send invoices via email
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="attachPDF" checked>
+                                                    <label class="form-check-label" for="attachPDF">
+                                                        Attach PDF copy to emails
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Email Subject Template</label>
+                                                <input type="text" class="form-control" value="Invoice {invoice_number} from Swift Courier Services">
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Email Body Template</label>
+                                                <textarea class="form-control" rows="4">Dear {customer_name},
+
+Please find attached invoice {invoice_number} for your recent courier services.
+
+Amount Due: {total_amount}
+Due Date: {due_date}
+
+Thank you for your business!
+
+Best regards,
+Swift Courier Services</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Display Options -->
+                                    <hr>
+                                    <h6 class="mb-3"><i class="fas fa-eye text-secondary mr-2"></i>Display Options</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="showCompanyLogo" checked>
+                                                    <label class="form-check-label" for="showCompanyLogo">
+                                                        Show Company Logo
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="showNotes" checked>
+                                                    <label class="form-check-label" for="showNotes">
+                                                        Show Notes Section
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="showTerms" checked>
+                                                    <label class="form-check-label" for="showTerms">
+                                                        Show Terms & Conditions
+                                                    </label>
+                                                </div>
+                                                <div class="form-check">
+                                                    <input class="form-check-input" type="checkbox" id="showPaymentInfo" checked>
+                                                    <label class="form-check-label" for="showPaymentInfo">
+                                                        Show Payment Information
+                                                    </label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Default Terms & Conditions -->
+                                    <hr>
+                                    <h6 class="mb-3"><i class="fas fa-file-contract text-dark mr-2"></i>Default Terms & Conditions</h6>
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <textarea class="form-control" rows="6">1. Payment is due within 15 days of invoice date.
+2. Late payments may incur additional charges at 2% per month.
+3. All disputes must be raised within 7 days of invoice date.
+4. Services are subject to our standard terms and conditions.
+5. Delivery times are estimates and not guaranteed.
+6. Insurance claims must be reported within 24 hours of delivery.
+7. We reserve the right to refuse service without prior notice.
+8. All prices are subject to change without notice.</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions text-right">
+                                        <button type="button" class="btn btn-secondary mr-2" onclick="resetSettings()">Reset to Default</button>
+                                        <button type="button" class="btn btn-info mr-2" onclick="previewInvoice()">Preview Invoice</button>
+                                        <button type="submit" class="btn btn-success">Save Settings</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Current Settings Summary -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Current Settings</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="settings-summary">
+                                    <div class="mb-3">
+                                        <strong>Template:</strong>
+                                        <span class="text-muted d-block">Standard Template</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <strong>Number Format:</strong>
+                                        <span class="text-muted d-block">INV-2024-0001235</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <strong>Currency:</strong>
+                                        <span class="text-muted d-block">Bangladeshi Taka (৳)</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <strong>Payment Terms:</strong>
+                                        <span class="text-muted d-block">15 days</span>
+                                    </div>
+                                    <div class="mb-3">
+                                        <strong>VAT Rate:</strong>
+                                        <span class="text-muted d-block">15%</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Quick Actions</h4>
+                            </div>
+                            <div class="card-body">
+                                <a href="invoice-templates.html" class="btn btn-info btn-block mb-2">
+                                    <i class="fas fa-file-alt mr-2"></i>Manage Templates
+                                </a>
+                                <a href="bulk-invoice.html" class="btn btn-primary btn-block mb-2">
+                                    <i class="fas fa-layer-group mr-2"></i>Bulk Generate
+                                </a>
+                                <button class="btn btn-warning btn-block" onclick="exportSettings()">
+                                    <i class="fas fa-download mr-2"></i>Export Settings
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Company Information -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Company Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <form id="companyInfoForm">
+                                    <div class="form-group">
+                                        <label>Company Name</label>
+                                        <input type="text" class="form-control" value="Swift Courier Services">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Address</label>
+                                        <textarea class="form-control" rows="3">123 Business Street
+Dhaka 1000, Bangladesh</textarea>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Phone</label>
+                                        <input type="tel" class="form-control" value="+880 2 1234567">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Email</label>
+                                        <input type="email" class="form-control" value="info@swiftcourier.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Website</label>
+                                        <input type="url" class="form-control" value="www.swiftcourier.com">
+                                    </div>
+                                    <button type="button" class="btn btn-primary btn-sm btn-block" onclick="updateCompanyInfo()">
+                                        Update Information
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Management System. All rights reserved.</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+
+    <script>
+        // Show/hide custom format input
+        $('#numberFormat').change(function() {
+            const format = $(this).val();
+            if (format === 'custom') {
+                $('#customFormatRow').show();
+            } else {
+                $('#customFormatRow').hide();
+                updateNumberPreview(format);
+            }
+        });
+
+        // Update number preview
+        function updateNumberPreview(format) {
+            const today = new Date();
+            const year = today.getFullYear();
+            const month = String(today.getMonth() + 1).padStart(2, '0');
+            const day = String(today.getDate()).padStart(2, '0');
+            const number = '1235';
+
+            let preview = format;
+            preview = preview.replace('{YYYY}', year);
+            preview = preview.replace('{YY}', String(year).substr(-2));
+            preview = preview.replace('{MM}', month);
+            preview = preview.replace('{DD}', day);
+            preview = preview.replace('{NNNN}', number.padStart(4, '0'));
+            preview = preview.replace('{NNN}', number.padStart(3, '0'));
+
+            $('input[readonly]').val(preview);
+        }
+
+        // Settings management functions
+        function resetSettings() {
+            if (confirm('Reset all settings to default values?')) {
+                location.reload();
+            }
+        }
+
+        function previewInvoice() {
+            alert('Opening invoice preview with current settings...');
+            window.open('view-invoice.html', '_blank');
+        }
+
+        function exportSettings() {
+            alert('Downloading settings configuration file...');
+        }
+
+        function updateCompanyInfo() {
+            alert('Company information updated successfully!');
+        }
+
+        // Form submission
+        $('#invoiceSettingsForm').submit(function(e) {
+            e.preventDefault();
+            
+            const submitBtn = $(this).find('button[type="submit"]');
+            submitBtn.html('<i class="fas fa-spinner fa-spin mr-2"></i>Saving...').prop('disabled', true);
+            
+            setTimeout(function() {
+                alert('Invoice settings saved successfully!');
+                submitBtn.html('Save Settings').prop('disabled', false);
+            }, 2000);
+        });
+
+        // Initialize
+        $(document).ready(function() {
+            updateNumberPreview('INV-{YYYY}-{NNNN}');
+        });
+    </script>
+</body>
+</html>

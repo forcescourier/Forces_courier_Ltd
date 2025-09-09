@@ -1,0 +1,726 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Bulk Import Merchants - Courier Dashboard</title>
+    
+    <!-- Favicon icon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="../../../assets/images/favicon.png">
+    
+    <!-- Custom Stylesheet -->
+    <link href="../../../assets/css/style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="sk-three-bounce">
+            <div class="sk-child sk-bounce1"></div>
+            <div class="sk-child sk-bounce2"></div>
+            <div class="sk-child sk-bounce3"></div>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="../../../index.html" class="brand-logo">
+                <img class="logo-abbr" src="../../../assets/images/logo.png" alt="">
+                <img class="brand-title" src="../../../assets/images/logo-text.png" alt="">
+            </a>
+            <div class="nav-control">
+                <div class="hamburger">
+                    <span class="line"></span><span class="line"></span><span class="line"></span>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">
+            <div class="header-content">
+                <nav class="navbar navbar-expand">
+                    <div class="collapse navbar-collapse justify-content-between">
+                        <div class="header-left">
+                            <div class="dashboard_bar">
+                                Bulk Import Merchants
+                            </div>
+                        </div>
+                        <ul class="navbar-nav header-right">
+                            <li class="nav-item dropdown header-profile">
+                                <a class="nav-link" href="#" role="button" data-toggle="dropdown">
+                                    <img src="../../../assets/images/profile/1.jpg" width="20" alt="">
+                                    <div class="header-info">
+                                        <span class="text-black"><strong>Admin User</strong></span>
+                                        <p class="mb-0 fs-12">Administrator</p>
+                                    </div>
+                                </a>
+                                <div class="dropdown-menu dropdown-menu-right">
+                                    <a href="../../../profile.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-user"></i>
+                                        <span class="ml-2">Profile</span>
+                                    </a>
+                                    <a href="../../authentication/logout.html" class="dropdown-item ai-icon">
+                                        <i class="flaticon-381-exit"></i>
+                                        <span class="ml-2">Logout</span>
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </div>
+        <!--**********************************
+            Header end
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+        <div class="deznav">
+            <div class="deznav-scroll">
+                <ul class="metismenu" id="menu">
+                    <li><a href="../../../index.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-networking"></i>
+                            <span class="nav-text">Dashboard</span>
+                        </a>
+                    </li>
+                    <li><a href="../parcels/parcels.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-box"></i>
+                            <span class="nav-text">Parcels</span>
+                        </a>
+                    </li>
+                    <li><a href="../merchants/merchants.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-7"></i>
+                            <span class="nav-text">Merchants</span>
+                        </a>
+                    </li>
+                    <li><a href="../riders/riders.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-user-2"></i>
+                            <span class="nav-text">Riders</span>
+                        </a>
+                    </li>
+                    <li><a href="../services/services.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-list"></i>
+                            <span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li><a href="../areas/areas.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-location"></i>
+                            <span class="nav-text">Areas</span>
+                        </a>
+                    </li>
+                    <li><a href="../payments/payments.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-price-tag"></i>
+                            <span class="nav-text">Payments</span>
+                        </a>
+                    </li>
+                    <li><a href="../invoices/invoices.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-file"></i>
+                            <span class="nav-text">Invoices</span>
+                        </a>
+                    </li>
+                    <li><a href="../../reports/reports.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-chart"></i>
+                            <span class="nav-text">Reports</span>
+                        </a>
+                    </li>
+                    <li><a href="../../../settings.html" class="ai-icon" aria-expanded="false">
+                            <i class="flaticon-381-settings"></i>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!--**********************************
+            Sidebar end
+        ***********************************-->
+
+        <!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Bulk Import Merchants</h4>
+                            <span>Import multiple merchants from CSV/Excel file</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
+                            <li class="breadcrumb-item"><a href="../merchants/merchants.html">Merchants</a></li>
+                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Bulk Import</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Import Instructions -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Import Instructions</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="alert alert-info">
+                                    <h6><i class="flaticon-381-info"></i> How to prepare your file:</h6>
+                                    <ul class="mb-0">
+                                        <li>Use CSV or Excel format (.csv, .xlsx, .xls)</li>
+                                        <li>First row should contain column headers</li>
+                                        <li>Required fields: Business Name, Contact Person, Phone, Email</li>
+                                        <li>Optional fields: Address, City, Country, Business Type, Website</li>
+                                        <li>Maximum file size: 10MB</li>
+                                        <li>Maximum records per import: 1000</li>
+                                    </ul>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Required Fields:</h6>
+                                        <ul>
+                                            <li><strong>Business Name:</strong> Company or business name</li>
+                                            <li><strong>Contact Person:</strong> Primary contact person's name</li>
+                                            <li><strong>Phone:</strong> Contact phone number</li>
+                                            <li><strong>Email:</strong> Contact email address</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Optional Fields:</h6>
+                                        <ul>
+                                            <li><strong>Address:</strong> Street address</li>
+                                            <li><strong>City:</strong> City name</li>
+                                            <li><strong>Country:</strong> Country name</li>
+                                            <li><strong>Business Type:</strong> Type of business</li>
+                                            <li><strong>Website:</strong> Company website URL</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Download Template -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Download Template</h4>
+                            </div>
+                            <div class="card-body">
+                                <p>Download our CSV template to ensure your data is formatted correctly:</p>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <a href="#" class="btn btn-success btn-block">
+                                            <i class="flaticon-381-download"></i> Download CSV Template
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#" class="btn btn-info btn-block">
+                                            <i class="flaticon-381-download"></i> Download Excel Template
+                                        </a>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <a href="#" class="btn btn-warning btn-block">
+                                            <i class="flaticon-381-file"></i> View Sample Data
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File Upload -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Upload File</h4>
+                            </div>
+                            <div class="card-body">
+                                <form id="import-form">
+                                    <div class="row">
+                                        <div class="col-md-8">
+                                            <div class="form-group">
+                                                <label class="text-label">Select File <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-upload"></i></span>
+                                                    </div>
+                                                    <input type="file" class="form-control" id="import-file" accept=".csv,.xlsx,.xls" required>
+                                                </div>
+                                                <small class="text-muted">Supported formats: CSV, Excel (.xlsx, .xls)</small>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Import Options</label>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="skip-duplicates" checked>
+                                                    <label class="custom-control-label" for="skip-duplicates">Skip duplicate emails</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="auto-approve">
+                                                    <label class="custom-control-label" for="auto-approve">Auto-approve merchants</label>
+                                                </div>
+                                                <div class="custom-control custom-checkbox">
+                                                    <input type="checkbox" class="custom-control-input" id="send-welcome">
+                                                    <label class="custom-control-label" for="send-welcome">Send welcome emails</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="text-right">
+                                                <button type="button" class="btn btn-info" id="validate-file">
+                                                    <i class="flaticon-381-check"></i> Validate File
+                                                </button>
+                                                <button type="submit" class="btn btn-primary" id="start-import" disabled>
+                                                    <i class="flaticon-381-upload"></i> Start Import
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- File Preview -->
+                <div class="row" id="file-preview" style="display: none;">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">File Preview</h4>
+                                <span class="badge badge-success" id="validation-status"></span>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped" id="preview-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Row</th>
+                                                <th>Business Name</th>
+                                                <th>Contact Person</th>
+                                                <th>Phone</th>
+                                                <th>Email</th>
+                                                <th>Address</th>
+                                                <th>City</th>
+                                                <th>Country</th>
+                                                <th>Business Type</th>
+                                                <th>Website</th>
+                                                <th>Status</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <!-- Preview data will be populated here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                                
+                                <div class="row mt-3">
+                                    <div class="col-md-6">
+                                        <div class="alert alert-success">
+                                            <strong>Valid Records:</strong> <span id="valid-count">0</span>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="alert alert-danger">
+                                            <strong>Invalid Records:</strong> <span id="invalid-count">0</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Import Progress -->
+                <div class="row" id="import-progress" style="display: none;">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Import Progress</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="progress mb-3">
+                                    <div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" style="width: 0%" id="progress-bar">0%</div>
+                                </div>
+                                
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="text-center">
+                                            <h5 id="processed-count">0</h5>
+                                            <small>Processed</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="text-center">
+                                            <h5 id="success-count">0</h5>
+                                            <small>Success</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="text-center">
+                                            <h5 id="error-count">0</h5>
+                                            <small>Errors</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="text-center">
+                                            <h5 id="remaining-count">0</h5>
+                                            <small>Remaining</small>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center mt-3">
+                                    <button type="button" class="btn btn-danger" id="cancel-import">
+                                        <i class="flaticon-381-close"></i> Cancel Import
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Import Results -->
+                <div class="row" id="import-results" style="display: none;">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Import Results</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <div class="alert alert-success">
+                                            <h6><i class="flaticon-381-check"></i> Import Summary</h6>
+                                            <p class="mb-0">
+                                                <strong>Total Records:</strong> <span id="total-imported">0</span><br>
+                                                <strong>Successfully Imported:</strong> <span id="successfully-imported">0</span><br>
+                                                <strong>Failed:</strong> <span id="failed-imported">0</span>
+                                            </p>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="alert alert-info">
+                                            <h6><i class="flaticon-381-info"></i> Next Steps</h6>
+                                            <ul class="mb-0">
+                                                <li>Review failed records</li>
+                                                <li>Send welcome emails to new merchants</li>
+                                                <li>Set up payment methods</li>
+                                                <li>Configure service areas</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="text-center mt-3">
+                                    <a href="../merchants/merchants.html" class="btn btn-primary mr-2">
+                                        <i class="flaticon-381-user-7"></i> View All Merchants
+                                    </a>
+                                    <button type="button" class="btn btn-info" id="download-errors">
+                                        <i class="flaticon-381-download"></i> Download Error Report
+                                    </button>
+                                    <button type="button" class="btn btn-success" id="new-import">
+                                        <i class="flaticon-381-upload"></i> New Import
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Error Details -->
+                <div class="row" id="error-details" style="display: none;">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Error Details</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Row</th>
+                                                <th>Field</th>
+                                                <th>Value</th>
+                                                <th>Error</th>
+                                                <th>Action</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="error-table">
+                                            <!-- Error details will be populated here -->
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        <div class="footer">
+            <div class="copyright">
+                <p>Copyright © 2024 Courier Dashboard. All rights reserved.</p>
+            </div>
+        </div>
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+    <!-- Required vendors -->
+    <script src="../../../vendor/global/global.min.js"></script>
+    <script src="../../../vendor/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
+    <script src="../../../assets/js/custom.min.js"></script>
+    <script src="../../../assets/js/deznav-init.js"></script>
+    
+    <!-- Import Script -->
+    <script>
+        $(document).ready(function() {
+            let importData = [];
+            let importInProgress = false;
+            
+            // File validation
+            $('#validate-file').click(function() {
+                const file = $('#import-file')[0].files[0];
+                if (!file) {
+                    alert('Please select a file first.');
+                    return;
+                }
+                
+                // Simulate file validation
+                $(this).prop('disabled', true).html('<i class="flaticon-381-loading"></i> Validating...');
+                
+                setTimeout(() => {
+                    // Simulate validation results
+                    const mockData = [
+                        {
+                            row: 1,
+                            businessName: 'ABC Company',
+                            contactPerson: 'John Doe',
+                            phone: '+1234567890',
+                            email: 'john@abc.com',
+                            address: '123 Main St',
+                            city: 'New York',
+                            country: 'USA',
+                            businessType: 'Retail',
+                            website: 'www.abc.com',
+                            status: 'Valid'
+                        },
+                        {
+                            row: 2,
+                            businessName: 'XYZ Corp',
+                            contactPerson: 'Jane Smith',
+                            phone: '+1987654321',
+                            email: 'jane@xyz.com',
+                            address: '456 Oak Ave',
+                            city: 'Los Angeles',
+                            country: 'USA',
+                            businessType: 'Wholesale',
+                            website: 'www.xyz.com',
+                            status: 'Valid'
+                        },
+                        {
+                            row: 3,
+                            businessName: 'DEF Ltd',
+                            contactPerson: 'Bob Johnson',
+                            phone: '+1122334455',
+                            email: 'invalid-email',
+                            address: '789 Pine Rd',
+                            city: 'Chicago',
+                            country: 'USA',
+                            businessType: 'Manufacturing',
+                            website: 'www.def.com',
+                            status: 'Invalid Email'
+                        }
+                    ];
+                    
+                    displayPreview(mockData);
+                    $('#validation-status').text('Validated').removeClass('badge-warning').addClass('badge-success');
+                    $('#start-import').prop('disabled', false);
+                    $('#validate-file').prop('disabled', false).html('<i class="flaticon-381-check"></i> Validate File');
+                }, 2000);
+            });
+            
+            // Display file preview
+            function displayPreview(data) {
+                importData = data;
+                const tbody = $('#preview-table tbody');
+                tbody.empty();
+                
+                let validCount = 0;
+                let invalidCount = 0;
+                
+                data.forEach(row => {
+                    const statusClass = row.status === 'Valid' ? 'badge-success' : 'badge-danger';
+                    tbody.append(`
+                        <tr>
+                            <td>${row.row}</td>
+                            <td>${row.businessName}</td>
+                            <td>${row.contactPerson}</td>
+                            <td>${row.phone}</td>
+                            <td>${row.email}</td>
+                            <td>${row.address}</td>
+                            <td>${row.city}</td>
+                            <td>${row.country}</td>
+                            <td>${row.businessType}</td>
+                            <td>${row.website}</td>
+                            <td><span class="badge ${statusClass}">${row.status}</span></td>
+                        </tr>
+                    `);
+                    
+                    if (row.status === 'Valid') {
+                        validCount++;
+                    } else {
+                        invalidCount++;
+                    }
+                });
+                
+                $('#valid-count').text(validCount);
+                $('#invalid-count').text(invalidCount);
+                $('#file-preview').show();
+            }
+            
+            // Start import
+            $('#start-import').click(function() {
+                if (importInProgress) return;
+                
+                importInProgress = true;
+                $('#import-progress').show();
+                $('#file-preview').hide();
+                
+                const totalRecords = importData.length;
+                let processed = 0;
+                let success = 0;
+                let errors = 0;
+                
+                $('#total-imported').text(totalRecords);
+                $('#remaining-count').text(totalRecords);
+                
+                const importInterval = setInterval(() => {
+                    processed++;
+                    if (Math.random() > 0.2) { // 80% success rate
+                        success++;
+                        $('#success-count').text(success);
+                    } else {
+                        errors++;
+                        $('#error-count').text(errors);
+                    }
+                    
+                    $('#processed-count').text(processed);
+                    $('#remaining-count').text(totalRecords - processed);
+                    
+                    const progress = (processed / totalRecords) * 100;
+                    $('#progress-bar').css('width', progress + '%').text(Math.round(progress) + '%');
+                    
+                    if (processed >= totalRecords) {
+                        clearInterval(importInterval);
+                        importInProgress = false;
+                        showImportResults(success, errors, totalRecords);
+                    }
+                }, 500);
+            });
+            
+            // Cancel import
+            $('#cancel-import').click(function() {
+                if (confirm('Are you sure you want to cancel the import?')) {
+                    importInProgress = false;
+                    $('#import-progress').hide();
+                    $('#file-preview').show();
+                }
+            });
+            
+            // Show import results
+            function showImportResults(success, errors, total) {
+                $('#import-progress').hide();
+                $('#import-results').show();
+                
+                $('#successfully-imported').text(success);
+                $('#failed-imported').text(errors);
+                
+                if (errors > 0) {
+                    $('#error-details').show();
+                    displayErrors();
+                }
+            }
+            
+            // Display errors
+            function displayErrors() {
+                const errorData = [
+                    { row: 3, field: 'Email', value: 'invalid-email', error: 'Invalid email format' },
+                    { row: 5, field: 'Phone', value: '', error: 'Phone number is required' }
+                ];
+                
+                const tbody = $('#error-table');
+                tbody.empty();
+                
+                errorData.forEach(error => {
+                    tbody.append(`
+                        <tr>
+                            <td>${error.row}</td>
+                            <td>${error.field}</td>
+                            <td>${error.value}</td>
+                            <td>${error.error}</td>
+                            <td>
+                                <button class="btn btn-sm btn-info">Fix</button>
+                            </td>
+                        </tr>
+                    `);
+                });
+            }
+            
+            // New import
+            $('#new-import').click(function() {
+                location.reload();
+            });
+            
+            // Download error report
+            $('#download-errors').click(function() {
+                alert('Error report download started...');
+            });
+        });
+    </script>
+</body>
+</html>
