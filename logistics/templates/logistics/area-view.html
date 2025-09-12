@@ -1,0 +1,268 @@
+{%extends 'base.html'%}
+{%block title%}<title>Area view</title>{%endblock%}
+{%block content%}
+
+
+<div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>{{ areas.area_name}} - Area Details</h4>
+                            <span>Comprehensive information and statistics for this delivery area</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'dashboard'%}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url "area"%}">Areas</a></li>
+                            <li class="breadcrumb-item active"><a href="{% url 'detail_area' areas.area_name%}">View Area</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Area Header -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">{{ areas.area_name}} (ID: {{areas.area_id}})</h4>
+                                <div class="card-action">
+                                    <span class="badge badge-success mr-2">Active</span>
+                                    <a href="{% url 'edit_area' areas.area_name%}" class="btn btn-primary btn-sm mr-2">
+                                        <i class="fas fa-edit"></i> Edit
+                                    </a>
+                                    <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#areaReportModal">
+                                        <i class="fas fa-chart-bar"></i> Generate Report
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Area Statistics -->
+                <div class="row">
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-primary ai-icon">
+                                        <i class="fas fa-bike"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">{{total_soldiers}}</h3>
+                                        <p class="mb-0">Active Riders</p>
+                                        <small>Assigned to area</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-success ai-icon">
+                                        <i class="fas fa-box"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">145</h3>
+                                        <p class="mb-0">Deliveries Today</p>
+                                        <small>Completed orders</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-warning ai-icon">
+                                        <i class="fas fa-percentage"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">95%</h3>
+                                        <p class="mb-0">Success Rate</p>
+                                        <small>On-time delivery</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-3 col-lg-6 col-sm-6">
+                        <div class="widget-stat card">
+                            <div class="card-body p-4">
+                                <div class="media ai-icon">
+                                    <span class="mr-3 bgl-info ai-icon">
+                                        <i class="fas fa-map-marked-alt"></i>
+                                    </span>
+                                    <div class="media-body">
+                                        <h3 class="mb-0 text-black">5.5km</h3>
+                                        <p class="mb-0">Coverage Radius</p>
+                                        <small>Service area</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8">
+                        <!-- Area Information -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Area Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td><strong>Area Name:</strong></td>
+                                                <td>{{ areas.area_name}}</td>
+                                            </tr>
+                                           
+                                            <tr>
+                                                <td><strong>City/District:</strong></td>
+                                                <td>{{areas.area_district}}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Area Station:</strong></td>
+                                                <td>{{ areas.area_station}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td><strong>Category</strong></td>
+                                                <td><span class="badge badge-success">{{areas.area_category}}</span></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Price</strong></td>
+                                                <td>{{areas.area_price}}</td>
+                                            </tr>
+                                            
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Performance Chart -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Delivery Performance (Last 7 Days)</h4>
+                            </div>
+                            <div class="card-body">
+                                <canvas id="performanceChart" height="100"></canvas>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Area Map -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Area Location</h4>
+                            </div>
+                            <div class="card-body">
+                                <div id="areaMap" style="height: 300px; width: 100%;"></div>
+                            </div>
+                        </div>
+
+                        <!-- Services -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Available Services</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        Same Day Delivery
+                                        <span class="badge badge-success">Active</span>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        Next Day Delivery
+                                        <span class="badge badge-success">Active</span>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        Economy Delivery
+                                        <span class="badge badge-success">Active</span>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                                        Express Delivery
+                                        <span class="badge badge-warning">Limited</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Recent Activity -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Recent Activity</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="timeline-sm">
+                                    <div class="timeline-sm-item">
+                                        <div class="timeline-sm-date">2 hrs ago</div>
+                                        <div>New rider assigned to area</div>
+                                    </div>
+                                    <div class="timeline-sm-item">
+                                        <div class="timeline-sm-date">5 hrs ago</div>
+                                        <div>Pricing updated for express service</div>
+                                    </div>
+                                    <div class="timeline-sm-item">
+                                        <div class="timeline-sm-date">1 day ago</div>
+                                        <div>Coverage radius expanded to 5.5km</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Area Report Modal -->
+        <div class="modal fade" id="areaReportModal" tabindex="-1" role="dialog">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title">Generate Area Report</h5>
+                        <button type="button" class="close" data-dismiss="modal">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <form id="reportForm">
+                            <div class="form-group">
+                                <label class="text-label">Report Type</label>
+                                <select class="form-control">
+                                    <option value="performance">Performance Report</option>
+                                    <option value="financial">Financial Summary</option>
+                                    <option value="operational">Operational Analysis</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label class="text-label">Date Range</label>
+                                <select class="form-control">
+                                    <option value="7days">Last 7 Days</option>
+                                    <option value="30days">Last 30 Days</option>
+                                    <option value="quarter">This Quarter</option>
+                                </select>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn btn-primary" id="generateReport">Generate</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+{%endblock%}

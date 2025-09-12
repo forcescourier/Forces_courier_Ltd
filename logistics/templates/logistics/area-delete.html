@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0 rounded-3">
+                <div class="card-header bg-danger text-white text-center rounded-top-3">
+                    <h4 class="mb-0">⚠️ Confirm Area Deletion</h4>
+                </div>
+                <div class="card-body p-4">
+                    <div class="alert alert-warning text-center rounded-2">
+                        <strong>Are you sure?</strong>  
+                        You are about to delete this area. This action will deactivate it, not remove it permanently.
+                    </div>
+
+                    <p class="text-center mb-4">
+                        <span class="fw-bold">{{ area.area_name }}</span>  
+                        <small class="text-muted">(ID: {{ area.area_id }})</small>
+                    </p>
+
+                    <form method="post" class="text-center">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-danger px-4 py-2 me-2">
+                            Yes, Delete
+                        </button>
+                        <a href="{% url 'area' %}" class="btn btn-outline-secondary px-4 py-2">
+                            Cancel
+                        </a>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

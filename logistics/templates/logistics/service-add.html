@@ -1,0 +1,278 @@
+{%extends "base.html"%}
+{%block title%}<title>Add Service</title>{%endblock%}
+{%block content%}
+<!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Add New Service</h4>
+                            <span>Create a new delivery service offering</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url "dashboard"%}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url "service"%}">Services</a></li>
+                            <li class="breadcrumb-item active"><a href="{% url "add_service"%}">Add Service</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Add Service Form -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Service Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST">
+                                    {%csrf_token%}
+                                    <!-- Basic Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3">Basic Information</h5>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Service Name <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-list"></i></span>
+                                                    </div>
+                                                    {{ form.service_name}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                       
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="text-label">Is Weight Based </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-file"></i></span>
+                                                    </div>
+                                                    {{ form.is_weight_based}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Merchant </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-list"></i></span>
+                                                    </div>
+                                                    {{form.service_merchant_id}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Service Area <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text"><i class="flaticon-381-folder"></i></span>
+                                                    </div>
+                                                    {{form.service_area}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Pricing Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Pricing Information</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Base Price </label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">৳</span>
+                                                    </div>
+                                                    {{form.base_price}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Dhaka City Price</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">৳</span>
+                                                    </div>
+                                                    {{ form.dhaka_city_price}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Sub City Price</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">৳</span>
+                                                    </div>
+                                                    {{ form.sub_city_price}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Out Side of Dhaka</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">৳</span>
+                                                    </div>
+                                                    {{ form.out_of_dhaka_price}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    
+                                   
+
+                                   
+
+                                    
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">COD Available</label>
+                                                <div class="custom-control custom-switch">
+                                                    
+                                                    {{ form.customer_cod_amount }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                      <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Percentage of COD</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">৳</span>
+                                                    </div>
+                                                    {{ form.percentage_cod}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                <div class="col-md-4">
+                                    <div class="form-group">
+                                        <label>Calculated COD Amount</label>
+                                        {{ form.calculated_cod_amount }}
+                                    </div>
+                                </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Tracking Available</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="tracking-available" checked>
+                                                    <label class="custom-control-label" for="tracking-available">Real-time Tracking</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Insurance Available</label>
+                                                <div class="custom-control custom-switch">
+                                                    <input type="checkbox" class="custom-control-input" id="insurance-available">
+                                                    <label class="custom-control-label" for="insurance-available">Package Insurance</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                       
+
+                                    <!-- Special Instructions -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="text-label">Special Instructions</label>
+                                                <textarea class="form-control" rows="3" placeholder="Any special handling instructions or requirements"></textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="text-right mt-4">
+                                                <a href="../services/services.html" class="btn btn-light mr-2">Cancel</a>
+                                                <button type="button" class="btn btn-info mr-2" id="save-draft">Save as Draft</button>
+                                                <button type="submit" class="btn btn-primary">Create Service</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Live COD Calculation -->
+<script>
+    // Grab the input fields
+    const customerCod = document.getElementById('id_customer_cod_amount');
+    const percentageInput = document.getElementById('id_percentage_cod');
+    const calculatedCod = document.getElementById('id_calculated_cod_amount');
+
+    const dhakaPrice = document.getElementById('id_dhaka_city_price');
+    const subCityPrice = document.getElementById('id_sub_city_price');
+    const outOfDhakaPrice = document.getElementById('id_out_of_dhaka_price');
+
+    function calculateCod() {
+        const cod = parseFloat(customerCod.value) || 0;
+        const percentage = parseFloat(percentageInput.value) || 0;
+
+        // Determine which price to use (priority: Dhaka > Sub City > Out of Dhaka)
+        let basePrice = 0;
+        if (dhakaPrice && parseFloat(dhakaPrice.value)) {
+            basePrice = parseFloat(dhakaPrice.value);
+        } else if (subCityPrice && parseFloat(subCityPrice.value)) {
+            basePrice = parseFloat(subCityPrice.value);
+        } else if (outOfDhakaPrice && parseFloat(outOfDhakaPrice.value)) {
+            basePrice = parseFloat(outOfDhakaPrice.value);
+        }
+
+        // Calculate the COD amount
+        calculatedCod.value = (basePrice + (cod * percentage / 100)).toFixed(2);
+    }
+
+    // Add live event listeners
+    customerCod.addEventListener('input', calculateCod);
+    percentageInput.addEventListener('input', calculateCod);
+    if (dhakaPrice) dhakaPrice.addEventListener('input', calculateCod);
+    if (subCityPrice) subCityPrice.addEventListener('input', calculateCod);
+    if (outOfDhakaPrice) outOfDhakaPrice.addEventListener('input', calculateCod);
+</script>
+
+
+        <!--**********************************
+            Content body end
+        ***********************************-->
+{%endblock%}

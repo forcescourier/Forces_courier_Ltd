@@ -1,6 +1,6 @@
 {%extends "base.html"%}
 {% block title%}<title> Service</title>{%endblock%}
-{%%}
+{%block content%}
 <!--**********************************
             Content body start
         ***********************************-->
@@ -15,8 +15,8 @@
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="javascript:void(0)">Home</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Services</a></li>
+                            <li class="breadcrumb-item"><a href="{% url "dashboard"%}">Home</a></li>
+                            <li class="breadcrumb-item active"><a href="{% url "service"%}">Services</a></li>
                         </ol>
                     </div>
                 </div>
@@ -28,7 +28,7 @@
                             <div class="card-body">
                                 <div class="row">
                                     <div class="col-md-3 mb-2">
-                                        <a href="add-service.html" class="btn btn-primary btn-block">
+                                        <a href="{% url 'add_service'%}" class="btn btn-primary btn-block">
                                             <i class="fas fa-plus mr-2"></i>Add New Service
                                         </a>
                                     </div>
@@ -63,7 +63,7 @@
                                         <i class="fas fa-list"></i>
                                     </span>
                                     <div class="media-body">
-                                        <h3 class="mb-0 text-black">8</h3>
+                                        <h3 class="mb-0 text-black">{{total_services}}</h3>
                                         <p class="mb-0">Total Services</p>
                                         <small>All available services</small>
                                     </div>
@@ -79,7 +79,7 @@
                                         <i class="fas fa-check-circle"></i>
                                     </span>
                                     <div class="media-body">
-                                        <h3 class="mb-0 text-black">7</h3>
+                                        <h3 class="mb-0 text-black">#</h3>
                                         <p class="mb-0">Active Services</p>
                                         <small>Currently available</small>
                                     </div>
@@ -95,7 +95,7 @@
                                         <i class="fas fa-pause"></i>
                                     </span>
                                     <div class="media-body">
-                                        <h3 class="mb-0 text-black">1</h3>
+                                        <h3 class="mb-0 text-black">#</h3>
                                         <p class="mb-0">Paused Services</p>
                                         <small>Temporarily unavailable</small>
                                     </div>
@@ -111,7 +111,7 @@
                                         <i class="fas fa-box"></i>
                                     </span>
                                     <div class="media-body">
-                                        <h3 class="mb-0 text-black">1,245</h3>
+                                        <h3 class="mb-0 text-black">#</h3>
                                         <p class="mb-0">Parcels Today</p>
                                         <small>Using these services</small>
                                     </div>
@@ -145,136 +145,47 @@
                                             <tr>
                                                 <th>ID</th>
                                                 <th>Service Name</th>
-                                                <th>Description</th>
+                                                
                                                 <th>Base Price</th>
-                                                <th>Delivery Time</th>
+                                        
                                                 <th>Areas</th>
-                                                <th>Status</th>
+                                                
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr>
-                                                <td>#S001</td>
-                                                <td>Same Day Delivery</td>
-                                                <td>Express delivery within the same day</td>
-                                                <td>৳200</td>
-                                                <td>Same Day</td>
-                                                <td>Dhaka, Chittagong</td>
-                                                <td><span class="badge badge-success">Active</span></td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
-                                                            Actions
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="view-service.html"><i class="fas fa-eye mr-2"></i>View</a>
-                                                            <a class="dropdown-item" href="edit-service.html"><i class="fas fa-edit mr-2"></i>Edit</a>
-                                                            <a class="dropdown-item" href="service-pricing.html"><i class="fas fa-tags mr-2"></i>Pricing</a>
-                                                            <a class="dropdown-item" href="service-areas.html"><i class="fas fa-map mr-2"></i>Areas</a>
-                                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-pause mr-2"></i>Pause</a>
-                                                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-trash mr-2"></i>Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#S002</td>
-                                                <td>Next Day Delivery</td>
-                                                <td>Standard delivery on the next business day</td>
-                                                <td>৳150</td>
-                                                <td>Next Day</td>
-                                                <td>All Areas</td>
-                                                <td><span class="badge badge-success">Active</span></td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
-                                                            Actions
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="view-service.html"><i class="fas fa-eye mr-2"></i>View</a>
-                                                            <a class="dropdown-item" href="edit-service.html"><i class="fas fa-edit mr-2"></i>Edit</a>
-                                                            <a class="dropdown-item" href="service-pricing.html"><i class="fas fa-tags mr-2"></i>Pricing</a>
-                                                            <a class="dropdown-item" href="service-areas.html"><i class="fas fa-map mr-2"></i>Areas</a>
-                                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-pause mr-2"></i>Pause</a>
-                                                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-trash mr-2"></i>Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#S003</td>
-                                                <td>Economy Delivery</td>
-                                                <td>Budget-friendly delivery within 3-5 days</td>
-                                                <td>৳100</td>
-                                                <td>3-5 Days</td>
-                                                <td>All Areas</td>
-                                                <td><span class="badge badge-success">Active</span></td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
-                                                            Actions
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="view-service.html"><i class="fas fa-eye mr-2"></i>View</a>
-                                                            <a class="dropdown-item" href="edit-service.html"><i class="fas fa-edit mr-2"></i>Edit</a>
-                                                            <a class="dropdown-item" href="service-pricing.html"><i class="fas fa-tags mr-2"></i>Pricing</a>
-                                                            <a class="dropdown-item" href="service-areas.html"><i class="fas fa-map mr-2"></i>Areas</a>
-                                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-pause mr-2"></i>Pause</a>
-                                                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-trash mr-2"></i>Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#S004</td>
-                                                <td>International Express</td>
-                                                <td>Fast international delivery service</td>
-                                                <td>৳2,500</td>
-                                                <td>2-3 Days</td>
-                                                <td>International</td>
-                                                <td><span class="badge badge-warning">Paused</span></td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
-                                                            Actions
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="view-service.html"><i class="fas fa-eye mr-2"></i>View</a>
-                                                            <a class="dropdown-item" href="edit-service.html"><i class="fas fa-edit mr-2"></i>Edit</a>
-                                                            <a class="dropdown-item" href="service-pricing.html"><i class="fas fa-tags mr-2"></i>Pricing</a>
-                                                            <a class="dropdown-item" href="service-areas.html"><i class="fas fa-map mr-2"></i>Areas</a>
-                                                            <a class="dropdown-item text-success" href="#"><i class="fas fa-play mr-2"></i>Activate</a>
-                                                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-trash mr-2"></i>Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                            <tr>
-                                                <td>#S005</td>
-                                                <td>Heavy Items</td>
-                                                <td>Specialized service for heavy packages</td>
-                                                <td>৳300</td>
-                                                <td>2-3 Days</td>
-                                                <td>Major Cities</td>
-                                                <td><span class="badge badge-success">Active</span></td>
-                                                <td>
-                                                    <div class="dropdown">
-                                                        <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
-                                                            Actions
-                                                        </button>
-                                                        <div class="dropdown-menu">
-                                                            <a class="dropdown-item" href="view-service.html"><i class="fas fa-eye mr-2"></i>View</a>
-                                                            <a class="dropdown-item" href="edit-service.html"><i class="fas fa-edit mr-2"></i>Edit</a>
-                                                            <a class="dropdown-item" href="service-pricing.html"><i class="fas fa-tags mr-2"></i>Pricing</a>
-                                                            <a class="dropdown-item" href="service-areas.html"><i class="fas fa-map mr-2"></i>Areas</a>
-                                                            <a class="dropdown-item text-warning" href="#"><i class="fas fa-pause mr-2"></i>Pause</a>
-                                                            <a class="dropdown-item text-danger" href="#"><i class="fas fa-trash mr-2"></i>Delete</a>
-                                                        </div>
-                                                    </div>
-                                                </td>
-                                            </tr>
-                                        </tbody>
+    {% for service in services %}
+    <tr>
+        <td>{{ service.service_id }}</td>
+        <td>{{ service.service_name }}</td>
+        
+        <td>৳{{ service.base_price }}</td>
+       
+        <td>{{ service.service_areas }}</td>
+       
+        <td>
+            <div class="dropdown">
+                <button class="btn btn-primary btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+                    Actions
+                </button>
+                <div class="dropdown-menu">
+                    <a class="dropdown-item" href="{% url "view_service" service.service_id %}"><i class="fas fa-eye mr-2"></i>View</a>
+                    <a class="dropdown-item" href="{% url "edit_service" service.service_id%}"><i class="fas fa-edit mr-2"></i>Edit</a>
+                    <a class="dropdown-item" href="#"><i class="fas fa-tags mr-2"></i>Pricing</a>
+                    <a class="dropdown-item" href="#"><i class="fas fa-map mr-2"></i>Areas</a>
+                    <a class="dropdown-item" href="{% url 'delete_service' service.pk %}"><i class="fas fa-map mr-2"></i>Delete</a>
+                    
+                </div>
+            </div>
+        </td>
+    </tr>
+    {% empty %}
+    <tr>
+        <td colspan="8">No services found.</td>
+    </tr>
+    {% endfor %}
+</tbody>
+
                                     </table>
                                 </div>
                             </div>
@@ -286,3 +197,4 @@
         <!--**********************************
             Content body end
         ***********************************-->
+        {%endblock%}

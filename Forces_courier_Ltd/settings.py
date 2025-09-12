@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'notifications',
     'analytics',
     'core',
+    "widget_tweaks",
 ]
 
 MIDDLEWARE = [

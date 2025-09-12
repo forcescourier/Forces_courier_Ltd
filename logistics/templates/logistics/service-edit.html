@@ -1,0 +1,306 @@
+{%extends "base.html"%}
+{%block title%}<title>Edit</title>{%endblock%}
+{%block content%}
+<!--**********************************
+            Content body start
+        ***********************************-->
+        <div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Edit Service</h4>
+                            <span>Update service information and settings</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url "dashboard"%}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'service'%}">Services</a></li>
+                            <li class="breadcrumb-item active"><a href="{% url 'edit_service' service.service_id%}">Edit Service</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Service Info Header -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Service: {{ service.service_name }}</h4>
+                                <div class="card-action">
+                                    <span class="badge badge-success">Active</span>
+                                    <button type="button" class="btn btn-sm btn-warning ml-2" >
+                                        <i class="flaticon-381-pause"></i> Pause Service
+                                    </button>
+                                    <button type="button"  class="btn btn-sm btn-danger ml-1" >
+                                        <i class="flaticon-381-trash" > </i> Delete
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Edit Service Form -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Service Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST">
+                                    {% csrf_token %}
+                                    <!-- Basic Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3">Basic Information</h5>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Service Name <span class="text-danger">*</span></label>
+                                               {{ form.service_name }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Is weight based </label>
+                                                {{ form.is_weight_based }}
+
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    
+                                       
+
+                                    <!-- Pricing Information -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <h5 class="mb-3 mt-4">Pricing Information</h5>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Base Price <span class="text-danger">*</span></label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">৳</span>
+                                                    </div>
+                                                   {{ form.base_price }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Merchant</label>
+                                                <div class="input-group">
+                                                    
+                                                    {{ form.service_merchant_id }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="form-group">
+                                                <label class="text-label">Dhaka city Price</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">৳</span>
+                                                    </div>
+                                                    {{form.dhaka_city_price}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Sub City Price</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">৳</span>
+                                                    </div>
+                                                    {{form.sub_city_price}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Out of Dhaka Price</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">৳</span>
+                                                    </div>
+                                                    {{form.out_of_dhaka_price}}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Service Parcel</label>
+                                               {{form.service_parcel}}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Service Area</label>
+                                                {{ form.service_area}}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">COD Amount</label>
+                                                {{form.customer_cod_amount}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Percentage COD</label>
+                                                {{form.percentage_cod}}
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">COD Amount</label>
+                                                {{form.calculated_cod_amount}}
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+
+                                    
+
+                                    
+                                        
+
+                                   
+                                      <div class="row">  
+                                        <div class="col-md-4">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="tracking-available" checked>
+                                                <label class="custom-control-label" for="tracking-available">Tracking Available</label>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-4">
+                                            <div class="custom-control custom-switch">
+                                                <input type="checkbox" class="custom-control-input" id="insurance-available">
+                                                <label class="custom-control-label" for="insurance-available">Insurance Available</label>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row mt-3">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Service Status</label>
+                                                <select class="form-control">
+                                                    <option value="active" selected>Active</option>
+                                                    <option value="inactive">Inactive</option>
+                                                    <option value="paused">Paused</option>
+                                                    <option value="coming_soon">Coming Soon</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label class="text-label">Launch Date</label>
+                                                <input type="date" class="form-control" value="2023-01-15" readonly>
+                                                <small class="text-muted">Service launch date cannot be changed</small>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Special Instructions -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label class="text-label">Special Instructions</label>
+                                                <textarea class="form-control" rows="3">Requires priority handling. Deliveries must be completed within business hours.</textarea>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Action Buttons -->
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="text-right mt-4">
+                                                <a href="../services/services.html" class="btn btn-light mr-2">Cancel</a>
+                                                <button type="button" class="btn btn-info mr-2" id="save-changes">Save Changes</button>
+                                                <button type="submit" class="btn btn-primary">Update Service</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Statistics -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Service Performance</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <div class="text-center">
+                                            <h4 class="text-primary">1,245</h4>
+                                            <p class="mb-0">Total Orders</p>
+                                            <small class="text-muted">Last 30 days</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="text-center">
+                                            <h4 class="text-success">97.5%</h4>
+                                            <p class="mb-0">Success Rate</p>
+                                            <small class="text-muted">Delivered on time</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="text-center">
+                                            <h4 class="text-info">৳2,48,900</h4>
+                                            <p class="mb-0">Revenue</p>
+                                            <small class="text-muted">Last 30 days</small>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <div class="text-center">
+                                            <h4 class="text-warning">4.6/5</h4>
+                                            <p class="mb-0">Avg Rating</p>
+                                            <small class="text-muted">Customer feedback</small>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        {%endblock%}
