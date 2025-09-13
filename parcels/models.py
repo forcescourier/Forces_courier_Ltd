@@ -6,10 +6,10 @@ from django.db import models
 class Parcel(models.Model):
     parcels_id = models.AutoField(primary_key=True)
     parcels_merchant_id = models.ForeignKey(
-        'accounts.Merchant', on_delete=models.CASCADE, related_name='parcels'
+        'accounts.Merchant', on_delete=models.CASCADE, null=True, blank=True, related_name='parcels'
     )
     parcels_service_id = models.ForeignKey(
-        'logistics.Service', on_delete=models.CASCADE, null=True, blank=True, related_name='parcels'
+        'logistics.Service', on_delete=models.CASCADE, related_name='parcels', default="1"
     )
     parcels_area_id = models.ForeignKey(
         'logistics.Area', on_delete=models.CASCADE, null=True, blank=True, related_name='parcels'
@@ -23,6 +23,12 @@ class Parcel(models.Model):
         related_name='parcels'      # 👈 this gives soldier.parcels
     )
 
+    DELIVERY_AREAS = [
+        ('dhaka', 'Dhaka City'),
+        ('sub_city', 'Sub City'),
+        ('out_dhaka', 'Out of Dhaka'),
+    ]
+
     # Customer details
     parcels_customer_name = models.CharField(max_length=100)
     parcels_customer_phone = models.CharField(max_length=20)
@@ -31,9 +37,15 @@ class Parcel(models.Model):
 
     # Parcel details
     parcels_cash_collection = models.DecimalField(max_digits=10, decimal_places=2)
+    selected_price=models.DecimalField(max_digits=10,decimal_places=2, null=True,blank=True)
+    parcels_type= models.CharField(max_length=50, null=True, blank=True, choices=(("documents","documents"),("electronics","electronics"),("clothing","clothing"),("food items","food items"),("other","other")), default="other")
     parcels_weight_kg = models.DecimalField(max_digits=5, decimal_places=2)  # e.g. 12.50 kg
     parcels_item_desc = models.CharField(max_length=255)
     parcels_note = models.TextField(null=True, blank=True)
+
+    delivery_area = models.CharField(max_length=20, choices=DELIVERY_AREAS, default="dhaka")
+    pickup_date=models.DateField(null=True, blank=True)
+    payment_method=models.CharField(max_length=200, choices=(("Bkash","Bkash"),("Nogod","Nogod"),("Bank","Bank")), default="Bkash")
 
     created_at = models.DateTimeField(auto_now_add=True)  # for tracking
     updated_at = models.DateTimeField(auto_now=True)

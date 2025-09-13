@@ -198,7 +198,7 @@
                                     
 
                                 {% if merchant.status == "approved" %}
-                                    <a class="dropdown-item text-warning" href="{% url 'suspend_merchant' merchant.merchant_id %}">
+                                    <a class="dropdown-item text-warning" href="#">
                                         <i class="fas fa-pause mr-2"></i>Suspend
                                     </a>
                                 {% elif merchant.status == "pending" %}

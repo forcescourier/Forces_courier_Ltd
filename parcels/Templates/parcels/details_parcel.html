@@ -1,0 +1,354 @@
+{%extends "base.html"%}
+{%block title%}<title> Details</title>{%endblock%}
+{%block content%}
+
+<div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Parcels Management</h4>
+                            <span>Comprehensive parcel listing with advanced filtering and detailed information</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'dashboard'%}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'parcel'%}">Parcels</a></li>
+                            <li class="breadcrumb-item active"><a href="{% url "parcel_detail" parcel.parcels_id%}">View All</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <!-- Advanced Filters Section -->
+                <div class="row">
+                    <div class="col-xl-12">
+                        <div class="card filter-card">
+                            <div class="card-header bg-primary">
+                                <h4 class="card-title text-white mb-0">
+                                    <i class="fas fa-filter mr-2"></i>Advanced Filters
+                                </h4>
+                                <button type="button" class="btn btn-outline-light btn-sm" onclick="toggleFilters()">
+                                    <i class="fas fa-chevron-down" id="filterToggleIcon"></i>
+                                </button>
+                            </div>
+                            <div class="card-body filter-section" id="filterSection">
+                                <form id="filterForm">
+                                    <div class="row">
+                                        <div class="col-md-3 mb-3">
+                                            <label class="form-label"><i class="fas fa-search mr-1"></i>Search</label>
+                                            <input type="text" class="form-control" id="searchFilter" placeholder="Parcel ID, Name, Phone...">
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <label class="form-label"><i class="fas fa-flag mr-1"></i>Status</label>
+                                            <select class="form-control" id="statusFilter">
+                                                <option value="">All Status</option>
+                                                <option value="pending">Pending</option>
+                                                <option value="pickup">Pickup Assigned</option>
+                                                <option value="transit">In Transit</option>
+                                                <option value="delivery">Out for Delivery</option>
+                                                <option value="delivered">Delivered</option>
+                                                <option value="returned">Returned</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <label class="form-label"><i class="fas fa-map-marker-alt mr-1"></i>Area</label>
+                                            <select class="form-control" id="areaFilter">
+                                                <option value="">All Areas</option>
+                                                <option value="dhaka">Dhaka</option>
+                                                <option value="chittagong">Chittagong</option>
+                                                <option value="sylhet">Sylhet</option>
+                                                <option value="rajshahi">Rajshahi</option>
+                                                <option value="barisal">Barisal</option>
+                                            </select>
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <label class="form-label"><i class="fas fa-calendar mr-1"></i>Date From</label>
+                                            <input type="date" class="form-control" id="dateFromFilter">
+                                        </div>
+                                        <div class="col-md-2 mb-3">
+                                            <label class="form-label"><i class="fas fa-calendar mr-1"></i>Date To</label>
+                                            <input type="date" class="form-control" id="dateToFilter">
+                                        </div>
+                                        <div class="col-md-1 mb-3">
+                                            <label class="form-label">&nbsp;</label>
+                                            <button type="button" class="btn btn-primary btn-block" onclick="applyFilters()">
+                                                <i class="fas fa-search"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-md-12 text-right">
+                                            <button type="button" class="btn btn-outline-secondary btn-sm mr-2" onclick="clearFilters()">
+                                                <i class="fas fa-times mr-1"></i>Clear Filters
+                                            </button>
+                                            <button type="button" class="btn btn-success btn-sm" onclick="exportData()">
+                                                <i class="fas fa-download mr-1"></i>Export Excel
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8">
+                        <!-- Parcel Information -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Parcel Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="row">
+                                    
+                                    <div class="col-md-6">
+                                        <h6 class="mb-3"><i class="fas fa-user-check text-success mr-2"></i>Receiver Details</h6>
+                                        <table class="table table-borderless">
+                                            <tr>
+                                                <td><strong>Name:</strong></td>
+                                                <td>{{ parcel.parcels_customer_name }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Phone:</strong></td>
+                                                <td>{{ parcel.parcels_customer_phone }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Alternative Phone:</strong></td>
+                                                <td>{{ parcel.parcels_customer_phone2 }}</td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>Address:</strong></td>
+                                                <td>{{parcel.parcels_customer_address}}</td>
+                                            </tr>
+                                        </table>
+                                    </div>
+                                </div>
+                                
+                                <hr>
+
+                                <div class="row">
+                                    <div class="col-md-12">
+                                        <h6 class="mb-3"><i class="fas fa-box text-warning mr-2"></i>Parcel Details</h6>
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <table class="table table-borderless">
+                                                    <tr>
+                                                        <td><strong>Cash Collection</strong></td>
+                                                        <td>{{parcel.parcels_cash_collection}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Weight:</strong></td>
+                                                        <td>{{parcel.parcels_weight_kg}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Area</strong></td>
+                                                        <td>{{parcel.delivery_area}}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <table class="table table-borderless">
+                                                    <tr>
+                                                        <td><strong>Service:</strong></td>
+                                                        <td>{{parcel.parcels_service_id}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Total Amount:</strong></td>
+                                                        <td>{{parcel.selected_price}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Payment:</strong></td>
+                                                        <td>{{parcel.payment_method}}</td>
+                                                    </tr>
+
+                                                    <tr>
+                                                        <td><strong>Pickup Date:</strong></td>
+                                                        <td>{{parcel.pickup_date}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Description:</strong></td>
+                                                        <td>{{parcel.parcels_item_desc}}</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td><strong>Note:</strong></td>
+                                                        <td>{{parcel.parcels_note}}</td>
+                                                    </tr>
+                                                </table>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Tracking History -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Tracking History</h4>
+                                <button class="btn btn-primary btn-sm" onclick="refreshTracking()">
+                                    <i class="fas fa-sync"></i> Refresh
+                                </button>
+                            </div>
+                            <div class="card-body">
+                                <div class="timeline">
+                                    <div class="timeline-item active">
+                                        <div class="timeline-badge bg-success">
+                                            <i class="fas fa-check"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h6 class="timeline-title">Package Picked Up</h6>
+                                                <p><small class="text-muted">Today 10:30 AM</small></p>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Package collected from sender location by Rider: Karim Ahmed</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item active">
+                                        <div class="timeline-badge bg-info">
+                                            <i class="fas fa-shipping-fast"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h6 class="timeline-title">In Transit</h6>
+                                                <p><small class="text-muted">Today 11:15 AM</small></p>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Package is on the way to destination hub</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-badge bg-warning">
+                                            <i class="fas fa-truck"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h6 class="timeline-title">Out for Delivery</h6>
+                                                <p><small class="text-muted">Expected: Today 2:00 PM</small></p>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Package will be dispatched for final delivery</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="timeline-item">
+                                        <div class="timeline-badge bg-secondary">
+                                            <i class="fas fa-home"></i>
+                                        </div>
+                                        <div class="timeline-panel">
+                                            <div class="timeline-heading">
+                                                <h6 class="timeline-title">Delivered</h6>
+                                                <p><small class="text-muted">Expected: Today 4:00 PM</small></p>
+                                            </div>
+                                            <div class="timeline-body">
+                                                <p>Package will be delivered to recipient</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Quick Status -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Current Status</h4>
+                            </div>
+                            <div class="card-body text-center">
+                                <div class="status-icon">
+                                    <i class="fas fa-shipping-fast fa-3x text-warning mb-3"></i>
+                                </div>
+                                <h5 class="text-warning">In Transit</h5>
+                                <p class="text-muted">Expected delivery: Today 4:00 PM</p>
+                                <div class="progress mb-3">
+                                    <div class="progress-bar bg-warning" style="width: 60%"></div>
+                                </div>
+                                <p><small>60% Complete</small></p>
+                            </div>
+                        </div>
+
+                        <!-- Delivery Information -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Delivery Information</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group list-group-flush">
+                                    <div class="list-group-item d-flex justify-content-between">
+                                        <span>Pickup Date:</span>
+                                        <strong>Dec 15, 2024</strong>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between">
+                                        <span>Expected Delivery:</span>
+                                        <strong>Dec 15, 2024</strong>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between">
+                                        <span>Assigned Rider:</span>
+                                        <strong>Karim Ahmed</strong>
+                                    </div>
+                                    <div class="list-group-item d-flex justify-content-between">
+                                        <span>Rider Phone:</span>
+                                        <strong>+880 1555123456</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Quick Actions -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Quick Actions</h4>
+                            </div>
+                            <div class="card-body">
+                                <button class="btn btn-success btn-block mb-2" onclick="markDelivered()">
+                                    <i class="fas fa-check mr-2"></i>Mark as Delivered
+                                </button>
+                                <button class="btn btn-warning btn-block mb-2" onclick="reportIssue()">
+                                    <i class="fas fa-exclamation-triangle mr-2"></i>Report Issue
+                                </button>
+                                <button class="btn btn-info btn-block" onclick="contactCustomer()">
+                                    <i class="fas fa-phone mr-2"></i>Contact Customer
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Related Parcels -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Related Parcels</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="list-group list-group-flush">
+                                    <a href="#" class="list-group-item">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <strong>PKG-2024-001235</strong>
+                                                <small class="text-muted d-block">Same sender</small>
+                                            </div>
+                                            <span class="badge badge-success">Delivered</span>
+                                        </div>
+                                    </a>
+                                    <a href="#" class="list-group-item">
+                                        <div class="d-flex justify-content-between">
+                                            <div>
+                                                <strong>PKG-2024-001233</strong>
+                                                <small class="text-muted d-block">Same route</small>
+                                            </div>
+                                            <span class="badge badge-primary">Pending</span>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+{%endblock%}
