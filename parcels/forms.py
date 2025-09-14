@@ -39,19 +39,4 @@ class ParcelForm(forms.ModelForm):
             "parcels_service_id": forms.Select(attrs={"class": "form-control"}),
             "parcels_merchant_id":forms.Select(attrs={"class": "form-control"}),
         }
-    def save(self, commit=True):
-        instance = super().save(commit=False)
-
-        # get the related service
-        service = instance.parcels_service_id
-
-        if instance.delivery_area == 'dhaka':
-            instance.selected_price = service.dhaka_city_price
-        elif instance.delivery_area == 'sub_city':
-            instance.selected_price = service.sub_city_price
-        elif instance.delivery_area == 'out_dhaka':
-            instance.selected_price = service.out_of_dhaka_price
-
-        if commit:
-            instance.save()
-        return instance
+    

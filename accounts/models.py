@@ -31,8 +31,8 @@ class Merchant(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
-    def _str_(self):
-        return self.merchant_name
+    def __str__(self):
+     return self.merchant_name
 
 # delivery soldier/rider model
 

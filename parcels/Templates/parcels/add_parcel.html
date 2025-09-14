@@ -197,12 +197,12 @@
                             <div class="card-body">
                                 <div class="cost-breakdown">
                                     <div class="d-flex justify-content-between mb-2">
-                                        <span>Base Charge:</span>
-                                        <span id="baseCharge">৳0</span>
+                                        <span>Charge:</span>
+                                        <span id="chargeAmount">৳0.00</span>
                                     </div>
                                     <div class="d-flex justify-content-between mb-2">
-                                        <span>Weight Charge:</span>
-                                        <span id="weightCharge">৳0</span>
+                                        <span>Payable:</span>
+                                        <span id="payableAmount">৳0.00</span>
                                     </div>
                                     <div class="d-flex justify-content-between mb-2">
                                         <span>Insurance:</span>
@@ -238,4 +238,73 @@
                 </div>
             </div>
         </div>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const cashInput = document.getElementById("id_parcels_cash_collection");
+    const weightInput = document.getElementById("id_parcels_weight_kg");
+    const areaInput = document.getElementById("id_delivery_area");
+    const serviceInput = document.getElementById("id_parcels_service_id");
+    const insuranceCheckbox = document.getElementById("insurance");
+
+    const chargeSpan = document.getElementById("chargeAmount");
+    const insuranceSpan = document.getElementById("insuranceCharge");
+    const payableSpan = document.getElementById("payableAmount");
+    const totalSpan = document.getElementById("totalAmount");
+    const calcBtn = document.getElementById("calculateCost");
+
+    if (!serviceInput) return;
+
+    async function fetchCharge() {
+        const serviceId = serviceInput.value;
+        const weight = weightInput ? weightInput.value : "";
+        const area = areaInput ? areaInput.value : "";
+
+        if (!serviceId) return 0;
+
+        const url = `/ajax/calc-charge/?service_id=${encodeURIComponent(serviceId)}&weight=${encodeURIComponent(weight)}&area=${encodeURIComponent(area)}`;
+
+        try {
+            const resp = await fetch(url, { method: "GET" });
+            if (!resp.ok) return 0;
+            const data = await resp.json();
+            return parseFloat(data.charge) || 0;
+        } catch (err) {
+            console.error("fetchCharge error", err);
+            return 0;
+        }
+    }
+
+    async function updateCosts() {
+        const baseCharge = await fetchCharge();
+
+        const insurance = insuranceCheckbox && insuranceCheckbox.checked ? 20 : 0;
+        const selectedPrice = baseCharge + insurance;
+
+        const cash = cashInput ? parseFloat(cashInput.value || 0) : 0;
+        const payable = selectedPrice - cash;
+
+        // Update UI exactly like model calculation
+        chargeSpan.textContent = "৳" + baseCharge.toFixed(2);
+        insuranceSpan.textContent = "৳" + insurance.toFixed(2);
+        payableSpan.textContent = "৳" + payable.toFixed(2);
+        totalSpan.textContent = "৳" + selectedPrice.toFixed(2);
+    }
+
+    [cashInput, weightInput, areaInput, serviceInput, insuranceCheckbox].forEach(el => {
+        if (!el) return;
+        el.addEventListener("input", updateCosts);
+        el.addEventListener("change", updateCosts);
+    });
+
+    if (calcBtn) calcBtn.addEventListener("click", updateCosts);
+
+    // initial calculation
+    updateCosts();
+});
+</script>
+
+
+
 {%endblock%}

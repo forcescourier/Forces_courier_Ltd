@@ -1,4 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
+from decimal import Decimal, InvalidOperation
+from django.http import JsonResponse
+from django.views.decorators.http import require_GET
 from .forms import AreaAddForm, AreaEditForm, ServiceForm, WeightBasedForm
 from . models import Service, Area
 from accounts.models import DeliverySoldier
@@ -175,3 +178,5 @@ def delete_service(request, pk):
         return redirect("service")  # 👈 change to your list view name
     
     return render(request, "logistics/service_delete.html", {"service": service})
+
+

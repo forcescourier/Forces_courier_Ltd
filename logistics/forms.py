@@ -42,6 +42,7 @@ class ServiceForm(forms.ModelForm):
             "out_of_dhaka_price",
             "service_parcel",
             "service_area",
+            "cod_option", 
             "customer_cod_amount",
             "percentage_cod",
             "calculated_cod_amount",
@@ -53,6 +54,7 @@ class ServiceForm(forms.ModelForm):
             "is_weight_based": forms.CheckboxInput(attrs={"class": "form-check-input"}),
             "service_area": forms.SelectMultiple(attrs={"class": "form-control"}),
             "service_merchant_id": forms.Select(attrs={"class": "form-control"}),  # ✅ fixed
+            "cod_option": forms.Select(attrs={"class": "form-control"}),  
             "customer_cod_amount": forms.NumberInput(attrs={"class": "form-control", "step": "0.01"}),
             "percentage_cod": forms.NumberInput(attrs={"class": "form-control", "step": "0.01"}),
             "calculated_cod_amount": forms.NumberInput(attrs={"class": "form-control", "step": "0.01", "readonly": True}),
