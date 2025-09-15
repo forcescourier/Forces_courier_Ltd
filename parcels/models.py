@@ -13,7 +13,7 @@ class Parcel(models.Model):
     parcels_service_id = models.ForeignKey(
         'logistics.Service', on_delete=models.CASCADE, related_name='parcels', default="1"
     )
-    parcels_weightbased_id=models.ForeignKey('logistics.WeightBased', on_delete=models.CASCADE, related_name='parcels', null=True, blank=True)
+    parcels_weight_based_id=models.ForeignKey('logistics.WeightBased', on_delete=models.CASCADE, related_name='w_parcels', null=True, blank=True)
     parcels_area_id = models.ForeignKey(
         'logistics.Area', on_delete=models.CASCADE, null=True, blank=True, related_name='parcels'
     )
@@ -63,12 +63,13 @@ class Parcel(models.Model):
         area, and parcel weight.
         """
         service = self.parcels_service_id
-        weightbased=self.parcels_weightbased_id
+        weight_based=self.parcels_weight_based_id
 
 
         # Non-weight based service
-        cod_fee = self.parcels_cash_collection * service.percentage_cod / 100
-
+        cash_collection = Decimal(self.parcels_cash_collection or 0)  # Default to 0 if None
+        cod_percentage_s = Decimal(service.percentage_cod or 0)
+        cod_fee = cash_collection * cod_percentage_s / Decimal(100)
         if not service.is_weight_based:
            if self.delivery_area == 'dhaka':
                price = service.dhaka_city_price if service.dhaka_city_price is not None else service.base_price
@@ -80,27 +81,30 @@ class Parcel(models.Model):
               price = service.base_price or 0  # fallback
 
            return price + cod_fee
+        else:
+            if not weight_based:
+               return weight_based.base_price or 0
 
         # Weight-based service
-        else:
-            weight_range = weightbased.weight.filter(
+        
+            weight_range = service.weight.filter(
                 min_weight__lte=self.parcels_weight_kg,
                 max_weight__gte=self.parcels_weight_kg
             ).first()
 
-            
-            cod_fee = self.parcels_cash_collection * weightbased.percentage_cod / 100
+            cod_percentage_w = Decimal(weight_based.percentage_cod or 0)
+            cod_fee = cash_collection * cod_percentage_w / Decimal(100)
             if not weight_range:
-                return weightbased.base_price  # fallback
+                return weight_based.base_price or 0  # fallback
 
             if self.delivery_area == 'dhaka':
-                 price = weight_range.dhaka_city_price if weight_range.dhaka_city_price is not None else weight_range.base_price
+                 price = weight_based.dhaka_city_price if weight_based.dhaka_city_price is not None else weight_based.base_price
                 
             elif self.delivery_area == 'sub_city':
-                price = weight_range.sub_city_price if weight_range.sub_city_price is not None else weight_range.base_price
+                price = weight_based.sub_city_price if weight_based.sub_city_price is not None else weight_based.base_price
                 
             elif self.delivery_area == 'out_dhaka':
-                price = weight_range.out_of_dhaka_price if weight_range.out_of_dhaka_price is not None else weight_range.base_price
+                price = weight_based.out_of_dhaka_price if weight_based.out_of_dhaka_price is not None else weight_based.base_price
             else:   
              return price + cod_fee
             
@@ -110,6 +114,15 @@ class Parcel(models.Model):
     def save(self, *args, **kwargs):
         # Calculate and assign charge before saving
         self.selected_price = self.calculate_charge()
+
+        if self.parcels_service_id and self.parcels_service_id.cod_option=="yes":
+            self.parcels_service_id.customer_cod_amount = self.parcels_cash_collection
+            self.parcels_service_id.save()
+        
+        if self.parcels_weight_based_id and self.parcels_weight_based_id.cod_option == "yes":
+            self.parcels_weight_based_id.customer_cod_amount = self.parcels_cash_collection
+            self.parcels_weight_based_id.save()
+
          # Calculate payable (Cash Collection - Charge)
         if self.parcels_cash_collection is not None and self.selected_price is not None:
             self.payable =  Decimal(self.selected_price) - Decimal(self.parcels_cash_collection)

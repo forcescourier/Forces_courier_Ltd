@@ -72,6 +72,7 @@ class WeightBasedForm(forms.ModelForm):
             "dhaka_city_price",
             "sub_city_price",
             "out_of_dhaka_price",
+            "cod_option", 
             "customer_cod_amount",
             "percentage_cod",
             "calculated_cod_amount",
@@ -80,6 +81,8 @@ class WeightBasedForm(forms.ModelForm):
             "min_weight": forms.NumberInput(attrs={"class": "form-control", "step": "0.01"}),
             "max_weight": forms.NumberInput(attrs={"class": "form-control", "step": "0.01"}),
             "base_price": forms.NumberInput(attrs={"class": "form-control", "step": "0.01"}),
+            "cod_option": forms.Select(attrs={"class": "form-control"}), 
+            "percentage_cod": forms.NumberInput(attrs={"class": "form-control", "step": "0.01"}), 
         }
 
 

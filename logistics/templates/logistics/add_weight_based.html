@@ -28,21 +28,9 @@
                         </div>
 
                         <!-- Live COD Calculation -->
-                        <div class="row mt-3">
-                            <div class="col-md-6">
-                                <label class="form-label fw-semibold">Customer COD Amount</label>
-                                <input type="number" id="customer_cod_amount" class="form-control" value="{{ form.customer_cod_amount.value|default_if_none:'0' }}" >   <!--after build parcel readonly-->
-                            </div>
-                            <div class="col-md-6">
-                                <label class="form-label fw-semibold">Percentage COD (%)</label>
-                                <input type="number" id="percentage_cod" class="form-control" value="{{ form.percentage_cod.value|default_if_none:'0' }}" min="0" max="100">
-                            </div>
-                            <div class="col-md-6 mt-3">
-                                <label class="form-label fw-semibold">Calculated COD Amount</label>
-                                <input type="number" id="calculated_cod_amount" class="form-control" readonly>
-                            </div>
-                        </div>
-
+                        
+                            
+                       
                         <div class="mt-4 d-flex justify-content-between">
                             <a href="{% url 'add_service' %}" class="btn btn-outline-secondary px-4">Back</a>
                             <button type="submit" class="btn btn-success px-5">💾 Save</button>
