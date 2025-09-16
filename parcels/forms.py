@@ -14,7 +14,7 @@ class ParcelForm(forms.ModelForm):
             "parcels_customer_phone2",
             "parcels_customer_address",
             "parcels_cash_collection",
-            "parcels_type",
+           
             "parcels_weight_kg",
             "parcels_item_desc",
             "parcels_note",
@@ -28,7 +28,7 @@ class ParcelForm(forms.ModelForm):
             "parcels_customer_phone2": forms.TextInput(attrs={"class": "form-control"}),
             "parcels_customer_address": forms.Textarea(attrs={"class": "form-control", "rows": 2}),
             "parcels_cash_collection": forms.NumberInput(attrs={"class": "form-control"}),
-            "parcels_type": forms.Select(attrs={"class": "form-control"}),
+           
             "parcels_weight_kg": forms.NumberInput(attrs={"class": "form-control", "step": "0.1"}),
             "parcels_item_desc": forms.TextInput(attrs={"class": "form-control"}),
             "parcels_note": forms.Textarea(attrs={"class": "form-control", "rows": 2}),

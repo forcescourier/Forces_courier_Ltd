@@ -42,14 +42,14 @@ class Parcel(models.Model):
     parcels_cash_collection = models.DecimalField(max_digits=10, decimal_places=2)
     selected_price=models.DecimalField(max_digits=10,decimal_places=2, null=True,blank=True)
     payable = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)  # NEW field
-    parcels_type= models.CharField(max_length=50, null=True, blank=True, choices=(("documents","documents"),("electronics","electronics"),("clothing","clothing"),("food items","food items"),("other","other")), default="other")
+    
     parcels_weight_kg = models.DecimalField(max_digits=5, decimal_places=2)  # e.g. 12.50 kg
     parcels_item_desc = models.CharField(max_length=255)
     parcels_note = models.TextField(null=True, blank=True)
 
     delivery_area = models.CharField(max_length=20, choices=DELIVERY_AREAS, default="dhaka")
     pickup_date=models.DateField(null=True, blank=True)
-    payment_method=models.CharField(max_length=200, choices=(("Bkash","Bkash"),("Nogod","Nogod"),("Bank","Bank")), default="Bkash")
+    payment_method=models.CharField(max_length=200, choices=(("Bkash","Bkash"),("Nogod","Nogod"),("Bank","Bank")), null=True, blank=True, default="Bkash")
 
     created_at = models.DateTimeField(auto_now_add=True)  # for tracking
     updated_at = models.DateTimeField(auto_now=True)

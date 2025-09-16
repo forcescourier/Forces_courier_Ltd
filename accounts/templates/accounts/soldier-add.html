@@ -15,9 +15,9 @@
                     </div>
                     <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="../../../index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="../riders/riders.html">Riders</a></li>
-                            <li class="breadcrumb-item active"><a href="javascript:void(0)">Add Rider</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'dashboard'%}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'soldier'%}">Delivery Soldier</a></li>
+                            <li class="breadcrumb-item active"><a href="{% url 'add_soldier'%}">Add Rider</a></li>
                         </ol>
                     </div>
                 </div>
@@ -49,7 +49,7 @@
                                                     <div class="input-group-prepend">
                                                         
                                                     </div>
-                                                    <input type="file" class="form-control" name="photo" >
+                                                    {{form.photo}}
                                                 </div>
                                             </div>
                                         </div>
@@ -420,9 +420,9 @@
                                                     </div>
                                                     <select class="form-control" name="status">
                                                         <option value="active">Active</option>
-                                                        <option value="pending">Pending Approval</option>
+                                                        <option value="off_duty">OFF DUTY</option>
                                                         <option value="suspended">Suspended</option>
-                                                        <option value="inactive">Inactive</option>
+                                                        
                                                     </select>
                                                 </div>
                                             </div>

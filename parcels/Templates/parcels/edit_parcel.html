@@ -170,40 +170,7 @@
                                         </div>
                                     </div>
 
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <div class="form-group">
-                                                <label class="text-label">Pickup Date</label>
-                                                {{form.pickup_date}}
-                                            </div>
-                                        </div>
                                     
-                                        <div class="form-group">
-                                                <label class="text-label">Payment Method</label>
-                                                <select class="form-control" name="payment_method">
-                                                  {% for value, label in form.payment_method.field.choices %}
-                                                  <option value="{{ value }}" {% if form.payment_method.value == value %}selected{% endif %}>{{ label }}</option>
-                                                  {% endfor %}
-                                                </select>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    
-                                    
-
-                                    
-
-                                   
-
-                                   
-
-                                   
-                                   
-
-                                    
-
-                                   
 
                                     <!-- Action Buttons -->
                                     <div class="row">
