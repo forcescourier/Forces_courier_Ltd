@@ -82,7 +82,7 @@ class DeliverySoldier(models.Model):
         return f"{self.soldiers_name} ({self.soldiers_username})"
 
 
-# customer model
+# customer model (send it in payment model and rider model later)
 class Customer(models.Model):
     customer_id=models.AutoField(primary_key=True)
     customer_name=models.CharField(max_length=100)

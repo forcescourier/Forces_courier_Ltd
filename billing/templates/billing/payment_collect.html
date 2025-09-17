@@ -1,0 +1,243 @@
+{%extends 'base.html'%}
+{%block title%}<title>Collect Payment</title>{%endblock%}
+{%block content%}
+<div class="content-body">
+            <div class="container-fluid">
+                <div class="row page-titles mx-0">
+                    <div class="col-sm-6 p-md-0">
+                        <div class="welcome-text">
+                            <h4>Payment Collection</h4>
+                            <span>Process payments from customers using multiple payment methods</span>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 p-md-0 justify-content-sm-end mt-2 mt-sm-0 d-flex">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="{% url 'dashboard'%}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{% url 'payment'%}">Payments</a></li>
+                            <li class="breadcrumb-item active"><a href="{% url 'payment-collect'%}">Collect Payment</a></li>
+                        </ol>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-xl-8">
+                        <!-- Payment Collection Form -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Payment Collection</h4>
+                                <div class="card-action">
+                                    <button type="button" class="btn btn-info btn-sm" id="scanQR">
+                                        <i class="fas fa-qrcode mr-2"></i>Scan QR Code
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="card-body">
+                                <form method="POST">
+                                     {% csrf_token %}
+                                     {{ form.non_field_errors }}
+
+                                    <!-- Customer Information -->
+                                    <h6 class="mb-3"><i class="fas fa-user text-primary mr-2"></i>Customer Information</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Search Customer/Parcel ID *</label>
+                                                <div class="input-group">
+                                                    <input type="text" class="form-control" id="customerSearch" placeholder="Enter phone, email, or parcel ID">
+                                                    <div class="input-group-append">
+                                                        <button class="btn btn-primary" type="button" id="searchCustomer">
+                                                            <i class="fas fa-search"></i>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Customer Name</label>
+                                                {{ form.customer_name }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Phone Number</label>
+                                                {{ form.customer_phone }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Email</label>
+                                                {{ form.customer_email }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <hr>
+
+                                    <!-- Payment Details -->
+                                    <h6 class="mb-3"><i class="fas fa-credit-card text-success mr-2"></i>Payment Details</h6>
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Payment Type *</label>
+                                                {{ form.payment_type }}
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Reference Number</label>
+                                                {{ form.reference_number }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Amount to Collect *</label>
+                                                <div class="input-group">
+                                                    <div class="input-group-prepend">
+                                                        <span class="input-group-text">৳</span>
+                                                    </div>
+                                                    {{ form.amount }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="form-group">
+                                                <label>Payment Method *</label>
+                                                {{ form.payment_method }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Mobile Money Details (Hidden by default) -->
+                                    <div id="mobileMoneyDetails" style="display: none;">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Transaction ID</label>
+                                                    {{ form.transaction_id }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Account Number</label>
+                                                    {{ form.account_number }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Card Details (Hidden by default) -->
+                                    <div id="cardDetails" style="display: none;">
+                                        <div class="row">
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Card Last 4 Digits</label>
+                                                    {{ form.card_last4 }}
+                                                </div>
+                                            </div>
+                                            <div class="col-md-6">
+                                                <div class="form-group">
+                                                    <label>Authorization Code</label>
+                                                    {{ form.auth_code }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="col-md-12">
+                                            <div class="form-group">
+                                                <label>Notes</label>
+                                                {{ form.notes }}
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-actions text-right">
+                                        <button type="button" class="btn btn-secondary mr-2" onclick="history.back()">Cancel</button>
+                                        <button type="button" class="btn btn-warning mr-2" id="saveDraft">Save Draft</button>
+                                        <button type="submit" class="btn btn-success">Process Payment</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-xl-4">
+                        <!-- Payment Summary -->
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Payment Summary</h4>
+                            </div>
+                            <div class="card-body">
+                                <div class="payment-summary">
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Amount to Collect:</span>
+                                        <span class="font-weight-bold" id="summaryAmount">৳0.00</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Processing Fee:</span>
+                                        <span id="processingFee">৳0.00</span>
+                                    </div>
+                                    <div class="d-flex justify-content-between mb-2">
+                                        <span>Discount:</span>
+                                        <span id="discount" class="text-success">৳0.00</span>
+                                    </div>
+                                    <hr>
+                                    <div class="d-flex justify-content-between">
+                                        <strong>Total Amount:</strong>
+                                        <strong class="text-success" id="totalAmount">৳0.00</strong>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+<!-- Recent Payments -->
+                <div class="card">
+                    <div class="card-header">
+                        <h4 class="card-title">Recent Payments</h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="payment-history">
+                            {% for payment in recent_payments %}
+                            <div class="d-flex justify-content-between align-items-center mb-3 pb-2 border-bottom">
+                                <div>
+                                    <h6 class="mb-0">{{ payment.reference_number }}</h6>
+                                    <small class="text-muted">{{ payment.get_payment_method_display }} - {{ payment.created_at|timesince }} ago</small>
+                                </div>
+                                <span class="text-success font-weight-bold">৳{{ payment.amount }}</span>
+                            </div>
+                            {% empty %}
+                            <p class="text-muted">No recent payments found.</p>
+                            {% endfor %}
+                        </div>
+                        <div class="text-center mt-3">
+                            <a href="#" class="btn btn-primary btn-sm">View All Payments</a>
+                        </div>
+                    </div>
+                </div>
+
+                        <div class="card">
+                            <div class="card-header">
+                                <h4 class="card-title">Quick Actions</h4>
+                            </div>
+                            <div class="card-body">
+                                <a href="payment-reports.html" class="btn btn-info btn-block mb-2">
+                                    <i class="fas fa-chart-bar mr-2"></i>Payment Reports
+                                </a>
+                                <a href="refund-management.html" class="btn btn-warning btn-block">
+                                    <i class="fas fa-undo mr-2"></i>Process Refund
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {%endblock%}

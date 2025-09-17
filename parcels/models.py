@@ -1,5 +1,6 @@
 from django.db import models
 from decimal import Decimal
+from logistics.models import WeightBased
 
 
 # parcel models 
@@ -82,31 +83,34 @@ class Parcel(models.Model):
 
            return price + cod_fee
         else:
-            if not weight_based:
-               return weight_based.base_price or 0
+            
 
         # Weight-based service
         
-            weight_range = service.weight.filter(
+            weight_range = WeightBased.objects.filter(
+                service=service,
                 min_weight__lte=self.parcels_weight_kg,
                 max_weight__gte=self.parcels_weight_kg
             ).first()
 
-            cod_percentage_w = Decimal(weight_based.percentage_cod or 0)
-            cod_fee = cash_collection * cod_percentage_w / Decimal(100)
+            
             if not weight_range:
-                return weight_based.base_price or 0  # fallback
+                return (weight_based.base_price or 0) + cod_fee  # fallback
+            
+            cod_percentage_w = Decimal(weight_range.percentage_cod or 0)
+            cod_fee = cash_collection * cod_percentage_w / Decimal(100)
 
             if self.delivery_area == 'dhaka':
-                 price = weight_based.dhaka_city_price if weight_based.dhaka_city_price is not None else weight_based.base_price
+                 price = weight_range.dhaka_city_price if weight_range.dhaka_city_price is not None else weight_range.base_price
                 
             elif self.delivery_area == 'sub_city':
-                price = weight_based.sub_city_price if weight_based.sub_city_price is not None else weight_based.base_price
+                price = weight_range.sub_city_price if weight_range.sub_city_price is not None else weight_range.base_price
                 
             elif self.delivery_area == 'out_dhaka':
-                price = weight_based.out_of_dhaka_price if weight_based.out_of_dhaka_price is not None else weight_based.base_price
-            else:   
-             return price + cod_fee
+                price = weight_range.out_of_dhaka_price if weight_range.out_of_dhaka_price is not None else weight_range.base_price
+            else: 
+                price = weight_range.base_price or Decimal(0)  
+               
             
             return price + cod_fee
         
