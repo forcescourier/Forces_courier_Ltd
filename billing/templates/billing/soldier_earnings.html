@@ -1,0 +1,129 @@
+
+<title>Pay Soldier</title>
+<style>
+    /* Fixed header */
+    #header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 60px;
+        background-color: #007bff;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        z-index: 1000;
+    }
+
+    /* Fixed sidebar */
+    #sidebar {
+        position: fixed;
+        top: 60px; /* below header */
+        left: 0;
+        height: calc(100% - 60px);
+        width: 250px;
+        background-color: #343a40;
+        color: #fff;
+        padding-top: 20px;
+    }
+
+    #sidebar a {
+        color: #fff;
+        display: block;
+        padding: 10px 20px;
+        text-decoration: none;
+    }
+
+    #sidebar a:hover {
+        background-color: #495057;
+        text-decoration: none;
+    }
+
+    /* Main content */
+    #content {
+        margin-left: 250px; /* width of sidebar */
+        margin-top: 60px;  /* height of header */
+        padding: 20px;
+    }
+
+    /* Responsive table */
+    .table-responsive {
+        margin-top: 20px;
+    }
+
+    /* Optional: small parcel blocks styling */
+    .parcel-info {
+        background: #f8f9fa;
+        padding: 5px 10px;
+        margin-bottom: 5px;
+        border-radius: 5px;
+    }
+</style>
+
+<div id="header">
+    <h4>Delivery Soldiers Earnings</h4>
+</div>
+
+<div id="sidebar">
+    <a href="{% url 'dashboard' %}">Dashboard</a>
+    <a href="{% url 'soldier_earnings' %}">Earnings</a>
+    <a href="{% url 'parcel' %}">Parcels</a>
+</div>
+
+<div id="content">
+    <div class="container-fluid">
+        <div class="table-responsive">
+            <table class="table table-bordered table-striped mt-3">
+                <thead class="thead-dark">
+                    <tr>
+                        <th>#</th>
+                        <th>Soldier Name</th>
+                        <th>Phone</th>
+                        <th>Total Charge</th>
+                        <th>Total COD</th>
+                        <th>Total Payable</th>
+                        <th>Delivered Parcels</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for soldier in soldiers %}
+                    <tr>
+                        <td>{{ forloop.counter }}</td>
+                        <td>{{ soldier.soldiers_name }}</td>
+                        <td>{{ soldier.soldiers_phone }}</td>
+                        <td>{{ soldier.earnings.total_charge|default:0 }}</td>
+                        <td>{{ soldier.earnings.total_cod|default:0 }}</td>
+                        <td>{{ soldier.earnings.total_payable|default:0 }}</td>
+                        <td>
+                            {% with soldier.parcels.all|dictsort:"parcels_id" as delivered %}
+                                {% for parcel in delivered %}
+                                    {% if parcel.parcel_status == "delivered" %}
+                                        <div class="parcel-info">
+                                            <strong>ID:</strong> {{ parcel.parcels_id }} |
+                                            <strong>Charge:</strong> {{ parcel.selected_price }} |
+                                            <strong>COD:</strong> {{ parcel.parcels_cash_collection }} |
+                                            <strong>Payable:</strong> {{ parcel.payable }}
+                                        </div>
+                                    {% endif %}
+                                {% empty %}
+                                    No delivered parcels
+                                {% endfor %}
+                            {% endwith %}
+                        </td>
+                        <td>
+                            {% if soldier.earnings.total_payable > 0 %}
+                                <a href="{% url 'pay_receive_soldier' soldier.soldiers_id %}" class="btn btn-success btn-sm">Pay</a>
+                            {% else %}
+                                <button class="btn btn-secondary btn-sm" disabled>No Payment Due</button>
+                            {% endif %}
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+

@@ -80,6 +80,16 @@ class DeliverySoldier(models.Model):
     insurance_expiry = models.DateField(null=True,blank=True )
     def __str__(self):
         return f"{self.soldiers_name} ({self.soldiers_username})"
+    
+
+class SoldierEarnings(models.Model):
+    soldier = models.OneToOneField(DeliverySoldier, on_delete=models.CASCADE, related_name='earnings')
+    total_charge = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    total_cod = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+    total_payable = models.DecimalField(max_digits=12, decimal_places=2, default=0)
+
+    def __str__(self):
+        return f"Earnings for {self.soldier.soldiers_name}"
 
 
 # customer model (send it in payment model and rider model later)

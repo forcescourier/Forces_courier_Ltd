@@ -1,6 +1,9 @@
 from django.shortcuts import render,redirect,get_object_or_404
 from .models import Parcel, Action, Parcel_Timeline
 from .forms import ParcelForm
+from django.http import JsonResponse
+from logistics.models import Service, WeightBased
+from decimal import Decimal
 
 # Create your views here.
 
@@ -49,3 +52,8 @@ def edit_parcel(request, parcel_id):
         'form': form
     }
     return render(request, 'parcels/edit_parcel.html', context)
+
+
+
+
+

@@ -186,14 +186,17 @@
                                                         <div class="mb-0"><span class="info-label">Area:</span> {{parcel.delivery_area|title}}</div>
                                                         <div class="mb-0"><span class="info-label">Charge:</span> ৳{{parcel.selected_price}}</div>
                                                         <div class="mb-0"><span class="info-label">COD:</span> ৳{{parcel.parcels_cash_collection}}</div>
-                                                        <div class="mb-1"><span class="info-label">Payable:</span> <span class="text-success font-weight-bold">৳{{parcel.selected_price|floatformat:2}}</span></div>
+                                                        <div class="mb-1"><span class="info-label">Payable:</span> <span class="text-success font-weight-bold">৳{{parcel.payable|floatformat:2}}</span></div>
+                                                       
                                                         <div>
                                                           <span class="badge 
-                                                               {% if parcel.payment_method == 'Bkash' %}badge-warning
-                                                               {% elif parcel.payment_method == 'Nogod' %}badge-info
-                                                               {% elif parcel.payment_method == 'Bank' %}badge-success
+                                                               {% if parcel.parcel_status == 'pending' %}badge-warning
+                                                               {% elif parcel.parcel_status == 'in_transit' %}badge-info
+                                                               {% elif parcel.parcel_status == 'pickup_assigned' %}badge-success
+                                                               {% elif parcel.parcel_status == 'delivered' %}badge-success
+                                                               {% elif parcel.parcel_status == 'out_of_delivery' %}badge-warning
                                                                {% else %}badge-secondary{% endif %}">
-                                                                {{ parcel.payment_method }}
+                                                                {{ parcel.parcel_status }}
                                                          </span>
                                                         </div>
                                                         </td>

@@ -1,6 +1,8 @@
 from django.db import models
 from decimal import Decimal
 from logistics.models import WeightBased
+from accounts.models import SoldierEarnings
+from django.db.models import F
 
 
 # parcel models 
@@ -32,7 +34,14 @@ class Parcel(models.Model):
         ('sub_city', 'Sub City'),
         ('out_dhaka', 'Out of Dhaka'),
     ]
-
+    Status=[
+        ('pending', 'pending'),
+        ('pickup_assigned', 'pickup_assigned'),
+        ('in_transit', 'in_transit'),
+        ('out_of_delivery', 'out_of_delivery'),
+        ('delivered', 'delivered'),
+        ('returned', 'returned'),
+    ]
     # Customer details
     parcels_customer_name = models.CharField(max_length=100)
     parcels_customer_phone = models.CharField(max_length=20)
@@ -44,11 +53,12 @@ class Parcel(models.Model):
     selected_price=models.DecimalField(max_digits=10,decimal_places=2, null=True,blank=True)
     payable = models.DecimalField(max_digits=10, decimal_places=2, null=True, blank=True)  # NEW field
     
-    parcels_weight_kg = models.DecimalField(max_digits=5, decimal_places=2)  # e.g. 12.50 kg
+    parcels_weight_kg = models.DecimalField(max_digits=5, decimal_places=2, null=True, blank=True)  # e.g. 12.50 kg
     parcels_item_desc = models.CharField(max_length=255)
     parcels_note = models.TextField(null=True, blank=True)
 
     delivery_area = models.CharField(max_length=20, choices=DELIVERY_AREAS, default="dhaka")
+    parcel_status= models.CharField(max_length=100, choices=Status, default="pending")
     pickup_date=models.DateField(null=True, blank=True)
     payment_method=models.CharField(max_length=200, choices=(("Bkash","Bkash"),("Nogod","Nogod"),("Bank","Bank")), null=True, blank=True, default="Bkash")
 
@@ -129,11 +139,22 @@ class Parcel(models.Model):
 
          # Calculate payable (Cash Collection - Charge)
         if self.parcels_cash_collection is not None and self.selected_price is not None:
-            self.payable =  Decimal(self.selected_price) - Decimal(self.parcels_cash_collection)
+            self.payable = Decimal(self.parcels_cash_collection) - Decimal(self.selected_price)
         else:
             self.payable = self.selected_price
 
+        previous_status = None
+        if self.pk:
+            previous_status = Parcel.objects.filter(pk=self.pk).values_list('parcel_status', flat=True).first()
+
         super().save(*args, **kwargs)
+
+        if self.parcel_status == "delivered" and previous_status != "delivered" and self.assigned_soldier:
+            earnings, created = SoldierEarnings.objects.get_or_create(soldier=self.assigned_soldier)
+            earnings.total_charge = F('total_charge') + (self.selected_price or 0)
+            earnings.total_cod = F('total_cod') + (self.parcels_cash_collection or 0)
+            earnings.total_payable = F('total_payable') + (self.payable or 0)
+            earnings.save()
 
     def __str__(self):
         return f"Parcel {self.parcels_id} - {self.parcels_customer_name}"

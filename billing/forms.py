@@ -1,7 +1,7 @@
 # billing/forms.py
 
 from django import forms
-from .models import Payment
+from .models import Payment, SoldierPayment
 
 
 class PaymentForm(forms.ModelForm):
@@ -61,3 +61,19 @@ class PaymentForm(forms.ModelForm):
                 self.add_error("auth_code", "Authorization code is required for card payments.")
 
         return cleaned_data
+    
+
+
+
+
+class SoldierPaymentForm(forms.ModelForm):
+    class Meta:
+        model = SoldierPayment
+        fields = ['total_charge', 'total_cod', 'total_payable', 'payment_method']
+        widgets = {
+            'total_charge': forms.NumberInput(attrs={'class': 'form-control'}),
+            'total_cod': forms.NumberInput(attrs={'class': 'form-control'}),
+            'total_payable': forms.NumberInput(attrs={'class': 'form-control'}),
+            'payment_method': forms.Select(attrs={'class': 'form-control'}),
+        }
+

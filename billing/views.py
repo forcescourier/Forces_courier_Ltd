@@ -1,8 +1,16 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from django.contrib import messages
 from .forms import PaymentForm
 from .models import Payment
 from django.db.models import Sum
+from .forms import SoldierPaymentForm
+
+
+
+from django.contrib import messages
+from accounts.models import DeliverySoldier, SoldierEarnings
+from .models import SoldierPayment
+
 # Create your views here.
 
 def Payment_list(request):
@@ -52,3 +60,39 @@ def collect_payment(request):
         "summary": summary,
         "recent_payments": recent_payments,
     })
+
+
+def soldier_earnings_view(request):
+    soldiers = DeliverySoldier.objects.all().select_related('earnings')
+    context = {
+        'soldiers': soldiers
+    }
+    return render(request, 'billing/soldier_earnings.html', context)
+
+
+
+def pay_soldier(request, soldier_id):
+    soldier = get_object_or_404(DeliverySoldier, soldiers_id=soldier_id)
+
+    if request.method == "POST":
+        form = SoldierPaymentForm(request.POST)
+        if form.is_valid():
+            payment = form.save(commit=False)
+            payment.soldier = soldier
+            payment.save()
+            messages.success(request, f"Payment recorded for {soldier.soldiers_name}")
+            return redirect("soldier_earnings")
+    else:
+        form = SoldierPaymentForm(initial={
+            'total_charge': getattr(soldier.earnings, 'total_charge', 0),
+            'total_cod': getattr(soldier.earnings, 'total_cod', 0),
+            'total_payable': getattr(soldier.earnings, 'total_payable', 0),
+        })
+
+        # Reset earnings
+        soldier.earnings.total_charge = 0
+        soldier.earnings.total_cod = 0
+        soldier.earnings.total_payable = 0
+        soldier.earnings.save()    
+
+    return render(request, "billing/pyment-receive.html", {"form": form, "soldier": soldier})

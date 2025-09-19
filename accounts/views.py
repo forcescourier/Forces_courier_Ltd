@@ -292,3 +292,4 @@ def delete_soldier(request, soldiers_name):
         return redirect("soldier")  # update to your soldier list view name
     return render(request, "accounts/soldier-delete.html", {"soldier": soldier})
 
+

@@ -14,7 +14,8 @@ class ParcelForm(forms.ModelForm):
             "parcels_customer_phone2",
             "parcels_customer_address",
             "parcels_cash_collection",
-           
+            "assigned_soldier",
+            "parcel_status",
             "parcels_weight_kg",
             "parcels_item_desc",
             "parcels_note",
@@ -38,5 +39,7 @@ class ParcelForm(forms.ModelForm):
             "parcels_area_id": forms.Select(attrs={"class": "form-control"}),
             "parcels_service_id": forms.Select(attrs={"class": "form-control"}),
             "parcels_merchant_id":forms.Select(attrs={"class": "form-control"}),
+            "assigned_soldier":forms.Select(attrs={"class": "form-control"}),
+            "parcel_status":forms.Select(attrs={"class": "form-control"}),
         }
     

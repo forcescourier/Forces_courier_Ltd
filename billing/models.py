@@ -1,5 +1,6 @@
 from django.db import models
 
+
 # transaction models 
 
 class Payment(models.Model):
@@ -38,6 +39,20 @@ class Payment(models.Model):
 
     def __str__(self):
         return f"{self.reference_number or 'Payment'} - {self.amount}"
+    
+
+    
+
+class SoldierPayment(models.Model):
+    soldier = models.ForeignKey('accounts.DeliverySoldier', on_delete=models.CASCADE, related_name='payments')
+    total_charge = models.DecimalField(max_digits=12, decimal_places=2)
+    total_cod = models.DecimalField(max_digits=12, decimal_places=2)
+    total_payable = models.DecimalField(max_digits=12, decimal_places=2)
+    paid_at = models.DateTimeField(auto_now_add=True)
+    payment_method = models.CharField(max_length=50, choices=[("Cash", "Cash"),("Card", "Card"),("Bkash","Bkash"),("Nogod","Nogod"),("Bank","Bank")])
+
+    def __str__(self):
+        return f"Payment for {self.soldier.soldiers_name} at {self.paid_at}"
 
 class Transaction(models.Model):
     transaction_id=models.AutoField(primary_key=True)
